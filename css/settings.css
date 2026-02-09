@@ -1,0 +1,542 @@
+/* Settings CSS - Modal and settings panel styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+/* Sub-modals that open on top of other modals need higher z-index */
+#saveToDatabaseModal,
+#addToCollectionModal,
+#collectionFormModal,
+#collectionDetailModal,
+#songPickerModal,
+#driveBrowserModal {
+    z-index: 2000;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 450px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--bg-primary);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+.modal:not(.hidden) .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-header h2 i {
+    color: var(--accent-color);
+}
+
+.btn-close {
+    background: var(--bg-primary);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.settings-section {
+    background: var(--bg-primary);
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.settings-section h3 {
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-section h3 i {
+    color: var(--accent-color);
+}
+
+/* Help Modal specific styles */
+#helpModal .settings-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#helpModal .settings-section strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+#helpModal .settings-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+#helpModal .settings-section ol {
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+#helpModal .settings-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+#helpModal .settings-section strong {
+    color: var(--text-primary);
+}
+
+.settings-section p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.export-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.export-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Settings Tabs */
+.settings-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.settings-tab {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.settings-tab:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.settings-tab.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.4);
+}
+
+.settings-tab i {
+    font-size: 1rem;
+}
+
+.settings-tab-content {
+    display: none;
+}
+
+.settings-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-tabs {
+        flex-direction: column;
+    }
+    
+    .settings-tab {
+        width: 100%;
+    }
+}
+
+/* Collections List */
+.collections-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.collections-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.collections-list::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 3px;
+}
+
+.collections-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.collections-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+.collection-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.collection-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.collection-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    cursor: pointer;
+}
+
+.collection-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ec4899 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.collection-details {
+    flex: 1;
+}
+
+.collection-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.collection-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.collection-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Songs List */
+.songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.song-item:hover {
+    border-color: var(--accent-color);
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    flex: 1;
+    color: var(--text-primary);
+}
+
+.song-info:hover {
+    color: var(--accent-color);
+}
+
+.song-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Effects Grid */
+.effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.effect-card {
+    background: var(--bg-primary);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.effect-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.effect-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.effect-card.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.effect-card.disabled input[type="range"] {
+    cursor: not-allowed;
+}
+
+.effect-card h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.effect-card input[type="range"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.effect-value {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.effect-card.disabled .effect-value {
+    color: var(--text-secondary);
+}
+
+/* Automation Section */
+.automation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.automation-card {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.automation-card h4 {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.automation-card h4 i {
+    color: var(--accent-color);
+}
+
+/* Velocity Editor */
+.velocity-editor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.velocity-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.velocity-editor input[type="range"] {
+    flex: 1;
+}
+
+.velocity-editor span {
+    font-weight: bold;
+    color: var(--accent-color);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Pan Controls */
+.pan-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pan-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pan-control label {
+    font-size: 0.85rem;
+    min-width: 70px;
+}
+
+.pan-control input[type="range"] {
+    flex: 1;
+}
+
+.pan-control span {
+    font-weight: bold;
+    color: var(--accent-color);
+    min-width: 30px;
+    text-align: right;
+    font-size: 0.85rem;
+}
+
+/* Filter Automation */
+.filter-automation {
+    background: var(--bg-secondary);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.filter-automation canvas {
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    cursor: crosshair;
+}

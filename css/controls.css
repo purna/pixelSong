@@ -1,0 +1,339 @@
+/* Controls CSS - Buttons, sliders, selectors */
+.controls {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+}
+
+.control-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control-group:nth-child(2) {
+    gap: 0.75rem;
+}
+
+.btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+.btn-play { background: var(--accent-color); }
+.btn-play:hover { background: hsl(158, 20%, 16%); }
+.btn-stop { background: #f87171; }
+.btn-stop:hover { background: #ef4444; }
+.btn-clear { background: #fbbf24; color: #1f2937; }
+.btn-clear:hover { background: #f59e0b; }
+
+.selector-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.selector-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--text-secondary);
+}
+
+.selector-group select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    min-width: 140px;
+}
+
+.selector-group select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tempo-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.tempo-control label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.tempo-control input[type="range"] {
+    width: 120px;
+}
+
+/* Volume Control */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.volume-control label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.volume-control input[type="range"] {
+    width: 120px;
+}
+
+.volume-control span {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Pattern Length Control */
+.pattern-length-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.pattern-length-control label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.pattern-length-buttons {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.pattern-btn {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pattern-btn:hover {
+    border-color: var(--accent-color);
+}
+
+.pattern-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* Chord Progression Control */
+.chord-progression-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.chord-progression-control label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.chord-progression-control select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    min-width: 200px;
+    cursor: pointer;
+}
+
+.chord-progression-control .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Toggle Buttons */
+.toggle-btn {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.toggle-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* Preset Buttons */
+.preset-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.preset-btn {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.preset-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.icon-btn.delete:hover {
+    background: #f87171;
+    border-color: #f87171;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .control-group {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .control-group:last-child {
+        border-bottom: none;
+    }
+
+    .selector-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .selector-group select {
+        min-width: 100%;
+    }
+
+    .tempo-control {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .tempo-control input[type="range"] {
+        flex: 1;
+    }
+
+    .volume-control {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .volume-control input[type="range"] {
+        flex: 1;
+    }
+}

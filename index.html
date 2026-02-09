@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Designer - Create Music for Beginners</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="mask-icon" href="favicon.svg" color="#1e293b" />
+    <meta name="theme-color" content="#f472b6">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="fonts/fontawesome-free-6.5.0/css/all.min.css">
+    <!-- CSS - Modular -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/controls.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/song.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="fixed-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                </div>
+                <div class="header-center">
+                    <h1>Song Designer</h1>
+                    <p class="subtitle">Create awesome music for your games - no musical experience needed!</p>
+                </div>
+                <div class="header-right">
+                    <button class="settings-toggle" id="collectionsBtn" title="Collections"><i class="fas fa-folder-open"></i></button>
+                    <button class="settings-toggle" id="settingsBtn" title="Settings"><i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+            <div class="header-controls">
+                <button class="btn btn-play" id="playBtn"><i class="fas fa-play"></i> <span id="playText">Play</span></button>
+                <button class="btn btn-secondary" id="saveBtn"><i class="fas fa-save"></i> Save</button>
+                <button class="btn btn-secondary" id="exportBtn"><i class="fas fa-download"></i> Export</button>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <div class="volume-control" data-tooltip="Master volume controls the overall loudness of your music">
+                    <label><i class="fas fa-volume-up"></i> Volume:</label>
+                    <input type="range" id="masterVolume" min="0" max="100" value="80">
+                    <span id="masterValue">80%</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="selector-group" data-tooltip="Choose a music genre to browse famous songs">
+                    <label><i class="fas fa-music"></i> Genre:</label>
+                    <select id="genreSelect">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+                
+                <div class="selector-group" data-tooltip="Select a famous song to load its pattern">
+                    <label><i class="fas fa-song"></i> Song:</label>
+                    <select id="songSelect" disabled>
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="tempo-control">
+                    <label><i class="fas fa-tachometer-alt"></i> Tempo:</label>
+                    <input type="range" id="tempoSlider" min="60" max="180" value="120">
+                    <span id="tempoValue">120 BPM</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="pattern-length-control" data-tooltip="Set pattern length for more complex arrangements">
+                    <label><i class="fas fa-list"></i> Steps:</label>
+                    <div class="pattern-length-buttons">
+                        <button class="pattern-btn" data-pattern-length="16">16</button>
+                        <button class="pattern-btn active" data-pattern-length="32">32</button>
+                        <button class="pattern-btn" data-pattern-length="64">64</button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="control-group">
+                <button class="btn btn-clear" id="clearBtn"><i class="fas fa-stop"></i> Clear</button>
+
+                <button class="btn btn-secondary" id="randomBtn"><i class="fas fa-random"></i> Random</button>
+                <button class="btn btn-secondary" id="helpBtn"><i class="fas fa-question"></i> Help</button>
+            </div>
+        </div>
+
+        <!-- Harmonics Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎹</span> Harmonics</h2>
+                <button class="toggle-btn active" id="harmonicsToggle">ON</button>
+            </div>
+            
+            <!-- Chord Progression Builder -->
+            <div class="chord-progression-control">
+                <label><i class="fas fa-music"></i> Chord Progression:</label>
+                <select id="chordProgressionSelect">
+                    <option value="">-- Select Progression --</option>
+                </select>
+                <button class="btn" id="applyChordProgressionBtn">Apply</button>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Click circles to create layered harmony notes, or select a chord progression</p>
+            
+            <!-- Step Timeline for Harmonics -->
+            <div class="section-timeline" id="harmonicsTimeline"></div>
+            
+            <div class="melody-controls">
+                <select id="harmonicInstrument" data-tooltip="Choose an instrument for the harmonic background" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="fm">FM Synth</option>
+                    <option value="piano">Piano</option>
+                    <option value="pad">Pad</option>
+                    <option value="bell">Bell</option>
+                    <option value="pluck">Pluck</option>
+                </select>
+                <button class="preset-btn" id="clearHarmonicsBtn"><i class="fas fa-eraser"></i> Clear</button>
+            </div>
+            <div class="harmonics-grid" id="harmonicsGrid"></div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-preset="major">😊 Happy (Major)</button>
+                <button class="preset-btn" data-preset="minor">😢 Sad (Minor)</button>
+                <button class="preset-btn" data-preset="power">💪 Power</button>
+                <button class="preset-btn" data-preset="ambient">✨ Ambient</button>
+            </div>
+        </div>
+
+        <!-- Melody Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎻</span> Melody Strings</h2>
+                <button class="toggle-btn active" id="stringsToggle">ON</button>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Paint melodies by clicking squares (higher = higher pitch)</p>
+            
+            <!-- Step Timeline for Melody -->
+            <div class="section-timeline" id="melodyTimeline"></div>
+            
+            <div class="melody-controls">
+                <select id="melodyInstrument" data-tooltip="Choose a sound for the melody notes" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="saw">Sawtooth</option>
+                    <option value="square">Square</option>
+                    <option value="sine">Sine</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+                <select id="melodyScale" data-tooltip="Select the musical scale for your melody">
+                    <option value="c-major">C Major</option>
+                    <option value="g-major">G Major</option>
+                    <option value="f-major">F Major</option>
+                    <option value="d-minor">D Minor</option>
+                    <option value="a-minor">A Minor</option>
+                </select>
+                <button class="preset-btn" id="clearMelodyBtn"><i class="fas fa-eraser"></i> Clear</button>
+            </div>
+            <div class="strings-grid" id="stringsGrid"></div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-melody-preset="scale">📖 Scale</button>
+                <button class="preset-btn" data-melody-preset="arpeggio">🎵 Arpeggio</button>
+                <button class="preset-btn" data-melody-preset="happy">😊 Happy Tune</button>
+                <button class="preset-btn" data-melody-preset="mysterious">🔮 Mysterious</button>
+            </div>
+        </div>
+
+        <!-- Rhythm Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🥁</span> Rhythm & Drums</h2>
+                <button class="toggle-btn active" id="rhythmToggle">ON</button>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create drum patterns by clicking on the grid</p>
+            
+            <!-- Step Timeline for Rhythm -->
+            <div class="section-timeline" id="rhythmTimeline"></div>
+            
+            <div class="melody-controls">
+                <select id="drumKit" data-tooltip="Choose a drum kit style for your rhythm" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="acoustic">Acoustic</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="808">808 Style</option>
+                </select>
+                <button class="preset-btn" id="clearRhythmBtn"><i class="fas fa-eraser"></i> Clear</button>
+            </div>
+            <div class="rhythm-grid" id="rhythmGrid"></div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-rhythm-preset="basic">👣 Basic Beat</button>
+                <button class="preset-btn" data-rhythm-preset="game">🎮 Game Beat</button>
+                <button class="preset-btn" data-rhythm-preset="dance">💃 Dance</button>
+            </div>
+        </div>
+        
+        <!-- Bass Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎸</span> Bass</h2>
+                <button class="toggle-btn active" id="bassToggle">ON</button>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create bass lines (lower = deeper bass)</p>
+            
+            <!-- Step Timeline for Bass -->
+            <div class="section-timeline" id="bassTimeline"></div>
+            
+            <div class="melody-controls">
+                <select id="bassInstrument" data-tooltip="Choose a bass sound" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="sub">Sub Bass</option>
+                    <option value="synth">Synth Bass</option>
+                    <option value="fm">FM Bass</option>
+                    <option value="square">Square Bass</option>
+                </select>
+                <select id="bassOctave" data-tooltip="Bass octave range" style="width: 100px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="1">1 Octave</option>
+                    <option value="2">2 Octaves</option>
+                </select>
+                <button class="preset-btn" id="clearBassBtn"><i class="fas fa-eraser"></i> Clear</button>
+            </div>
+            <div class="bass-grid" id="bassGrid"></div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-bass-preset="basic">🎸 Basic Bass</button>
+                <button class="preset-btn" data-bass-preset="walking">🚶 Walking</button>
+                <button class="preset-btn" data-bass-preset="groove">💃 Groove</button>
+                <button class="preset-btn" data-bass-preset="syncopated">🎵 Syncopated</button>
+            </div>
+        </div>
+        
+        <!-- Lead Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎤</span> Lead</h2>
+                <button class="toggle-btn active" id="leadToggle">ON</button>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create lead melodies with more synth options</p>
+            
+            <!-- Step Timeline for Lead -->
+            <div class="section-timeline" id="leadTimeline"></div>
+            
+            <div class="melody-controls">
+                <select id="leadInstrument" data-tooltip="Choose a lead sound" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="saw">Sawtooth</option>
+                    <option value="square">Square</option>
+                    <option value="sine">Sine</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="pulse">Pulse</option>
+                    <option value="supersaw">Super Saw</option>
+                </select>
+                <button class="preset-btn" id="clearLeadBtn"><i class="fas fa-eraser"></i> Clear</button>
+            </div>
+            <div class="lead-grid" id="leadGrid"></div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-lead-preset="melodic">🎵 Melodic</button>
+                <button class="preset-btn" data-lead-preset="arpeggio">🎼 Arpeggio</button>
+                <button class="preset-btn" data-lead-preset="stabs">📯 Stabs</button>
+                <button class="preset-btn" data-lead-preset="plucks">🎸 Plucks</button>
+            </div>
+        </div>
+        
+        <!-- Percussion Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎶</span> Percussion</h2>
+                <button class="toggle-btn" id="percussionToggle">OFF</button>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Add congas, bongos, shakers, and cymbals</p>
+            
+            <!-- Step Timeline for Percussion -->
+            <div class="section-timeline" id="percussionTimeline"></div>
+            
+            <div class="melody-controls">
+                <select id="percussionKit" data-tooltip="Choose a percussion kit" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
+                    <option value="latin">Latin</option>
+                    <option value="acoustic">Acoustic</option>
+                    <option value="electronic">Electronic</option>
+                </select>
+            </div>
+            <div class="rhythm-grid" id="percussionGrid"></div>
+            <div class="preset-buttons">
+                <button class="preset-btn" data-percussion-preset="latin">🌴 Latin</button>
+                <button class="preset-btn" data-percussion-preset="african">🥁 African</button>
+                <button class="preset-btn" data-percussion-preset="electronic">🎹 Electronic</button>
+            </div>
+        </div>
+
+        <!-- Automation Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-icon">🎚️</span> Automation</h2>
+                <button class="toggle-btn" id="automationToggle">OFF</button>
+            </div>
+            
+            <!-- Advanced Mode Toggle -->
+            <div id="automationAdvancedToggle" class="automation-header">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enableAdvancedAutomation">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span>Advanced Mode</span>
+                <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0; margin-left: 0.5rem;">Enable detailed automation curves</p>
+            </div>
+            
+            <!-- Basic Automation (always visible) -->
+            <div id="basicAutomation">
+                <div class="automation-grid">
+                    <!-- Per-Step Velocity -->
+                    <div class="automation-card">
+                        <h4><i class="fas fa-volume-up"></i> Step Velocity</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.5rem;">Click on active cells to adjust velocity</p>
+                        <div id="velocityEditor" class="velocity-editor">
+                            <div class="velocity-label">Step</div>
+                            <input type="range" id="velocitySlider" min="0" max="100" value="80">
+                            <span id="velocityValue">80%</span>
+                        </div>
+                        <button class="btn btn-secondary" id="copyVelocityBtn" style="margin-top: 0.5rem; font-size: 0.8rem;">Copy to All Steps</button>
+                    </div>
+                    
+                    <!-- Basic Pan Controls -->
+                    <div class="automation-card">
+                        <h4><i class="fas fa-random"></i> Pan Controls</h4>
+                        <div class="pan-controls">
+                            <div class="pan-control">
+                                <label>🎹 Harmony</label>
+                                <input type="range" id="harmonyPan" min="-100" max="100" value="0">
+                                <span id="harmonyPanValue">0</span>
+                            </div>
+                            <div class="pan-control">
+                                <label>🎻 Melody</label>
+                                <input type="range" id="melodyPan" min="-100" max="100" value="0">
+                                <span id="melodyPanValue">0</span>
+                            </div>
+                            <div class="pan-control">
+                                <label>🥾 Kick</label>
+                                <input type="range" id="kickPan" min="-100" max="100" value="0">
+                                <span id="kickPanValue">0</span>
+                            </div>
+                            <div class="pan-control">
+                                <label>🥁 Snare</label>
+                                <input type="range" id="snarePan" min="-100" max="100" value="0">
+                                <span id="snarePanValue">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Automation Curves -->
+            <div id="advancedAutomation" class="advanced-automation" style="display: none;">
+                <div class="automation-curves-grid">
+                    <!-- Velocity Curve Editor -->
+                    <div class="automation-curve-card">
+                        <div class="curve-header">
+                            <h4><i class="fas fa-wave-square"></i> Velocity Curve</h4>
+                            <select id="velocityCurveInstrument" class="curve-instrument-select">
+                                <option value="melody">Melody</option>
+                                <option value="bass">Bass</option>
+                                <option value="lead">Lead</option>
+                                <option value="harmony">Harmony</option>
+                            </select>
+                        </div>
+                        <div class="curve-canvas-container">
+                            <canvas id="velocityCurveCanvas" width="600" height="80"></canvas>
+                        </div>
+                        <div class="curve-controls">
+                            <button class="btn btn-secondary" id="velocityClearBtn">Clear</button>
+                            <button class="btn btn-secondary" id="velocitySmoothBtn">Smooth</button>
+                            <button class="btn btn-secondary" id="velocityRampUpBtn">Ramp Up</button>
+                            <button class="btn btn-secondary" id="velocityRampDownBtn">Ramp Down</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Pan Curve Editor -->
+                    <div class="automation-curve-card">
+                        <div class="curve-header">
+                            <h4><i class="fas fa-exchange-alt"></i> Pan Curve</h4>
+                            <select id="panCurveInstrument" class="curve-instrument-select">
+                                <option value="melody">Melody</option>
+                                <option value="bass">Bass</option>
+                                <option value="lead">Lead</option>
+                                <option value="harmony">Harmony</option>
+                                <option value="drums">Drums</option>
+                            </select>
+                        </div>
+                        <div class="curve-canvas-container">
+                            <canvas id="panCurveCanvas" width="600" height="80"></canvas>
+                        </div>
+                        <div class="curve-controls">
+                            <button class="btn btn-secondary" id="panClearBtn">Clear</button>
+                            <button class="btn btn-secondary" id="panSineBtn">Sine Wave</button>
+                            <button class="btn btn-secondary" id="panAlternatingBtn">Alternating</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Filter Cutoff Curve -->
+                    <div class="automation-curve-card">
+                        <div class="curve-header">
+                            <h4><i class="fas fa-filter"></i> Filter Cutoff</h4>
+                            <select id="filterTypeSelect" class="curve-instrument-select">
+                                <option value="lowpass">Low-Pass</option>
+                                <option value="highpass">High-Pass</option>
+                                <option value="bandpass">Band-Pass</option>
+                            </select>
+                        </div>
+                        <div class="curve-canvas-container">
+                            <canvas id="filterCurveCanvas" width="600" height="80"></canvas>
+                        </div>
+                        <div class="curve-controls">
+                            <button class="btn btn-secondary" id="filterClearBtn">Clear</button>
+                            <button class="btn btn-secondary" id="filterSweepUpBtn">Sweep Up</button>
+                            <button class="btn btn-secondary" id="filterSweepDownBtn">Sweep Down</button>
+                            <button class="btn btn-secondary" id="filterWobbleBtn">Wobble</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Effect Parameter Automation -->
+                    <div class="automation-curve-card">
+                        <div class="curve-header">
+                            <h4><i class="fas fa-sliders-h"></i> Effect Automation</h4>
+                            <select id="effectParamSelect" class="curve-instrument-select">
+                                <option value="reverb">Reverb</option>
+                                <option value="echo">Echo</option>
+                                <option value="chorus">Chorus</option>
+                                <option value="distortion">Distortion</option>
+                                <option value="tremolo">Tremolo</option>
+                            </select>
+                        </div>
+                        <div class="curve-canvas-container">
+                            <canvas id="effectCurveCanvas" width="600" height="80"></canvas>
+                        </div>
+                        <div class="curve-controls">
+                            <button class="btn btn-secondary" id="effectClearBtn">Clear</button>
+                            <button class="btn btn-secondary" id="effectFadeInBtn">Fade In</button>
+                            <button class="btn btn-secondary" id="effectFadeOutBtn">Fade Out</button>
+                            <button class="btn btn-secondary" id="effectPulseBtn">Pulse</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preset Curves -->
+                <div class="curve-presets">
+                    <h4><i class="fas fa-magic"></i> Quick Presets</h4>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-curve-preset="fade-in">🎵 Fade In</button>
+                        <button class="preset-btn" data-curve-preset="fade-out">🔊 Fade Out</button>
+                        <button class="preset-btn" data-curve-preset="tremolo">🌊 Tremolo</button>
+                        <button class="preset-btn" data-curve-preset="filter-sweep">🎚️ Filter Sweep</button>
+                        <button class="preset-btn" data-curve-preset="auto-pan">🔄 Auto-Pan</button>
+                        <button class="preset-btn" data-curve-preset="build-up">📈 Build Up</button>
+                        <button class="preset-btn" data-curve-preset="release">📉 Release</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="section-header">
+                <h2><span class="section-icon">✨</span> Sound Effects</h2>
+                <button class="toggle-btn active" id="effectsToggle">ON</button>
+            </div>
+            
+            <!-- Audio Effects -->
+            <div class="effects-grid">
+                <div class="effect-card" data-tooltip="Reverb creates a sense of space and depth by adding reflections">
+                    <h4><i class="fas fa-wave-square"></i> Reverb</h4>
+                    <input type="range" id="reverbAmount" min="0" max="100" value="30">
+                    <span class="effect-value" id="reverbValue">30%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Echo adds repeating delays for a rhythmic echo effect">
+                    <h4><i class="fas fa-sync"></i> Echo</h4>
+                    <input type="range" id="echoAmount" min="0" max="100" value="20">
+                    <span class="effect-value" id="echoValue">20%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Chorus thickens sound by adding a slight pitch variation">
+                    <h4><i class="fas fa-music"></i> Chorus</h4>
+                    <input type="range" id="chorusAmount" min="0" max="100" value="30">
+                    <span class="effect-value" id="chorusValue">30%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Low-Pass Filter cuts high frequencies for a warmer sound">
+                    <h4><i class="fas fa-filter"></i> Low-Pass</h4>
+                    <input type="range" id="lowpassAmount" min="0" max="100" value="50">
+                    <span class="effect-value" id="lowpassValue">50%</span>
+                </div>
+                <div class="effect-card" data-tooltip="High-Pass Filter removes low rumble for clearer highs">
+                    <h4><i class="fas fa-filter"></i> High-Pass</h4>
+                    <input type="range" id="highpassAmount" min="0" max="100" value="0">
+                    <span class="effect-value" id="highpassValue">0%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Distortion adds overdrive and grit for aggressive sounds">
+                    <h4><i class="fas fa-bolt"></i> Distortion</h4>
+                    <input type="range" id="distortionAmount" min="0" max="100" value="0">
+                    <span class="effect-value" id="distortionValue">0%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Bitcrush reduces audio quality for retro lo-fi effects">
+                    <h4><i class="fas fa-cubes"></i> Bitcrush</h4>
+                    <input type="range" id="bitcrushAmount" min="0" max="100" value="0">
+                    <span class="effect-value" id="bitcrushValue">0%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Tremolo creates a pulsing volume effect">
+                    <h4><i class="fas fa-wave-square"></i> Tremolo</h4>
+                    <input type="range" id="tremoloAmount" min="0" max="100" value="0">
+                    <span class="effect-value" id="tremoloValue">0%</span>
+                </div>
+                <div class="effect-card" data-tooltip="Vibrato adds a slight pitch waver for expressive sounds">
+                    <h4><i class="fas fa-broadcast-tower"></i> Vibrato</h4>
+                    <input type="range" id="vibratoAmount" min="0" max="100" value="0">
+                    <span class="effect-value" id="vibratoValue">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Song Designer. All rights reserved. | <a href="https://pixelagent.co.uk">pixelagent.co.uk</a></p>
+        </footer>
+    </div>
+
+    <!-- Collections Modal -->
+    <div id="collectionsModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-folder-open"></i> Collections</h2>
+                <button class="btn-close" id="closeCollections">✕</button>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <button class="btn" id="createCollectionBtn" style="width: 100%;">
+                    <i class="fas fa-plus"></i> Create New Collection
+                </button>
+            </div>
+            
+            <div id="collectionsList" class="collections-list"></div>
+        </div>
+    </div>
+
+    <!-- Collection Detail Modal -->
+    <div id="collectionDetailModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2 id="collectionDetailTitle"><i class="fas fa-folder"></i> Collection</h2>
+                <button class="btn-close" id="closeCollectionDetail">✕</button>
+            </div>
+            
+            <div id="collectionDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Create/Edit Collection Modal -->
+    <div id="collectionFormModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2 id="collectionFormTitle"><i class="fas fa-plus"></i> Create Collection</h2>
+                <button class="btn-close" id="closeCollectionForm">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Collection Name *</label>
+                <input type="text" id="collectionName" placeholder="Enter collection name" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem;">
+                
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Description (optional)</label>
+                <textarea id="collectionDescription" placeholder="Enter description" rows="3" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); resize: vertical; font-family: inherit;"></textarea>
+            </div>
+            
+            <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                <button class="btn btn-secondary" id="collectionFormCancel" style="flex: 1;">Cancel</button>
+                <button class="btn" id="collectionFormSubmit" style="flex: 1;">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save to Database Modal -->
+    <div id="saveToDatabaseModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-database"></i> Save to Database</h2>
+                <button class="btn-close" id="closeSaveToDatabase">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Song Name *</label>
+                <input type="text" id="databaseSongName" placeholder="Enter song name" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem;">
+                
+                <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                    <button class="btn btn-secondary" id="cancelSaveToDatabase" style="flex: 1;">Cancel</button>
+                    <button class="btn" id="confirmSaveToDatabase" style="flex: 1;"><i class="fas fa-save"></i> Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add to Collection Modal -->
+    <div id="addToCollectionModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Add to Collection</h2>
+                <button class="btn-close" id="closeAddToCollection">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Song Name *</label>
+                <input type="text" id="newSongName" placeholder="Enter song name" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem;">
+                
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Select Collection *</label>
+                <select id="collectionSelect" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem;">
+                </select>
+                
+                <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                    <button class="btn btn-secondary" id="cancelAddToCollection" style="flex: 1;">Cancel</button>
+                    <button class="btn" id="submitAddToCollection" style="flex: 1;">Add Song</button>
+                </div>
+                
+                <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.75rem;">Or create a new collection with this song:</p>
+                    <button class="btn" id="createNewCollectionFromAdd" style="width: 100%;">
+                        <i class="fas fa-plus"></i> Create New Collection
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Song Picker Modal -->
+    <div id="songPickerModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-music"></i> Load Song</h2>
+                <button class="btn-close" id="closeSongPicker">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <div id="songPickerList" class="songs-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle" style="color: #f87171;"></i> Confirm</h2>
+                <button class="btn-close" id="closeConfirm">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <p id="confirmMessage" style="margin-bottom: 1.5rem;"></p>
+                
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="btn btn-secondary" id="confirmCancel" style="flex: 1;">Cancel</button>
+                    <button class="btn" id="confirmOk" style="flex: 1; background: #f87171;">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button class="btn-close" id="closeSettings">✕</button>
+            </div>
+
+            <!-- Settings Tabs -->
+            <div class="settings-tabs">
+                <button class="settings-tab active" data-tab="general"><i class="fas fa-sliders-h"></i> General</button>
+                <button class="settings-tab" data-tab="save"><i class="fas fa-save"></i> Save</button>
+                <button class="settings-tab" data-tab="midi"><i class="fas fa-music"></i> MIDI</button>
+            </div>
+
+            <!-- General Tab -->
+            <div class="settings-tab-content active" id="tab-general">
+                <div class="settings-section">
+                    <h3><i class="fas fa-folder-open"></i> Collections</h3>
+                    <p>Organize your songs into collections</p>
+                    <div class="export-options">
+                        <button class="btn export-btn" id="openCollectionsBtn">
+                            <i class="fas fa-folder-open"></i> Open Collections
+                        </button>
+                        <button class="btn btn-secondary export-btn" id="saveToCollectionBtn">
+                            <i class="fas fa-plus-circle"></i> Save to Collection
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i class="fas fa-eye"></i> Tooltips</h3>
+                    <p>Show helpful hints when hovering over elements</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="tooltipToggle" checked>
+                            <span>Show Tooltips</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Main Loop Controls Toggle -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-sliders-h"></i> Main Loop Controls</h3>
+                    <p>Show/hide automation controls below each group row</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="mainLoopControlsToggle" checked>
+                            <span>Show Main Loop Controls</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i class="fas fa-file-export"></i> Export Format</h3>
+                    <p>Select the audio format for download</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="exportFormat" value="midi">
+                            <i class="fas fa-music"></i> MIDI (Best for music software)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="exportFormat" value="json" checked>
+                            <i class="fas fa-code"></i> JSON (Data backup)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="exportFormat" value="mp3">
+                            <i class="fas fa-music"></i> MP3 (Web compatible)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="exportFormat" value="wav">
+                            <i class="fas fa-music"></i> WAV (Lossless audio)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="exportFormat" value="ogg">
+                            <i class="fas fa-music"></i> OGG (Open format)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Tab -->
+            <div class="settings-tab-content" id="tab-save">
+                <div class="settings-section">
+                    <h3><i class="fas fa-database"></i> Database</h3>
+                    <p>Save and load songs from cloud database</p>
+                    <div class="export-options">
+                        <button class="btn export-btn" id="saveToDatabaseBtn">
+                            <i class="fas fa-cloud-upload-alt"></i> Save to Database
+                        </button>
+                        <button class="btn btn-secondary export-btn" id="loadFromDatabaseBtn">
+                            <i class="fas fa-cloud-download-alt"></i> Load from Database
+                        </button>
+                    </div>
+                    <div id="databaseStatus" style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px;"></div>
+                </div>
+
+                <!-- Google Drive Storage -->
+                <div class="settings-section">
+                    <h3><i class="fab fa-google-drive"></i> Google Drive Storage</h3>
+                    <p>Save your songs directly to Google Drive for cloud backup and multi-device access</p>
+                    
+                    <!-- Sign In Status -->
+                    <div class="google-signin-status">
+                        <div id="googleUserInfo" style="display: none; margin-bottom: 1rem; padding: 0.8rem; background: var(--bg-secondary); border-radius: 6px;">
+                            <i class="fas fa-user-circle" style="font-size: 1.2rem; margin-right: 0.5rem;"></i>
+                            <span id="googleUserName"></span>
+                        </div>
+                        
+                        <div class="export-options" style="margin-bottom: 1rem;">
+                            <button class="btn export-btn" id="googleSignInBtn">
+                                <i class="fab fa-google"></i> Sign in with Google
+                            </button>
+                            <button class="btn btn-secondary export-btn" id="googleSignOutBtn" style="display: none;">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Drive Actions (shown when signed in) -->
+                    <div id="driveActions" style="display: none;">
+                        <h4 style="margin-bottom: 0.8rem;">Cloud Storage Actions</h4>
+                        
+                        <div class="export-options">
+                            <button class="btn export-btn" id="saveToDriveBtn">
+                                <i class="fab fa-google-drive"></i> Save Current Song to Drive
+                            </button>
+                            <button class="btn btn-secondary export-btn" id="loadFromDriveBtn">
+                                <i class="fas fa-cloud-download-alt"></i> Browse Drive Songs
+                            </button>
+                        </div>
+                        
+                        <div class="export-options" style="margin-top: 0.8rem;">
+                            <button class="btn btn-secondary export-btn" id="syncToDriveBtn">
+                                <i class="fas fa-cloud-upload-alt"></i> Upload All Local Songs
+                            </button>
+                            <button class="btn btn-secondary export-btn" id="syncFromDriveBtn">
+                                <i class="fas fa-cloud-download-alt"></i> Download All Drive Songs
+                            </button>
+                        </div>
+                        
+                        <div class="export-options" style="margin-top: 0.8rem;">
+                            <button class="btn export-btn" id="fullSyncBtn">
+                                <i class="fas fa-sync"></i> Full Sync (Two-Way)
+                            </button>
+                        </div>
+                        
+                        <!-- Auto-sync Toggle -->
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 6px;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" id="autoSyncToggle" checked>
+                                <span><strong>Auto-sync every 5 minutes</strong></span>
+                            </label>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0;">
+                                Automatically synchronize changes between local storage and Google Drive
+                            </p>
+                        </div>
+                        
+                        <!-- Sync Status -->
+                        <div id="syncStatus" style="margin-top: 1rem; padding: 0.8rem; background: var(--bg-secondary); border-radius: 6px; font-size: 0.85rem; color: var(--text-secondary);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span><i class="fas fa-circle" id="onlineIndicator" style="color: #00c853;"></i> Connection Status:</span>
+                                <span id="connectionStatus"><strong>Online</strong></span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span><i class="fas fa-clock"></i> Last Sync:</span>
+                                <span id="lastSyncTime"><strong>Never</strong></span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span><i class="fas fa-list"></i> Pending Changes:</span>
+                                <span id="pendingChanges"><strong>0</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Local Storage (IndexedDB) -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-database"></i> Local Storage (IndexedDB)</h3>
+                    <p>Your songs are automatically stored locally for offline access with no size limits</p>
+                    
+                    <!-- Storage Statistics -->
+                    <div id="storageStats" style="padding: 1rem; background: var(--bg-secondary); border-radius: 6px; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                            <span><i class="fas fa-music"></i> Total Songs:</span>
+                            <span id="totalSongs"><strong>0</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                            <span><i class="fas fa-hdd"></i> Storage Used:</span>
+                            <span id="storageUsed"><strong>0 MB</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span><i class="fas fa-folder"></i> Collections:</span>
+                            <span id="totalCollections"><strong>0</strong></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Local Storage Actions -->
+                    <div class="export-options">
+                        <button class="btn btn-secondary export-btn" id="refreshStatsBtn">
+                            <i class="fas fa-sync"></i> Refresh Stats
+                        </button>
+                        <button class="btn btn-secondary export-btn" id="exportAllLocalBtn">
+                            <i class="fas fa-download"></i> Export All to JSON
+                        </button>
+                    </div>
+                    
+                    <div class="export-options" style="margin-top: 0.8rem;">
+                        <button class="btn btn-secondary export-btn" id="importToLocalBtn">
+                            <i class="fas fa-upload"></i> Import from JSON
+                        </button>
+                        <button class="btn export-btn" id="clearLocalStorageBtn" style="background: #ff5252;">
+                            <i class="fas fa-trash"></i> Clear All Local Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i class="fas fa-folder"></i> File System</h3>
+                    <p>Export and import songs as files</p>
+                    <div class="export-options">
+                        <button class="btn export-btn" id="exportSongFileBtn">
+                            <i class="fas fa-file-export"></i> Save to File
+                        </button>
+                        <button class="btn btn-secondary export-btn" id="importSongFileBtn">
+                            <i class="fas fa-file-import"></i> Load from File
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i class="fas fa-save"></i> Browser Save</h3>
+                    <p>Quick save/load to browser storage</p>
+                    <div class="export-options">
+                        <button class="btn export-btn" id="saveBrowserBtn">
+                            <i class="fas fa-save"></i> Save to Browser
+                        </button>
+                        <button class="btn btn-secondary export-btn" id="loadBrowserBtn">
+                            <i class="fas fa-folder-open"></i> Load Saved Song
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIDI Tab -->
+            <div class="settings-tab-content" id="tab-midi">
+                <div class="settings-section">
+                    <h3><i class="fas fa-file-audio"></i> MIDI Export/Import</h3>
+                    <p>Export your song as a MIDI file or import MIDI files to create patterns</p>
+                    
+                    <div class="export-options" style="flex-direction: column; gap: 0.75rem;">
+                        <button class="btn export-btn" onclick="songApp.exportToMidi()">
+                            <i class="fas fa-file-export"></i> Export as MIDI
+                        </button>
+                        <button class="btn btn-secondary export-btn" onclick="songApp.importFromMidi()">
+                            <i class="fas fa-file-import"></i> Import MIDI
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 6px;">
+                        <h4 style="margin-bottom: 0.75rem;"><i class="fas fa-info-circle"></i> About MIDI</h4>
+                        <ul style="font-size: 0.85rem; color: var(--text-secondary); margin: 0; padding-left: 1.25rem; line-height: 1.6;">
+                            <li>Exported MIDI files are in Standard MIDI Format (SMF)</li>
+                            <li>Channel 10 is reserved for drums</li>
+                            <li>Melody, bass, and lead map to melodic channels</li>
+                            <li>Import creates patterns from note data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Prompt Modal -->
+    <div id="audioPromptModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-music"></i> Start Audio</h2>
+                <button class="btn-close" id="closeAudioPrompt">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    <i class="fas fa-volume-up" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem; display: block;"></i>
+                    Click Play first to enable audio!
+                </p>
+                
+                <button class="btn" id="audioPromptPlayBtn" style="width: 100%;">
+                    <i class="fas fa-play"></i> Play
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-question-circle"></i> Song Designer Help</h2>
+                <button class="btn-close" id="closeHelp">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <div style="line-height: 1.8;">
+                    <p style="margin-bottom: 1rem;"><strong>🎵 Getting Started:</strong></p>
+                    <ol style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Select a <strong>Genre</strong> from the dropdown (13 genres available)</li>
+                        <li style="margin-bottom: 0.5rem;">Choose a <strong>Song</strong> preset to load its pattern</li>
+                        <li style="margin-bottom: 0.5rem;">Or create your own from scratch!</li>
+                        <li style="margin-bottom: 0.5rem;">Click <strong>Play</strong> to start (enables audio)</li>
+                    </ol>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎛️ Pattern Length (16 / 32 / 64 Steps):</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>16 Steps:</strong> Simple patterns, ideal for beginners</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>32 Steps:</strong> Standard verse/chorus structure</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>64 Steps:</strong> Full song structure with build-up and resolution</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎹 Harmonics (Background Chords):</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Click circles to activate harmony notes</li>
+                        <li style="margin-bottom: 0.5rem;">Select chord progressions (I-IV-V-I, etc.)</li>
+                        <li style="margin-bottom: 0.5rem;">Instruments: FM Synth, Piano, Pad, Bell, Pluck</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎻 Melody Strings:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Click squares to create melodies</li>
+                        <li style="margin-bottom: 0.5rem;">Higher row = higher pitch</li>
+                        <li style="margin-bottom: 0.5rem;">Instruments: Sawtooth, Square, Sine, Triangle</li>
+                        <li style="margin-bottom: 0.5rem;">Scales: C Major, G Major, F Major, D Minor, A Minor</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🥁 Rhythm & Drums:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Kick, Snare, Hi-Hat, Tom patterns</li>
+                        <li style="margin-bottom: 0.5rem;">Kits: Acoustic, Electronic, 808 Style</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎸 Bass:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Create bass lines (lower = deeper)</li>
+                        <li style="margin-bottom: 0.5rem;">Instruments: Sub Bass, Synth Bass, FM Bass, Square Bass</li>
+                        <li style="margin-bottom: 0.5rem;">1 or 2 octave range</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎤 Lead Synth:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Lead melodies with synth options</li>
+                        <li style="margin-bottom: 0.5rem;">Instruments: Sawtooth, Square, Sine, Triangle, Pulse, Super Saw</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎶 Percussion (Optional):</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Conga, Bongo, Shaker, Cymbal</li>
+                        <li style="margin-bottom: 0.5rem;">Kits: Latin, Acoustic, Electronic</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>🎚️ Automation:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Velocity:</strong> Click active cells to adjust volume</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Pan:</strong> Position each instrument left/right in stereo</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Filter:</strong> Draw automation curve for lowpass filter</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>✨ Sound Effects:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Reverb, Echo, Chorus for space and depth</li>
+                        <li style="margin-bottom: 0.5rem;">Low-Pass/High-Pass filters for tone shaping</li>
+                        <li style="margin-bottom: 0.5rem;">Distortion, Bitcrush for grit and retro sounds</li>
+                        <li style="margin-bottom: 0.5rem;">Tremolo and Vibrato for modulation</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 0.75rem;"><strong>💾 Saving & Exporting:</strong></p>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Collections:</strong> Organize songs into folders</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Database:</strong> Cloud save/load</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Google Drive:</strong> Sync songs to your Google Drive</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Files:</strong> Export as MIDI, JSON, MP3, WAV, OGG</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Browser:</strong> Quick save to local storage</li>
+                    </ul>
+                    
+                    <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(244, 114, 182, 0.1); border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                        <strong style="color: var(--accent-color);">💡 Tip:</strong> Start with a preset song, then customize the instruments, tempo, and patterns to make it your own!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Drive Song Browser Modal -->
+    <div id="driveBrowserModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px; max-height: 80vh;">
+            <div class="modal-header">
+                <h2><i class="fab fa-google-drive"></i> Google Drive Songs</h2>
+                <button class="btn-close" id="closeDriveBrowser">✕</button>
+            </div>
+            
+            <div class="settings-section">
+                <input type="text" id="driveSongSearch" placeholder="Search songs..." 
+                       style="width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); margin-bottom: 1rem;">
+                
+                <div id="driveSongList" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Populated by JavaScript -->
+                    <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i><br>
+                        Loading songs from Google Drive...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="js/indexedDBManager.js"></script>
+    <script src="js/googleDriveManager.js"></script>
+    <script src="js/cloudSyncManager.js"></script>
+    <script src="js/googleDriveUI.js"></script>
+    <script src="js/midiManager.js"></script>
+    <script src="js/songPresets.js"></script>
+    <script src="js/songDesigner.js"></script>
+    <script src="js/songStorage.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/songApp.js"></script>
+</body>
+</html>

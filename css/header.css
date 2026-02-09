@@ -1,0 +1,177 @@
+/* Header CSS - Fixed header styles */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-left, .header-right {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.header-center {
+    text-align: center;
+    flex: 1;
+}
+
+.header-center h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #f472b6);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+    margin-bottom: 0.25rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.header-center h1 i {
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #f472b6);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+}
+
+.fixed-header .header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.fixed-header .subtitle {
+    font-size: 0.85rem;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-controls .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.theme-toggle, .settings-toggle {
+    width: 44px;
+    height: 44px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.theme-toggle:hover, .settings-toggle:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .fixed-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .header-left, .header-right {
+        position: absolute;
+        top: 0.75rem;
+    }
+    
+    .header-left {
+        left: 0.75rem;
+    }
+    
+    .header-right {
+        right: 0.75rem;
+    }
+    
+    .header-center {
+        padding-top: 0.5rem;
+    }
+    
+    .fixed-header .header h1 {
+        font-size: 1rem;
+    }
+    
+    .fixed-header .subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .header-controls {
+        flex-wrap: wrap;
+        padding-top: 0.75rem;
+        gap: 0.5rem;
+    }
+    
+    .header-controls .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}

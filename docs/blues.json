@@ -1,0 +1,6208 @@
+{
+  "genre": "blues",
+  "song_variations": {
+    "sweet-home": [
+      {
+        "key": "sweet-home-alabama-16",
+        "name": "Sweet Home Alabama (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "2-0": true,
+          "5-7": true,
+          "8-10": true,
+          "10-0": true,
+          "13-5": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "sweet-home-alabama-32",
+        "name": "Sweet Home Alabama (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "2-0": true,
+          "5-7": true,
+          "8-10": true,
+          "10-0": true,
+          "13-5": true,
+          "16-7": true,
+          "18-0": true,
+          "21-7": true,
+          "24-10": true,
+          "26-0": true,
+          "29-5": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "sweet-home-alabama-64",
+        "name": "Sweet Home Alabama (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "5-7": true,
+          "10-0": true,
+          "16-7": true,
+          "18-0": true,
+          "21-7": true,
+          "24-10": true,
+          "26-0": true,
+          "29-5": true,
+          "32-7": true,
+          "34-0": true,
+          "37-7": true,
+          "40-10": true,
+          "42-0": true,
+          "45-5": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-7": true,
+          "53-7": true,
+          "58-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "crossroads": [
+      {
+        "key": "crossroads-16",
+        "name": "Crossroads (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "2-0": true,
+          "5-7": true,
+          "8-7": true,
+          "10-10": true,
+          "13-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "crossroads-32",
+        "name": "Crossroads (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "2-0": true,
+          "5-7": true,
+          "8-7": true,
+          "10-10": true,
+          "13-10": true,
+          "16-5": true,
+          "18-0": true,
+          "21-7": true,
+          "24-7": true,
+          "26-10": true,
+          "29-10": true,
+          "18-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "crossroads-64",
+        "name": "Crossroads (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "5-7": true,
+          "10-10": true,
+          "16-5": true,
+          "18-0": true,
+          "21-7": true,
+          "24-7": true,
+          "26-10": true,
+          "29-10": true,
+          "32-5": true,
+          "34-0": true,
+          "37-7": true,
+          "40-7": true,
+          "42-10": true,
+          "45-10": true,
+          "34-3": true,
+          "38-5": true,
+          "48-5": true,
+          "53-7": true,
+          "58-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "red-house": [
+      {
+        "key": "red-house-16",
+        "name": "Red House (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "3-5": true,
+          "6-5": true,
+          "9-0": true,
+          "12-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "red-house-32",
+        "name": "Red House (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "3-5": true,
+          "6-5": true,
+          "9-0": true,
+          "12-3": true,
+          "16-5": true,
+          "19-5": true,
+          "22-5": true,
+          "25-0": true,
+          "28-3": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "red-house-64",
+        "name": "Red House (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "6-5": true,
+          "12-3": true,
+          "16-5": true,
+          "19-5": true,
+          "22-5": true,
+          "25-0": true,
+          "28-3": true,
+          "32-5": true,
+          "35-5": true,
+          "38-5": true,
+          "41-0": true,
+          "44-3": true,
+          "34-3": true,
+          "42-10": true,
+          "48-5": true,
+          "54-5": true,
+          "60-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "sunshine": [
+      {
+        "key": "sunshine-of-your-love-16",
+        "name": "Sunshine of Your Love (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-7": true,
+          "3-5": true,
+          "5-7": true,
+          "7-7": true,
+          "8-0": true,
+          "10-3": true,
+          "12-7": true,
+          "14-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "sunshine-of-your-love-32",
+        "name": "Sunshine of Your Love (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-7": true,
+          "3-5": true,
+          "5-7": true,
+          "7-7": true,
+          "8-0": true,
+          "10-3": true,
+          "12-7": true,
+          "14-0": true,
+          "16-7": true,
+          "17-7": true,
+          "19-5": true,
+          "21-7": true,
+          "23-7": true,
+          "24-0": true,
+          "26-3": true,
+          "28-7": true,
+          "30-0": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "sunshine-of-your-love-64",
+        "name": "Sunshine of Your Love (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "3-5": true,
+          "7-7": true,
+          "10-3": true,
+          "14-0": true,
+          "16-7": true,
+          "17-7": true,
+          "19-5": true,
+          "21-7": true,
+          "23-7": true,
+          "24-0": true,
+          "26-3": true,
+          "28-7": true,
+          "30-0": true,
+          "32-7": true,
+          "33-7": true,
+          "35-5": true,
+          "37-7": true,
+          "39-7": true,
+          "40-0": true,
+          "42-3": true,
+          "44-7": true,
+          "46-0": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-7": true,
+          "51-5": true,
+          "55-7": true,
+          "58-3": true,
+          "62-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "pride-joy": [
+      {
+        "key": "pride-and-joy-16",
+        "name": "Pride and Joy (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "1-0": true,
+          "3-5": true,
+          "5-7": true,
+          "7-0": true,
+          "8-5": true,
+          "10-7": true,
+          "12-5": true,
+          "14-7": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "pride-and-joy-32",
+        "name": "Pride and Joy (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "1-0": true,
+          "3-5": true,
+          "5-7": true,
+          "7-0": true,
+          "8-5": true,
+          "10-7": true,
+          "12-5": true,
+          "14-7": true,
+          "16-0": true,
+          "17-0": true,
+          "19-5": true,
+          "21-7": true,
+          "23-0": true,
+          "24-5": true,
+          "26-7": true,
+          "28-5": true,
+          "30-7": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "pride-and-joy-64",
+        "name": "Pride and Joy (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "3-5": true,
+          "7-0": true,
+          "10-7": true,
+          "14-7": true,
+          "16-0": true,
+          "17-0": true,
+          "19-5": true,
+          "21-7": true,
+          "23-0": true,
+          "24-5": true,
+          "26-7": true,
+          "28-5": true,
+          "30-7": true,
+          "32-0": true,
+          "33-0": true,
+          "35-5": true,
+          "37-7": true,
+          "39-0": true,
+          "40-5": true,
+          "42-7": true,
+          "44-5": true,
+          "46-7": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-0": true,
+          "51-5": true,
+          "55-0": true,
+          "58-7": true,
+          "62-7": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "texas-flood": [
+      {
+        "key": "texas-flood-16",
+        "name": "Texas Flood (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-10": true,
+          "2-5": true,
+          "4-5": true,
+          "6-0": true,
+          "9-10": true,
+          "11-5": true,
+          "13-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "texas-flood-32",
+        "name": "Texas Flood (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-10": true,
+          "2-5": true,
+          "4-5": true,
+          "6-0": true,
+          "9-10": true,
+          "11-5": true,
+          "13-3": true,
+          "16-10": true,
+          "18-5": true,
+          "20-5": true,
+          "22-0": true,
+          "25-10": true,
+          "27-5": true,
+          "29-3": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "texas-flood-64",
+        "name": "Texas Flood (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-10": true,
+          "4-5": true,
+          "9-10": true,
+          "13-3": true,
+          "16-10": true,
+          "18-5": true,
+          "20-5": true,
+          "22-0": true,
+          "25-10": true,
+          "27-5": true,
+          "29-3": true,
+          "32-10": true,
+          "34-5": true,
+          "36-5": true,
+          "38-0": true,
+          "41-10": true,
+          "43-5": true,
+          "45-3": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-10": true,
+          "52-5": true,
+          "57-10": true,
+          "61-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "mannish-boy": [
+      {
+        "key": "mannish-boy-16",
+        "name": "Mannish Boy (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "2-7": true,
+          "4-5": true,
+          "6-7": true,
+          "9-10": true,
+          "11-0": true,
+          "13-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "mannish-boy-32",
+        "name": "Mannish Boy (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "2-7": true,
+          "4-5": true,
+          "6-7": true,
+          "9-10": true,
+          "11-0": true,
+          "13-0": true,
+          "16-5": true,
+          "18-7": true,
+          "20-5": true,
+          "22-7": true,
+          "25-10": true,
+          "27-0": true,
+          "29-0": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "mannish-boy-64",
+        "name": "Mannish Boy (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "4-5": true,
+          "9-10": true,
+          "13-0": true,
+          "16-5": true,
+          "18-7": true,
+          "20-5": true,
+          "22-7": true,
+          "25-10": true,
+          "27-0": true,
+          "29-0": true,
+          "32-5": true,
+          "34-7": true,
+          "36-5": true,
+          "38-7": true,
+          "41-10": true,
+          "43-0": true,
+          "45-0": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-5": true,
+          "52-5": true,
+          "57-10": true,
+          "61-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "hounds": [
+      {
+        "key": "hound-dog-16",
+        "name": "Hound Dog (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "3-5": true,
+          "6-10": true,
+          "9-7": true,
+          "12-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "hound-dog-32",
+        "name": "Hound Dog (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "3-5": true,
+          "6-10": true,
+          "9-7": true,
+          "12-10": true,
+          "16-5": true,
+          "19-5": true,
+          "22-10": true,
+          "25-7": true,
+          "28-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "hound-dog-64",
+        "name": "Hound Dog (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "6-10": true,
+          "12-10": true,
+          "16-5": true,
+          "19-5": true,
+          "22-10": true,
+          "25-7": true,
+          "28-10": true,
+          "32-5": true,
+          "35-5": true,
+          "38-10": true,
+          "41-7": true,
+          "44-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-5": true,
+          "54-10": true,
+          "60-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "jolene": [
+      {
+        "key": "jolene-16",
+        "name": "Jolene (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-10": true,
+          "1-5": true,
+          "3-0": true,
+          "4-10": true,
+          "6-10": true,
+          "8-3": true,
+          "9-0": true,
+          "11-7": true,
+          "12-3": true,
+          "14-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "jolene-32",
+        "name": "Jolene (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-10": true,
+          "1-5": true,
+          "3-0": true,
+          "4-10": true,
+          "6-10": true,
+          "8-3": true,
+          "9-0": true,
+          "11-7": true,
+          "12-3": true,
+          "14-0": true,
+          "16-10": true,
+          "17-5": true,
+          "19-0": true,
+          "20-10": true,
+          "22-10": true,
+          "24-3": true,
+          "25-0": true,
+          "27-7": true,
+          "28-3": true,
+          "30-0": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "jolene-64",
+        "name": "Jolene (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-10": true,
+          "3-0": true,
+          "6-10": true,
+          "9-0": true,
+          "12-3": true,
+          "16-10": true,
+          "17-5": true,
+          "19-0": true,
+          "20-10": true,
+          "22-10": true,
+          "24-3": true,
+          "25-0": true,
+          "27-7": true,
+          "28-3": true,
+          "30-0": true,
+          "32-10": true,
+          "33-5": true,
+          "35-0": true,
+          "36-10": true,
+          "38-10": true,
+          "40-3": true,
+          "41-0": true,
+          "43-7": true,
+          "44-3": true,
+          "46-0": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-10": true,
+          "51-0": true,
+          "54-10": true,
+          "57-0": true,
+          "60-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "dust-my-broom": [
+      {
+        "key": "dust-my-broom-16",
+        "name": "Dust My Broom (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-7": true,
+          "3-5": true,
+          "5-10": true,
+          "7-3": true,
+          "8-5": true,
+          "10-5": true,
+          "12-10": true,
+          "14-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "dust-my-broom-32",
+        "name": "Dust My Broom (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-7": true,
+          "3-5": true,
+          "5-10": true,
+          "7-3": true,
+          "8-5": true,
+          "10-5": true,
+          "12-10": true,
+          "14-10": true,
+          "16-7": true,
+          "17-7": true,
+          "19-5": true,
+          "21-10": true,
+          "23-3": true,
+          "24-5": true,
+          "26-5": true,
+          "28-10": true,
+          "30-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "dust-my-broom-64",
+        "name": "Dust My Broom (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "3-5": true,
+          "7-3": true,
+          "10-5": true,
+          "14-10": true,
+          "16-7": true,
+          "17-7": true,
+          "19-5": true,
+          "21-10": true,
+          "23-3": true,
+          "24-5": true,
+          "26-5": true,
+          "28-10": true,
+          "30-10": true,
+          "32-7": true,
+          "33-7": true,
+          "35-5": true,
+          "37-10": true,
+          "39-3": true,
+          "40-5": true,
+          "42-5": true,
+          "44-10": true,
+          "46-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-7": true,
+          "51-5": true,
+          "55-3": true,
+          "58-5": true,
+          "62-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "sweet-jesus": [
+      {
+        "key": "sweet-home-chicago-16",
+        "name": "Sweet Home Chicago (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "2-0": true,
+          "5-7": true,
+          "8-10": true,
+          "10-0": true,
+          "13-5": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "sweet-home-chicago-32",
+        "name": "Sweet Home Chicago (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "2-0": true,
+          "5-7": true,
+          "8-10": true,
+          "10-0": true,
+          "13-5": true,
+          "16-7": true,
+          "18-0": true,
+          "21-7": true,
+          "24-10": true,
+          "26-0": true,
+          "29-5": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "sweet-home-chicago-64",
+        "name": "Sweet Home Chicago (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "5-7": true,
+          "10-0": true,
+          "16-7": true,
+          "18-0": true,
+          "21-7": true,
+          "24-10": true,
+          "26-0": true,
+          "29-5": true,
+          "32-7": true,
+          "34-0": true,
+          "37-7": true,
+          "40-10": true,
+          "42-0": true,
+          "45-5": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-7": true,
+          "53-7": true,
+          "58-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "born-under": [
+      {
+        "key": "born-under-a-bad-sign-16",
+        "name": "Born Under a Bad Sign (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "1-5": true,
+          "3-3": true,
+          "5-7": true,
+          "7-3": true,
+          "8-0": true,
+          "10-3": true,
+          "12-5": true,
+          "14-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "born-under-a-bad-sign-32",
+        "name": "Born Under a Bad Sign (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "1-5": true,
+          "3-3": true,
+          "5-7": true,
+          "7-3": true,
+          "8-0": true,
+          "10-3": true,
+          "12-5": true,
+          "14-10": true,
+          "16-3": true,
+          "17-5": true,
+          "19-3": true,
+          "21-7": true,
+          "23-3": true,
+          "24-0": true,
+          "26-3": true,
+          "28-5": true,
+          "30-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "born-under-a-bad-sign-64",
+        "name": "Born Under a Bad Sign (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "3-3": true,
+          "7-3": true,
+          "10-3": true,
+          "14-10": true,
+          "16-3": true,
+          "17-5": true,
+          "19-3": true,
+          "21-7": true,
+          "23-3": true,
+          "24-0": true,
+          "26-3": true,
+          "28-5": true,
+          "30-10": true,
+          "32-3": true,
+          "33-5": true,
+          "35-3": true,
+          "37-7": true,
+          "39-3": true,
+          "40-0": true,
+          "42-3": true,
+          "44-5": true,
+          "46-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-3": true,
+          "51-3": true,
+          "55-3": true,
+          "58-3": true,
+          "62-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "hideaway": [
+      {
+        "key": "hideaway-16",
+        "name": "Hideaway (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "4-3": true,
+          "8-5": true,
+          "12-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "hideaway-32",
+        "name": "Hideaway (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "4-3": true,
+          "8-5": true,
+          "12-10": true,
+          "16-5": true,
+          "20-3": true,
+          "24-5": true,
+          "28-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "hideaway-64",
+        "name": "Hideaway (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-5": true,
+          "8-5": true,
+          "16-5": true,
+          "20-3": true,
+          "24-5": true,
+          "28-10": true,
+          "32-5": true,
+          "36-3": true,
+          "40-5": true,
+          "44-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-5": true,
+          "56-5": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "stormy-monday": [
+      {
+        "key": "stormy-monday-16",
+        "name": "Stormy Monday (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-5": true,
+          "3-7": true,
+          "5-5": true,
+          "7-7": true,
+          "8-3": true,
+          "10-7": true,
+          "12-10": true,
+          "14-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "stormy-monday-32",
+        "name": "Stormy Monday (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-5": true,
+          "3-7": true,
+          "5-5": true,
+          "7-7": true,
+          "8-3": true,
+          "10-7": true,
+          "12-10": true,
+          "14-10": true,
+          "16-7": true,
+          "17-5": true,
+          "19-7": true,
+          "21-5": true,
+          "23-7": true,
+          "24-3": true,
+          "26-7": true,
+          "28-10": true,
+          "30-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "stormy-monday-64",
+        "name": "Stormy Monday (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "3-7": true,
+          "7-7": true,
+          "10-7": true,
+          "14-10": true,
+          "16-7": true,
+          "17-5": true,
+          "19-7": true,
+          "21-5": true,
+          "23-7": true,
+          "24-3": true,
+          "26-7": true,
+          "28-10": true,
+          "30-10": true,
+          "32-7": true,
+          "33-5": true,
+          "35-7": true,
+          "37-5": true,
+          "39-7": true,
+          "40-3": true,
+          "42-7": true,
+          "44-10": true,
+          "46-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-7": true,
+          "51-7": true,
+          "55-7": true,
+          "58-7": true,
+          "62-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "blue-light": [
+      {
+        "key": "blue-light-red-light-16",
+        "name": "Blue Light Red Light (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "2-10": true,
+          "4-10": true,
+          "6-10": true,
+          "8-3": true,
+          "10-3": true,
+          "12-3": true,
+          "14-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "blue-light-red-light-32",
+        "name": "Blue Light Red Light (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "2-10": true,
+          "4-10": true,
+          "6-10": true,
+          "8-3": true,
+          "10-3": true,
+          "12-3": true,
+          "14-0": true,
+          "16-3": true,
+          "18-10": true,
+          "20-10": true,
+          "22-10": true,
+          "24-3": true,
+          "26-3": true,
+          "28-3": true,
+          "30-0": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "blue-light-red-light-64",
+        "name": "Blue Light Red Light (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "4-10": true,
+          "8-3": true,
+          "12-3": true,
+          "16-3": true,
+          "18-10": true,
+          "20-10": true,
+          "22-10": true,
+          "24-3": true,
+          "26-3": true,
+          "28-3": true,
+          "30-0": true,
+          "32-3": true,
+          "34-10": true,
+          "36-10": true,
+          "38-10": true,
+          "40-3": true,
+          "42-3": true,
+          "44-3": true,
+          "46-0": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-3": true,
+          "52-10": true,
+          "56-3": true,
+          "60-3": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "boom-boom": [
+      {
+        "key": "boom-boom-out-go-the-lights-16",
+        "name": "Boom Boom (Out Go the Lights) (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "1-5": true,
+          "3-7": true,
+          "5-5": true,
+          "7-3": true,
+          "8-3": true,
+          "10-5": true,
+          "12-7": true,
+          "14-5": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "boom-boom-out-go-the-lights-32",
+        "name": "Boom Boom (Out Go the Lights) (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "1-5": true,
+          "3-7": true,
+          "5-5": true,
+          "7-3": true,
+          "8-3": true,
+          "10-5": true,
+          "12-7": true,
+          "14-5": true,
+          "16-3": true,
+          "17-5": true,
+          "19-7": true,
+          "21-5": true,
+          "23-3": true,
+          "24-3": true,
+          "26-5": true,
+          "28-7": true,
+          "30-5": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "boom-boom-out-go-the-lights-64",
+        "name": "Boom Boom (Out Go the Lights) (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "3-7": true,
+          "7-3": true,
+          "10-5": true,
+          "14-5": true,
+          "16-3": true,
+          "17-5": true,
+          "19-7": true,
+          "21-5": true,
+          "23-3": true,
+          "24-3": true,
+          "26-5": true,
+          "28-7": true,
+          "30-5": true,
+          "32-3": true,
+          "33-5": true,
+          "35-7": true,
+          "37-5": true,
+          "39-3": true,
+          "40-3": true,
+          "42-5": true,
+          "44-7": true,
+          "46-5": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-3": true,
+          "51-7": true,
+          "55-3": true,
+          "58-5": true,
+          "62-5": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "all-your-love": [
+      {
+        "key": "all-your-love-16",
+        "name": "All Your Love (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "1-10": true,
+          "3-0": true,
+          "5-0": true,
+          "7-7": true,
+          "8-3": true,
+          "10-7": true,
+          "12-3": true,
+          "14-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "all-your-love-32",
+        "name": "All Your Love (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "1-10": true,
+          "3-0": true,
+          "5-0": true,
+          "7-7": true,
+          "8-3": true,
+          "10-7": true,
+          "12-3": true,
+          "14-0": true,
+          "16-0": true,
+          "17-10": true,
+          "19-0": true,
+          "21-0": true,
+          "23-7": true,
+          "24-3": true,
+          "26-7": true,
+          "28-3": true,
+          "30-0": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "all-your-love-64",
+        "name": "All Your Love (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "3-0": true,
+          "7-7": true,
+          "10-7": true,
+          "14-0": true,
+          "16-0": true,
+          "17-10": true,
+          "19-0": true,
+          "21-0": true,
+          "23-7": true,
+          "24-3": true,
+          "26-7": true,
+          "28-3": true,
+          "30-0": true,
+          "32-0": true,
+          "33-10": true,
+          "35-0": true,
+          "37-0": true,
+          "39-7": true,
+          "40-3": true,
+          "42-7": true,
+          "44-3": true,
+          "46-0": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-0": true,
+          "51-0": true,
+          "55-7": true,
+          "58-7": true,
+          "62-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "first-time": [
+      {
+        "key": "first-time-i-met-the-blues-16",
+        "name": "First Time I Met the Blues (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "2-3": true,
+          "5-3": true,
+          "8-7": true,
+          "10-0": true,
+          "13-5": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "first-time-i-met-the-blues-32",
+        "name": "First Time I Met the Blues (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "2-3": true,
+          "5-3": true,
+          "8-7": true,
+          "10-0": true,
+          "13-5": true,
+          "16-0": true,
+          "18-3": true,
+          "21-3": true,
+          "24-7": true,
+          "26-0": true,
+          "29-5": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "first-time-i-met-the-blues-64",
+        "name": "First Time I Met the Blues (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-0": true,
+          "5-3": true,
+          "10-0": true,
+          "16-0": true,
+          "18-3": true,
+          "21-3": true,
+          "24-7": true,
+          "26-0": true,
+          "29-5": true,
+          "32-0": true,
+          "34-3": true,
+          "37-3": true,
+          "40-7": true,
+          "42-0": true,
+          "45-5": true,
+          "38-5": true,
+          "42-10": true,
+          "48-0": true,
+          "53-3": true,
+          "58-0": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "sitting-on": [
+      {
+        "key": "sittin-on-the-dock-of-the-bay-16",
+        "name": "Sittin' on the Dock of the Bay (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-3": true,
+          "3-7": true,
+          "4-10": true,
+          "6-10": true,
+          "8-0": true,
+          "9-0": true,
+          "11-10": true,
+          "12-10": true,
+          "14-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "sittin-on-the-dock-of-the-bay-32",
+        "name": "Sittin' on the Dock of the Bay (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "1-3": true,
+          "3-7": true,
+          "4-10": true,
+          "6-10": true,
+          "8-0": true,
+          "9-0": true,
+          "11-10": true,
+          "12-10": true,
+          "14-10": true,
+          "16-7": true,
+          "17-3": true,
+          "19-7": true,
+          "20-10": true,
+          "22-10": true,
+          "24-0": true,
+          "25-0": true,
+          "27-10": true,
+          "28-10": true,
+          "30-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "sittin-on-the-dock-of-the-bay-64",
+        "name": "Sittin' on the Dock of the Bay (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-7": true,
+          "3-7": true,
+          "6-10": true,
+          "9-0": true,
+          "12-10": true,
+          "16-7": true,
+          "17-3": true,
+          "19-7": true,
+          "20-10": true,
+          "22-10": true,
+          "24-0": true,
+          "25-0": true,
+          "27-10": true,
+          "28-10": true,
+          "30-10": true,
+          "32-7": true,
+          "33-3": true,
+          "35-7": true,
+          "36-10": true,
+          "38-10": true,
+          "40-0": true,
+          "41-0": true,
+          "43-10": true,
+          "44-10": true,
+          "46-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-7": true,
+          "51-7": true,
+          "54-10": true,
+          "57-0": true,
+          "60-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ],
+    "born-under-bad": [
+      {
+        "key": "born-under-a-bad-sign-16",
+        "name": "Born Under a Bad Sign (16 Steps)",
+        "patternLength": 16,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "1-5": true,
+          "3-3": true,
+          "5-7": true,
+          "7-3": true,
+          "8-0": true,
+          "10-3": true,
+          "12-5": true,
+          "14-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true
+        },
+        "lead": {},
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12
+          ],
+          "snare": [
+            3,
+            9,
+            15
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ]
+        },
+        "characteristics": [
+          "blues"
+        ]
+      },
+      {
+        "key": "born-under-a-bad-sign-32",
+        "name": "Born Under a Bad Sign (32 Steps)",
+        "patternLength": 32,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "1-5": true,
+          "3-3": true,
+          "5-7": true,
+          "7-3": true,
+          "8-0": true,
+          "10-3": true,
+          "12-5": true,
+          "14-10": true,
+          "16-3": true,
+          "17-5": true,
+          "19-3": true,
+          "21-7": true,
+          "23-3": true,
+          "24-0": true,
+          "26-3": true,
+          "28-5": true,
+          "30-10": true,
+          "18-3": true,
+          "26-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "1-5": true,
+          "5-5": true,
+          "9-5": true,
+          "16-0": true,
+          "20-0": true,
+          "24-0": true,
+          "28-0": true,
+          "17-5": true,
+          "21-5": true,
+          "25-5": true
+        },
+        "lead": {
+          "24-7": true,
+          "26-5": true,
+          "28-3": true,
+          "30-5": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            6,
+            12,
+            16,
+            22,
+            28
+          ],
+          "snare": [
+            3,
+            9,
+            15,
+            19,
+            25,
+            31
+          ],
+          "hihat": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            16,
+            19,
+            22,
+            25,
+            28,
+            31
+          ],
+          "tom": [
+            23,
+            27,
+            31
+          ],
+          "cymbal": [
+            16
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "extended"
+        ]
+      },
+      {
+        "key": "born-under-a-bad-sign-64",
+        "name": "Born Under a Bad Sign (64 Steps)",
+        "patternLength": 64,
+        "harmonics": [
+          0,
+          3,
+          5,
+          7,
+          10
+        ],
+        "melody": {
+          "0-3": true,
+          "3-3": true,
+          "7-3": true,
+          "10-3": true,
+          "14-10": true,
+          "16-3": true,
+          "17-5": true,
+          "19-3": true,
+          "21-7": true,
+          "23-3": true,
+          "24-0": true,
+          "26-3": true,
+          "28-5": true,
+          "30-10": true,
+          "32-3": true,
+          "33-5": true,
+          "35-3": true,
+          "37-7": true,
+          "39-3": true,
+          "40-0": true,
+          "42-3": true,
+          "44-5": true,
+          "46-10": true,
+          "34-3": true,
+          "38-5": true,
+          "42-10": true,
+          "48-3": true,
+          "51-3": true,
+          "55-3": true,
+          "58-3": true,
+          "62-10": true
+        },
+        "bass": {
+          "0-0": true,
+          "4-0": true,
+          "8-0": true,
+          "12-0": true,
+          "16-0": true,
+          "18-5": true,
+          "20-0": true,
+          "22-5": true,
+          "24-0": true,
+          "26-5": true,
+          "28-0": true,
+          "30-5": true,
+          "32-0": true,
+          "34-5": true,
+          "36-10": true,
+          "38-3": true,
+          "40-7": true,
+          "42-0": true,
+          "44-5": true,
+          "46-10": true,
+          "48-0": true,
+          "52-0": true,
+          "56-0": true,
+          "60-0": true
+        },
+        "lead": {
+          "32-4": true,
+          "33-5": true,
+          "34-6": true,
+          "35-7": true,
+          "36-7": true,
+          "38-6": true,
+          "40-5": true,
+          "42-4": true,
+          "44-3": true,
+          "46-2": true,
+          "48-7": true,
+          "52-5": true,
+          "56-3": true
+        },
+        "rhythm": {
+          "kick": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            36,
+            40,
+            44,
+            48,
+            56
+          ],
+          "snare": [
+            8,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60
+          ],
+          "hihat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62
+          ],
+          "tom": [
+            34,
+            38,
+            42,
+            46
+          ],
+          "cymbal": [
+            0,
+            16,
+            32,
+            48,
+            63
+          ]
+        },
+        "characteristics": [
+          "blues",
+          "full-arrangement",
+          "dynamic"
+        ]
+      }
+    ]
+  },
+  "expansion_notes": {
+    "16_to_32_strategy": "Repeat core pattern with fills and variation in measure 2",
+    "16_to_64_strategy": "Full song arc: intro (sparse) -> development -> climax (solo) -> resolution"
+  }
+}
