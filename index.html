@@ -97,195 +97,212 @@
         </div>
 
         <!-- Harmonics Section -->
-        <div class="section">
+        <div class="section" id="harmonicsSection">
             <div class="section-header">
                 <h2><span class="section-icon">🎹</span> Harmonics</h2>
                 <button class="toggle-btn active" id="harmonicsToggle">ON</button>
             </div>
             
-            <!-- Chord Progression Builder -->
-            <div class="chord-progression-control">
-                <label><i class="fas fa-music"></i> Chord Progression:</label>
-                <select id="chordProgressionSelect">
-                    <option value="">-- Select Progression --</option>
-                </select>
-                <button class="btn" id="applyChordProgressionBtn">Apply</button>
-            </div>
-            
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Click circles to create layered harmony notes, or select a chord progression</p>
-            
-            <!-- Step Timeline for Harmonics -->
-            <div class="section-timeline" id="harmonicsTimeline"></div>
-            
-            <div class="melody-controls">
-                <select id="harmonicInstrument" data-tooltip="Choose an instrument for the harmonic background" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="fm">FM Synth</option>
-                    <option value="piano">Piano</option>
-                    <option value="pad">Pad</option>
-                    <option value="bell">Bell</option>
-                    <option value="pluck">Pluck</option>
-                </select>
-                <button class="preset-btn" id="clearHarmonicsBtn"><i class="fas fa-eraser"></i> Clear</button>
-            </div>
-            <div class="harmonics-grid" id="harmonicsGrid"></div>
-            <div class="preset-buttons">
-                <button class="preset-btn" data-preset="major">😊 Happy (Major)</button>
-                <button class="preset-btn" data-preset="minor">😢 Sad (Minor)</button>
-                <button class="preset-btn" data-preset="power">💪 Power</button>
-                <button class="preset-btn" data-preset="ambient">✨ Ambient</button>
+            <div class="section-content">
+                <!-- Chord Progression Builder -->
+                <div class="chord-progression-control">
+                    <label><i class="fas fa-music"></i> Chord Progression:</label>
+                    <select id="chordProgressionSelect">
+                        <option value="">-- Select Progression --</option>
+                    </select>
+                    <button class="btn" id="applyChordProgressionBtn">Apply</button>
+                </div>
+                
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Click circles to create layered harmony notes, or select a chord progression</p>
+                
+                <!-- Step Timeline for Harmonics -->
+                <div class="section-timeline" id="harmonicsTimeline"></div>
+                
+                <div class="melody-controls">
+                    <select id="harmonicInstrument" class="form-select" data-tooltip="Choose an instrument for the harmonic background">
+                        <option value="fm">FM Synth</option>
+                        <option value="piano">Piano</option>
+                        <option value="pad">Pad</option>
+                        <option value="bell">Bell</option>
+                        <option value="pluck">Pluck</option>
+                    </select>
+                    <button class="preset-btn" id="clearHarmonicsBtn"><i class="fas fa-eraser"></i> Clear</button>
+                </div>
+                <div class="harmonics-grid" id="harmonicsGrid"></div>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-preset="major">😊 Happy (Major)</button>
+                    <button class="preset-btn" data-preset="minor">😢 Sad (Minor)</button>
+                    <button class="preset-btn" data-preset="power">💪 Power</button>
+                    <button class="preset-btn" data-preset="ambient">✨ Ambient</button>
+                </div>
             </div>
         </div>
 
         <!-- Melody Section -->
-        <div class="section">
+        <div class="section" id="stringsSection">
             <div class="section-header">
                 <h2><span class="section-icon">🎻</span> Melody Strings</h2>
                 <button class="toggle-btn active" id="stringsToggle">ON</button>
             </div>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Paint melodies by clicking squares (higher = higher pitch)</p>
             
-            <!-- Step Timeline for Melody -->
-            <div class="section-timeline" id="melodyTimeline"></div>
-            
-            <div class="melody-controls">
-                <select id="melodyInstrument" data-tooltip="Choose a sound for the melody notes" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="saw">Sawtooth</option>
-                    <option value="square">Square</option>
-                    <option value="sine">Sine</option>
-                    <option value="triangle">Triangle</option>
-                </select>
-                <select id="melodyScale" data-tooltip="Select the musical scale for your melody">
-                    <option value="c-major">C Major</option>
-                    <option value="g-major">G Major</option>
-                    <option value="f-major">F Major</option>
-                    <option value="d-minor">D Minor</option>
-                    <option value="a-minor">A Minor</option>
-                </select>
-                <button class="preset-btn" id="clearMelodyBtn"><i class="fas fa-eraser"></i> Clear</button>
-            </div>
-            <div class="strings-grid" id="stringsGrid"></div>
-            <div class="preset-buttons">
-                <button class="preset-btn" data-melody-preset="scale">📖 Scale</button>
-                <button class="preset-btn" data-melody-preset="arpeggio">🎵 Arpeggio</button>
-                <button class="preset-btn" data-melody-preset="happy">😊 Happy Tune</button>
-                <button class="preset-btn" data-melody-preset="mysterious">🔮 Mysterious</button>
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Paint melodies by clicking squares (higher = higher pitch)</p>
+                
+                <!-- Step Timeline for Melody -->
+                <div class="section-timeline" id="melodyTimeline"></div>
+                
+                <div class="melody-controls">
+                    <select id="melodyInstrument" class="form-select" data-tooltip="Choose a sound for the melody notes">
+                        <option value="saw">Sawtooth</option>
+                        <option value="square">Square</option>
+                        <option value="sine">Sine</option>
+                        <option value="triangle">Triangle</option>
+                    </select>
+                    <select id="melodyScale" class="form-select" data-tooltip="Select the musical scale for your melody">
+                        <option value="c-major">C Major</option>
+                        <option value="g-major">G Major</option>
+                        <option value="f-major">F Major</option>
+                        <option value="d-minor">D Minor</option>
+                        <option value="a-minor">A Minor</option>
+                    </select>
+                    <button class="preset-btn" id="clearMelodyBtn"><i class="fas fa-eraser"></i> Clear</button>
+                </div>
+                <div class="strings-grid" id="stringsGrid"></div>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-melody-preset="scale">📖 Scale</button>
+                    <button class="preset-btn" data-melody-preset="arpeggio">🎵 Arpeggio</button>
+                    <button class="preset-btn" data-melody-preset="happy">😊 Happy Tune</button>
+                    <button class="preset-btn" data-melody-preset="mysterious">🔮 Mysterious</button>
+                </div>
             </div>
         </div>
 
         <!-- Rhythm Section -->
-        <div class="section">
+        <div class="section" id="rhythmSection">
             <div class="section-header">
                 <h2><span class="section-icon">🥁</span> Rhythm & Drums</h2>
                 <button class="toggle-btn active" id="rhythmToggle">ON</button>
             </div>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create drum patterns by clicking on the grid</p>
             
-            <!-- Step Timeline for Rhythm -->
-            <div class="section-timeline" id="rhythmTimeline"></div>
-            
-            <div class="melody-controls">
-                <select id="drumKit" data-tooltip="Choose a drum kit style for your rhythm" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="acoustic">Acoustic</option>
-                    <option value="electronic">Electronic</option>
-                    <option value="808">808 Style</option>
-                </select>
-                <button class="preset-btn" id="clearRhythmBtn"><i class="fas fa-eraser"></i> Clear</button>
-            </div>
-            <div class="rhythm-grid" id="rhythmGrid"></div>
-            <div class="preset-buttons">
-                <button class="preset-btn" data-rhythm-preset="basic">👣 Basic Beat</button>
-                <button class="preset-btn" data-rhythm-preset="game">🎮 Game Beat</button>
-                <button class="preset-btn" data-rhythm-preset="dance">💃 Dance</button>
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create drum patterns by clicking on the grid</p>
+                
+                <!-- Step Timeline for Rhythm -->
+                <div class="section-timeline" id="rhythmTimeline"></div>
+                
+                <div class="melody-controls">
+                    <select id="drumKit" class="form-select" data-tooltip="Choose a drum kit style for your rhythm">
+                        <option value="acoustic">Acoustic</option>
+                        <option value="electronic">Electronic</option>
+                        <option value="808">808 Style</option>
+                    </select>
+                    <button class="preset-btn" id="clearRhythmBtn"><i class="fas fa-eraser"></i> Clear</button>
+                </div>
+                <div class="rhythm-grid" id="rhythmGrid"></div>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-rhythm-preset="basic">👣 Basic Beat</button>
+                    <button class="preset-btn" data-rhythm-preset="game">🎮 Game Beat</button>
+                    <button class="preset-btn" data-rhythm-preset="dance">💃 Dance</button>
+                </div>
             </div>
         </div>
         
         <!-- Bass Section -->
-        <div class="section">
+        <div class="section" id="bassSection">
             <div class="section-header">
                 <h2><span class="section-icon">🎸</span> Bass</h2>
                 <button class="toggle-btn active" id="bassToggle">ON</button>
             </div>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create bass lines (lower = deeper bass)</p>
             
-            <!-- Step Timeline for Bass -->
-            <div class="section-timeline" id="bassTimeline"></div>
-            
-            <div class="melody-controls">
-                <select id="bassInstrument" data-tooltip="Choose a bass sound" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="sub">Sub Bass</option>
-                    <option value="synth">Synth Bass</option>
-                    <option value="fm">FM Bass</option>
-                    <option value="square">Square Bass</option>
-                </select>
-                <select id="bassOctave" data-tooltip="Bass octave range" style="width: 100px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="1">1 Octave</option>
-                    <option value="2">2 Octaves</option>
-                </select>
-                <button class="preset-btn" id="clearBassBtn"><i class="fas fa-eraser"></i> Clear</button>
-            </div>
-            <div class="bass-grid" id="bassGrid"></div>
-            <div class="preset-buttons">
-                <button class="preset-btn" data-bass-preset="basic">🎸 Basic Bass</button>
-                <button class="preset-btn" data-bass-preset="walking">🚶 Walking</button>
-                <button class="preset-btn" data-bass-preset="groove">💃 Groove</button>
-                <button class="preset-btn" data-bass-preset="syncopated">🎵 Syncopated</button>
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create bass lines (lower = deeper bass)</p>
+                
+                <!-- Step Timeline for Bass -->
+                <div class="section-timeline" id="bassTimeline"></div>
+                
+                <div class="melody-controls">
+                    <select id="bassInstrument" class="form-select" data-tooltip="Choose a bass sound">
+                        <option value="sub">Sub Bass</option>
+                        <option value="synth">Synth Bass</option>
+                        <option value="fm">FM Bass</option>
+                        <option value="square">Square Bass</option>
+                    </select>
+                    <select id="bassOctave" class="form-select-small" data-tooltip="Bass octave range">
+                        <option value="1">1 Octave</option>
+                        <option value="2">2 Octaves</option>
+                    </select>
+                    <button class="preset-btn" id="clearBassBtn"><i class="fas fa-eraser"></i> Clear</button>
+                </div>
+                <div class="bass-grid" id="bassGrid"></div>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-bass-preset="basic">🎸 Basic Bass</button>
+                    <button class="preset-btn" data-bass-preset="walking">🚶 Walking</button>
+                    <button class="preset-btn" data-bass-preset="groove">💃 Groove</button>
+                    <button class="preset-btn" data-bass-preset="syncopated">🎵 Syncopated</button>
+                </div>
             </div>
         </div>
         
         <!-- Lead Section -->
-        <div class="section">
+        <div class="section" id="leadSection">
             <div class="section-header">
                 <h2><span class="section-icon">🎤</span> Lead</h2>
                 <button class="toggle-btn active" id="leadToggle">ON</button>
             </div>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create lead melodies with more synth options</p>
             
-            <!-- Step Timeline for Lead -->
-            <div class="section-timeline" id="leadTimeline"></div>
-            
-            <div class="melody-controls">
-                <select id="leadInstrument" data-tooltip="Choose a lead sound" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="saw">Sawtooth</option>
-                    <option value="square">Square</option>
-                    <option value="sine">Sine</option>
-                    <option value="triangle">Triangle</option>
-                    <option value="pulse">Pulse</option>
-                    <option value="supersaw">Super Saw</option>
-                </select>
-                <button class="preset-btn" id="clearLeadBtn"><i class="fas fa-eraser"></i> Clear</button>
-            </div>
-            <div class="lead-grid" id="leadGrid"></div>
-            <div class="preset-buttons">
-                <button class="preset-btn" data-lead-preset="melodic">🎵 Melodic</button>
-                <button class="preset-btn" data-lead-preset="arpeggio">🎼 Arpeggio</button>
-                <button class="preset-btn" data-lead-preset="stabs">📯 Stabs</button>
-                <button class="preset-btn" data-lead-preset="plucks">🎸 Plucks</button>
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Create lead melodies with more synth options</p>
+                
+                <!-- Step Timeline for Lead -->
+                <div class="section-timeline" id="leadTimeline"></div>
+                
+                <div class="melody-controls">
+                    <select id="leadInstrument" class="form-select" data-tooltip="Choose a lead sound">
+                        <option value="saw">Sawtooth</option>
+                        <option value="square">Square</option>
+                        <option value="sine">Sine</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="pulse">Pulse</option>
+                        <option value="supersaw">Super Saw</option>
+                    </select>
+                    <button class="preset-btn" id="clearLeadBtn"><i class="fas fa-eraser"></i> Clear</button>
+                </div>
+                <div class="lead-grid" id="leadGrid"></div>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-lead-preset="melodic">🎵 Melodic</button>
+                    <button class="preset-btn" data-lead-preset="arpeggio">🎼 Arpeggio</button>
+                    <button class="preset-btn" data-lead-preset="stabs">📯 Stabs</button>
+                    <button class="preset-btn" data-lead-preset="plucks">🎸 Plucks</button>
+                </div>
             </div>
         </div>
         
         <!-- Percussion Section -->
-        <div class="section">
+        <div class="section" id="percussionSection">
             <div class="section-header">
                 <h2><span class="section-icon">🎶</span> Percussion</h2>
                 <button class="toggle-btn" id="percussionToggle">OFF</button>
             </div>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Add congas, bongos, shakers, and cymbals</p>
             
-            <!-- Step Timeline for Percussion -->
-            <div class="section-timeline" id="percussionTimeline"></div>
-            
-            <div class="melody-controls">
-                <select id="percussionKit" data-tooltip="Choose a percussion kit" style="width: 140px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary);">
-                    <option value="latin">Latin</option>
-                    <option value="acoustic">Acoustic</option>
-                    <option value="electronic">Electronic</option>
-                </select>
-            </div>
-            <div class="rhythm-grid" id="percussionGrid"></div>
-            <div class="preset-buttons">
-                <button class="preset-btn" data-percussion-preset="latin">🌴 Latin</button>
-                <button class="preset-btn" data-percussion-preset="african">🥁 African</button>
-                <button class="preset-btn" data-percussion-preset="electronic">🎹 Electronic</button>
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Add congas, bongos, shakers, and cymbals</p>
+                
+                <!-- Step Timeline for Percussion -->
+                <div class="section-timeline" id="percussionTimeline"></div>
+                
+                <div class="melody-controls">
+                    <select id="percussionKit" class="form-select" data-tooltip="Choose a percussion kit">
+                        <option value="latin">Latin</option>
+                        <option value="acoustic">Acoustic</option>
+                        <option value="electronic">Electronic</option>
+                    </select>
+                </div>
+                <div class="rhythm-grid" id="percussionGrid"></div>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-percussion-preset="latin">🌴 Latin</button>
+                    <button class="preset-btn" data-percussion-preset="african">🥁 African</button>
+                    <button class="preset-btn" data-percussion-preset="electronic">🎹 Electronic</button>
+                </div>
             </div>
         </div>
 
@@ -295,63 +312,172 @@
                 <h2><span class="section-icon">🎚️</span> Automation</h2>
                 <button class="toggle-btn" id="automationToggle">OFF</button>
             </div>
+
+             <div class="section-content">
             
-            <!-- Advanced Mode Toggle -->
-            <div id="automationAdvancedToggle" class="automation-header">
-                <label class="toggle-switch">
-                    <input type="checkbox" id="enableAdvancedAutomation">
-                    <span class="toggle-slider"></span>
-                </label>
-                <span>Advanced Mode</span>
-                <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0; margin-left: 0.5rem;">Enable detailed automation curves</p>
+            <!-- Info Box -->
+            <div style="background: var(--surface); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> <strong>What is Automation?</strong><br>
+                    Automation lets you change things over time - like making your music fade in, making sounds move left to right, or emphasizing certain beats. Try the presets below to hear how it works!
+                </p>
             </div>
             
             <!-- Basic Automation (always visible) -->
             <div id="basicAutomation">
+                <!-- Section Repeats Control -->
+                <div class="automation-card" id="sectionRepeatsControl">
+                    <h4><i class="fas fa-redo"></i> Section Repeats</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem;">Set how many times each section loops before moving to the next</p>
+                    <div id="sectionRepeatsContainer"></div>
+                </div>
+                
                 <div class="automation-grid">
-                    <!-- Per-Step Velocity -->
+                    <!-- Stereo Positioning -->
                     <div class="automation-card">
-                        <h4><i class="fas fa-volume-up"></i> Step Velocity</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.5rem;">Click on active cells to adjust velocity</p>
-                        <div id="velocityEditor" class="velocity-editor">
-                            <div class="velocity-label">Step</div>
-                            <input type="range" id="velocitySlider" min="0" max="100" value="80">
-                            <span id="velocityValue">80%</span>
-                        </div>
-                        <button class="btn btn-secondary" id="copyVelocityBtn" style="margin-top: 0.5rem; font-size: 0.8rem;">Copy to All Steps</button>
-                    </div>
-                    
-                    <!-- Basic Pan Controls -->
-                    <div class="automation-card">
-                        <h4><i class="fas fa-random"></i> Pan Controls</h4>
+                        <h4><i class="fas fa-arrows-alt-h"></i> Stereo Positioning</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem;">
+                            Position sounds in the left/right stereo field for a wider mix
+                        </p>
+                        
                         <div class="pan-controls">
                             <div class="pan-control">
-                                <label>🎹 Harmony</label>
-                                <input type="range" id="harmonyPan" min="-100" max="100" value="0">
-                                <span id="harmonyPanValue">0</span>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <label style="font-weight: 500;">🎹 Harmony</label>
+                                    <span id="harmonyPanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
+                                </div>
+                                <input type="range" id="harmonyPan" min="-100" max="100" value="0" style="width: 100%;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
+                                    <span>← Left</span>
+                                    <span>Right →</span>
+                                </div>
                             </div>
+                            
                             <div class="pan-control">
-                                <label>🎻 Melody</label>
-                                <input type="range" id="melodyPan" min="-100" max="100" value="0">
-                                <span id="melodyPanValue">0</span>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <label style="font-weight: 500;">🎻 Melody</label>
+                                    <span id="melodyPanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
+                                </div>
+                                <input type="range" id="melodyPan" min="-100" max="100" value="0" style="width: 100%;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
+                                    <span>← Left</span>
+                                    <span>Right →</span>
+                                </div>
                             </div>
+                            
                             <div class="pan-control">
-                                <label>🥾 Kick</label>
-                                <input type="range" id="kickPan" min="-100" max="100" value="0">
-                                <span id="kickPanValue">0</span>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <label style="font-weight: 500;">🥾 Kick</label>
+                                    <span id="kickPanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
+                                </div>
+                                <input type="range" id="kickPan" min="-100" max="100" value="0" style="width: 100%;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
+                                    <span>← Left</span>
+                                    <span>Right →</span>
+                                </div>
                             </div>
+                            
                             <div class="pan-control">
-                                <label>🥁 Snare</label>
-                                <input type="range" id="snarePan" min="-100" max="100" value="0">
-                                <span id="snarePanValue">0</span>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                                    <label style="font-weight: 500;">🥁 Snare</label>
+                                    <span id="snarePanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
+                                </div>
+                                <input type="range" id="snarePan" min="-100" max="100" value="0" style="width: 100%;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
+                                    <span>← Left</span>
+                                    <span>Right →</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pan Presets -->
+                        <div id="panPresets" style="margin-top: 1rem;">
+                            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
+                                <strong>Quick Positions:</strong>
+                            </p>
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyPanPreset('center')">
+                                    Center All
+                                </button>
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyPanPreset('wide')">
+                                    Wide Stereo
+                                </button>
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyPanPreset('classic')">
+                                    Classic Mix
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Volume Control -->
+                    <div class="automation-card">
+                        <h4><i class="fas fa-volume-up"></i> Note Volume Control</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem;">
+                            Make individual notes louder or quieter to add dynamics
+                        </p>
+                        
+                        <div id="velocityEditor" class="velocity-editor">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                <div class="velocity-label" style="font-weight: 500; color: var(--text-secondary);">
+                                    Click a note above
+                                </div>
+                                <span id="velocityValue" style="font-family: monospace; font-size: 1.1rem; font-weight: bold; color: var(--accent);">80%</span>
+                            </div>
+                            <input type="range" id="velocitySlider" min="0" max="100" value="80" style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
+                                <span>Quiet</span>
+                                <span>Loud</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Instructions -->
+                        <div style="margin-top: 0.5rem; padding: 0.75rem; background: var(--surface); border-radius: 8px; font-size: 0.85rem;">
+                            <p style="margin: 0; color: var(--text-secondary);">
+                                <strong>How to use:</strong><br>
+                                1. Click on any active note in your pattern grids above<br>
+                                2. Adjust the slider to change that note's volume<br>
+                                3. Higher values = louder notes, lower = quieter
+                            </p>
+                        </div>
+                        
+                        <!-- Velocity Presets -->
+                        <div style="margin-top: 1rem;">
+                            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
+                                <strong>Quick Patterns:</strong>
+                            </p>
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('crescendo')">
+                                    📈 Crescendo
+                                </button>
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('decrescendo')">
+                                    📉 Decrescendo
+                                </button>
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('accent')">
+                                    💥 Accent Beat 1
+                                </button>
+                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('normal')">
+                                    ↔️ Reset to Normal
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
+            <!-- Advanced Mode Toggle -->
+            <div style="margin-top: 1.5rem; padding: 1rem; background: var(--surface); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <div style="font-weight: 500; color: var(--text-primary);"><i class="fas fa-sliders-h"></i> Advanced Mode</div>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0;">Draw smooth automation curves for velocity, pan, filter, and effects</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enableAdvancedAutomation">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
             <!-- Advanced Automation Curves -->
-            <div id="advancedAutomation" class="advanced-automation" style="display: none;">
+            <div id="advancedAutomation" class="advanced-automation" style="display: none; margin-top: 1.5rem;">
                 <div class="automation-curves-grid">
                     <!-- Velocity Curve Editor -->
                     <div class="automation-curve-card">
@@ -455,15 +581,23 @@
                         <button class="preset-btn" data-curve-preset="release">📉 Release</button>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
+        
+        <!-- Sound Effects Section -->
+        <div class="section" id="effectsSection">
             <div class="section-header">
-                <h2><span class="section-icon">✨</span> Sound Effects</h2>
+                <h2 c><span class="section-icon">✨</span> Sound Effects</h2>
                 <button class="toggle-btn active" id="effectsToggle">ON</button>
             </div>
-            
-            <!-- Audio Effects -->
-            <div class="effects-grid">
+            <div class="section-content">
+                <div class="effects-container">
+                    <div class="effects-header">
+                        <h3><i class="fas fa-magic"></i> Audio Effects</h3>
+                    </div>
+                <!-- Audio Effects -->
+                <div class="effects-grid">
                 <div class="effect-card" data-tooltip="Reverb creates a sense of space and depth by adding reflections">
                     <h4><i class="fas fa-wave-square"></i> Reverb</h4>
                     <input type="range" id="reverbAmount" min="0" max="100" value="30">

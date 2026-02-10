@@ -117,15 +117,18 @@ class Tooltip {
 
 const tooltip = new Tooltip();
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Listen for theme changes to update tooltip styles
-    const observer = new MutationObserver(() => {
-        tooltip.updateStyles();
-    });
-    observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
-    
+// Initialize tooltips for existing elements
+function initTooltips() {
     document.querySelectorAll('[data-tooltip]').forEach(el => {
+        if (el.dataset.tooltipInitialized) return;
         el.style.cursor = 'help';
+        el.dataset.tooltipInitialized = 'true';
+        
+        // Remove native title tooltip to avoid duplicate tooltips
+        if (el.hasAttribute('title')) {
+            el.removeAttribute('title');
+        }
+        
         el.addEventListener('mouseenter', () => {
             const text = el.getAttribute('data-tooltip');
             if (text) tooltip.show(text, el);
@@ -136,4 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Listen for theme changes to update tooltip styles
+    const observer = new MutationObserver(() => {
+        tooltip.updateStyles();
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+    
+    initTooltips();
 });
+
+// Export for use in other files
+window.initTooltips = initTooltips;

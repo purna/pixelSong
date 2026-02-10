@@ -108,9 +108,12 @@
     border: 1px solid var(--border-color);
 }
 
-.tempo-control label {
+.tempo-control label, .tempo-control span {
     color: var(--text-secondary);
     font-size: 0.9rem;
+}
+ .tempo-control span {
+    font-weight: bold;
 }
 
 .tempo-control input[type="range"] {

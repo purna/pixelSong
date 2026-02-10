@@ -34,7 +34,12 @@ class SongApp {
             this.songApp.drawFilterAutomation();
             this.songApp.setupEventListeners();
             this.songApp.updatePatternLengthUI();
-            this.songApp.createStepGroupsAccordion();
+            
+            // Initialize new automation controls
+            this.songApp.setupPanSliders();
+            this.songApp.setupVelocitySlider();
+            this.songApp.setupAdvancedAutomationToggle();
+            this.songApp.updatePanDisplays();
             
             this.songApp.dbManager = new SongDatabaseManager(this.songApp);
             this.songApp.fileManager = new SongFileManager(this.songApp);

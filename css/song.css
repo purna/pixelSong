@@ -253,14 +253,14 @@
 
 .group-grid-steps {
     display: grid;
-    grid-template-columns: repeat(16, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
     gap: 4px;
     flex: 1;
     max-width: 100%;
 }
 
 .group-step {
-    min-width: 6px;
+    min-width: 12px;
     height: 28px;
     background: var(--bg-primary);
     border-radius: 6px;
@@ -579,11 +579,21 @@
     flex-direction: column;
     align-items: center;
     gap: 2px;
+    min-width: 40px;
 }
 
 .loop-control-label-v {
-    font-size: 10px;
+    font-size: 14px;
     color: var(--text-secondary);
+    cursor: help;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.loop-control-label-v:hover {
+    color: var(--accent-color);
+    background: rgba(244, 114, 182, 0.1);
 }
 
 /* Vertical sliders - unified style for all instruments */
@@ -592,7 +602,8 @@
 .loop-pan-slider-v {
     -webkit-appearance: none;
     appearance: none;
-    width: 6px;
+    width: 8px;
+    min-width: 8px;
     height: 80px;
     background: transparent;
     cursor: pointer;
@@ -687,7 +698,8 @@
 .loop-bass-pan-slider-v {
     -webkit-appearance: none;
     appearance: none;
-    width: 6px;
+    width: 8px;
+    min-width: 8px;
     height: 80px;
     background: transparent;
     cursor: pointer;
@@ -745,7 +757,8 @@
 .loop-lead-pan-slider-v {
     -webkit-appearance: none;
     appearance: none;
-    width: 6px;
+    width: 8px;
+    min-width: 8px;
     height: 80px;
     background: transparent;
     cursor: pointer;
@@ -1221,6 +1234,9 @@
     grid-template-columns: repeat(8, 1fr);
     gap: 0.75rem;
     margin-top: 1rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 .harmonic-cell {
@@ -1235,6 +1251,8 @@
     justify-content: center;
     font-size: 0.85rem;
     font-weight: bold;
+    min-width: 0;
+    flex: 1;
 }
 
 .harmonic-cell:hover {
@@ -1247,6 +1265,40 @@
     border-color: var(--accent-color);
     color: white;
     box-shadow: 0 0 15px rgba(244, 114, 182, 0.5);
+}
+
+/* ==================== Form Select Style ==================== */
+.form-select {
+    width: 140px;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.form-select:hover {
+    border-color: var(--accent-color);
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(244, 114, 182, 0.2);
+}
+
+/* Smaller variant for narrow selects */
+.form-select-small {
+    width: 100px;
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.85rem;
 }
 
 /* ==================== Pulse Animation ==================== */
@@ -1572,12 +1624,14 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    min-width: 40px;
 }
 
 .loop-control-vertical input[type="range"] {
     writing-mode: vertical-lr;
     direction: rtl;
-    width: 6px;
+    width: 8px;
+    min-width: 8px;
     height: 100px;
     min-height: 100px;
     -webkit-appearance: slider-vertical;
@@ -1586,7 +1640,8 @@
 /* Firefox vertical slider support */
 @-moz-document url-prefix() {
     .loop-control-vertical input[type="range"] {
-        width: 6px;
+        width: 8px;
+        min-width: 8px;
         height: 100px;
         orient: vertical;
     }
@@ -1676,4 +1731,208 @@
     50% {
         box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.3);
     }
+}
+
+/* ==================== Loop Count Control ==================== */
+.loop-count-control {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 6px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.loop-count-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.loop-count-select {
+    width: 40px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.loop-count-select:hover {
+    border-color: var(--accent-color);
+}
+
+.loop-count-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(244, 114, 182, 0.2);
+}
+
+/* Color variations for different instruments */
+.melody-group-row .loop-count-select {
+    border-color: var(--accent-color);
+}
+
+.bass-group-row .loop-count-select {
+    border-color: #a78bfa;
+}
+
+.lead-group-row .loop-count-select {
+    border-color: #34d399;
+}
+
+/* Header adjustments for loop count */
+.melody-group-header,
+.bass-group-header,
+.lead-group-header {
+    min-width: 70px;
+}
+
+/* ==================== Section Visibility Toggle ==================== */
+/* Hide all rows by default when section visibility is active */
+.melody-group-row.hidden,
+.bass-group-row.hidden,
+.lead-group-row.hidden,
+.rhythm-group-row.hidden {
+    display: none !important;
+}
+
+/* Show only selected rows */
+.melody-group-row.show,
+.bass-group-row.show,
+.lead-group-row.show,
+.rhythm-group-row.show {
+    display: flex !important;
+}
+
+/* Active state for timeline rows */
+.section-timeline .group-grid-row.active {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 16px rgba(244, 114, 182, 0.4);
+}
+
+/* ==================== Section Repeats Control ==================== */
+#sectionRepeatsControl {
+    margin-bottom: 1rem;
+}
+
+#sectionRepeatsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.section-repeat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    min-width: 100px;
+    transition: all 0.2s ease;
+}
+
+.section-repeat-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.section-repeat-item.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.3);
+}
+
+.section-repeat-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.section-repeat-range {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.section-repeat-item.active .section-repeat-name {
+    color: var(--accent-color);
+}
+
+.section-repeat-select {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.section-repeat-select label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.section-repeat-select select {
+    width: 50px;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.section-repeat-select select:hover {
+    border-color: var(--accent-color);
+}
+
+/* Disabled state styles for section controls */
+.form-select:disabled,
+.form-select-small:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.preset-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Disabled section styles */
+.section.disabled {
+    opacity: 0.6;
+}
+
+.section.disabled .form-select,
+.section.disabled .form-select-small,
+.section.disabled .preset-btn,
+.section.disabled button {
+    pointer-events: none;
+}
+
+.section.disabled .harmonics-grid,
+.section.disabled .strings-grid,
+.section.disabled .bass-grid,
+.section.disabled .lead-grid,
+.section.disabled .rhythm-grid {
+    opacity: 0.4;
+}
+
+/* Section Repeats Focus */
+.section-repeat-select select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.2);
 }

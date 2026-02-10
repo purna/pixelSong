@@ -9,21 +9,21 @@
 let genreCache = {};
 let isLoading = false;
 
-// Genre files mapping
+// Genre files mapping - uses 64-step JSON files
 const GENRE_FILES = {
-    'rock': 'docs/rock.json',
-    'pop': 'docs/pop.json',
-    'electronic': 'docs/electronic.json',
-    'hip-hop': 'docs/hip-hop.json',
-    'jazz': 'docs/jazz.json',
-    'classical': 'docs/classical.json',
-    'country': 'docs/country.json',
-    'reggae': 'docs/reggae.json',
-    'metal': 'docs/metal.json',
-    'indie': 'docs/indie.json',
-    'disco': 'docs/disco.json',
-    'blues': 'docs/blues.json',
-    'funk': 'docs/funk.json'
+    'rock': 'docs/rock_64step.json',
+    'pop': 'docs/pop_64step.json',
+    'electronic': 'docs/electronic_64step.json',
+    'hip-hop': 'docs/hip-hop_64step.json',
+    'jazz': 'docs/jazz_64step.json',
+    'classical': 'docs/classical_64step.json',
+    'country': 'docs/country_64step.json',
+    'reggae': 'docs/reggae_64step.json',
+    'metal': 'docs/metal_64step.json',
+    'indie': 'docs/indie_64step.json',
+    'disco': 'docs/disco_64step.json',
+    'blues': 'docs/blues_64step.json',
+    'funk': 'docs/funk_64step.json'
 };
 
 // Load a single genre file
@@ -78,7 +78,7 @@ function buildSongPresetsFromGenreData(genreData) {
                 variations.forEach(variation => {
                     presets[variation.key] = {
                         name: variation.name,
-                        artist: variation.artist || genre.genre,
+                        artist: variation.artist && variation.artist !== 'Unknown Artist' ? variation.artist : genre.genre,
                         year: variation.year,
                         genre: genre.genre,
                         subgenre: variation.subgenre,
@@ -102,7 +102,7 @@ function buildSongPresetsFromGenreData(genreData) {
             genre.songs.forEach(song => {
                 presets[song.key] = {
                     name: song.name,
-                    artist: song.artist,
+                    artist: song.artist && song.artist !== 'Unknown Artist' ? song.artist : genre.genre,
                     year: song.year,
                     genre: genre.genre,
                     subgenre: song.subgenre,
@@ -143,7 +143,7 @@ async function getPresetsByGenre(genre) {
             variations.forEach(variation => {
                 presets[variation.key] = {
                     name: variation.name,
-                    artist: variation.artist || genre,
+                    artist: variation.artist && variation.artist !== 'Unknown Artist' ? variation.artist : genre,
                     year: variation.year,
                     genre: genre,
                     subgenre: variation.subgenre,
@@ -168,7 +168,7 @@ async function getPresetsByGenre(genre) {
         songs.forEach(song => {
             presets[song.key] = {
                 name: song.name,
-                artist: song.artist,
+                artist: song.artist && song.artist !== 'Unknown Artist' ? song.artist : genre,
                 year: song.year,
                 genre: genre,
                 subgenre: song.subgenre,

@@ -1,0 +1,34 @@
+/* Disabled state styles for section controls */
+.form-select:disabled,
+.form-select-small:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.preset-btn:disabled,
+.toggle-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Disabled section styles */
+.section.disabled {
+    opacity: 0.6;
+}
+
+.section.disabled .form-select,
+.section.disabled .form-select-small,
+.section.disabled .preset-btn,
+.section.disabled button {
+    pointer-events: none;
+}
+
+.section.disabled .harmonics-grid,
+.section.disabled .strings-grid,
+.section.disabled .bass-grid,
+.section.disabled .lead-grid,
+.section.disabled .rhythm-grid {
+    opacity: 0.4;
+}
