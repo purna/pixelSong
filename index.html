@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/controls.css">
     <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/song.css">
+    <link rel="stylesheet" href="css/stage.css">
+    <link rel="stylesheet" href="css/automation.css">
 </head>
 
 <body>
@@ -42,6 +44,8 @@
                 <button class="btn btn-secondary" id="exportBtn"><i class="fas fa-download"></i> Export</button>
             </div>
         </header>
+
+
 
         <div class="controls">
             <div class="control-group">
@@ -87,7 +91,7 @@
                 </div>
             </div>
             
-
+            
             <div class="control-group">
                 <button class="btn btn-clear" id="clearBtn"><i class="fas fa-stop"></i> Clear</button>
 
@@ -95,6 +99,8 @@
                 <button class="btn btn-secondary" id="helpBtn"><i class="fas fa-question"></i> Help</button>
             </div>
         </div>
+
+   
 
         <!-- Harmonics Section -->
         <div class="section" id="harmonicsSection">
@@ -306,289 +312,277 @@
             </div>
         </div>
 
-        <!-- Automation Section -->
-        <div class="section">
+        <!-- Main Stage Section -->
+        <div class="section" id="mainStageSection">
             <div class="section-header">
-                <h2><span class="section-icon">🎚️</span> Automation</h2>
-                <button class="toggle-btn" id="automationToggle">OFF</button>
+                <h2><span class="section-icon">🎭</span> Stage Positioning</h2>
+                <button class="toggle-btn active" id="stageToggle">ON</button>
             </div>
-
-             <div class="section-content">
             
-            <!-- Info Box -->
-            <div style="background: var(--surface); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
-                    <i class="fas fa-info-circle"></i> <strong>What is Automation?</strong><br>
-                    Automation lets you change things over time - like making your music fade in, making sounds move left to right, or emphasizing certain beats. Try the presets below to hear how it works!
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                    <strong>Drag</strong> instruments around the stage or <strong>click</strong> to select, then adjust position and movement style below.
                 </p>
-            </div>
-            
-            <!-- Basic Automation (always visible) -->
-            <div id="basicAutomation">
-                <!-- Section Repeats Control -->
-                <div class="automation-card" id="sectionRepeatsControl">
-                    <h4><i class="fas fa-redo"></i> Section Repeats</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem;">Set how many times each section loops before moving to the next</p>
-                    <div id="sectionRepeatsContainer"></div>
+                
+                <!-- Visual Stage Representation -->
+                <div class="stage-visualizer">
+                    <div class="stage-label-left">LEFT SPEAKER</div>
+                    <div class="stage-area" id="stageArea">
+                        <div class="stage-back">Back of Stage (Wet • Distant • More Reverb)</div>
+                        <div class="stage-front">Front of Stage (Dry • Close • Less Reverb)</div>
+                        
+                        <!-- Instrument markers rendered by js/stage.js -->
+                    </div>
+                    <div class="stage-label-right">RIGHT SPEAKER</div>
                 </div>
                 
-                <div class="automation-grid">
-                    <!-- Stereo Positioning -->
-                    <div class="automation-card">
-                        <h4><i class="fas fa-arrows-alt-h"></i> Stereo Positioning</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem;">
-                            Position sounds in the left/right stereo field for a wider mix
+                <!-- Movement Controls -->
+                <div class="movement-controls">
+                    <div class="movement-section">
+                        <label style="font-weight: bold; margin-bottom: 0.5rem; display: block;">
+                            <i class="fas fa-hand-pointer"></i> Selected: <span id="selectedInstrument">None - Click an instrument above</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Start Position -->
+                    <div class="position-control">
+                        <label>
+                            <i class="fas fa-play"></i> Start Position
+                        </label>
+                        <div class="position-slider-container">
+                            <span class="position-marker">L</span>
+                            <input type="range" id="startPosition" min="-100" max="100" value="0" class="position-slider">
+                            <span class="position-marker">R</span>
+                            <span class="position-value" id="startPosValue">Center</span>
+                        </div>
+                    </div>
+                    
+                    <!-- End Position -->
+                    <div class="position-control">
+                        <label>
+                            <i class="fas fa-flag-checkered"></i> End Position
+                        </label>
+                        <div class="position-slider-container">
+                            <span class="position-marker">L</span>
+                            <input type="range" id="endPosition" min="-100" max="100" value="0" class="position-slider">
+                            <span class="position-marker">R</span>
+                            <span class="position-value" id="endPosValue">Center</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Depth Position -->
+                    <div class="position-control">
+                        <label>
+                            <i class="fas fa-layer-group"></i> Stage Depth (Reverb Amount)
+                        </label>
+                        <div class="position-slider-container">
+                            <span class="position-marker" style="font-size: 0.7rem;">Front</span>
+                            <input type="range" id="depthPosition" min="0" max="100" value="50" class="depth-slider">
+                            <span class="position-marker" style="font-size: 0.7rem;">Back</span>
+                            <span class="position-value" id="depthPosValue">50%</span>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0;">
+                            Front = Dry & Close · Back = Wet & Distant
                         </p>
-                        
-                        <div class="pan-controls">
-                            <div class="pan-control">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-                                    <label style="font-weight: 500;">🎹 Harmony</label>
-                                    <span id="harmonyPanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
-                                </div>
-                                <input type="range" id="harmonyPan" min="-100" max="100" value="0" style="width: 100%;">
-                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
-                                    <span>← Left</span>
-                                    <span>Right →</span>
-                                </div>
-                            </div>
-                            
-                            <div class="pan-control">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-                                    <label style="font-weight: 500;">🎻 Melody</label>
-                                    <span id="melodyPanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
-                                </div>
-                                <input type="range" id="melodyPan" min="-100" max="100" value="0" style="width: 100%;">
-                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
-                                    <span>← Left</span>
-                                    <span>Right →</span>
-                                </div>
-                            </div>
-                            
-                            <div class="pan-control">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-                                    <label style="font-weight: 500;">🥾 Kick</label>
-                                    <span id="kickPanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
-                                </div>
-                                <input type="range" id="kickPan" min="-100" max="100" value="0" style="width: 100%;">
-                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
-                                    <span>← Left</span>
-                                    <span>Right →</span>
-                                </div>
-                            </div>
-                            
-                            <div class="pan-control">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-                                    <label style="font-weight: 500;">🥁 Snare</label>
-                                    <span id="snarePanValue" style="font-family: monospace; min-width: 60px; text-align: right;">Center</span>
-                                </div>
-                                <input type="range" id="snarePan" min="-100" max="100" value="0" style="width: 100%;">
-                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
-                                    <span>← Left</span>
-                                    <span>Right →</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Pan Presets -->
-                        <div id="panPresets" style="margin-top: 1rem;">
-                            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
-                                <strong>Quick Positions:</strong>
-                            </p>
-                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyPanPreset('center')">
-                                    Center All
-                                </button>
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyPanPreset('wide')">
-                                    Wide Stereo
-                                </button>
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyPanPreset('classic')">
-                                    Classic Mix
-                                </button>
-                            </div>
-                        </div>
                     </div>
                     
-                    <!-- Volume Control -->
-                    <div class="automation-card">
-                        <h4><i class="fas fa-volume-up"></i> Note Volume Control</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.75rem;">
-                            Make individual notes louder or quieter to add dynamics
-                        </p>
-                        
-                        <div id="velocityEditor" class="velocity-editor">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                                <div class="velocity-label" style="font-weight: 500; color: var(--text-secondary);">
-                                    Click a note above
-                                </div>
-                                <span id="velocityValue" style="font-family: monospace; font-size: 1.1rem; font-weight: bold; color: var(--accent);">80%</span>
-                            </div>
-                            <input type="range" id="velocitySlider" min="0" max="100" value="80" style="width: 100%;">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem;">
-                                <span>Quiet</span>
-                                <span>Loud</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Instructions -->
-                        <div style="margin-top: 0.5rem; padding: 0.75rem; background: var(--surface); border-radius: 8px; font-size: 0.85rem;">
-                            <p style="margin: 0; color: var(--text-secondary);">
-                                <strong>How to use:</strong><br>
-                                1. Click on any active note in your pattern grids above<br>
-                                2. Adjust the slider to change that note's volume<br>
-                                3. Higher values = louder notes, lower = quieter
-                            </p>
-                        </div>
-                        
-                        <!-- Velocity Presets -->
-                        <div style="margin-top: 1rem;">
-                            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
-                                <strong>Quick Patterns:</strong>
-                            </p>
-                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('crescendo')">
-                                    📈 Crescendo
-                                </button>
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('decrescendo')">
-                                    📉 Decrescendo
-                                </button>
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('accent')">
-                                    💥 Accent Beat 1
-                                </button>
-                                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" onclick="app.applyVelocityPattern('normal')">
-                                    ↔️ Reset to Normal
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Advanced Mode Toggle -->
-            <div style="margin-top: 1.5rem; padding: 1rem; background: var(--surface); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-                <div>
-                    <div style="font-weight: 500; color: var(--text-primary);"><i class="fas fa-sliders-h"></i> Advanced Mode</div>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0;">Draw smooth automation curves for velocity, pan, filter, and effects</p>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="enableAdvancedAutomation">
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            
-            <!-- Advanced Automation Curves -->
-            <div id="advancedAutomation" class="advanced-automation" style="display: none; margin-top: 1.5rem;">
-                <div class="automation-curves-grid">
-                    <!-- Velocity Curve Editor -->
-                    <div class="automation-curve-card">
-                        <div class="curve-header">
-                            <h4><i class="fas fa-wave-square"></i> Velocity Curve</h4>
-                            <select id="velocityCurveInstrument" class="curve-instrument-select">
-                                <option value="melody">Melody</option>
-                                <option value="bass">Bass</option>
-                                <option value="lead">Lead</option>
-                                <option value="harmony">Harmony</option>
-                            </select>
-                        </div>
-                        <div class="curve-canvas-container">
-                            <canvas id="velocityCurveCanvas" width="600" height="80"></canvas>
-                        </div>
-                        <div class="curve-controls">
-                            <button class="btn btn-secondary" id="velocityClearBtn">Clear</button>
-                            <button class="btn btn-secondary" id="velocitySmoothBtn">Smooth</button>
-                            <button class="btn btn-secondary" id="velocityRampUpBtn">Ramp Up</button>
-                            <button class="btn btn-secondary" id="velocityRampDownBtn">Ramp Down</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Pan Curve Editor -->
-                    <div class="automation-curve-card">
-                        <div class="curve-header">
-                            <h4><i class="fas fa-exchange-alt"></i> Pan Curve</h4>
-                            <select id="panCurveInstrument" class="curve-instrument-select">
-                                <option value="melody">Melody</option>
-                                <option value="bass">Bass</option>
-                                <option value="lead">Lead</option>
-                                <option value="harmony">Harmony</option>
-                                <option value="drums">Drums</option>
-                            </select>
-                        </div>
-                        <div class="curve-canvas-container">
-                            <canvas id="panCurveCanvas" width="600" height="80"></canvas>
-                        </div>
-                        <div class="curve-controls">
-                            <button class="btn btn-secondary" id="panClearBtn">Clear</button>
-                            <button class="btn btn-secondary" id="panSineBtn">Sine Wave</button>
-                            <button class="btn btn-secondary" id="panAlternatingBtn">Alternating</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Filter Cutoff Curve -->
-                    <div class="automation-curve-card">
-                        <div class="curve-header">
-                            <h4><i class="fas fa-filter"></i> Filter Cutoff</h4>
-                            <select id="filterTypeSelect" class="curve-instrument-select">
-                                <option value="lowpass">Low-Pass</option>
-                                <option value="highpass">High-Pass</option>
-                                <option value="bandpass">Band-Pass</option>
-                            </select>
-                        </div>
-                        <div class="curve-canvas-container">
-                            <canvas id="filterCurveCanvas" width="600" height="80"></canvas>
-                        </div>
-                        <div class="curve-controls">
-                            <button class="btn btn-secondary" id="filterClearBtn">Clear</button>
-                            <button class="btn btn-secondary" id="filterSweepUpBtn">Sweep Up</button>
-                            <button class="btn btn-secondary" id="filterSweepDownBtn">Sweep Down</button>
-                            <button class="btn btn-secondary" id="filterWobbleBtn">Wobble</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Effect Parameter Automation -->
-                    <div class="automation-curve-card">
-                        <div class="curve-header">
-                            <h4><i class="fas fa-sliders-h"></i> Effect Automation</h4>
-                            <select id="effectParamSelect" class="curve-instrument-select">
-                                <option value="reverb">Reverb</option>
-                                <option value="echo">Echo</option>
-                                <option value="chorus">Chorus</option>
-                                <option value="distortion">Distortion</option>
-                                <option value="tremolo">Tremolo</option>
-                            </select>
-                        </div>
-                        <div class="curve-canvas-container">
-                            <canvas id="effectCurveCanvas" width="600" height="80"></canvas>
-                        </div>
-                        <div class="curve-controls">
-                            <button class="btn btn-secondary" id="effectClearBtn">Clear</button>
-                            <button class="btn btn-secondary" id="effectFadeInBtn">Fade In</button>
-                            <button class="btn btn-secondary" id="effectFadeOutBtn">Fade Out</button>
-                            <button class="btn btn-secondary" id="effectPulseBtn">Pulse</button>
+                    <!-- Movement Type -->
+                    <div class="movement-type-control">
+                        <label style="font-weight: bold; margin-bottom: 0.5rem; display: block;">
+                            <i class="fas fa-route"></i> Movement Style
+                        </label>
+                        <div class="movement-buttons">
+                            <button class="movement-btn active" data-movement="static">
+                                <i class="fas fa-circle"></i> Stay Put
+                            </button>
+                            <button class="movement-btn" data-movement="smooth">
+                                <i class="fas fa-water"></i> Smooth Glide
+                            </button>
+                            <button class="movement-btn" data-movement="swing">
+                                <i class="fas fa-exchange-alt"></i> Back & Forth
+                            </button>
+                            <button class="movement-btn" data-movement="bounce">
+                                <i class="fas fa-tennis-ball"></i> Bounce
+                            </button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Preset Curves -->
-                <div class="curve-presets">
-                    <h4><i class="fas fa-magic"></i> Quick Presets</h4>
-                    <div class="preset-buttons">
-                        <button class="preset-btn" data-curve-preset="fade-in">🎵 Fade In</button>
-                        <button class="preset-btn" data-curve-preset="fade-out">🔊 Fade Out</button>
-                        <button class="preset-btn" data-curve-preset="tremolo">🌊 Tremolo</button>
-                        <button class="preset-btn" data-curve-preset="filter-sweep">🎚️ Filter Sweep</button>
-                        <button class="preset-btn" data-curve-preset="auto-pan">🔄 Auto-Pan</button>
-                        <button class="preset-btn" data-curve-preset="build-up">📈 Build Up</button>
-                        <button class="preset-btn" data-curve-preset="release">📉 Release</button>
+                <!-- Stage Formations -->
+                <div class="formation-presets">
+                    <h4 style="margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-users"></i> Stage Formations
+                    </h4>
+                    <div class="preset-buttons-grid">
+                        <button class="stage-preset-btn" data-formation="center">
+                            <i class="fas fa-compress"></i> All Center
+                        </button>
+                        <button class="stage-preset-btn" data-formation="spread">
+                            <i class="fas fa-expand"></i> Spread Out
+                        </button>
+                        <button class="stage-preset-btn" data-formation="rock-band">
+                            <i class="fas fa-guitar"></i> Rock Band
+                        </button>
+                        <button class="stage-preset-btn" data-formation="orchestra">
+                            <i class="fas fa-music"></i> Orchestra
+                        </button>
+                        <button class="stage-preset-btn" data-formation="swirl">
+                            <i class="fas fa-sync-alt"></i> Swirling
+                        </button>
+                        <button class="stage-preset-btn" data-formation="call-response">
+                            <i class="fas fa-comments"></i> Call & Response
+                        </button>
                     </div>
                 </div>
+                
+                <!-- Advanced Mode Toggle -->
+                <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <div style="font-weight: 500; color: var(--text-primary);"><i class="fas fa-sliders-h"></i> Advanced Mode</div>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0;">Draw smooth automation curves for velocity, pan, filter, and effects</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="enableAdvancedAutomation">
+                        <span class="toggle-slider"></span>
+                    </label>
                 </div>
+                
+                <!-- Advanced Automation Curves -->
+                <div id="advancedAutomation" class="advanced-automation" style="display: none; margin-top: 1.5rem;">
+                    <div class="automation-curves-grid">
+                        <!-- Velocity Curve Editor -->
+                        <div class="automation-curve-card">
+                            <div class="curve-header">
+                                <h4><i class="fas fa-wave-square"></i> Velocity Curve</h4>
+                                <select id="velocityCurveInstrument" class="curve-instrument-select">
+                                    <option value="melody">Melody</option>
+                                    <option value="bass">Bass</option>
+                                    <option value="lead">Lead</option>
+                                    <option value="harmony">Harmony</option>
+                                </select>
+                            </div>
+                            <div class="curve-canvas-container">
+                                <canvas id="velocityCurveCanvas" width="600" height="80"></canvas>
+                            </div>
+                            <div class="curve-controls">
+                                <button class="btn btn-secondary" id="velocityClearBtn">Clear</button>
+                                <button class="btn btn-secondary" id="velocitySmoothBtn">Smooth</button>
+                                <button class="btn btn-secondary" id="velocityRampUpBtn">Ramp Up</button>
+                                <button class="btn btn-secondary" id="velocityRampDownBtn">Ramp Down</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Pan Curve Editor -->
+                        <div class="automation-curve-card">
+                            <div class="curve-header">
+                                <h4><i class="fas fa-exchange-alt"></i> Pan Curve</h4>
+                                <select id="panCurveInstrument" class="curve-instrument-select">
+                                    <option value="melody">Melody</option>
+                                    <option value="bass">Bass</option>
+                                    <option value="lead">Lead</option>
+                                    <option value="harmony">Harmony</option>
+                                    <option value="drums">Drums</option>
+                                </select>
+                            </div>
+                            <div class="curve-canvas-container">
+                                <canvas id="panCurveCanvas" width="600" height="80"></canvas>
+                            </div>
+                            <div class="curve-controls">
+                                <button class="btn btn-secondary" id="panClearBtn">Clear</button>
+                                <button class="btn btn-secondary" id="panSineBtn">Sine Wave</button>
+                                <button class="btn btn-secondary" id="panAlternatingBtn">Alternating</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Filter Cutoff Curve -->
+                        <div class="automation-curve-card">
+                            <div class="curve-header">
+                                <h4><i class="fas fa-filter"></i> Filter Cutoff</h4>
+                                <select id="filterTypeSelect" class="curve-instrument-select">
+                                    <option value="lowpass">Low-Pass</option>
+                                    <option value="highpass">High-Pass</option>
+                                    <option value="bandpass">Band-Pass</option>
+                                </select>
+                            </div>
+                            <div class="curve-canvas-container">
+                                <canvas id="filterCurveCanvas" width="600" height="80"></canvas>
+                            </div>
+                            <div class="curve-controls">
+                                <button class="btn btn-secondary" id="filterClearBtn">Clear</button>
+                                <button class="btn btn-secondary" id="filterSweepUpBtn">Sweep Up</button>
+                                <button class="btn btn-secondary" id="filterSweepDownBtn">Sweep Down</button>
+                                <button class="btn btn-secondary" id="filterWobbleBtn">Wobble</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Effect Parameter Automation -->
+                        <div class="automation-curve-card">
+                            <div class="curve-header">
+                                <h4><i class="fas fa-sliders-h"></i> Effect Automation</h4>
+                                <select id="effectParamSelect" class="curve-instrument-select">
+                                    <option value="reverb">Reverb</option>
+                                    <option value="echo">Echo</option>
+                                    <option value="chorus">Chorus</option>
+                                    <option value="distortion">Distortion</option>
+                                    <option value="tremolo">Tremolo</option>
+                                </select>
+                            </div>
+                            <div class="curve-canvas-container">
+                                <canvas id="effectCurveCanvas" width="600" height="80"></canvas>
+                            </div>
+                            <div class="curve-controls">
+                                <button class="btn btn-secondary" id="effectClearBtn">Clear</button>
+                                <button class="btn btn-secondary" id="effectFadeInBtn">Fade In</button>
+                                <button class="btn btn-secondary" id="effectFadeOutBtn">Fade Out</button>
+                                <button class="btn btn-secondary" id="effectPulseBtn">Pulse</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Preset Curves -->
+                    <div class="curve-presets">
+                        <h4><i class="fas fa-magic"></i> Quick Presets</h4>
+                        <div class="preset-buttons">
+                            <button class="preset-btn" data-curve-preset="fade-in">🎵 Fade In</button>
+                            <button class="preset-btn" data-curve-preset="fade-out">🔊 Fade Out</button>
+                            <button class="preset-btn" data-curve-preset="tremolo">🌊 Tremolo</button>
+                            <button class="preset-btn" data-curve-preset="filter-sweep">🎚️ Filter Sweep</button>
+                            <button class="preset-btn" data-curve-preset="auto-pan">🔄 Auto-Pan</button>
+                            <button class="preset-btn" data-curve-preset="build-up">📈 Build Up</button>
+                            <button class="preset-btn" data-curve-preset="release">📉 Release</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Info Box -->
+                <div class="info-box" style="margin-top: 1rem;">
+                    <p>
+                        <strong>💡 Tip:</strong> 
+                        Movement creates a sense of space and energy. Try "Swirling" for dance music or "Call & Response" for dramatic back-and-forth effects!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Repeats Section -->
+        <div class="section" id="sectionRepeatsSection">
+            <div class="section-header">
+                <h2><span class="section-icon">🔄</span> Section Repeats</h2>
+                <button class="toggle-btn active" id="sectionRepeatsToggle">ON</button>
+            </div>
+            
+            <div class="section-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                    Set how many times each section loops before moving to the next
+                </p>
+                <div id="sectionRepeatsContainer"></div>
             </div>
         </div>
         
         <!-- Sound Effects Section -->
         <div class="section" id="effectsSection">
             <div class="section-header">
-                <h2 c><span class="section-icon">✨</span> Sound Effects</h2>
+                <h2><span class="section-icon">✨</span> Sound Effects</h2>
                 <button class="toggle-btn active" id="effectsToggle">ON</button>
             </div>
             <div class="section-content">
@@ -598,50 +592,51 @@
                     </div>
                 <!-- Audio Effects -->
                 <div class="effects-grid">
-                <div class="effect-card" data-tooltip="Reverb creates a sense of space and depth by adding reflections">
-                    <h4><i class="fas fa-wave-square"></i> Reverb</h4>
-                    <input type="range" id="reverbAmount" min="0" max="100" value="30">
-                    <span class="effect-value" id="reverbValue">30%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Echo adds repeating delays for a rhythmic echo effect">
-                    <h4><i class="fas fa-sync"></i> Echo</h4>
-                    <input type="range" id="echoAmount" min="0" max="100" value="20">
-                    <span class="effect-value" id="echoValue">20%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Chorus thickens sound by adding a slight pitch variation">
-                    <h4><i class="fas fa-music"></i> Chorus</h4>
-                    <input type="range" id="chorusAmount" min="0" max="100" value="30">
-                    <span class="effect-value" id="chorusValue">30%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Low-Pass Filter cuts high frequencies for a warmer sound">
-                    <h4><i class="fas fa-filter"></i> Low-Pass</h4>
-                    <input type="range" id="lowpassAmount" min="0" max="100" value="50">
-                    <span class="effect-value" id="lowpassValue">50%</span>
-                </div>
-                <div class="effect-card" data-tooltip="High-Pass Filter removes low rumble for clearer highs">
-                    <h4><i class="fas fa-filter"></i> High-Pass</h4>
-                    <input type="range" id="highpassAmount" min="0" max="100" value="0">
-                    <span class="effect-value" id="highpassValue">0%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Distortion adds overdrive and grit for aggressive sounds">
-                    <h4><i class="fas fa-bolt"></i> Distortion</h4>
-                    <input type="range" id="distortionAmount" min="0" max="100" value="0">
-                    <span class="effect-value" id="distortionValue">0%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Bitcrush reduces audio quality for retro lo-fi effects">
-                    <h4><i class="fas fa-cubes"></i> Bitcrush</h4>
-                    <input type="range" id="bitcrushAmount" min="0" max="100" value="0">
-                    <span class="effect-value" id="bitcrushValue">0%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Tremolo creates a pulsing volume effect">
-                    <h4><i class="fas fa-wave-square"></i> Tremolo</h4>
-                    <input type="range" id="tremoloAmount" min="0" max="100" value="0">
-                    <span class="effect-value" id="tremoloValue">0%</span>
-                </div>
-                <div class="effect-card" data-tooltip="Vibrato adds a slight pitch waver for expressive sounds">
-                    <h4><i class="fas fa-broadcast-tower"></i> Vibrato</h4>
-                    <input type="range" id="vibratoAmount" min="0" max="100" value="0">
-                    <span class="effect-value" id="vibratoValue">0%</span>
+                    <div class="effect-card" data-tooltip="Reverb creates a sense of space and depth by adding reflections">
+                        <h4><i class="fas fa-wave-square"></i> Reverb</h4>
+                        <input type="range" id="reverbAmount" min="0" max="100" value="30">
+                        <span class="effect-value" id="reverbValue">30%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Echo adds repeating delays for a rhythmic echo effect">
+                        <h4><i class="fas fa-sync"></i> Echo</h4>
+                        <input type="range" id="echoAmount" min="0" max="100" value="20">
+                        <span class="effect-value" id="echoValue">20%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Chorus thickens sound by adding a slight pitch variation">
+                        <h4><i class="fas fa-music"></i> Chorus</h4>
+                        <input type="range" id="chorusAmount" min="0" max="100" value="30">
+                        <span class="effect-value" id="chorusValue">30%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Low-Pass Filter cuts high frequencies for a warmer sound">
+                        <h4><i class="fas fa-filter"></i> Low-Pass</h4>
+                        <input type="range" id="lowpassAmount" min="0" max="100" value="50">
+                        <span class="effect-value" id="lowpassValue">50%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="High-Pass Filter removes low rumble for clearer highs">
+                        <h4><i class="fas fa-filter"></i> High-Pass</h4>
+                        <input type="range" id="highpassAmount" min="0" max="100" value="0">
+                        <span class="effect-value" id="highpassValue">0%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Distortion adds overdrive and grit for aggressive sounds">
+                        <h4><i class="fas fa-bolt"></i> Distortion</h4>
+                        <input type="range" id="distortionAmount" min="0" max="100" value="0">
+                        <span class="effect-value" id="distortionValue">0%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Bitcrush reduces audio quality for retro lo-fi effects">
+                        <h4><i class="fas fa-cubes"></i> Bitcrush</h4>
+                        <input type="range" id="bitcrushAmount" min="0" max="100" value="0">
+                        <span class="effect-value" id="bitcrushValue">0%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Tremolo creates a pulsing volume effect">
+                        <h4><i class="fas fa-wave-square"></i> Tremolo</h4>
+                        <input type="range" id="tremoloAmount" min="0" max="100" value="0">
+                        <span class="effect-value" id="tremoloValue">0%</span>
+                    </div>
+                    <div class="effect-card" data-tooltip="Vibrato adds a slight pitch waver for expressive sounds">
+                        <h4><i class="fas fa-broadcast-tower"></i> Vibrato</h4>
+                        <input type="range" id="vibratoAmount" min="0" max="100" value="0">
+                        <span class="effect-value" id="vibratoValue">0%</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -649,6 +644,8 @@
         <footer>
             <p>&copy; 2026 Song Designer. All rights reserved. | <a href="https://pixelagent.co.uk">pixelagent.co.uk</a></p>
         </footer>
+         </div>
+
     </div>
 
     <!-- Collections Modal -->
@@ -1214,6 +1211,8 @@
     <script src="js/songDesigner.js"></script>
     <script src="js/songStorage.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/stage.js"></script>
+    <script src="js/automation.js"></script>
     <script src="js/songApp.js"></script>
 </body>
 </html>

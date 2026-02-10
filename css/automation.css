@@ -1,0 +1,161 @@
+/* Advanced Automation Styles */
+
+/* Automation Curves Grid */
+.automation-curves-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Automation Curve Card */
+.automation-curve-card {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.curve-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.curve-header h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.curve-header h4 i {
+    color: var(--accent-color);
+}
+
+.curve-instrument-select {
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.curve-canvas-container {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+.curve-canvas-container canvas {
+    width: 100%;
+    height: 80px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, 
+        rgba(30, 30, 70, 0.9) 0%, 
+        rgba(45, 45, 90, 0.7) 100%);
+    display: block;
+}
+
+.curve-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.curve-controls .btn {
+    flex: 1;
+    min-width: 70px;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+}
+
+/* Curve Presets */
+.curve-presets {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.curve-presets h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.curve-presets h4 i {
+    color: var(--accent-color);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    transition: 0.3s;
+    border-radius: 26px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .automation-curves-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .curve-controls {
+        flex-direction: column;
+    }
+    
+    .curve-controls .btn {
+        flex: none;
+    }
+}
