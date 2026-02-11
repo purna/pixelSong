@@ -198,10 +198,53 @@ const SettingsManager = {
         const showHintsCheckbox = document.getElementById('settings-show-hints');
         const autoPlayCheckbox = document.getElementById('settings-auto-play');
 
-        // Only update elements that actually exist in the DOM
+        // Master volume - add real-time listener
         if (masterVolumeSlider && masterVolumeDisplay) {
             masterVolumeSlider.value = this.settings.masterVolume || 100;
             masterVolumeDisplay.textContent = (this.settings.masterVolume || 100) + '%';
+            
+            // Add real-time volume update listener
+            masterVolumeSlider.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                masterVolumeDisplay.textContent = value + '%';
+                this.settings.masterVolume = value;
+                
+                // Update both audio engines in real-time
+                const normalizedValue = value / 100;
+                
+                // Update Tone.js destination
+                if (typeof Tone !== 'undefined' && Tone.Destination) {
+                    Tone.Destination.volume.value = Tone.gainToDb(normalizedValue);
+                }
+                
+                // Update Howler engine
+                if (this.app && this.app.howlerEngine) {
+                    this.app.howlerEngine.setMasterVolume(normalizedValue);
+                }
+                
+                // Update individual synths if available
+                if (this.app) {
+                    ['polySynth', 'melodySynth', 'bassSynth', 'leadSynth'].forEach(synthName => {
+                        const synth = this.app[synthName];
+                        if (synth && synth.volume) {
+                            const baseVolumes = {
+                                polySynth: -6,
+                                melodySynth: -4,
+                                bassSynth: -2,
+                                leadSynth: -3
+                            };
+                            const baseDb = baseVolumes[synthName] || 0;
+                            const masterAdjust = (normalizedValue - 1) * 20;
+                            const finalDb = baseDb + masterAdjust;
+                            if (typeof synth.volume.setValueAtTime === 'function') {
+                                synth.volume.setValueAtTime(finalDb, Tone.now());
+                            } else {
+                                synth.volume.value = finalDb;
+                            }
+                        }
+                    });
+                }
+            });
         }
 
         if (defaultLengthInput) {
@@ -690,9 +733,46 @@ const SettingsManager = {
     },
 
     applySettings() {
-        // Apply master volume
+        // Apply master volume to both audio engines
+        const normalizedVolume = this.settings.masterVolume / 100;
+        
+        // Update Tone.js destination
+        if (typeof Tone !== 'undefined' && Tone.Destination) {
+            Tone.Destination.volume.value = Tone.gainToDb(normalizedVolume);
+        }
+        
+        // Update Howler engine
+        if (this.app && this.app.howlerEngine) {
+            this.app.howlerEngine.setMasterVolume(normalizedVolume);
+        }
+        
+        // Update SimpleAudioEngine if available
         if (this.app && this.app.audioEngine && this.app.audioEngine.setMasterVolume) {
-            this.app.audioEngine.setMasterVolume(this.settings.masterVolume / 100);
+            this.app.audioEngine.setMasterVolume(normalizedVolume);
+        }
+        
+        // Update individual synth volumes
+        if (this.app) {
+            const baseVolumes = {
+                polySynth: -6,
+                melodySynth: -4,
+                bassSynth: -2,
+                leadSynth: -3
+            };
+            
+            ['polySynth', 'melodySynth', 'bassSynth', 'leadSynth'].forEach(synthName => {
+                const synth = this.app[synthName];
+                if (synth && synth.volume) {
+                    const baseDb = baseVolumes[synthName] || 0;
+                    const masterAdjust = (normalizedVolume - 1) * 20;
+                    const finalDb = baseDb + masterAdjust;
+                    if (typeof synth.volume.setValueAtTime === 'function') {
+                        synth.volume.setValueAtTime(finalDb, Tone.now());
+                    } else {
+                        synth.volume.value = finalDb;
+                    }
+                }
+            });
         }
 
         // Apply default length to app if available

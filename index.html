@@ -34,6 +34,7 @@
                     <p class="subtitle">Create awesome music for your games - no musical experience needed!</p>
                 </div>
                 <div class="header-right">
+                    <button class="settings-toggle" id="rhythmToggle" title="Beat Pulse Visualizer"><i class="fas fa-wave-square"></i></button>
                     <button class="settings-toggle" id="collectionsBtn" title="Collections"><i class="fas fa-folder-open"></i></button>
                     <button class="settings-toggle" id="settingsBtn" title="Settings"><i class="fas fa-cog"></i></button>
                 </div>
@@ -1200,8 +1201,13 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="https://okazari.github.io/Rythm.js/rythm.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
+    <script src="js/howlerAudioEngine.js"></script>
+    <script src="js/soundGenerator.js"></script>
+    <script src="js/rhythmVisualizer.js"></script>
     <script src="js/indexedDBManager.js"></script>
     <script src="js/googleDriveManager.js"></script>
     <script src="js/cloudSyncManager.js"></script>

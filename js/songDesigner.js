@@ -355,6 +355,21 @@ class SongDesignerApp {
     
     initAudio() {
         return Tone.start().then(() => {
+            // Initialize Howler Audio Engine as default
+            this.howlerEngine = new HowlerAudioEngine();
+            this.howlerEngine.init().then(() => {
+                console.log('Howler Audio Engine ready');
+            });
+            
+            // Initialize Rhythm Visualizer
+            this.rhythmVisualizer = new RhythmVisualizer(this);
+            this.rhythmVisualizer.init();
+            
+            // Initialize custom sound generator
+            this.soundGenerator = new SoundGenerator();
+            this.soundGenerator.setAudioEngine(this.howlerEngine);
+            
+            // Fallback to Tone.js for advanced synthesis
             this.audioEngine = new SimpleAudioEngine();
             this.compressor = new Tone.Compressor({ threshold: -24, ratio: 4, attack: 0.003, release: 0.25 }).toDestination();
             
@@ -403,7 +418,7 @@ class SongDesignerApp {
             this.createLeadSynth();
             this.createDrumKit();
             this.createPercussionKit();
-            console.log('Audio engine initialized with all effects!');
+            console.log('Audio engine initialized with Howler.js as default and Tone.js for synthesis!');
         });
     }
     
@@ -1304,6 +1319,21 @@ class SongDesignerApp {
                 });
             }
         });
+        
+        // Rhythm Visualizer Toggle
+        document.getElementById('rhythmToggle')?.addEventListener('click', (e) => {
+            if (!this.rhythmVisualizer) return;
+            
+            if (this.rhythmVisualizer.enabled) {
+                this.rhythmVisualizer.disable();
+                e.target.classList.remove('active');
+                this.showNotification('Beat Pulse Visualizer OFF', 'info');
+            } else {
+                this.rhythmVisualizer.enable();
+                e.target.classList.add('active');
+                this.showNotification('Beat Pulse Visualizer ON', 'success');
+            }
+        });
         document.getElementById('stringsToggle')?.addEventListener('click', (e) => {
             this.melodyEnabled = !this.melodyEnabled;
             e.target.textContent = this.melodyEnabled ? 'ON' : 'OFF';
@@ -1347,8 +1377,53 @@ class SongDesignerApp {
         document.getElementById('effectsToggle')?.addEventListener('click', (e) => { this.toggleEffects(); });
         
         document.getElementById('masterVolume')?.addEventListener('input', (e) => {
-            Tone.Destination.volume.value = Tone.gainToDb(e.target.value / 100);
-            document.getElementById('masterValue').textContent = e.target.value + '%';
+            const value = parseInt(e.target.value);
+            const normalizedValue = value / 100;
+            
+            // Update Tone.js destination
+            Tone.Destination.volume.value = Tone.gainToDb(normalizedValue);
+            
+            // Update Howler engine master volume
+            if (this.howlerEngine) {
+                this.howlerEngine.setMasterVolume(normalizedValue);
+            }
+            
+            // Update individual Tone.js synth volumes
+            const baseVolumes = {
+                polySynth: -6,
+                melodySynth: -4,
+                bassSynth: -2,
+                leadSynth: -3,
+                'drums.kick': -4,
+                'drums.snare': -10,
+                'drums.hihat': -15,
+                'drums.tom': -6,
+                'percussion.conga': -8,
+                'percussion.bongo': -10,
+                'percussion.shaker': -12,
+                'percussion.cymbal': -10
+            };
+            
+            Object.entries(baseVolumes).forEach(([key, baseDb]) => {
+                const parts = key.split('.');
+                let synth = this;
+                for (const part of parts) {
+                    synth = synth?.[part];
+                }
+                if (synth && typeof synth.volume !== 'undefined') {
+                    // Calculate final volume: base dB + (master percentage adjustment)
+                    // At 100% master, use base volume; at 50% master, reduce by ~6dB
+                    const masterAdjust = (normalizedValue - 1) * 20; // ±20dB range
+                    const finalDb = baseDb + masterAdjust;
+                    if (typeof synth.volume.setValueAtTime === 'function') {
+                        synth.volume.setValueAtTime(finalDb, Tone.now());
+                    } else {
+                        synth.volume.value = finalDb;
+                    }
+                }
+            });
+            
+            document.getElementById('masterValue').textContent = value + '%';
             this.updateEffectCardStates();
         });
         
@@ -1577,6 +1652,17 @@ class SongDesignerApp {
     
     play() {
         if (this.isPlaying) return;
+        
+        // Resume audio contexts
+        if (this.howlerEngine) {
+            this.howlerEngine.resume();
+        }
+        
+        // Sync rhythm visualizer tempo
+        if (this.rhythmVisualizer?.enabled) {
+            this.rhythmVisualizer.setTempo(this.tempo);
+        }
+        
         this.isPlaying = true;
         this.currentStep = 0;
         this.groupLoopCurrent = [0, 0, 0, 0];
@@ -1616,6 +1702,13 @@ class SongDesignerApp {
             if (playText) playText.textContent = 'Stop';
             else playBtn.innerHTML = '<i class="fas fa-stop"></i> Stop';
         }
+        
+        // Pulse the rhythm toggle button
+        const rhythmBtn = document.getElementById('rhythmToggle');
+        if (rhythmBtn) {
+            rhythmBtn.classList.add('pulsing');
+            setTimeout(() => rhythmBtn.classList.remove('pulsing'), 500);
+        }
     }
     
     stop() {
@@ -1638,6 +1731,11 @@ class SongDesignerApp {
     playStep(step) {
         if (!this.polySynth) return;
         
+        // Trigger rhythm visualizer pulse
+        if (this.rhythmVisualizer?.enabled) {
+            this.rhythmVisualizer.onStepPlay(step);
+        }
+        
         const groupIndex = Math.floor(step / 16);
         const localStep = step % 16;
         
@@ -1658,6 +1756,53 @@ class SongDesignerApp {
             this.effects.lowpass.frequency.rampTo(freq, 0.05);
         }
         
+        // Use Howler engine for drums if available
+        if (this.howlerEngine?.initialized) {
+            if (this.rhythmEnabled && groupRhythm) {
+                Object.keys(this.drums || {}).forEach(instrument => {
+                    if (this.drums[instrument] && groupRhythm[instrument]?.has(localStep)) {
+                        const vel = this.rhythmVelocity[instrument]?.get(step) ?? 0.8;
+                        
+                        // Use Howler engine for drums
+                        if (instrument === 'kick') {
+                            this.howlerEngine.playDrum('kick', vel);
+                        } else if (instrument === 'snare') {
+                            this.howlerEngine.playDrum('snare', vel);
+                        } else if (instrument === 'hihat') {
+                            this.howlerEngine.playDrum('hihat', vel);
+                        } else if (instrument === 'tom') {
+                            this.howlerEngine.playDrum('tom', vel);
+                        } else {
+                            this.drums[instrument].triggerAttackRelease('16n', undefined, vel);
+                        }
+                        
+                        const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${step}"]`);
+                        if (cell) {
+                            cell.classList.add('playing');
+                            setTimeout(() => cell.classList.remove('playing'), 150);
+                        }
+                    }
+                });
+            }
+        } else {
+            // Fallback to Tone.js drums
+            if (this.rhythmEnabled && groupRhythm) {
+                Object.keys(this.drums || {}).forEach(instrument => {
+                    if (this.drums[instrument] && groupRhythm[instrument]?.has(localStep)) {
+                        const vel = this.rhythmVelocity[instrument]?.get(step) ?? 0.8;
+                        this.drums[instrument].triggerAttackRelease('16n', undefined, vel);
+                        
+                        const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${step}"]`);
+                        if (cell) {
+                            cell.classList.add('playing');
+                            setTimeout(() => cell.classList.remove('playing'), 150);
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Tone.js for melodic instruments (harmony, melody, bass, lead)
         if (this.harmonicsEnabled && step === 0 && this.harmonics.size > 0) {
             const notes = Array.from(this.harmonics).map(i => this.harmonicNotes[i]);
             this.polySynth.triggerAttackRelease(notes, '1m', undefined, harmonyVel);
@@ -1685,21 +1830,6 @@ class SongDesignerApp {
             if (row < scale.length) {
                 this.leadSynth.triggerAttackRelease(scale[row], '16n', undefined, leadVel);
             }
-        }
-        
-        if (this.rhythmEnabled && groupRhythm) {
-            Object.keys(this.drums || {}).forEach(instrument => {
-                if (this.drums[instrument] && groupRhythm[instrument]?.has(localStep)) {
-                    const vel = this.rhythmVelocity[instrument]?.get(step) ?? 0.8;
-                    this.drums[instrument].triggerAttackRelease('16n', undefined, vel);
-                    
-                    const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${step}"]`);
-                    if (cell) {
-                        cell.classList.add('playing');
-                        setTimeout(() => cell.classList.remove('playing'), 150);
-                    }
-                }
-            });
         }
         
         if (this.percussionEnabled && groupRhythm) {

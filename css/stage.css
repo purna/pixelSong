@@ -386,9 +386,26 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-
+    .stage-visualizer {
+        padding: 0.75rem;
+        gap: 0.5rem;
+        min-height: 250px;
+    }
+    
     .stage-area {
-        min-height: 300px;
+        min-height: 250px;
+    }
+    
+    .stage-label-left,
+    .stage-label-right {
+        width: 32px;
+        font-size: 0.6rem;
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .movement-controls {
+        padding: 0.75rem;
+        gap: 1rem;
     }
     
     .movement-buttons {
@@ -398,10 +415,32 @@
     .preset-buttons-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .marker-icon {
+        font-size: 1.5rem;
+    }
+    
+    .instrument-marker {
+        min-width: 50px;
+        padding: 0.35rem;
+    }
+    
+    .marker-label {
+        font-size: 0.6rem;
+    }
 }
 
 @media (max-width: 480px) {
     .preset-buttons-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .formation-presets {
+        padding: 0.75rem;
+    }
+    
+    .stage-preset-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.7rem;
     }
 }
