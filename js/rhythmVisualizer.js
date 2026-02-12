@@ -4,7 +4,7 @@
 class RhythmVisualizer {
     constructor(app) {
         this.app = app;
-        this.enabled = false;
+        this.enabled = true;
         this.pulseElements = [];
         this.bassPulseElements = [];
         this.melodyPulseElements = [];
@@ -16,8 +16,9 @@ class RhythmVisualizer {
         // DOM elements to pulse
         this.targetSelectors = [
             '.section-header',
-            '.grid-cell.active',
-            '.play-btn',
+            '.string-cell.active',
+            '.bass-cell.active',
+            '.lead-cell.active',
             '.harmonic-cell.active',
             '.rhythm-cell.playing'
         ];
@@ -83,6 +84,17 @@ class RhythmVisualizer {
             .section-header.pulsing {
                 border-left: 3px solid rgba(244, 114, 182, 0.6);
             }
+            
+            .string-cell.melody-pulse,
+            .bass-cell.melody-pulse,
+            .lead-cell.melody-pulse,
+            .harmonic-cell.melody-pulse {
+                animation: colorShift 0.15s ease-out;
+            }
+            
+            .rhythm-cell.rhythm-pulse {
+                animation: bassPump 0.2s ease-out;
+            }
         `;
         document.head.appendChild(style);
     }
@@ -107,8 +119,32 @@ class RhythmVisualizer {
             });
         });
         
-        // Find active grid cells
-        document.querySelectorAll('.grid-cell.active, .harmonic-cell.active').forEach(cell => {
+        // Find active melody cells
+        document.querySelectorAll('.string-cell.active').forEach(cell => {
+            this.melodyPulseElements.push({
+                element: cell,
+                type: 'cell'
+            });
+        });
+        
+        // Find active bass cells
+        document.querySelectorAll('.bass-cell.active').forEach(cell => {
+            this.melodyPulseElements.push({
+                element: cell,
+                type: 'cell'
+            });
+        });
+        
+        // Find active lead cells
+        document.querySelectorAll('.lead-cell.active').forEach(cell => {
+            this.melodyPulseElements.push({
+                element: cell,
+                type: 'cell'
+            });
+        });
+        
+        // Find active harmonic cells
+        document.querySelectorAll('.harmonic-cell.active').forEach(cell => {
             this.melodyPulseElements.push({
                 element: cell,
                 type: 'cell'
@@ -229,28 +265,62 @@ class RhythmVisualizer {
         this.pulseElements.filter(e => e.type === 'header').forEach(item => {
             this.applyPulse(item.element, 'pulsing', 200);
         });
+        
+        // Also pulse playing rhythm cells
+        document.querySelectorAll('.rhythm-cell.playing').forEach(cell => {
+            this.applyPulse(cell, 'rhythm-pulse', 150);
+        });
+        
+        // Pulse currently active melodic cells
+        document.querySelectorAll('.string-cell.active, .bass-cell.active, .lead-cell.active').forEach(cell => {
+            this.applyPulse(cell, 'melody-pulse', 100);
+        });
     }
 
     pulseBass() {
-        // Bass pump on steps
-        this.pulseElements.filter(e => e.type === 'header').forEach(item => {
-            this.applyPulse(item.element, 'bass-pump', 150);
+        // Bass pump on steps - dynamically find headers
+        document.querySelectorAll('.section-header').forEach(header => {
+            this.applyPulse(header, 'bass-pump', 150);
         });
     }
 
     pulseMelody() {
-        // Color shift on melody notes
-        this.melodyPulseElements.forEach(item => {
-            this.applyPulse(item.element, 'melody-pulse', 100);
+        // Color shift on melody notes - dynamically find all active cells
+        const activeCells = document.querySelectorAll('.string-cell.active, .bass-cell.active, .lead-cell.active, .harmonic-cell.active');
+        activeCells.forEach(cell => {
+            this.applyPulse(cell, 'melody-pulse', 100);
+        });
+    }
+    
+    pulseHarmonics() {
+        // Color shift on harmonic cells
+        document.querySelectorAll('.harmonic-cell.active').forEach(cell => {
+            this.applyPulse(cell, 'melody-pulse', 100);
+        });
+    }
+    
+    pulseLead() {
+        // Color shift on lead cells
+        document.querySelectorAll('.lead-cell.active').forEach(cell => {
+            this.applyPulse(cell, 'melody-pulse', 100);
+        });
+    }
+    
+    pulseDrums() {
+        // Pulse rhythm cells on drum hits
+        document.querySelectorAll('.rhythm-cell.active').forEach(cell => {
+            this.applyPulse(cell, 'rhythm-pulse', 100);
         });
     }
 
-    applyPulse(element, className, duration) {
+    applyPulse(element, classNames, duration) {
         if (!element) return;
         
-        element.classList.add(className);
+        // Handle space-separated class names
+        const classes = classNames.split(' ');
+        element.classList.add(...classes);
         setTimeout(() => {
-            element.classList.remove(className);
+            element.classList.remove(...classes);
         }, duration);
     }
 

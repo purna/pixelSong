@@ -34,7 +34,6 @@
                     <p class="subtitle">Create awesome music for your games - no musical experience needed!</p>
                 </div>
                 <div class="header-right">
-                    <button class="settings-toggle" id="rhythmToggle" title="Beat Pulse Visualizer"><i class="fas fa-wave-square"></i></button>
                     <button class="settings-toggle" id="collectionsBtn" title="Collections"><i class="fas fa-folder-open"></i></button>
                     <button class="settings-toggle" id="settingsBtn" title="Settings"><i class="fas fa-cog"></i></button>
                 </div>
@@ -45,6 +44,7 @@
                 <button class="btn btn-secondary" id="exportBtn"><i class="fas fa-download"></i> Export</button>
             </div>
         </header>
+
 
 
 
@@ -101,7 +101,7 @@
             </div>
         </div>
 
-   
+    
 
         <!-- Harmonics Section -->
         <div class="section" id="harmonicsSection">
@@ -159,7 +159,9 @@
                 <div class="section-timeline" id="melodyTimeline"></div>
                 
                 <div class="melody-controls">
+                    <div class="left">
                     <select id="melodyInstrument" class="form-select" data-tooltip="Choose a sound for the melody notes">
+                        <option value="supersaw">Super Saw (Rich)</option>
                         <option value="saw">Sawtooth</option>
                         <option value="square">Square</option>
                         <option value="sine">Sine</option>
@@ -173,8 +175,39 @@
                         <option value="a-minor">A Minor</option>
                     </select>
                     <button class="preset-btn" id="clearMelodyBtn"><i class="fas fa-eraser"></i> Clear</button>
+                    </div>
+                     <div class="right">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">Advanced</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleStringsControls">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="strings-grid" id="stringsGrid"></div>
+
+                       <!-- Drum Controls: Volume, Cutoff, Pan -->
+                <div class="drum-controls" id="stringsControls" style="display: none;">
+                    <div class="drum-control-group">
+                        <label data-tooltip="Overall strings volume"><i class="fas fa-volume-up"></i> Volume</label>
+                        <input type="range" id="stringsVolume" min="0" max="100" value="80" class="drum-slider">
+                        <span class="drum-value" id="stringsVolumeValue">80%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Strings cutoff frequency - lower = muffled, higher = bright"><i class="fas fa-filter"></i> Cutoff</label>
+                        <input type="range" id="stringsCutoff" min="0" max="100" value="80" class="drum-slider">
+                        <span class="drum-value" id="stringsCutoffValue">80%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Strings pan - left/right positioning"><i class="fas fa-arrows-alt-h"></i> Pan</label>
+                        <input type="range" id="stringsPan" min="-100" max="100" value="0" class="drum-slider">
+                        <span class="drum-value" id="stringsPanValue">C</span>
+                    </div>
+                </div>
+
                 <div class="preset-buttons">
                     <button class="preset-btn" data-melody-preset="scale">📖 Scale</button>
                     <button class="preset-btn" data-melody-preset="arpeggio">🎵 Arpeggio</button>
@@ -188,7 +221,8 @@
         <div class="section" id="rhythmSection">
             <div class="section-header">
                 <h2><span class="section-icon">🥁</span> Rhythm & Drums</h2>
-                <button class="toggle-btn active" id="rhythmToggle">ON</button>
+                <button class="toggle-btn active right" id="rhythmSectionToggle">ON</button>
+
             </div>
             
             <div class="section-content">
@@ -198,14 +232,47 @@
                 <div class="section-timeline" id="rhythmTimeline"></div>
                 
                 <div class="melody-controls">
+                    <div class="left">
                     <select id="drumKit" class="form-select" data-tooltip="Choose a drum kit style for your rhythm">
+                        <option value="electronic">Electronic (Punchy)</option>
                         <option value="acoustic">Acoustic</option>
-                        <option value="electronic">Electronic</option>
                         <option value="808">808 Style</option>
                     </select>
                     <button class="preset-btn" id="clearRhythmBtn"><i class="fas fa-eraser"></i> Clear</button>
+                    </div>
+                    <div class="right">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">Advanced</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleDrumControls">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- Drum Controls: Volume, Cutoff, Pan -->
+                <div class="drum-controls" id="drumControls" style="display: none;">
+                    <div class="drum-control-group">
+                        <label data-tooltip="Overall drum volume"><i class="fas fa-volume-up"></i> Volume</label>
+                        <input type="range" id="drumVolume" min="0" max="100" value="80" class="drum-slider">
+                        <span class="drum-value" id="drumVolumeValue">80%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Drum cutoff frequency - lower = muffled, higher = bright"><i class="fas fa-filter"></i> Cutoff</label>
+                        <input type="range" id="drumCutoff" min="0" max="100" value="80" class="drum-slider">
+                        <span class="drum-value" id="drumCutoffValue">80%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Drum pan - left/right positioning"><i class="fas fa-arrows-alt-h"></i> Pan</label>
+                        <input type="range" id="drumPan" min="-100" max="100" value="0" class="drum-slider">
+                        <span class="drum-value" id="drumPanValue">C</span>
+                    </div>
+                </div>
+                
                 <div class="rhythm-grid" id="rhythmGrid"></div>
+
+                
                 <div class="preset-buttons">
                     <button class="preset-btn" data-rhythm-preset="basic">👣 Basic Beat</button>
                     <button class="preset-btn" data-rhythm-preset="game">🎮 Game Beat</button>
@@ -228,9 +295,10 @@
                 <div class="section-timeline" id="bassTimeline"></div>
                 
                 <div class="melody-controls">
+                    <div class="left">
                     <select id="bassInstrument" class="form-select" data-tooltip="Choose a bass sound">
+                        <option value="synth">Synth Bass (Character)</option>
                         <option value="sub">Sub Bass</option>
-                        <option value="synth">Synth Bass</option>
                         <option value="fm">FM Bass</option>
                         <option value="square">Square Bass</option>
                     </select>
@@ -239,8 +307,42 @@
                         <option value="2">2 Octaves</option>
                     </select>
                     <button class="preset-btn" id="clearBassBtn"><i class="fas fa-eraser"></i> Clear</button>
+                        </div>
+                       <div class="right">
+
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">Advanced</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleBassControls">
+                                <span class="toggle-slider"></span>
+                            </label>
+                             </div>
+                          </div>
+
                 </div>
                 <div class="bass-grid" id="bassGrid"></div>
+
+                 <!-- Start Controls: Volume, Cutoff, Pan -->
+                <div class="drum-controls" id="bassControls" style="display: none;">
+                    <div class="drum-control-group">
+                        <label data-tooltip="Overall bass volume"><i class="fas fa-volume-up"></i> Volume</label>
+                        <input type="range" id="bassVolume" min="0" max="100" value="70" class="drum-slider">
+                        <span class="drum-value" id="bassVolumeValue">70%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Bass cutoff frequency - lower = muffled, higher = bright"><i class="fas fa-filter"></i> Cutoff</label>
+                        <input type="range" id="bassCutoff" min="0" max="100" value="75" class="drum-slider">
+                        <span class="drum-value" id="bassCutoffValue">75%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Bass pan - left/right positioning"><i class="fas fa-arrows-alt-h"></i> Pan</label>
+                        <input type="range" id="bassPan" min="-100" max="100" value="0" class="drum-slider">
+                        <span class="drum-value" id="BassPanValue">C</span>
+                    </div>
+                </div>
+                <!-- End Controls: Volume, Cutoff, Pan -->
+
+
                 <div class="preset-buttons">
                     <button class="preset-btn" data-bass-preset="basic">🎸 Basic Bass</button>
                     <button class="preset-btn" data-bass-preset="walking">🚶 Walking</button>
@@ -264,16 +366,53 @@
                 <div class="section-timeline" id="leadTimeline"></div>
                 
                 <div class="melody-controls">
+                       <div class="left">
                     <select id="leadInstrument" class="form-select" data-tooltip="Choose a lead sound">
+                        <option value="supersaw">Super Saw (Rich)</option>
                         <option value="saw">Sawtooth</option>
                         <option value="square">Square</option>
                         <option value="sine">Sine</option>
                         <option value="triangle">Triangle</option>
                         <option value="pulse">Pulse</option>
-                        <option value="supersaw">Super Saw</option>
                     </select>
                     <button class="preset-btn" id="clearLeadBtn"><i class="fas fa-eraser"></i> Clear</button>
+</div>
+
+                     <div class="right">
+
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="color: var(--text-secondary); font-size: 0.9rem;">Advanced</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="toggleLeadControls">
+                        <span class="toggle-slider"></span>
+                    </label>
                 </div>
+                </div>
+                </div>
+
+
+                        
+                <!-- Start Controls: Volume, Cutoff, Pan -->
+                <div class="drum-controls" id="leadControls" style="display: none;">
+                    <div class="drum-control-group">
+                        <label data-tooltip="Overall lead volume"><i class="fas fa-volume-up"></i> Volume</label>
+                        <input type="range" id="leadVolume" min="0" max="100" value="70" class="drum-slider">
+                        <span class="drum-value" id="leadVolumeValue">70%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Lead cutoff frequency - lower = muffled, higher = bright"><i class="fas fa-filter"></i> Cutoff</label>
+                        <input type="range" id="leadCutoff" min="0" max="100" value="75" class="drum-slider">
+                        <span class="drum-value" id="pleadCutoffValue">75%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Lead pan - left/right positioning"><i class="fas fa-arrows-alt-h"></i> Pan</label>
+                        <input type="range" id="leadPan" min="-100" max="100" value="0" class="drum-slider">
+                        <span class="drum-value" id="leadPanValue">C</span>
+                    </div>
+                </div>
+                <!-- End Controls: Volume, Cutoff, Pan -->
+
+
                 <div class="lead-grid" id="leadGrid"></div>
                 <div class="preset-buttons">
                     <button class="preset-btn" data-lead-preset="melodic">🎵 Melodic</button>
@@ -288,7 +427,9 @@
         <div class="section" id="percussionSection">
             <div class="section-header">
                 <h2><span class="section-icon">🎶</span> Percussion</h2>
-                <button class="toggle-btn" id="percussionToggle">OFF</button>
+                                    <button class="toggle-btn" id="percussionToggle">OFF</button>
+
+                
             </div>
             
             <div class="section-content">
@@ -298,12 +439,45 @@
                 <div class="section-timeline" id="percussionTimeline"></div>
                 
                 <div class="melody-controls">
+                    <div class="left">
                     <select id="percussionKit" class="form-select" data-tooltip="Choose a percussion kit">
                         <option value="latin">Latin</option>
                         <option value="acoustic">Acoustic</option>
                         <option value="electronic">Electronic</option>
                     </select>
+                    </div>
+                    <div class="right">
+
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="color: var(--text-secondary); font-size: 0.9rem;">Advanced</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="togglePercussionControls">
+                        <span class="toggle-slider"></span>
+                    </label>
                 </div>
+                </div>
+                </div>
+                
+                <!-- Start Controls: Volume, Cutoff, Pan -->
+                <div class="drum-controls" id="percussionControls" style="display: none;">
+                    <div class="drum-control-group">
+                        <label data-tooltip="Overall percussion volume"><i class="fas fa-volume-up"></i> Volume</label>
+                        <input type="range" id="percussionVolume" min="0" max="100" value="70" class="drum-slider">
+                        <span class="drum-value" id="percussionVolumeValue">70%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Percussion cutoff frequency - lower = muffled, higher = bright"><i class="fas fa-filter"></i> Cutoff</label>
+                        <input type="range" id="percussionCutoff" min="0" max="100" value="75" class="drum-slider">
+                        <span class="drum-value" id="percussionCutoffValue">75%</span>
+                    </div>
+                    <div class="drum-control-group">
+                        <label data-tooltip="Percussion pan - left/right positioning"><i class="fas fa-arrows-alt-h"></i> Pan</label>
+                        <input type="range" id="percussionPan" min="-100" max="100" value="0" class="drum-slider">
+                        <span class="drum-value" id="percussionPanValue">C</span>
+                    </div>
+                </div>
+                <!-- End Controls: Volume, Cutoff, Pan -->
+                
                 <div class="rhythm-grid" id="percussionGrid"></div>
                 <div class="preset-buttons">
                     <button class="preset-btn" data-percussion-preset="latin">🌴 Latin</button>
@@ -336,75 +510,113 @@
                     </div>
                     <div class="stage-label-right">RIGHT SPEAKER</div>
                 </div>
-                
-                <!-- Movement Controls -->
+
+
+                     <!-- Movement Controls -->
                 <div class="movement-controls">
                     <div class="movement-section">
                         <label style="font-weight: bold; margin-bottom: 0.5rem; display: block;">
                             <i class="fas fa-hand-pointer"></i> Selected: <span id="selectedInstrument">None - Click an instrument above</span>
                         </label>
                     </div>
-                    
-                    <!-- Start Position -->
-                    <div class="position-control">
-                        <label>
-                            <i class="fas fa-play"></i> Start Position
+
+                    <!-- Volume & Cutoff Controls for Selected Instrument -->
+                    <div class="stage-audio-controls" id="stageAudioControls" style="padding: 0rem; background: var(--bg-secondary); border-radius: 8px;">
+                        <label style="font-weight: bold; margin-bottom: 0.75rem; display: block;">
+                            <i class="fas fa-sliders-h"></i> Stage Controls
                         </label>
-                        <div class="position-slider-container">
-                            <span class="position-marker">L</span>
-                            <input type="range" id="startPosition" min="-100" max="100" value="0" class="position-slider">
-                            <span class="position-marker">R</span>
-                            <span class="position-value" id="startPosValue">Center</span>
+                        
+                        <!-- Movement Style Buttons -->
+                        <div class="movement-type-control" style="margin-bottom: 1rem;">
+                            <label style="font-weight: bold; margin-bottom: 0.5rem; display: block;">
+                                <i class="fas fa-route"></i> Movement Style
+                            </label>
+                            <div class="movement-buttons">
+                                <button class="movement-btn active" data-movement="static">
+                                    <i class="fas fa-circle"></i> Stay Put
+                                </button>
+                                <button class="movement-btn" data-movement="smooth">
+                                    <i class="fas fa-water"></i> Smooth Glide
+                                </button>
+                                <button class="movement-btn" data-movement="swing">
+                                    <i class="fas fa-exchange-alt"></i> Back & Forth
+                                </button>
+                                <button class="movement-btn" data-movement="bounce">
+                                    <i class="fas fa-tennis-ball"></i> Bounce
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- End Position -->
-                    <div class="position-control">
-                        <label>
-                            <i class="fas fa-flag-checkered"></i> End Position
-                        </label>
-                        <div class="position-slider-container">
-                            <span class="position-marker">L</span>
-                            <input type="range" id="endPosition" min="-100" max="100" value="0" class="position-slider">
-                            <span class="position-marker">R</span>
-                            <span class="position-value" id="endPosValue">Center</span>
+                        
+                        <div class="drum-controls" id="stageVolumeControls">
+                            <div class="drum-control-group">
+                                <label data-tooltip="Overall volume"><i class="fas fa-volume-up"></i> Volume</label>
+                                <input type="range" id="stageVolume" min="0" max="100" value="70" class="drum-slider">
+                                <span class="drum-value" id="stageVolumeValue">70%</span>
+                            </div>
+                            <div class="drum-control-group">
+                                <label data-tooltip="Cutoff frequency - lower = muffled, higher = bright"><i class="fas fa-filter"></i> Cutoff</label>
+                                <input type="range" id="stageCutoff" min="0" max="100" value="75" class="drum-slider">
+                                <span class="drum-value" id="stageCutoffValue">75%</span>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- Depth Position -->
-                    <div class="position-control">
-                        <label>
-                            <i class="fas fa-layer-group"></i> Stage Depth (Reverb Amount)
-                        </label>
-                        <div class="position-slider-container">
-                            <span class="position-marker" style="font-size: 0.7rem;">Front</span>
-                            <input type="range" id="depthPosition" min="0" max="100" value="50" class="depth-slider">
-                            <span class="position-marker" style="font-size: 0.7rem;">Back</span>
-                            <span class="position-value" id="depthPosValue">50%</span>
-                        </div>
-                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; margin-bottom: 0;">
-                            Front = Dry & Close · Back = Wet & Distant
-                        </p>
-                    </div>
-                    
-                    <!-- Movement Type -->
-                    <div class="movement-type-control">
-                        <label style="font-weight: bold; margin-bottom: 0.5rem; display: block;">
-                            <i class="fas fa-route"></i> Movement Style
-                        </label>
-                        <div class="movement-buttons">
-                            <button class="movement-btn active" data-movement="static">
-                                <i class="fas fa-circle"></i> Stay Put
-                            </button>
-                            <button class="movement-btn" data-movement="smooth">
-                                <i class="fas fa-water"></i> Smooth Glide
-                            </button>
-                            <button class="movement-btn" data-movement="swing">
-                                <i class="fas fa-exchange-alt"></i> Back & Forth
-                            </button>
-                            <button class="movement-btn" data-movement="bounce">
-                                <i class="fas fa-tennis-ball"></i> Bounce
-                            </button>
+                        
+                        <div class="drum-controls">
+                            <!-- Static Position Control (shown when "Stay Put" is selected) -->
+                            <div class="position-control-group" id="staticPositionControl" style="display: flex;">
+                                <div class="drum-control-group">
+                                    <label>
+                                        <i class="fas fa-arrows-alt-h"></i> Pan Position
+                                    </label>
+                                    <div class="position-slider-container">
+                                        <span class="position-marker">L</span>
+                                        <input type="range" id="staticPanPosition" min="-100" max="100" value="0" class="drum-slider">
+                                        <span class="position-marker">R</span>
+                                        <span class="drum-value" id="staticPanValue">Center</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Animated Position Controls (shown when movement is active) -->
+                            <div class="position-control-group" id="animatedPositionControls" style="display: none; gap: 1rem; flex-wrap: wrap;">
+                                <!-- Start Position -->
+                                <div class="drum-control-group">
+                                    <label>
+                                        <i class="fas fa-play"></i> Start Position
+                                    </label>
+                                    <div class="position-slider-container">
+                                        <span class="position-marker">L</span>
+                                        <input type="range" id="startPosition" min="-100" max="100" value="0" class="drum-slider">
+                                        <span class="position-marker">R</span>
+                                        <span class="drum-value" id="startPosValue">Center</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- End Position -->
+                                <div class="drum-control-group">
+                                    <label>
+                                        <i class="fas fa-flag-checkered"></i> End Position
+                                    </label>
+                                    <div class="position-slider-container">
+                                        <span class="position-marker">L</span>
+                                        <input type="range" id="endPosition" min="-100" max="100" value="0" class="drum-slider">
+                                        <span class="position-marker">R</span>
+                                        <span class="drum-value" id="endPosValue">Center</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Depth Position (always visible) -->
+                            <div class="drum-control-group" style="margin-top: 0.75rem;">
+                                <label>
+                                    <i class="fas fa-layer-group"></i> Stage Depth (Reverb)
+                                </label>
+                                <div class="position-slider-container">
+                                    <span class="position-marker" style="font-size: 0.7rem;">Front</span>
+                                    <input type="range" id="depthPosition" min="0" max="100" value="50" class="drum-slider">
+                                    <span class="position-marker" style="font-size: 0.7rem;">Back</span>
+                                    <span class="drum-value" id="depthPosValue">50%</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -436,8 +648,8 @@
                     </div>
                 </div>
                 
-                <!-- Advanced Mode Toggle -->
-                <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                <!-- Advanced Stage Mode Toggle -->
+                <div style="margin-top: 0.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
                     <div>
                         <div style="font-weight: 500; color: var(--text-primary);"><i class="fas fa-sliders-h"></i> Advanced Mode</div>
                         <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0;">Draw smooth automation curves for velocity, pan, filter, and effects</p>

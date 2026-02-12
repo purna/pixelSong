@@ -26,7 +26,10 @@ class SongApp {
             this.songApp = window.songApp;
             this.songApp.createHarmonicsGrid();
             this.songApp.createMelodyGrid();
+            this.songApp.createBassGrid();
+            this.songApp.createLeadGrid();
             this.songApp.createRhythmGrid();
+            this.songApp.createPercussionGrid();
             this.songApp.createStepTimeline();
             this.songApp.createSectionTimelines();
             this.songApp.populateGenreSelect();

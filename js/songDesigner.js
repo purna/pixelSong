@@ -49,7 +49,8 @@ class SongDesignerApp {
             'saw': { synth: Tone.PolySynth, opts: { oscillator: { type: 'fatsawtooth', count: 3, spread: 30 }, envelope: { attack: 0.02, decay: 0.1, sustain: 0.4, release: 0.8 } } },
             'square': { synth: Tone.PolySynth, opts: { oscillator: { type: 'fatsquare', count: 2, spread: 10 }, envelope: { attack: 0.02, decay: 0.1, sustain: 0.3, release: 0.5 } } },
             'sine': { synth: Tone.PolySynth, opts: { oscillator: { type: 'fatsine', count: 2, spread: 20 }, envelope: { attack: 0.02, decay: 0.2, sustain: 0.5, release: 1 } } },
-            'triangle': { synth: Tone.PolySynth, opts: { oscillator: { type: 'fattriangle', count: 2, spread: 15 }, envelope: { attack: 0.02, decay: 0.15, sustain: 0.4, release: 0.6 } } }
+            'triangle': { synth: Tone.PolySynth, opts: { oscillator: { type: 'fattriangle', count: 2, spread: 15 }, envelope: { attack: 0.02, decay: 0.15, sustain: 0.4, release: 0.6 } } },
+            'supersaw': { synth: Tone.PolySynth, opts: { oscillator: { type: 'fatsawtooth', count: 5, spread: 20 }, envelope: { attack: 0.03, decay: 0.2, sustain: 0.4, release: 0.6 } } }
         };
         
         this.drumKits = {
@@ -74,10 +75,10 @@ class SongDesignerApp {
         };
         
         this.currentHarmonicInstrument = 'fm';
-        this.currentMelodyInstrument = 'saw';
-        this.currentBassInstrument = 'sub';
-        this.currentLeadInstrument = 'saw';
-        this.currentDrumKit = 'acoustic';
+        this.currentMelodyInstrument = 'supersaw';
+        this.currentBassInstrument = 'synth';
+        this.currentLeadInstrument = 'supersaw';
+        this.currentDrumKit = 'electronic';
         this.currentPercussionKit = 'latin';
         this.bassOctave = 1;
         
@@ -218,7 +219,6 @@ class SongDesignerApp {
         
         this.groupLoopCounts = [1, 1, 1, 1];
         this.groupLoopCurrent = [0, 0, 0, 0];
-        this.loopControlListenersInitialized = false;
         this.sectionVisibility = {
             harmonics: true,
             melody: true,
@@ -460,8 +460,11 @@ class SongDesignerApp {
             case 'triangle':
                 this.melodySynth = new Tone.PolySynth(Tone.Synth, { oscillator: { type: 'fattriangle', count: 2, spread: 15 }, envelope: { attack: 0.02, decay: 0.15, sustain: 0.4, release: 0.6 } });
                 break;
+            case 'supersaw':
+                this.melodySynth = new Tone.PolySynth(Tone.Synth, { oscillator: { type: 'fatsawtooth', count: 5, spread: 20 }, envelope: { attack: 0.03, decay: 0.2, sustain: 0.4, release: 0.6 } });
+                break;
             default:
-                this.melodySynth = new Tone.PolySynth(Tone.Synth, { oscillator: { type: 'fatsawtooth', count: 3, spread: 30 }, envelope: { attack: 0.02, decay: 0.1, sustain: 0.4, release: 0.8 } });
+                this.melodySynth = new Tone.PolySynth(Tone.Synth, { oscillator: { type: 'fatsawtooth', count: 5, spread: 20 }, envelope: { attack: 0.03, decay: 0.2, sustain: 0.4, release: 0.6 } });
         }
         this.melodySynth.connect(this.melodyPanner);
         this.melodySynth.volume.value = -4;
@@ -668,15 +671,50 @@ class SongDesignerApp {
     saveCurrentGroup() {}
     
     rebuildGrids() {
+        // Clear any hidden class and add show class only for enabled sections
+        document.querySelectorAll('.melody-group-row').forEach(row => {
+            row.classList.remove('hidden');
+            row.classList.toggle('show', this.melodyEnabled);
+        });
+        
+        document.querySelectorAll('.bass-group-row').forEach(row => {
+            row.classList.remove('hidden');
+            row.classList.toggle('show', this.bassEnabled);
+        });
+        
+        document.querySelectorAll('.lead-group-row').forEach(row => {
+            row.classList.remove('hidden');
+            row.classList.toggle('show', this.leadEnabled);
+        });
+        
+        document.querySelectorAll('.rhythm-group-row').forEach(row => {
+            row.classList.remove('hidden');
+            row.classList.toggle('show', this.rhythmEnabled);
+        });
+        
+        // Handle percussion rows separately (they're in #percussionGrid)
+        document.querySelectorAll('#percussionGrid .rhythm-group-row').forEach(row => {
+            row.classList.remove('hidden');
+            row.classList.toggle('show', this.percussionEnabled);
+        });
+        
+        // Ensure grid containers have correct display
+        const bassGrid = document.getElementById('bassGrid');
+        if (bassGrid) bassGrid.style.display = this.bassEnabled ? 'block' : 'none';
+        const leadGrid = document.getElementById('leadGrid');
+        if (leadGrid) leadGrid.style.display = this.leadEnabled ? 'block' : 'none';
+        const percussionGrid = document.getElementById('percussionGrid');
+        if (percussionGrid) percussionGrid.style.display = this.percussionEnabled ? 'block' : 'none';
+        
         const melodyGrid = document.getElementById('stringsGrid');
         melodyGrid.innerHTML = '';
         this.createMelodyGrid();
-        const bassGrid = document.getElementById('bassGrid');
-        if (bassGrid) { bassGrid.innerHTML = ''; this.createBassGrid(); }
-        const leadGrid = document.getElementById('leadGrid');
-        if (leadGrid) { leadGrid.innerHTML = ''; this.createLeadGrid(); }
-        const rhythmGrid = document.getElementById('rhythmGrid');
-        rhythmGrid.innerHTML = '';
+        const bassGridEl = document.getElementById('bassGrid');
+        if (bassGridEl) { bassGridEl.innerHTML = ''; this.createBassGrid(); }
+        const leadGridEl = document.getElementById('leadGrid');
+        if (leadGridEl) { leadGridEl.innerHTML = ''; this.createLeadGrid(); }
+        const rhythmGridEl = document.getElementById('rhythmGrid');
+        rhythmGridEl.innerHTML = '';
         this.createRhythmGrid();
         this.melodyRows.forEach((row, col) => {
             const cell = document.querySelector(`.string-cell[data-col="${col}"][data-row="${row}"]`);
@@ -696,9 +734,9 @@ class SongDesignerApp {
                 if (cell) cell.classList.add('active');
             });
         });
-        const percussionGrid = document.getElementById('percussionGrid');
-        if (percussionGrid) {
-            percussionGrid.innerHTML = '';
+        const percussionGridEl = document.getElementById('percussionGrid');
+        if (percussionGridEl) {
+            percussionGridEl.innerHTML = '';
             this.createPercussionGrid();
             ['conga', 'bongo', 'shaker', 'cymbal'].forEach(inst => {
                 this.rhythm[inst].forEach(step => {
@@ -709,12 +747,44 @@ class SongDesignerApp {
         }
         this.updateTimelineState();
         
-        // Re-attach listeners to newly created sliders
-        this.addLoopControlListeners();
-        
         // Re-initialize tooltips for dynamically added elements
         if (typeof initTooltips === 'function') {
             initTooltips();
+        }
+        
+        // Force show enabled grids
+        if (this.bassEnabled) {
+            document.querySelectorAll('.bass-group-row').forEach(row => {
+                row.classList.remove('hidden');
+                row.classList.add('show');
+            });
+        } else {
+            document.querySelectorAll('.bass-group-row').forEach(row => {
+                row.classList.remove('show');
+                row.classList.add('hidden');
+            });
+        }
+        if (this.leadEnabled) {
+            document.querySelectorAll('.lead-group-row').forEach(row => {
+                row.classList.remove('hidden');
+                row.classList.add('show');
+            });
+        } else {
+            document.querySelectorAll('.lead-group-row').forEach(row => {
+                row.classList.remove('show');
+                row.classList.add('hidden');
+            });
+        }
+        if (this.percussionEnabled) {
+            document.querySelectorAll('#percussionGrid .rhythm-group-row').forEach(row => {
+                row.classList.remove('hidden');
+                row.classList.add('show');
+            });
+        } else {
+            document.querySelectorAll('#percussionGrid .rhythm-group-row').forEach(row => {
+                row.classList.remove('show');
+                row.classList.add('hidden');
+            });
         }
     }
     
@@ -766,28 +836,6 @@ class SongDesignerApp {
             groupLabel.innerHTML = `<span>${stepGroups[g].name}</span>`;
             groupHeader.appendChild(groupLabel);
             
-            const controlsContainer = document.createElement('div');
-            controlsContainer.className = 'loop-controls-accordion';
-            controlsContainer.innerHTML = `
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Velocity: Adjust volume intensity for this section's notes"><i class="fas fa-volume-up"></i></span>
-                    <input type="range" class="loop-velocity-slider-v" data-group="${g}" min="0" max="100" value="80" orient="vertical">
-                    <span class="loop-control-value-v" id="loop${g}VelocityValue">80</span>
-                </div>
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Filter: Control brightness/tone by adjusting cutoff frequency"><i class="fas fa-filter"></i></span>
-                    <input type="range" class="loop-filter-slider-v" data-group="${g}" min="0" max="100" value="50" orient="vertical">
-                    <span class="loop-control-value-v" id="loop${g}FilterValue">50</span>
-                </div>
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Pan: Position sound in stereo field (left/right)"><i class="fas fa-arrows-alt-h"></i></span>
-                    <input type="range" class="loop-pan-slider-v" data-group="${g}" min="-100" max="100" value="0" orient="vertical">
-                    <span class="loop-control-value-v" id="loop${g}PanValue">0</span>
-                </div>
-            `;
-            groupHeader.appendChild(controlsContainer);
-            groupRow.appendChild(groupHeader);
-            
             for (let col = 0; col < 16; col++) {
                 const column = document.createElement('div');
                 column.className = 'string-column';
@@ -809,157 +857,8 @@ class SongDesignerApp {
             }
             grid.appendChild(groupRow);
         }
-        this.updateMainLoopControlsVisibility();
+        this.createSectionRepeatsControl();
     }
-    
-    addLoopControlListeners() {
-        // Attach listeners to velocity sliders
-        document.querySelectorAll('.loop-velocity-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`loop${group}VelocityValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                const startStep = group * 16;
-                const endStep = Math.min(startStep + 16, this.patternLength);
-                for (let step = startStep; step < endStep; step++) this.melodyVelocity.set(step, value / 100);
-            });
-        });
-        
-        // Attach listeners to filter sliders
-        document.querySelectorAll('.loop-filter-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`loop${group}FilterValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                const startStep = group * 16;
-                const endStep = Math.min(startStep + 16, this.patternLength);
-                for (let step = startStep; step < endStep; step++) this.effectAutomation.lowpass.set(step, value);
-            });
-        });
-        
-        // Attach listeners to pan sliders
-        document.querySelectorAll('.loop-pan-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`loop${group}PanValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                if (!this.groupPanValues) this.groupPanValues = [0, 0, 0, 0];
-                this.groupPanValues[group] = value / 100;
-                if (this.harmonyPanner) this.harmonyPanner.pan.value = value / 100;
-                if (this.melodyPanner) this.melodyPanner.pan.value = value / 100;
-                if (this.bassPanner) this.bassPanner.pan.value = value / 100;
-                if (this.leadPanner) this.leadPanner.pan.value = value / 100;
-            });
-        });
-        
-        // Attach listeners to bass velocity sliders
-        document.querySelectorAll('.loop-bass-velocity-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`bassLoop${group}VelocityValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                const startStep = group * 16;
-                const endStep = Math.min(startStep + 16, this.patternLength);
-                for (let step = startStep; step < endStep; step++) this.bassVelocity.set(step, value / 100);
-            });
-        });
-        
-        // Attach listeners to bass filter sliders
-        document.querySelectorAll('.loop-bass-filter-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`bassLoop${group}FilterValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                const startStep = group * 16;
-                const endStep = Math.min(startStep + 16, this.patternLength);
-                for (let step = startStep; step < endStep; step++) this.effectAutomation.lowpass.set(step, value);
-            });
-        });
-        
-        // Attach listeners to bass pan sliders
-        document.querySelectorAll('.loop-bass-pan-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`bassLoop${group}PanValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                if (!this.groupPanValues) this.groupPanValues = [0, 0, 0, 0];
-                this.groupPanValues[group] = value / 100;
-                if (this.bassPanner) this.bassPanner.pan.value = value / 100;
-            });
-        });
-        
-        // Attach listeners to lead velocity sliders
-        document.querySelectorAll('.loop-lead-velocity-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`leadLoop${group}VelocityValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                const startStep = group * 16;
-                const endStep = Math.min(startStep + 16, this.patternLength);
-                for (let step = startStep; step < endStep; step++) this.leadVelocity.set(step, value / 100);
-            });
-        });
-        
-        // Attach listeners to lead filter sliders
-        document.querySelectorAll('.loop-lead-filter-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`leadLoop${group}FilterValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                const startStep = group * 16;
-                const endStep = Math.min(startStep + 16, this.patternLength);
-                for (let step = startStep; step < endStep; step++) this.effectAutomation.lowpass.set(step, value);
-            });
-        });
-        
-        // Attach listeners to lead pan sliders
-        document.querySelectorAll('.loop-lead-pan-slider-v').forEach(slider => {
-            if (slider.dataset.listenerAttached) return;
-            slider.dataset.listenerAttached = 'true';
-            slider.addEventListener('input', (e) => {
-                const group = parseInt(e.target.dataset.group);
-                const value = parseInt(e.target.value);
-                const valueDisplay = document.getElementById(`leadLoop${group}PanValue`);
-                if (valueDisplay) valueDisplay.textContent = value;
-                if (!this.groupPanValues) this.groupPanValues = [0, 0, 0, 0];
-                this.groupPanValues[group] = value / 100;
-                if (this.leadPanner) this.leadPanner.pan.value = value / 100;
-            });
-        });
-    }
-    
-    updateMainLoopControlsVisibility() {
-        const showControls = document.getElementById('mainLoopControlsToggle')?.checked ?? true;
-        document.querySelectorAll('.loop-controls-accordion').forEach(el => {
-            if (showControls) el.classList.add('visible');
-            else el.classList.remove('visible');
-        });
-    }
-    
     createBassGrid() {
         const grid = document.getElementById('bassGrid');
         if (!grid) return;
@@ -980,27 +879,6 @@ class SongDesignerApp {
             const stepGroups = this.getStepGroupDefinitions();
             groupLabel.innerHTML = `<span>${stepGroups[g].name}</span>`;
             groupHeader.appendChild(groupLabel);
-            
-            const controlsContainer = document.createElement('div');
-            controlsContainer.className = 'loop-controls-accordion';
-            controlsContainer.innerHTML = `
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Velocity: Adjust bass volume intensity for this section"><i class="fas fa-volume-up"></i></span>
-                    <input type="range" class="loop-bass-velocity-slider-v" data-group="${g}" min="0" max="100" value="80" orient="vertical">
-                    <span class="loop-control-value-v" id="bassLoop${g}VelocityValue">80</span>
-                </div>
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Filter: Control bass brightness/tone by adjusting cutoff"><i class="fas fa-filter"></i></span>
-                    <input type="range" class="loop-bass-filter-slider-v" data-group="${g}" min="0" max="100" value="50" orient="vertical">
-                    <span class="loop-control-value-v" id="bassLoop${g}FilterValue">50</span>
-                </div>
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Pan: Position bass in stereo field (left/right)"><i class="fas fa-arrows-alt-h"></i></span>
-                    <input type="range" class="loop-bass-pan-slider-v" data-group="${g}" min="-100" max="100" value="0" orient="vertical">
-                    <span class="loop-control-value-v" id="bassLoop${g}PanValue">0</span>
-                </div>
-            `;
-            groupHeader.appendChild(controlsContainer);
             groupRow.appendChild(groupHeader);
             
             const columnsWrapper = document.createElement('div');
@@ -1044,7 +922,20 @@ class SongDesignerApp {
             groupRow.appendChild(columnsWrapper);
             grid.appendChild(groupRow);
         }
-        this.updateMainLoopControlsVisibility();
+        
+        // Set initial visibility based on enabled state
+        const bassGridEl = document.getElementById('bassGrid');
+        if (bassGridEl) {
+            bassGridEl.querySelectorAll('.bass-group-row').forEach(row => {
+                if (this.bassEnabled) {
+                    row.classList.remove('hidden');
+                    row.classList.add('show');
+                } else {
+                    row.classList.remove('show');
+                    row.classList.add('hidden');
+                }
+            });
+        }
     }
     
     createLeadGrid() {
@@ -1067,27 +958,6 @@ class SongDesignerApp {
             const stepGroups = this.getStepGroupDefinitions();
             groupLabel.innerHTML = `<span>${stepGroups[g].name}</span>`;
             groupHeader.appendChild(groupLabel);
-            
-            const controlsContainer = document.createElement('div');
-            controlsContainer.className = 'loop-controls-accordion';
-            controlsContainer.innerHTML = `
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Velocity: Adjust lead volume intensity for this section"><i class="fas fa-volume-up"></i></span>
-                    <input type="range" class="loop-lead-velocity-slider-v" data-group="${g}" min="0" max="100" value="80" orient="vertical">
-                    <span class="loop-control-value-v" id="leadLoop${g}VelocityValue">80</span>
-                </div>
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Filter: Control lead brightness/tone by adjusting cutoff"><i class="fas fa-filter"></i></span>
-                    <input type="range" class="loop-lead-filter-slider-v" data-group="${g}" min="0" max="100" value="50" orient="vertical">
-                    <span class="loop-control-value-v" id="leadLoop${g}FilterValue">50</span>
-                </div>
-                <div class="loop-control-vertical">
-                    <span class="loop-control-label-v" data-tooltip="Pan: Position lead in stereo field (left/right)"><i class="fas fa-arrows-alt-h"></i></span>
-                    <input type="range" class="loop-lead-pan-slider-v" data-group="${g}" min="-100" max="100" value="0" orient="vertical">
-                    <span class="loop-control-value-v" id="leadLoop${g}PanValue">0</span>
-                </div>
-            `;
-            groupHeader.appendChild(controlsContainer);
             groupRow.appendChild(groupHeader);
             
             const columnsWrapper = document.createElement('div');
@@ -1128,7 +998,20 @@ class SongDesignerApp {
             groupRow.appendChild(columnsWrapper);
             grid.appendChild(groupRow);
         }
-        this.updateMainLoopControlsVisibility();
+        
+        // Set initial visibility based on enabled state
+        const leadGridEl = document.getElementById('leadGrid');
+        if (leadGridEl) {
+            leadGridEl.querySelectorAll('.lead-group-row').forEach(row => {
+                if (this.leadEnabled) {
+                    row.classList.remove('hidden');
+                    row.classList.add('show');
+                } else {
+                    row.classList.remove('show');
+                    row.classList.add('hidden');
+                }
+            });
+        }
     }
     
     createRhythmGrid() {
@@ -1208,6 +1091,20 @@ class SongDesignerApp {
                 grid.appendChild(row);
             }
         });
+        
+        // Set initial visibility based on enabled state
+        const percussionGridEl = document.getElementById('percussionGrid');
+        if (percussionGridEl) {
+            percussionGridEl.querySelectorAll('.rhythm-group-row').forEach(row => {
+                if (this.percussionEnabled) {
+                    row.classList.remove('hidden');
+                    row.classList.add('show');
+                } else {
+                    row.classList.remove('show');
+                    row.classList.add('hidden');
+                }
+            });
+        }
     }
     
     setupEventListeners() {
@@ -1259,6 +1156,41 @@ class SongDesignerApp {
         document.getElementById('clearRhythmBtn')?.addEventListener('click', () => {
             Object.keys(this.rhythm).forEach(inst => this.rhythm[inst].clear());
             document.querySelectorAll('.rhythm-cell').forEach(c => c.classList.remove('active'));
+        });
+        
+        // Toggle Drum Controls visibility using checkbox toggle switch
+        document.getElementById('toggleDrumControls')?.addEventListener('change', function() {
+            const drumControls = document.getElementById('drumControls');
+            if (!drumControls) return;
+            drumControls.style.display = this.checked ? 'flex' : 'none';
+        });
+        
+        // Toggle Strings Controls visibility using checkbox toggle switch
+        document.getElementById('toggleStringsControls')?.addEventListener('change', function() {
+            const stringsControls = document.getElementById('stringsControls');
+            if (!stringsControls) return;
+            stringsControls.style.display = this.checked ? 'flex' : 'none';
+        });
+        
+        // Toggle Bass Controls visibility using checkbox toggle switch
+        document.getElementById('toggleBassControls')?.addEventListener('change', function() {
+            const bassControls = document.getElementById('bassControls');
+            if (!bassControls) return;
+            bassControls.style.display = this.checked ? 'flex' : 'none';
+        });
+        
+        // Toggle Lead Controls visibility using checkbox toggle switch
+        document.getElementById('toggleLeadControls')?.addEventListener('change', function() {
+            const leadControls = document.getElementById('leadControls');
+            if (!leadControls) return;
+            leadControls.style.display = this.checked ? 'flex' : 'none';
+        });
+        
+        // Toggle Percussion Controls visibility using checkbox toggle switch
+        document.getElementById('togglePercussionControls')?.addEventListener('change', function() {
+            const percussionControls = document.getElementById('percussionControls');
+            if (!percussionControls) return;
+            percussionControls.style.display = this.checked ? 'flex' : 'none';
         });
         document.getElementById('clearBassBtn')?.addEventListener('click', () => {
             this.bassRows.clear();
@@ -1320,20 +1252,6 @@ class SongDesignerApp {
             }
         });
         
-        // Rhythm Visualizer Toggle
-        document.getElementById('rhythmToggle')?.addEventListener('click', (e) => {
-            if (!this.rhythmVisualizer) return;
-            
-            if (this.rhythmVisualizer.enabled) {
-                this.rhythmVisualizer.disable();
-                e.target.classList.remove('active');
-                this.showNotification('Beat Pulse Visualizer OFF', 'info');
-            } else {
-                this.rhythmVisualizer.enable();
-                e.target.classList.add('active');
-                this.showNotification('Beat Pulse Visualizer ON', 'success');
-            }
-        });
         document.getElementById('stringsToggle')?.addEventListener('click', (e) => {
             this.melodyEnabled = !this.melodyEnabled;
             e.target.textContent = this.melodyEnabled ? 'ON' : 'OFF';
@@ -1354,7 +1272,8 @@ class SongDesignerApp {
                 });
             }
         });
-        document.getElementById('rhythmToggle')?.addEventListener('click', (e) => {
+        // Rhythm Section Toggle (for enabling/disabling drums)
+        document.getElementById('rhythmSectionToggle')?.addEventListener('click', (e) => {
             this.rhythmEnabled = !this.rhythmEnabled;
             e.target.textContent = this.rhythmEnabled ? 'ON' : 'OFF';
             e.target.classList.toggle('active', this.rhythmEnabled);
@@ -1445,6 +1364,19 @@ class SongDesignerApp {
                 bassGrid.style.display = this.bassEnabled ? 'block' : 'none';
             }
             
+            // Remove hidden class and add show class from bass rows when showing
+            if (this.bassEnabled) {
+                document.querySelectorAll('.bass-group-row').forEach(row => {
+                    row.classList.remove('hidden');
+                    row.classList.add('show');
+                });
+            } else {
+                document.querySelectorAll('.bass-group-row').forEach(row => {
+                    row.classList.remove('show');
+                    row.classList.add('hidden');
+                });
+            }
+            
             // Disable/enable all controls within section-content
             const bassSectionContent = document.querySelector('#bassSection .section-content');
             if (bassSectionContent) {
@@ -1463,6 +1395,19 @@ class SongDesignerApp {
             const leadGrid = document.getElementById('leadGrid');
             if (leadGrid) {
                 leadGrid.style.display = this.leadEnabled ? 'block' : 'none';
+            }
+            
+            // Remove hidden class and add show class from lead rows when showing
+            if (this.leadEnabled) {
+                document.querySelectorAll('.lead-group-row').forEach(row => {
+                    row.classList.remove('hidden');
+                    row.classList.add('show');
+                });
+            } else {
+                document.querySelectorAll('.lead-group-row').forEach(row => {
+                    row.classList.remove('show');
+                    row.classList.add('hidden');
+                });
             }
             
             // Disable/enable all controls within section-content
@@ -1485,6 +1430,19 @@ class SongDesignerApp {
                 percussionGrid.style.display = this.percussionEnabled ? 'block' : 'none';
             }
             
+            // Remove hidden class and add show class from percussion rows when showing
+            if (this.percussionEnabled) {
+                document.querySelectorAll('#percussionGrid .rhythm-group-row').forEach(row => {
+                    row.classList.remove('hidden');
+                    row.classList.add('show');
+                });
+            } else {
+                document.querySelectorAll('#percussionGrid .rhythm-group-row').forEach(row => {
+                    row.classList.remove('show');
+                    row.classList.add('hidden');
+                });
+            }
+            
             // Disable/enable all controls within section-content
             const percussionSectionContent = document.querySelector('#percussionSection .section-content');
             if (percussionSectionContent) {
@@ -1502,8 +1460,276 @@ class SongDesignerApp {
         document.getElementById('drumKit')?.addEventListener('change', (e) => { this.setDrumKit(e.target.value); });
         document.getElementById('percussionKit')?.addEventListener('change', (e) => { this.setPercussionKit(e.target.value); });
         
-        // Initialize loop control listeners once
-        this.addLoopControlListeners();
+        // Drum Volume Control
+        document.getElementById('drumVolume')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('drumVolumeValue').textContent = value + '%';
+            
+            // Update drum volumes
+            const baseVolumes = {
+                'drums.kick': -4,
+                'drums.snare': -10,
+                'drums.hihat': -15,
+                'drums.tom': -6
+            };
+            
+            const normalizedValue = value / 100;
+            Object.entries(baseVolumes).forEach(([key, baseDb]) => {
+                const parts = key.split('.');
+                let synth = this;
+                for (const part of parts) {
+                    synth = synth?.[part];
+                }
+                if (synth && typeof synth.volume !== 'undefined') {
+                    const masterAdjust = (normalizedValue - 1) * 20;
+                    const finalDb = baseDb + masterAdjust;
+                    if (typeof synth.volume.setValueAtTime === 'function') {
+                        synth.volume.setValueAtTime(finalDb, Tone.now());
+                    } else {
+                        synth.volume.value = finalDb;
+                    }
+                }
+            });
+        });
+        
+        // Drum Cutoff Control
+        document.getElementById('drumCutoff')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('drumCutoffValue').textContent = value + '%';
+            // Cutoff is handled by global filter effect
+        });
+        
+        // Drum Pan Control
+        document.getElementById('drumPan')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            const panValue = value / 100;
+            document.getElementById('drumPanValue').textContent = value === 0 ? 'C' : (value < 0 ? `L${Math.abs(value)}` : `R${value}`);
+            
+            // Update drum panners
+            Object.keys(this.drumPanners).forEach(inst => {
+                if (this.drumPanners[inst]) {
+                    this.drumPanners[inst].pan.value = panValue;
+                }
+            });
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('rhythm');
+            }
+        });
+        
+        // Percussion Volume Control
+        document.getElementById('percussionVolume')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('percussionVolumeValue').textContent = value + '%';
+            
+            // Update percussion volumes
+            const baseVolumes = {
+                'percussion.conga': -8,
+                'percussion.bongo': -10,
+                'percussion.shaker': -12,
+                'percussion.cymbal': -10
+            };
+            
+            const normalizedValue = value / 100;
+            Object.entries(baseVolumes).forEach(([key, baseDb]) => {
+                const parts = key.split('.');
+                let synth = this;
+                for (const part of parts) {
+                    synth = synth?.[part];
+                }
+                if (synth && typeof synth.volume !== 'undefined') {
+                    const masterAdjust = (normalizedValue - 1) * 20;
+                    const finalDb = baseDb + masterAdjust;
+                    if (typeof synth.volume.setValueAtTime === 'function') {
+                        synth.volume.setValueAtTime(finalDb, Tone.now());
+                    } else {
+                        synth.volume.value = finalDb;
+                    }
+                }
+            });
+        });
+        
+        // Percussion Cutoff Control
+        document.getElementById('percussionCutoff')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('percussionCutoffValue').textContent = value + '%';
+            // Cutoff is handled by global filter effect
+        });
+        
+        // Percussion Pan Control
+        document.getElementById('percussionPan')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            const panValue = value / 100;
+            document.getElementById('percussionPanValue').textContent = value === 0 ? 'C' : (value < 0 ? `L${Math.abs(value)}` : `R${value}`);
+            
+            // Update percussion panners
+            Object.keys(this.percussionPanners).forEach(inst => {
+                if (this.percussionPanners[inst]) {
+                    this.percussionPanners[inst].pan.value = panValue;
+                }
+            });
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('percussion');
+            }
+        });
+        
+        // Strings Volume Control
+        document.getElementById('stringsVolume')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('stringsVolumeValue').textContent = value + '%';
+            
+            // Update melody synth volume
+            if (this.melodySynth) {
+                const baseDb = -4;
+                const normalizedValue = value / 100;
+                const masterAdjust = (normalizedValue - 1) * 20;
+                const finalDb = baseDb + masterAdjust;
+                if (typeof this.melodySynth.volume.setValueAtTime === 'function') {
+                    this.melodySynth.volume.setValueAtTime(finalDb, Tone.now());
+                } else {
+                    this.melodySynth.volume.value = finalDb;
+                }
+            }
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('strings');
+            }
+        });
+        
+        // Strings Cutoff Control
+        document.getElementById('stringsCutoff')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('stringsCutoffValue').textContent = value + '%';
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('strings');
+            }
+        });
+        
+        // Strings Pan Control
+        document.getElementById('stringsPan')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('stringsPanValue').textContent = value === 0 ? 'C' : (value < 0 ? `${Math.abs(value)}%L` : `${value}%R`);
+            
+            // Update melody panner
+            if (this.melodyPanner) {
+                this.melodyPanner.pan.value = value / 100;
+            }
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('strings');
+            }
+        });
+        
+        // Bass Volume Control
+        document.getElementById('bassVolume')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('bassVolumeValue').textContent = value + '%';
+            
+            // Update bass synth volume
+            if (this.bassSynth) {
+                const baseDb = -2;
+                const normalizedValue = value / 100;
+                const masterAdjust = (normalizedValue - 1) * 20;
+                const finalDb = baseDb + masterAdjust;
+                if (typeof this.bassSynth.volume.setValueAtTime === 'function') {
+                    this.bassSynth.volume.setValueAtTime(finalDb, Tone.now());
+                } else {
+                    this.bassSynth.volume.value = finalDb;
+                }
+            }
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('bass');
+            }
+        });
+        
+        // Bass Cutoff Control
+        document.getElementById('bassCutoff')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('bassCutoffValue').textContent = value + '%';
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('bass');
+            }
+        });
+        
+        // Bass Pan Control
+        document.getElementById('bassPan')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('BassPanValue').textContent = value === 0 ? 'C' : (value < 0 ? `${Math.abs(value)}%L` : `${value}%R`);
+            
+            // Update bass panner
+            if (this.bassPanner) {
+                this.bassPanner.pan.value = value / 100;
+            }
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('bass');
+            }
+        });
+        
+        // Lead Volume Control
+        document.getElementById('leadVolume')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('leadVolumeValue').textContent = value + '%';
+            
+            // Update lead synth volume
+            if (this.leadSynth) {
+                const baseDb = -3;
+                const normalizedValue = value / 100;
+                const masterAdjust = (normalizedValue - 1) * 20;
+                const finalDb = baseDb + masterAdjust;
+                if (typeof this.leadSynth.volume.setValueAtTime === 'function') {
+                    this.leadSynth.volume.setValueAtTime(finalDb, Tone.now());
+                } else {
+                    this.leadSynth.volume.value = finalDb;
+                }
+            }
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('lead');
+            }
+        });
+        
+        // Lead Cutoff Control
+        document.getElementById('leadCutoff')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('pleadCutoffValue').textContent = value + '%';
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('lead');
+            }
+        });
+        
+        // Lead Pan Control
+        document.getElementById('leadPan')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('leadPanValue').textContent = value === 0 ? 'C' : (value < 0 ? `${Math.abs(value)}%L` : `${value}%R`);
+            
+            // Update lead panner
+            if (this.leadPanner) {
+                this.leadPanner.pan.value = value / 100;
+            }
+            
+            // Update Stage Positioning controls
+            if (typeof StageManager !== 'undefined' && StageManager.updateFromSectionControls) {
+                StageManager.updateFromSectionControls('lead');
+            }
+        });
+        
+        // Initialize section repeats control
         this.createSectionRepeatsControl();
     }
     
@@ -1515,6 +1741,10 @@ class SongDesignerApp {
             this.harmonics.add(index);
             cell.classList.add('active');
             if (this.polySynth) this.polySynth.triggerAttackRelease(this.harmonicNotes[index], '8n');
+            // Trigger visual pulse for individual cell click
+            if (this.rhythmVisualizer && this.rhythmVisualizer.enabled) {
+                this.rhythmVisualizer.pulseHarmonics();
+            }
         }
         if (index < this.patternLength) {
             this.updateSectionTimelineForStep(index);
@@ -1548,6 +1778,10 @@ class SongDesignerApp {
             if (this.melodySynth) {
                 const scale = this.getCurrentScale();
                 this.melodySynth.triggerAttackRelease(scale[row], '16n');
+            }
+            // Trigger visual pulse for individual cell click
+            if (this.rhythmVisualizer && this.rhythmVisualizer.enabled) {
+                this.rhythmVisualizer.pulseMelody();
             }
         }
         
@@ -1584,6 +1818,10 @@ class SongDesignerApp {
             if (this.bassSynth && row < this.bassNotes.length) {
                 const bassNote = this.bassNotes[row];
                 this.bassSynth.triggerAttackRelease(bassNote, '8n');
+            }
+            // Trigger visual pulse for individual cell click
+            if (this.rhythmVisualizer && this.rhythmVisualizer.enabled) {
+                this.rhythmVisualizer.pulseBass();
             }
         }
         
@@ -1624,6 +1862,10 @@ class SongDesignerApp {
                         this.leadSynth.triggerAttackRelease(scale[row], '16n');
                     }
                 }
+                // Trigger visual pulse for individual cell click
+                if (this.rhythmVisualizer && this.rhythmVisualizer.enabled) {
+                    this.rhythmVisualizer.pulseLead();
+                }
             }
         }
         
@@ -1643,6 +1885,10 @@ class SongDesignerApp {
             groupData[instrument].add(step);
             cell.classList.add('active');
             if (this.drums?.[instrument]) this.drums[instrument].triggerAttackRelease('16n');
+            // Trigger visual pulse for individual cell click
+            if (this.rhythmVisualizer && this.rhythmVisualizer.enabled) {
+                this.rhythmVisualizer.pulseDrums();
+            }
         }
         
         const globalStep = groupIndex * 16 + step;
@@ -1703,11 +1949,11 @@ class SongDesignerApp {
             else playBtn.innerHTML = '<i class="fas fa-stop"></i> Stop';
         }
         
-        // Pulse the rhythm toggle button
-        const rhythmBtn = document.getElementById('rhythmToggle');
-        if (rhythmBtn) {
-            rhythmBtn.classList.add('pulsing');
-            setTimeout(() => rhythmBtn.classList.remove('pulsing'), 500);
+        // Pulse the rhythm section toggle button
+        const rhythmSectionBtn = document.getElementById('rhythmSectionToggle');
+        if (rhythmSectionBtn) {
+            rhythmSectionBtn.classList.add('pulsing');
+            setTimeout(() => rhythmSectionBtn.classList.remove('pulsing'), 500);
         }
     }
     
@@ -1776,7 +2022,7 @@ class SongDesignerApp {
                             this.drums[instrument].triggerAttackRelease('16n', undefined, vel);
                         }
                         
-                        const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${step}"]`);
+                        const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${localStep}"]`);
                         if (cell) {
                             cell.classList.add('playing');
                             setTimeout(() => cell.classList.remove('playing'), 150);
@@ -1792,7 +2038,7 @@ class SongDesignerApp {
                         const vel = this.rhythmVelocity[instrument]?.get(step) ?? 0.8;
                         this.drums[instrument].triggerAttackRelease('16n', undefined, vel);
                         
-                        const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${step}"]`);
+                        const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${localStep}"]`);
                         if (cell) {
                             cell.classList.add('playing');
                             setTimeout(() => cell.classList.remove('playing'), 150);
@@ -1838,7 +2084,7 @@ class SongDesignerApp {
                     const vel = this.rhythmVelocity[instrument]?.get(step) ?? 0.7;
                     this.percussion[instrument].triggerAttackRelease('16n', undefined, vel);
                     
-                    const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${step}"]`);
+                    const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${localStep}"]`);
                     if (cell) {
                         cell.classList.add('playing');
                         setTimeout(() => cell.classList.remove('playing'), 150);
@@ -2087,20 +2333,8 @@ class SongDesignerApp {
                 
                 groupRow.appendChild(stepsGrid);
                 
-                // Toggle section visibility on click
-                groupRow.addEventListener('click', (e) => {
-                    // Toggle visibility for this section
-                    this.sectionVisibility[section.id] = !this.sectionVisibility[section.id];
-                    
-                    if (this.sectionVisibility[section.id]) {
-                        this.showSectionRows(section.id, groupIndex);
-                    } else {
-                        this.hideSectionType(section.id);
-                    }
-                    
-                    this.loadPatternGroup(groupIndex);
-                    this.updateTimelineActiveState(section.id, groupIndex);
-                });
+                
+                // Timeline cells are now purely for display - no click interaction
                 
                 container.appendChild(groupRow);
             });
@@ -2152,6 +2386,10 @@ class SongDesignerApp {
     }
     
     hasSectionActivity(section, groupIndex, step) {
+        // step now represents a pair of steps (0-1, 2-3, 4-5, etc.)
+        const step1 = step * 2;
+        const step2 = step * 2 + 1;
+        
         if (!section.data) return false;
         
         switch(section.id) {
@@ -2159,17 +2397,18 @@ class SongDesignerApp {
                 // Harmonics is a static chord selector (not step-based)
                 return this.patternGroups.harmonics[groupIndex]?.size > 0;
             case 'melody':
-                return this.patternGroups.melody[groupIndex]?.has(step);
+                return this.patternGroups.melody[groupIndex]?.has(step1) || this.patternGroups.melody[groupIndex]?.has(step2);
             case 'bass':
-                return this.patternGroups.bass[groupIndex]?.has(step);
+                return this.patternGroups.bass[groupIndex]?.has(step1) || this.patternGroups.bass[groupIndex]?.has(step2);
             case 'lead':
-                return this.patternGroups.lead[groupIndex]?.has(step);
+                return this.patternGroups.lead[groupIndex]?.has(step1) || this.patternGroups.lead[groupIndex]?.has(step2);
             case 'rhythm':
             case 'percussion':
                 const rhythmData = this.patternGroups.rhythm[groupIndex];
                 if (rhythmData) {
+                    // Check if either step in the pair has activity
                     for (const inst of Object.keys(rhythmData)) {
-                        if (rhythmData[inst].has(step)) return true;
+                        if (rhythmData[inst].has(step1) || rhythmData[inst].has(step2)) return true;
                     }
                 }
                 return false;
@@ -2227,10 +2466,12 @@ class SongDesignerApp {
             if (this.isPlaying) {
                 const groupIndex = Math.floor(this.currentStep / 16);
                 const localStep = this.currentStep % 16;
+                // Convert to cell index
+                const cellIndex = Math.floor(localStep / 2);
                 
                 const activeRow = container.querySelectorAll('.group-grid-row')[groupIndex];
                 if (activeRow) {
-                    const playingCell = activeRow.querySelector(`.group-step[data-step="${localStep}"]`);
+                    const playingCell = activeRow.querySelector(`.group-step[data-step="${cellIndex}"]`);
                     if (playingCell) playingCell.classList.add('playing');
                 }
             }
@@ -2238,6 +2479,9 @@ class SongDesignerApp {
     }
     
     updateSectionTimelineForStep(step) {
+        // Convert step to cell index (step 0-1 -> cell 0, step 2-3 -> cell 1, etc.)
+        const cellIndex = Math.floor(step / 2);
+        
         const sections = ['harmonics', 'melody', 'rhythm', 'bass', 'lead', 'percussion'];
         
         sections.forEach(sectionId => {
@@ -2245,14 +2489,13 @@ class SongDesignerApp {
             if (!container) return;
             
             const groupIndex = Math.floor(step / 16);
-            const localStep = step % 16;
             
             const rows = container.querySelectorAll('.group-grid-row');
             const activeRow = rows[groupIndex];
             if (activeRow) {
-                const stepCell = activeRow.querySelector(`.group-step[data-step="${localStep}"]`);
+                const stepCell = activeRow.querySelector(`.group-step[data-step="${cellIndex}"]`);
                 if (stepCell) {
-                    stepCell.classList.toggle('active', this.hasSectionActivity({ id: sectionId, data: this.getSectionData(sectionId) }, groupIndex, localStep));
+                    stepCell.classList.toggle('active', this.hasSectionActivity({ id: sectionId, data: this.getSectionData(sectionId) }, groupIndex, cellIndex));
                 }
             }
         });
