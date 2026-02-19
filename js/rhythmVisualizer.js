@@ -15,7 +15,6 @@ class RhythmVisualizer {
         
         // DOM elements to pulse
         this.targetSelectors = [
-            '.section-header',
             '.string-cell.active',
             '.bass-cell.active',
             '.lead-cell.active',
@@ -81,10 +80,7 @@ class RhythmVisualizer {
                 animation: glowPulse 0.25s ease-out;
             }
             
-            .section-header.pulsing {
-                border-left: 3px solid rgba(244, 114, 182, 0.6);
-            }
-            
+  
             .string-cell.melody-pulse,
             .bass-cell.melody-pulse,
             .lead-cell.melody-pulse,
