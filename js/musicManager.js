@@ -1,7 +1,13 @@
 /**
- * Pixel Music Manager
- * Handles audio effects processing and management
- * Organizes all audio effects functionality into a centralized system
+ * MusicManager — Upgraded
+ * 
+ * Key fixes & improvements over the original:
+ *  - Reverb is now actually connected and working (was a stub before)
+ *  - Proper wet/dry parallel routing for reverb and delay
+ *  - Added chorus effect (detuned delay lines)
+ *  - Saturation waveshaper for warmth
+ *  - Master bus compressor connected correctly
+ *  - All effect parameters use AudioParam ramps (no clicks)
  */
 
 class MusicManager {
@@ -11,408 +17,384 @@ class MusicManager {
         this.effectNodes = {};
         this.currentSettings = null;
         this.initialized = false;
+
+        // Shared send bus levels
+        this._reverbWet = 0.3;
+        this._delayWet  = 0.2;
+        this._chorusWet = 0.3;
     }
 
-    /**
-     * Initialize the Music Manager with audio context
-     * @param {AudioContext} context - Web Audio API context
-     */
     init(context) {
         this.audioContext = context;
-        
-        // Create master gain node
-        this.masterGainNode = this.audioContext.createGain();
-        this.masterGainNode.connect(this.audioContext.destination);
-        
-        // Initialize effect nodes
-        this.initEffectNodes();
-        
+        this._buildMasterChain();
+        this._buildEffectNodes();
         this.initialized = true;
-        console.log('MusicManager initialized');
+        console.log('MusicManager (upgraded) initialized');
     }
 
-    /**
-     * Initialize all effect nodes
-     */
-    initEffectNodes() {
-        // Create effect nodes with default values
-        this.effectNodes = {
-            // Core amplitude & envelope
-            gain: this.audioContext.createGain(),
-            pan: this.audioContext.createStereoPanner(),
-            
-            // Filters
-            lpf: this.audioContext.createBiquadFilter(),
-            hpf: this.audioContext.createBiquadFilter(),
-            bpf: this.audioContext.createBiquadFilter(),
-            
-            // Time & space effects
-            delay: this.audioContext.createDelay(),
-            reverb: this.audioContext.createConvolver(),
-            
-            // Distortion & saturation
-            distortion: this.audioContext.createWaveShaper(),
-            
-            // Modulation
-            vibrato: this.audioContext.createOscillator(),
-            tremolo: this.audioContext.createOscillator()
-        };
-        
-        // Configure filter types
-        this.effectNodes.lpf.type = 'lowpass';
-        this.effectNodes.hpf.type = 'highpass';
-        this.effectNodes.bpf.type = 'bandpass';
-        
-        // Set default values
-        this.setDefaultEffectValues();
-        
-        // Connect nodes (will be reconfigured when applying effects)
-        this.connectEffectChain();
+    // ─────────────────────────────────────────────────────────────────────────
+    // MASTER CHAIN CONSTRUCTION
+    // ─────────────────────────────────────────────────────────────────────────
+
+    _buildMasterChain() {
+        const ctx = this.audioContext;
+
+        // Master gain (overall volume)
+        this.masterGainNode = ctx.createGain();
+        this.masterGainNode.gain.value = 0.9;
+
+        // Tape saturation — adds warmth/harmonic richness
+        this.saturationNode = ctx.createWaveShaper();
+        this.saturationNode.curve = this._saturationCurve(10);
+        this.saturationNode.oversample = '4x';
+
+        // Brickwall limiter / master compressor
+        this.masterCompressor = ctx.createDynamicsCompressor();
+        this.masterCompressor.threshold.value = -6;
+        this.masterCompressor.knee.value = 3;
+        this.masterCompressor.ratio.value = 10;
+        this.masterCompressor.attack.value = 0.001;
+        this.masterCompressor.release.value = 0.1;
+
+        // Chain: masterGain → saturation → compressor → out
+        this.masterGainNode.connect(this.saturationNode);
+        this.saturationNode.connect(this.masterCompressor);
+        this.masterCompressor.connect(ctx.destination);
     }
 
-    /**
-     * Set default values for all effect nodes
-     */
-    setDefaultEffectValues() {
-        // Core amplitude & envelope
+    _buildEffectNodes() {
+        const ctx = this.audioContext;
+
+        // ── Gain & Pan ────────────────────────────────────────────────────────
+        this.effectNodes.gain = ctx.createGain();
         this.effectNodes.gain.gain.value = 1.0;
+
+        this.effectNodes.pan = ctx.createStereoPanner();
         this.effectNodes.pan.pan.value = 0.0;
-        
-        // Filters - set default frequencies and Q
-        this.effectNodes.lpf.frequency.value = 800;
+
+        // ── Filters ───────────────────────────────────────────────────────────
+        this.effectNodes.lpf = ctx.createBiquadFilter();
+        this.effectNodes.lpf.type = 'lowpass';
+        this.effectNodes.lpf.frequency.value = 18000;
         this.effectNodes.lpf.Q.value = 0.7;
-        
-        this.effectNodes.hpf.frequency.value = 200;
+
+        this.effectNodes.hpf = ctx.createBiquadFilter();
+        this.effectNodes.hpf.type = 'highpass';
+        this.effectNodes.hpf.frequency.value = 20;
         this.effectNodes.hpf.Q.value = 0.7;
-        
+
+        this.effectNodes.bpf = ctx.createBiquadFilter();
+        this.effectNodes.bpf.type = 'bandpass';
         this.effectNodes.bpf.frequency.value = 1200;
         this.effectNodes.bpf.Q.value = 0.7;
-        
-        // Delay
+
+        // ── Reverb (now properly wired!) ──────────────────────────────────────
+        this.effectNodes.reverb = this._buildReverb(2.5);
+        this.effectNodes.reverbSend = ctx.createGain();
+        this.effectNodes.reverbSend.gain.value = 0; // off by default
+        this.effectNodes.reverbReturn = ctx.createGain();
+        this.effectNodes.reverbReturn.gain.value = 1.0;
+
+        this.effectNodes.reverbSend.connect(this.effectNodes.reverb);
+        this.effectNodes.reverb.connect(this.effectNodes.reverbReturn);
+        // reverbReturn connects to masterGainNode (done in applyEffects)
+
+        // ── Delay ─────────────────────────────────────────────────────────────
+        this.effectNodes.delay = ctx.createDelay(2.0);
         this.effectNodes.delay.delayTime.value = 0.25;
-        
-        // Distortion - set to linear (no distortion) by default
-        this.effectNodes.distortion.curve = this.createDistortionCurve(0.3);
+        this.effectNodes.delaySend = ctx.createGain();
+        this.effectNodes.delaySend.gain.value = 0;
+        this.effectNodes.delayReturn = ctx.createGain();
+        this.effectNodes.delayReturn.gain.value = 1.0;
+        this.effectNodes.delayFeedback = ctx.createGain();
+        this.effectNodes.delayFeedback.gain.value = 0.3;
+
+        this.effectNodes.delaySend.connect(this.effectNodes.delay);
+        this.effectNodes.delay.connect(this.effectNodes.delayFeedback);
+        this.effectNodes.delayFeedback.connect(this.effectNodes.delay);
+        this.effectNodes.delay.connect(this.effectNodes.delayReturn);
+
+        // ── Chorus ───────────────────────────────────────────────────────────
+        // Implemented as two detuned delay lines with LFO modulation
+        this._buildChorus();
+
+        // ── Distortion / Saturation ───────────────────────────────────────────
+        this.effectNodes.distortion = ctx.createWaveShaper();
+        this.effectNodes.distortion.curve = this._distortionCurve(0);
         this.effectNodes.distortion.oversample = '2x';
-        
-        // Modulation oscillators
-        this.effectNodes.vibrato.frequency.value = 4;
-        this.effectNodes.vibrato.type = 'sine';
-        
-        this.effectNodes.tremolo.frequency.value = 8;
-        this.effectNodes.tremolo.type = 'sine';
+
+        // ── Tremolo ───────────────────────────────────────────────────────────
+        this.effectNodes.tremoloLFO = ctx.createOscillator();
+        this.effectNodes.tremoloLFO.type = 'sine';
+        this.effectNodes.tremoloLFO.frequency.value = 5;
+        this.effectNodes.tremoloDepth = ctx.createGain();
+        this.effectNodes.tremoloDepth.gain.value = 0; // off by default
+        this.effectNodes.tremoloLFO.connect(this.effectNodes.tremoloDepth);
+        this.effectNodes.tremoloLFO.start();
+
+        // ── Vibrato ───────────────────────────────────────────────────────────
+        this.effectNodes.vibratoLFO = ctx.createOscillator();
+        this.effectNodes.vibratoLFO.type = 'sine';
+        this.effectNodes.vibratoLFO.frequency.value = 4;
+        this.effectNodes.vibratoDepth = ctx.createGain();
+        this.effectNodes.vibratoDepth.gain.value = 0; // off by default
+        this.effectNodes.vibratoLFO.connect(this.effectNodes.vibratoDepth);
+        this.effectNodes.vibratoLFO.start();
     }
 
-    /**
-     * Create distortion curve for waveshaper
-     * @param {number} amount - Distortion amount (0-1)
-     * @returns {Float32Array} Distortion curve
-     */
-    createDistortionCurve(amount) {
-        const n_samples = 44100;
-        const curve = new Float32Array(n_samples);
-        const deg = Math.PI / 180;
-        
-        for (let i = 0; i < n_samples; i++) {
-            const x = (i * 2) / n_samples - 1;
-            curve[i] = (3 + amount) * x * 20 * deg / (Math.PI + amount * Math.abs(x));
+    _buildChorus() {
+        const ctx = this.audioContext;
+
+        this.effectNodes.chorusSend = ctx.createGain();
+        this.effectNodes.chorusSend.gain.value = 0;
+        this.effectNodes.chorusReturn = ctx.createGain();
+        this.effectNodes.chorusReturn.gain.value = 1.0;
+
+        // Two delay lines with LFOs for classic stereo chorus
+        const voices = [
+            { delayBase: 0.025, lfoRate: 0.6,  lfoDepth: 0.002, pan: -0.6 },
+            { delayBase: 0.030, lfoRate: 0.8,  lfoDepth: 0.003, pan:  0.6 },
+        ];
+
+        this.effectNodes.chorusVoices = voices.map(v => {
+            const delay = ctx.createDelay(0.1);
+            delay.delayTime.value = v.delayBase;
+
+            const lfo = ctx.createOscillator();
+            lfo.type = 'sine';
+            lfo.frequency.value = v.lfoRate;
+
+            const lfoGain = ctx.createGain();
+            lfoGain.gain.value = v.lfoDepth;
+
+            const panner = ctx.createStereoPanner();
+            panner.pan.value = v.pan;
+
+            lfo.connect(lfoGain);
+            lfoGain.connect(delay.delayTime);
+
+            this.effectNodes.chorusSend.connect(delay);
+            delay.connect(panner);
+            panner.connect(this.effectNodes.chorusReturn);
+
+            lfo.start();
+            return { delay, lfo, lfoGain, panner };
+        });
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // APPLY EFFECTS — main entry point
+    // ─────────────────────────────────────────────────────────────────────────
+
+    applyEffects(source, settings) {
+        if (!this.initialized) {
+            source.connect(this.masterGainNode);
+            return source;
         }
-        
+
+        this.currentSettings = settings;
+        const fx = settings.audioEffects || {};
+        const ctx = this.audioContext;
+        const now = ctx.currentTime;
+
+        // ── Gain ──────────────────────────────────────────────────────────────
+        const gainVal = fx.gain ?? 1.0;
+        this.effectNodes.gain.gain.setTargetAtTime(gainVal, now, 0.01);
+
+        // ── Pan ───────────────────────────────────────────────────────────────
+        const panVal = fx.pan ?? 0.0;
+        this.effectNodes.pan.pan.setTargetAtTime(panVal, now, 0.01);
+
+        // ── Filters ───────────────────────────────────────────────────────────
+        if (fx.lpf !== undefined) {
+            this.effectNodes.lpf.frequency.setTargetAtTime(Math.max(20, fx.lpf), now, 0.02);
+        }
+        if (fx.hpf !== undefined) {
+            this.effectNodes.hpf.frequency.setTargetAtTime(Math.max(20, fx.hpf), now, 0.02);
+        }
+        if (fx.lpq !== undefined) {
+            this.effectNodes.lpf.Q.setTargetAtTime(fx.lpq, now, 0.02);
+            this.effectNodes.hpf.Q.setTargetAtTime(fx.lpq, now, 0.02);
+        }
+
+        // ── Reverb send level ─────────────────────────────────────────────────
+        const reverbAmt = fx.reverb ?? 0;
+        this.effectNodes.reverbSend.gain.setTargetAtTime(reverbAmt, now, 0.05);
+
+        // ── Delay send level ──────────────────────────────────────────────────
+        const delayAmt = fx.delay ?? 0;
+        this.effectNodes.delaySend.gain.setTargetAtTime(delayAmt * 0.5, now, 0.05);
+        if (fx.delayt !== undefined) {
+            this.effectNodes.delay.delayTime.setTargetAtTime(fx.delayt, now, 0.01);
+        }
+        if (fx.delayfb !== undefined) {
+            this.effectNodes.delayFeedback.gain.setTargetAtTime(Math.min(0.85, fx.delayfb), now, 0.01);
+        }
+
+        // ── Chorus send level ─────────────────────────────────────────────────
+        const chorusAmt = fx.chorus ?? 0;
+        this.effectNodes.chorusSend.gain.setTargetAtTime(chorusAmt, now, 0.05);
+
+        // ── Distortion ────────────────────────────────────────────────────────
+        if (fx.distort !== undefined && fx.distort > 0) {
+            this.effectNodes.distortion.curve = this._distortionCurve(fx.distort);
+        }
+
+        // ── Tremolo ───────────────────────────────────────────────────────────
+        if (fx.tremolo !== undefined) {
+            this.effectNodes.tremoloLFO.frequency.setTargetAtTime(fx.tremolo, now, 0.01);
+        }
+        const tremDepth = fx.tremdepth ?? 0;
+        this.effectNodes.tremoloDepth.gain.setTargetAtTime(tremDepth * 0.8, now, 0.01);
+
+        // ── Vibrato ───────────────────────────────────────────────────────────
+        if (fx.vibrato !== undefined) {
+            this.effectNodes.vibratoLFO.frequency.setTargetAtTime(fx.vibrato, now, 0.01);
+        }
+        const vibDepth = fx.vibdepth ?? 0;
+        this.effectNodes.vibratoDepth.gain.setTargetAtTime(vibDepth * 50, now, 0.01);
+
+        // ── Wire signal chain ─────────────────────────────────────────────────
+        // Disconnect first to avoid duplicate connections
+        try { source.disconnect(); } catch(e) {}
+
+        source.connect(this.effectNodes.gain);
+        this.effectNodes.gain.connect(this.effectNodes.pan);
+
+        // Filters in series
+        this.effectNodes.pan.connect(this.effectNodes.hpf);
+        this.effectNodes.hpf.connect(this.effectNodes.lpf);
+
+        // Main dry path
+        this.effectNodes.lpf.connect(this.effectNodes.distortion);
+        this.effectNodes.distortion.connect(this.masterGainNode);
+
+        // Parallel effect sends
+        this.effectNodes.lpf.connect(this.effectNodes.reverbSend);
+        this.effectNodes.reverbReturn.connect(this.masterGainNode);
+
+        this.effectNodes.lpf.connect(this.effectNodes.delaySend);
+        this.effectNodes.delayReturn.connect(this.masterGainNode);
+
+        this.effectNodes.lpf.connect(this.effectNodes.chorusSend);
+        this.effectNodes.chorusReturn.connect(this.masterGainNode);
+
+        // Tremolo modulates gain
+        this.effectNodes.tremoloDepth.connect(this.effectNodes.gain.gain);
+
+        return this.masterGainNode;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // REVERB BUILDER
+    // ─────────────────────────────────────────────────────────────────────────
+
+    _buildReverb(decayTime = 2.5) {
+        const ctx = this.audioContext;
+        const convolver = ctx.createConvolver();
+        const sr = ctx.sampleRate;
+        const len = Math.floor(sr * decayTime);
+        const ir = ctx.createBuffer(2, len, sr);
+
+        for (let ch = 0; ch < 2; ch++) {
+            const d = ir.getChannelData(ch);
+            for (let i = 0; i < len; i++) {
+                const t = i / sr;
+                // Exponential decay with high-frequency rolloff
+                const decay = Math.exp(-t * (3.5 / decayTime));
+                d[i] = (Math.random() * 2 - 1) * decay;
+            }
+        }
+        convolver.buffer = ir;
+        return convolver;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // CURVE GENERATORS
+    // ─────────────────────────────────────────────────────────────────────────
+
+    _saturationCurve(drive) {
+        const n = 256;
+        const curve = new Float32Array(n);
+        for (let i = 0; i < n; i++) {
+            const x = (i * 2) / n - 1;
+            curve[i] = (Math.PI + drive) * x / (Math.PI + drive * Math.abs(x));
+        }
         return curve;
     }
 
-    /**
-     * Connect effect nodes in processing chain
-     */
-    connectEffectChain() {
-        // Start with source -> gain -> pan
-        // Then filters -> delay -> reverb -> distortion -> modulation -> master
-        // This will be dynamically reconfigured when applying effects
-    }
-
-    /**
-     * Apply audio effects to a sound source
-     * @param {AudioNode} source - Audio source node
-     * @param {Object} settings - Audio effect settings
-     */
-    applyEffects(source, settings) {
-        if (!this.initialized) {
-            console.error('MusicManager not initialized');
-            return source;
-        }
-        
-        this.currentSettings = settings;
-        
-        // Start with the source
-        let currentNode = source;
-        
-        // Apply core amplitude & envelope effects
-        currentNode = this.applyCoreEffects(currentNode, settings);
-        
-        // Apply filters
-        currentNode = this.applyFilters(currentNode, settings);
-        
-        // Apply time & space effects
-        currentNode = this.applyTimeEffects(currentNode, settings);
-        
-        // Apply distortion & saturation
-        currentNode = this.applyDistortionEffects(currentNode, settings);
-        
-        // Apply modulation effects
-        currentNode = this.applyModulationEffects(currentNode, settings);
-        
-        // Connect to master output
-        currentNode.connect(this.masterGainNode);
-        
-        return currentNode;
-    }
-
-    /**
-     * Apply core amplitude & envelope effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyCoreEffects(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply gain
-        if (effects.gain !== undefined) {
-            this.effectNodes.gain.gain.value = effects.gain;
-            node.connect(this.effectNodes.gain);
-            node = this.effectNodes.gain;
-        }
-        
-        // Apply pan
-        if (effects.pan !== undefined) {
-            this.effectNodes.pan.pan.value = effects.pan;
-            node.connect(this.effectNodes.pan);
-            node = this.effectNodes.pan;
-        }
-        
-        return node;
-    }
-
-    /**
-     * Apply filter effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyFilters(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply low-pass filter
-        if (effects.lpf !== undefined) {
-            this.effectNodes.lpf.frequency.value = effects.lpf;
-            if (effects.lpq !== undefined) {
-                this.effectNodes.lpf.Q.value = effects.lpq;
+    _distortionCurve(amount) {
+        const n = 1024;
+        const curve = new Float32Array(n);
+        for (let i = 0; i < n; i++) {
+            const x = (i * 2) / n - 1;
+            if (amount < 0.01) {
+                curve[i] = x; // linear passthrough
+            } else {
+                // Soft-clip with variable hardness
+                const k = amount * 100;
+                curve[i] = (1 + k / 10) * x / (1 + (k / 10) * Math.abs(x));
             }
-            node.connect(this.effectNodes.lpf);
-            node = this.effectNodes.lpf;
         }
-        
-        // Apply high-pass filter
-        if (effects.hpf !== undefined) {
-            this.effectNodes.hpf.frequency.value = effects.hpf;
-            if (effects.lpq !== undefined) {
-                this.effectNodes.hpf.Q.value = effects.lpq;
-            }
-            node.connect(this.effectNodes.hpf);
-            node = this.effectNodes.hpf;
-        }
-        
-        // Apply band-pass filter
-        if (effects.bpf !== undefined) {
-            this.effectNodes.bpf.frequency.value = effects.bpf;
-            if (effects.lpq !== undefined) {
-                this.effectNodes.bpf.Q.value = effects.lpq;
-            }
-            node.connect(this.effectNodes.bpf);
-            node = this.effectNodes.bpf;
-        }
-        
-        return node;
+        return curve;
     }
 
-    /**
-     * Apply time & space effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyTimeEffects(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply delay
-        if (effects.delay !== undefined && effects.delay > 0) {
-            this.effectNodes.delay.delayTime.value = effects.delay;
-            
-            // Create feedback loop if needed
-            if (effects.delayfb !== undefined && effects.delayfb > 0) {
-                const feedbackGain = this.audioContext.createGain();
-                feedbackGain.gain.value = effects.delayfb;
-                this.effectNodes.delay.connect(feedbackGain);
-                feedbackGain.connect(this.effectNodes.delay);
-            }
-            
-            node.connect(this.effectNodes.delay);
-            node = this.effectNodes.delay;
-        }
-        
-        // Apply reverb (simplified - would need impulse response in real implementation)
-        if (effects.reverb !== undefined && effects.reverb > 0) {
-            // In a real implementation, you would load an impulse response
-            // and set it to the convolver node
-            // this.effectNodes.reverb.buffer = impulseResponse;
-            node.connect(this.effectNodes.reverb);
-            node = this.effectNodes.reverb;
-        }
-        
-        return node;
-    }
+    // ─────────────────────────────────────────────────────────────────────────
+    // PUBLIC CONTROLS
+    // ─────────────────────────────────────────────────────────────────────────
 
-    /**
-     * Apply distortion & saturation effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyDistortionEffects(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply distortion
-        if (effects.distort !== undefined && effects.distort > 0) {
-            this.effectNodes.distortion.curve = this.createDistortionCurve(effects.distort);
-            node.connect(this.effectNodes.distortion);
-            node = this.effectNodes.distortion;
-        }
-        
-        return node;
-    }
-
-    /**
-     * Apply modulation effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyModulationEffects(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply vibrato (pitch modulation)
-        if (effects.vibrato !== undefined && effects.vibrato > 0) {
-            this.effectNodes.vibrato.frequency.value = effects.vibrato;
-            
-            const vibratoDepth = effects.vibdepth !== undefined ? effects.vibdepth : 0.02;
-            const vibratoGain = this.audioContext.createGain();
-            vibratoGain.gain.value = vibratoDepth;
-            
-            this.effectNodes.vibrato.connect(vibratoGain);
-            vibratoGain.connect(this.effectNodes.pan.pan);
-            
-            this.effectNodes.vibrato.start();
-        }
-        
-        // Apply tremolo (amplitude modulation)
-        if (effects.tremolo !== undefined && effects.tremolo > 0) {
-            this.effectNodes.tremolo.frequency.value = effects.tremolo;
-            
-            const tremoloDepth = effects.tremdepth !== undefined ? effects.tremdepth : 0.5;
-            const tremoloGain = this.audioContext.createGain();
-            tremoloGain.gain.value = tremoloDepth;
-            
-            this.effectNodes.tremolo.connect(tremoloGain);
-            tremoloGain.connect(this.effectNodes.gain.gain);
-            
-            this.effectNodes.tremolo.start();
-        }
-        
-        return node;
-    }
-
-    /**
-     * Apply pitch & playback effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyPitchEffects(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply playback speed (would need to be handled at source level)
-        // Apply pitch shifting (would need additional processing)
-        // Apply octave shifts (would need additional processing)
-        
-        return node;
-    }
-
-    /**
-     * Apply rhythmic & glitch effects
-     * @param {AudioNode} node - Input audio node
-     * @param {Object} settings - Effect settings
-     * @returns {AudioNode} Processed audio node
-     */
-    applyRhythmicEffects(node, settings) {
-        const effects = settings.audioEffects || {};
-        
-        // Apply chop/stutter/truncate effects
-        // These would typically be handled at the source/buffer level
-        // rather than as real-time effects
-        
-        return node;
-    }
-
-    /**
-     * Clean up and disconnect all effect nodes
-     */
-    cleanup() {
-        // Stop all oscillators
-        if (this.effectNodes.vibrato) {
-            this.effectNodes.vibrato.stop();
-        }
-        if (this.effectNodes.tremolo) {
-            this.effectNodes.tremolo.stop();
-        }
-        
-        // Disconnect all nodes
-        Object.values(this.effectNodes).forEach(node => {
-            try {
-                node.disconnect();
-            } catch (e) {
-                // Node might already be disconnected
-            }
-        });
-        
-        this.initialized = false;
-        console.log('MusicManager cleaned up');
-    }
-
-    /**
-     * Get current effect settings
-     * @returns {Object} Current effect settings
-     */
-    getCurrentSettings() {
-        return this.currentSettings;
-    }
-
-    /**
-     * Set master volume
-     * @param {number} volume - Volume level (0-1)
-     */
     setMasterVolume(volume) {
         if (this.masterGainNode) {
-            this.masterGainNode.gain.value = volume;
+            this.masterGainNode.gain.setTargetAtTime(volume, this.audioContext.currentTime, 0.01);
         }
+    }
+
+    setReverb(amount) {
+        if (this.effectNodes.reverbSend) {
+            this.effectNodes.reverbSend.gain.setTargetAtTime(amount, this.audioContext.currentTime, 0.05);
+        }
+    }
+
+    setChorus(amount) {
+        if (this.effectNodes.chorusSend) {
+            this.effectNodes.chorusSend.gain.setTargetAtTime(amount, this.audioContext.currentTime, 0.05);
+        }
+    }
+
+    setDelay(amount, feedback = 0.3, time = 0.25) {
+        if (this.effectNodes.delaySend) {
+            this.effectNodes.delaySend.gain.setTargetAtTime(amount, this.audioContext.currentTime, 0.05);
+            this.effectNodes.delay.delayTime.setTargetAtTime(time, this.audioContext.currentTime, 0.01);
+            this.effectNodes.delayFeedback.gain.setTargetAtTime(Math.min(0.85, feedback), this.audioContext.currentTime, 0.01);
+        }
+    }
+
+    setFilter(frequency) {
+        if (this.effectNodes.lpf) {
+            this.effectNodes.lpf.frequency.setTargetAtTime(frequency, this.audioContext.currentTime, 0.02);
+        }
+    }
+
+    setDistortion(amount) {
+        if (this.effectNodes.distortion) {
+            this.effectNodes.distortion.curve = this._distortionCurve(amount);
+        }
+    }
+
+    getCurrentSettings() { return this.currentSettings; }
+
+    cleanup() {
+        try {
+            this.effectNodes.tremoloLFO?.stop();
+            this.effectNodes.vibratoLFO?.stop();
+            this.effectNodes.chorusVoices?.forEach(v => v.lfo.stop());
+            Object.values(this.effectNodes).forEach(node => {
+                try { node.disconnect?.(); } catch(e) {}
+            });
+        } catch(e) {}
+        this.initialized = false;
     }
 }
 
-// Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MusicManager;
-}
-
-// Make available globally for browser use
-if (typeof window !== 'undefined') {
-    window.MusicManager = MusicManager;
-}
+if (typeof module !== 'undefined' && module.exports) module.exports = MusicManager;
+if (typeof window !== 'undefined') window.MusicManager = MusicManager;

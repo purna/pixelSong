@@ -1346,6 +1346,107 @@ class SongDesignerApp {
             this.updateEffectCardStates();
         });
         
+        // === EFFECT SLIDER EVENT LISTENERS ===
+        // Reverb Amount
+        document.getElementById('reverbAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('reverbValue').textContent = value + '%';
+            if (this.effects?.reverb) {
+                this.effects.reverb.wet.value = value / 100;
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Echo Amount
+        document.getElementById('echoAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('echoValue').textContent = value + '%';
+            if (this.effects?.echo) {
+                this.effects.echo.wet.value = value / 100;
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Chorus Amount
+        document.getElementById('chorusAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('chorusValue').textContent = value + '%';
+            if (this.effects?.chorus) {
+                this.effects.chorus.wet.value = value / 100;
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Low-Pass Filter Amount
+        document.getElementById('lowpassAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('lowpassValue').textContent = value + '%';
+            if (this.effects?.lowpass) {
+                // Map 0-100 to frequency range 200Hz - 20000Hz (exponential)
+                const freq = 200 + (20000 - 200) * Math.pow(value / 100, 2);
+                this.effects.lowpass.frequency.value = freq;
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // High-Pass Filter Amount
+        document.getElementById('highpassAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('highpassValue').textContent = value + '%';
+            if (this.effects?.highpass) {
+                // Map 0-100 to frequency range 20Hz - 2000Hz (exponential)
+                const freq = 20 + (2000 - 20) * Math.pow(value / 100, 2);
+                this.effects.highpass.frequency.value = freq;
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Distortion Amount
+        document.getElementById('distortionAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('distortionValue').textContent = value + '%';
+            if (this.effects?.distortion) {
+                this.effects.distortion.wet.value = value / 100;
+                this.effects.distortion.distortion = value / 100; // 0 to 1
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Bitcrush Amount
+        document.getElementById('bitcrushAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('bitcrushValue').textContent = value + '%';
+            if (this.effects?.bitcrush) {
+                this.effects.bitcrush.wet.value = value / 100;
+                // Map 0-100 to bits: 16 (no crush) to 1 (heavy crush)
+                const bits = Math.round(16 - (value / 100) * 15);
+                this.effects.bitcrush.bits.value = Math.max(1, bits);
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Tremolo Amount
+        document.getElementById('tremoloAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('tremoloValue').textContent = value + '%';
+            if (this.effects?.tremolo) {
+                this.effects.tremolo.wet.value = value / 100;
+                this.effects.tremolo.depth = value / 100;
+            }
+            this.updateEffectCardStates();
+        });
+        
+        // Vibrato Amount
+        document.getElementById('vibratoAmount')?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            document.getElementById('vibratoValue').textContent = value + '%';
+            if (this.effects?.vibrato) {
+                this.effects.vibrato.wet.value = value / 100;
+                this.effects.vibrato.depth = value / 100;
+            }
+            this.updateEffectCardStates();
+        });
+        
         document.querySelectorAll('[data-pattern-length]').forEach(btn => {
             btn.addEventListener('click', () => {
                 const length = parseInt(btn.dataset.patternLength);
