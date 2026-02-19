@@ -604,22 +604,38 @@ class SongApp {
             const audioContext = Tone.context;
             const destination = audioContext.createMediaStreamDestination();
             
-            // Connect the compressor output to the media stream destination
+            // Ensure effects chain is properly connected for recording
+            // Connect from the end of effects chain (after reverb) to the media stream
             if (this.songApp.compressor) {
+                // Store original connection to restore later
+                const originalConnections = this.songApp.compressor._internalNodes ? 
+                    [] : [this.songApp.compressor._outputs];
+                
+                // Disconnect from destination and connect to media stream
+                this.songApp.compressor.disconnect();
                 this.songApp.compressor.connect(destination);
+                this.songApp.compressor.connect(Tone.Destination); // Also keep playing to speakers
             } else {
                 Tone.Destination.connect(destination);
             }
             
+            const mimeType = this.getSupportedMimeType(format);
+            if (!mimeType) {
+                this.showNotification('Audio recording not supported in this browser', 'error');
+                return;
+            }
+            
             const mediaRecorder = new MediaRecorder(destination.stream, {
-                mimeType: format === 'wav' ? 'audio/wav' : format === 'ogg' ? 'audio/ogg' : 'audio/mp4'
+                mimeType: mimeType
             });
             
             const chunks = [];
-            mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
+            mediaRecorder.ondataavailable = (e) => {
+                if (e.data.size > 0) chunks.push(e.data);
+            };
             
             mediaRecorder.onstop = () => {
-                const blob = new Blob(chunks, { type: format === 'wav' ? 'audio/wav' : format === 'ogg' ? 'audio/ogg' : 'audio/mp4' });
+                const blob = new Blob(chunks, { type: mimeType });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
@@ -627,7 +643,7 @@ class SongApp {
                 a.click();
                 URL.revokeObjectURL(url);
                 
-                // Reconnect to original destination
+                // Reconnect to original destination only (not media stream)
                 if (this.songApp.compressor) {
                     this.songApp.compressor.disconnect();
                     this.songApp.compressor.connect(Tone.Destination);
@@ -636,27 +652,56 @@ class SongApp {
                 this.showNotification(`Song exported as ${format.toUpperCase()}!`, 'success');
             };
             
-            mediaRecorder.start();
+            // Request data every 100ms during recording
+            mediaRecorder.start(100);
             
             // Play the song to record it
             if (!this.songApp.isPlaying) {
+                await Tone.start();
                 this.songApp.play();
             }
             
-            // Record for the duration of one loop (based on pattern length)
-            const duration = (this.songApp.patternLength * 60 / this.songApp.tempo) * 1000;
+            // Calculate recording duration based on pattern length and section repeats
+            let totalLoops = 1;
+            if (this.songApp.groupLoopCounts) {
+                totalLoops = this.songApp.groupLoopCounts.reduce((a, b) => a + b, 1);
+            }
+            const groupCount = this.songApp.patternLength / 16;
+            const stepDuration = (60 / this.songApp.tempo) * 0.25; // 16th note duration in seconds
+            const duration = (this.songApp.patternLength * stepDuration * totalLoops) + 1; // Add 1 second buffer
             
             setTimeout(() => {
                 mediaRecorder.stop();
                 if (this.songApp.isPlaying) {
                     this.songApp.stop();
                 }
-            }, duration + 1000); // Add 1 second buffer
+            }, duration * 1000);
             
         } catch (e) {
             this.showNotification('Audio recording not supported: ' + e.message, 'error');
             console.error('Recording error:', e);
         }
+    }
+    
+    // Get supported MIME type for recording
+    getSupportedMimeType(format) {
+        const types = {
+            'mp4': ['audio/mp4', 'audio/mpeg4', 'audio/aac'],
+            'wav': ['audio/wav', 'audio/wave', 'audio/x-wav'],
+            'ogg': ['audio/ogg', 'audio/vorbis']
+        };
+        
+        const supported = types[format] || types['mp4'];
+        for (const type of supported) {
+            if (MediaRecorder.isTypeSupported(type)) {
+                return type;
+            }
+        }
+        // Fallback
+        if (MediaRecorder.isTypeSupported('audio/webm')) {
+            return 'audio/webm';
+        }
+        return null;
     }
     
     saveSong() {
