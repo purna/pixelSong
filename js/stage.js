@@ -72,6 +72,9 @@ const StageManager = {
     // Drag state
     isDragging: false,
     dragTarget: null,
+    dragStartX: 0,
+    dragStartY: 0,
+    dragThreshold: 5, // pixels to move before drag starts
     
     /**
      * Initialize Stage Manager
@@ -81,6 +84,7 @@ const StageManager = {
         this.bindEvents();
         this.renderMarkers();
         this.updatePositionDisplays();
+        this.updateStageControlsState(); // Disable controls until instrument selected
         this.loadFromStorage();
     },
     
@@ -111,6 +115,9 @@ const StageManager = {
         this.stageCutoffSlider = document.getElementById('stageCutoff');
         this.stageVolumeValue = document.getElementById('stageVolumeValue');
         this.stageCutoffValue = document.getElementById('stageCutoffValue');
+        
+        // Reset button for stage controls
+        this.resetStageControlsBtn = document.getElementById('resetStageControls');
         
         // Section controls for syncing
         this.sectionControls = {
@@ -206,7 +213,10 @@ const StageManager = {
                 const val = parseInt(e.target.value);
                 if (this.selectedInstrument) {
                     this.instruments[this.selectedInstrument].depth = val;
-                    this.instruments[this.selectedInstrument].y = 90 - (val * 0.8);
+                    // Map depth 0-100 to y position 0-100
+                    // depth 0 = Front (bottom of stage, y=0)
+                    // depth 100 = Back (top of stage, y=100)
+                    this.instruments[this.selectedInstrument].y = val;
                     this.updateMarkerPosition(this.selectedInstrument);
                     this.updatePositionDisplays();
                     this.saveToStorage();
@@ -264,6 +274,13 @@ const StageManager = {
                     this.updateSectionControls();
                     this.saveToStorage();
                 }
+            });
+        }
+        
+        // Reset button for stage controls
+        if (this.resetStageControlsBtn) {
+            this.resetStageControlsBtn.addEventListener('click', () => {
+                this.resetSelectedInstrument();
             });
         }
     },
@@ -328,10 +345,19 @@ const StageManager = {
         if (!marker) return;
         
         e.preventDefault();
-        this.isDragging = true;
+        
+        // Store initial position for drag threshold check
+        if (e.touches) {
+            this.dragStartX = e.touches[0].clientX;
+            this.dragStartY = e.touches[0].clientY;
+        } else {
+            this.dragStartX = e.clientX;
+            this.dragStartY = e.clientY;
+        }
+        
         this.dragTarget = marker.dataset.instrument;
         
-        // Select the instrument
+        // Select the instrument immediately (for UI updates)
         this.selectInstrument(this.dragTarget);
         
         // Add visual feedback
@@ -342,12 +368,35 @@ const StageManager = {
      * Handle drag move
      */
     handleDragMove(e) {
-        if (!this.isDragging || !this.dragTarget) return;
+        if (!this.dragTarget) return;
+        
+        // Get current position
+        let clientX, clientY;
+        
+        if (e.touches) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        
+        // Check if we've moved enough to start dragging
+        const dx = clientX - this.dragStartX;
+        const dy = clientY - this.dragStartY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Only start dragging if moved past threshold
+        if (!this.isDragging) {
+            if (distance < this.dragThreshold) {
+                return; // Not enough movement to start drag
+            }
+            this.isDragging = true;
+        }
         
         e.preventDefault();
         
         const stageRect = this.stageArea.getBoundingClientRect();
-        let clientX, clientY;
         
         if (e.touches) {
             clientX = e.touches[0].clientX;
@@ -361,7 +410,9 @@ const StageManager = {
         let x = ((clientX - stageRect.left) / stageRect.width) * 100;
         let y = ((clientY - stageRect.top) / stageRect.height) * 100;
         
-        // Allow full range but keep marker center within stage
+        // Allow full range - markers can be positioned anywhere in the stage area
+        // The stage labels (Back/Front) are overlaid on top and don't affect the drag area
+        // overflow:hidden on stage-area ensures markers stay visible
         x = Math.max(0, Math.min(100, x));
         y = Math.max(0, Math.min(100, y));
         
@@ -388,7 +439,7 @@ const StageManager = {
      * Handle drag end
      */
     handleDragEnd() {
-        if (this.isDragging && this.dragTarget) {
+        if (this.dragTarget) {
             const marker = this.stageArea.querySelector(`[data-instrument="${this.dragTarget}"]`);
             if (marker) {
                 marker.classList.remove('dragging');
@@ -397,6 +448,8 @@ const StageManager = {
         
         this.isDragging = false;
         this.dragTarget = null;
+        this.dragStartX = 0;
+        this.dragStartY = 0;
     },
     
     /**
@@ -467,6 +520,120 @@ const StageManager = {
         
         this.updatePositionDisplays();
         this.updateSectionControls();
+        this.updateStageControlsState(); // Enable controls when instrument selected
+    },
+    
+    /**
+     * Update the enabled/disabled state of stage controls based on selection
+     */
+    updateStageControlsState() {
+        const hasSelection = this.selectedInstrument !== null;
+        const controlsToDisable = [
+            this.stageVolumeSlider,
+            this.stageCutoffSlider,
+            this.staticPanPositionSlider,
+            this.startPositionSlider,
+            this.endPositionSlider,
+            this.depthPositionSlider,
+            this.resetStageControlsBtn
+        ];
+        
+        // Also disable movement buttons when no selection
+        const movementBtns = document.querySelectorAll('.movement-btn');
+        
+        controlsToDisable.forEach(control => {
+            if (control) {
+                control.disabled = !hasSelection;
+                if (!hasSelection) {
+                    control.style.opacity = '0.5';
+                    control.style.pointerEvents = 'none';
+                } else {
+                    control.style.opacity = '1';
+                    control.style.pointerEvents = 'auto';
+                }
+            }
+        });
+        
+        // Update movement buttons state
+        movementBtns.forEach(btn => {
+            btn.disabled = !hasSelection;
+            btn.style.opacity = !hasSelection ? '0.5' : '1';
+            btn.style.pointerEvents = !hasSelection ? 'none' : 'auto';
+        });
+        
+        // Update reset button specifically
+        if (this.resetStageControlsBtn) {
+            this.resetStageControlsBtn.disabled = !hasSelection;
+        }
+    },
+    
+    /**
+     * Reset the selected instrument to default values
+     */
+    resetSelectedInstrument() {
+        if (!this.selectedInstrument) return;
+        
+        const inst = this.instruments[this.selectedInstrument];
+        const defaults = {
+            x: 50,
+            y: this.selectedInstrument === 'melody' ? 50 : (this.selectedInstrument === 'percussion' ? 20 : 80),
+            startPos: 0,
+            endPos: 0,
+            depth: 50,
+            volume: 70,
+            cutoff: 75,
+            movement: 'static'
+        };
+        
+        // Apply defaults
+        Object.assign(inst, defaults);
+        
+        // Update UI
+        this.updateMarkerPosition(this.selectedInstrument);
+        this.updatePositionControlsVisibility('static');
+        
+        // Update sliders
+        if (this.stageVolumeSlider) {
+            this.stageVolumeSlider.value = defaults.volume;
+            this.stageVolumeValue.textContent = defaults.volume + '%';
+        }
+        if (this.stageCutoffSlider) {
+            this.stageCutoffSlider.value = defaults.cutoff;
+            this.stageCutoffValue.textContent = defaults.cutoff + '%';
+        }
+        if (this.staticPanPositionSlider) {
+            this.staticPanPositionSlider.value = defaults.startPos;
+        }
+        if (this.startPositionSlider) {
+            this.startPositionSlider.value = defaults.startPos;
+        }
+        if (this.endPositionSlider) {
+            this.endPositionSlider.value = defaults.endPos;
+        }
+        if (this.depthPositionSlider) {
+            this.depthPositionSlider.value = defaults.depth;
+        }
+        
+        // Update movement buttons
+        this.movementButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.movement === 'static');
+        });
+        
+        this.updatePositionDisplays();
+        this.updateSectionControls();
+        this.saveToStorage();
+        
+        // Show notification
+        if (typeof app !== 'undefined' && app.showNotification) {
+            const displayNames = {
+                melody: 'Melody Strings',
+                rhythm: 'Rhythm & Drums',
+                bass: 'Bass',
+                lead: 'Lead',
+                percussion: 'Percussion'
+            };
+            app.showNotification(`Reset ${displayNames[this.selectedInstrument]} to defaults`, 'success');
+        }
     },
     
     /**

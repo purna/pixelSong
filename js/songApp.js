@@ -723,7 +723,17 @@ class SongApp {
 
     handleExport() {
         if (!this.songApp) { this.showNotification('Create a song first!', 'error'); return; }
-        const format = document.querySelector('input[name="exportFormat"]:checked').value;
+        
+        // Get selected export format - fallback to JSON if not found
+        const formatRadio = document.querySelector('input[name="exportFormat"]:checked');
+        let format = 'json'; // Default format
+        
+        if (formatRadio && formatRadio.value) {
+            format = formatRadio.value;
+        } else {
+            console.warn('No export format selected, using default: JSON');
+        }
+        
         this.exportSong(format);
     }
 
