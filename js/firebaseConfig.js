@@ -24,7 +24,7 @@ if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
     try {
         firebaseApp = firebase.initializeApp(firebaseConfig);
         firebaseAuth = firebase.auth();
-        console.log('Firebase initialized successfully');
+        googleProvider = new firebase.auth.GoogleAuthProvider(); // Initialize provider here
     } catch (error) {
         console.warn('Firebase initialization failed:', error.message);
     }
@@ -32,8 +32,8 @@ if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
     console.warn('Firebase not configured. Please add your Firebase config to js/firebaseConfig.js');
 }
 
-// Google Auth Provider
-const googleProvider = new firebase.auth.GoogleAuthProvider();
+// Google Auth Provider - only create if Firebase is initialized
+let googleProvider = null;
 
 // Sign in with Google
 async function signInWithGoogle() {
@@ -42,11 +42,14 @@ async function signInWithGoogle() {
         return null;
     }
     
+    // Initialize provider on first use if not done yet
+    if (!googleProvider) {
+        googleProvider = new firebase.auth.GoogleAuthProvider();
+    }
+    
     try {
         const result = await firebaseAuth.signInWithPopup(googleProvider);
-        const user = result.user;
-        console.log('Google sign-in successful:', user.displayName);
-        return user;
+        return result.user;
     } catch (error) {
         console.error('Google sign-in error:', error);
         throw error;
@@ -59,7 +62,6 @@ async function signOut() {
     
     try {
         await firebaseAuth.signOut();
-        console.log('Signed out successfully');
     } catch (error) {
         console.error('Sign out error:', error);
     }

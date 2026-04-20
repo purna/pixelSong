@@ -86,8 +86,11 @@ class SoundGenerator {
         const numSamples = Math.floor(duration * sampleRate);
 
         // Resolve audio context — don't crash if audioEngine isn't set
-        const context = this.audioEngine?.context
-            ?? new (window.AudioContext || window.webkitAudioContext)({ sampleRate });
+        let context = this.audioEngine?.context;
+        if (!context) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            context = new AudioCtx({ sampleRate: sampleRate || 44100 });
+        }
 
         const buffer    = context.createBuffer(2, numSamples, context.sampleRate);
         const leftData  = buffer.getChannelData(0);

@@ -11,6 +11,8 @@ class SFXGeneratorApp {
         this.timeline = null;
         this.fileManager = null;
         this.collectionManager = null;
+        this.collectionUI = null;
+        this.databaseManager = null;
         this.tutorialConfig = null;
         this.tutorialSystem = null;
         this.musicManager = null;

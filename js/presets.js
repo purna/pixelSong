@@ -137,24 +137,103 @@ class Presets {
     // Generate random with constraints
     generateRandom() {
         const waveforms = ['square', 'sine', 'triangle', 'sawtooth', 'noise'];
+        
+        // Musical scales (frequencies in Hz) - Pentatonic, Major, Minor
+        const pentatonicScale = [130.81, 146.83, 164.81, 196.00, 220.00, 261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25, 783.99, 880.00];
+        const majorScale = [130.81, 146.83, 164.81, 174.61, 196.00, 220.00, 246.94, 261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25];
+        const minorScale = [130.81, 146.83, 164.81, 174.61, 196.00, 220.00, 261.63, 293.66, 311.13, 349.23, 392.00, 440.00, 523.25, 587.33, 622.25];
+        
+        // Chord progressions for more musical randomness
+        const chords = [
+            // Major chord tones
+            { root: 261.63, third: 329.63, fifth: 392.00 }, // C
+            { root: 293.66, third: 369.99, fifth: 440.00 }, // D
+            { root: 196.00, third: 246.94, fifth: 293.66 }, // G
+            { root: 220.00, third: 277.18, fifth: 329.63 }, // A
+            // Minor chord tones  
+            { root: 146.83, third: 174.61, fifth: 220.00 }, // Am
+            { root: 164.81, third: 196.00, fifth: 246.94 }, // Bdim
+            { root: 110.00, third: 130.81, fifth: 164.81 }, // G
+        ];
+        
+        // Pick a random musical approach
+        const approach = Math.random();
+        
+        let frequency, attack, sustain, decay, vibratoEnable, arpEnable;
+        
+        if (approach < 0.4) {
+            // 40% - Use pentatonic scale note
+            frequency = pentatonicScale[Math.floor(Math.random() * pentatonicScale.length)];
+            attack = Math.random() * 0.15;
+            sustain = 0.1 + Math.random() * 0.4;
+            decay = 0.1 + Math.random() * 0.5;
+            vibratoEnable = Math.random() > 0.6;
+            arpEnable = Math.random() > 0.7;
+        } else if (approach < 0.7) {
+            // 30% - Use major scale (cheerful)
+            frequency = majorScale[Math.floor(Math.random() * majorScale.length)];
+            attack = 0.01 + Math.random() * 0.1;
+            sustain = 0.2 + Math.random() * 0.3;
+            decay = 0.2 + Math.random() * 0.4;
+            vibratoEnable = Math.random() > 0.5;
+            arpEnable = Math.random() > 0.8;
+        } else if (approach < 0.9) {
+            // 20% - Use chord tone (harmonic)
+            const chord = chords[Math.floor(Math.random() * chords.length)];
+            const toneType = Math.random();
+            frequency = toneType < 0.33 ? chord.root : (toneType < 0.66 ? chord.third : chord.fifth);
+            attack = 0.02 + Math.random() * 0.1;
+            sustain = 0.3 + Math.random() * 0.3;
+            decay = 0.3 + Math.random() * 0.4;
+            vibratoEnable = Math.random() > 0.5;
+            arpEnable = Math.random() > 0.6;
+        } else {
+            // 10% - Minor scale (moody)
+            frequency = minorScale[Math.floor(Math.random() * minorScale.length)];
+            attack = 0.1 + Math.random() * 0.2;
+            sustain = 0.2 + Math.random() * 0.3;
+            decay = 0.4 + Math.random() * 0.5;
+            vibratoEnable = Math.random() > 0.4;
+            arpEnable = Math.random() > 0.8;
+        }
+        
+        // Envelope shapes for instruments
+        const envelopeType = Math.random();
+        let punch = 0;
+        if (envelopeType < 0.25) {
+            // Plucky
+            attack = 0.001;
+            decay = 0.1 + Math.random() * 0.2;
+            sustain = 0;
+        } else if (envelopeType < 0.5) {
+            // Soft pad
+            attack = 0.2 + Math.random() * 0.3;
+            decay = 0.3 + Math.random() * 0.3;
+            punch = 0;
+        } else if (envelopeType < 0.75) {
+            // Synth with punch
+            decay = 0.1 + Math.random() * 0.2;
+            punch = 20 + Math.random() * 40;
+        }
+        
         return {
-            attack: Math.random() * 0.2,
-            sustain: Math.random() * 0.5,
-            punch: Math.random() * 100,
-            decay: Math.random() * 1,
-            frequency: 100 + Math.random() * 1500,
-            minFreq: Math.random() * 500,
-            slide: (Math.random() - 0.5) * 2,
-            deltaSlide: (Math.random() - 0.5) * 0.5,
-            vibratoEnable: Math.random() > 0.7,
-            vibratoDepth: Math.random() * 50,
-            vibratoSpeed: Math.random() * 30,
-            arpEnable: Math.random() > 0.7,
-            arpMult: 0.5 + Math.random() * 1.5,
-            arpSpeed: Math.random() * 0.5,
-            duty: Math.random() * 100,
-            waveform: waveforms[Math.floor(Math.random() * waveforms.length)],
-            volume: 0.5
+            attack: attack,
+            sustain: sustain,
+            punch: punch,
+            decay: decay,
+            frequency: frequency,
+            minFreq: Math.random() * 100,
+            slide: (Math.random() - 0.5) * 0.3,
+            deltaSlide: (Math.random() - 0.5) * 0.1,
+            vibratoEnable: vibratoEnable,
+            vibratoDepth: vibratoEnable ? 10 + Math.random() * 30 : 0,
+            vibratoSpeed: 3 + Math.random() * 15,
+            arpEnable: arpEnable,
+            arpMult: 0.5 + Math.random() * 1.0,
+            arpSpeed: arpEnable ? 0.05 + Math.random() * 0.2 : 0,
+            duty: 30 + Math.random() * 50,
+            waveform: waveforms[Math.floor(Math.random() * 4)], // Exclude noise for musical
+            volume: 0.4 + Math.random() * 0.3
         };
     }
 }

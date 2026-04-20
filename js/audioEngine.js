@@ -12,7 +12,6 @@ class AudioEngine {
         if (!this.context) {
             this.context = new (window.AudioContext || window.webkitAudioContext)();
             this.initialized = true;
-            console.log('AudioContext initialized after user gesture');
         }
         return this.context;
     }
@@ -24,7 +23,6 @@ class AudioEngine {
         if (this.context.state === 'suspended') {
             try {
                 await this.context.resume();
-                console.log('AudioContext resumed');
             } catch (e) {
                 console.error('Failed to resume AudioContext:', e);
             }
@@ -36,24 +34,19 @@ class AudioEngine {
     }
 
     async playBuffer(buffer, onEnded = null) {
-        console.log('AudioEngine.playBuffer called');
-        console.log('Context state before:', this.context.state);
-        
         // Ensure context is resumed before playing - wait longer for browser policies
         await this.ensureContextResumed();
         
-        // Add additional delay for browser audio policies
-        await new Promise(resolve => setTimeout(resolve, 100));
-        
-        console.log('Context state after resume:', this.context.state);
+        // Add small delay for browser audio policies to stabilize
+        const BROWSER_AUDIO_DELAY_MS = 50;
+        await new Promise(resolve => setTimeout(resolve, BROWSER_AUDIO_DELAY_MS));
 
         // Stop any currently playing sound
         if (this.currentSource) {
             try {
                 this.currentSource.stop();
             } catch (e) {
-                // Source might have already stopped
-                console.log('Previous source already stopped');
+                // Source might have already stopped or not started
             }
         }
 
@@ -61,14 +54,12 @@ class AudioEngine {
         source.buffer = buffer;
         source.connect(this.context.destination);
         
-        console.log('Starting playback...');
         source.start();
         
         this.currentSource = source;
         
         // Clear reference when done
         source.onended = () => {
-            console.log('Playback ended');
             if (this.currentSource === source) {
                 this.currentSource = null;
             }
@@ -106,8 +97,11 @@ class AudioEngine {
     }
 
     createBuffer(samples, sampleRate = null) {
-        const rate = sampleRate || this.sampleRate;
-        return this.context.createBuffer(1, samples, this.context.sampleRate);
+        if (!this.context) {
+            throw new Error('AudioContext not initialized');
+        }
+        const rate = sampleRate || this.sampleRate || this.context.sampleRate;
+        return this.context.createBuffer(1, samples, rate);
     }
 
     applyLowPassFilter(data, cutoff, sampleRate) {
@@ -134,7 +128,6 @@ class AudioEngine {
 
     downloadWAV(buffer, filename = 'sound.wav') {
         try {
-            console.log('Downloading WAV file:', filename);
             const wav = this.bufferToWave(buffer, buffer.length);
             const blob = new Blob([wav], { type: 'audio/wav' });
             const url = URL.createObjectURL(blob);
