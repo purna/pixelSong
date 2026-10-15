@@ -9,9 +9,7 @@ async function loadGenreFile(genre, length = 64) {
     if (genreCache.has(cacheKey)) return genreCache.get(cacheKey);
     if (genreRequests.has(cacheKey)) return genreRequests.get(cacheKey);
     const request = (async () => {
-        const response = await fetch(`${GENRE_FILES[genre]}_${length}step.json`);
-        if (!response.ok) throw new Error(`Could not load ${genre} songs. Please try again.`);
-        const data = await response.json();
+        const data = await window.loadPresetData(`${GENRE_FILES[genre]}_${length}step.json`);
         if (data.genre !== genre || data.patternLength !== length || !Array.isArray(data.songs) || data.songs.some(song => song.patternLength !== length)) throw new Error('The song file does not match the selected pattern length.');
         genreCache.set(cacheKey, data);
         return data;

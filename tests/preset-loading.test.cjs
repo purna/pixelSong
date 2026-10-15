@@ -9,21 +9,30 @@ const scales = [
  ['F4','G4','A4','Bb4','C5','D5','E5','F5'], ['D4','E4','F4','G4','A4','Bb4','C5','D5'], ['A4','B4','C5','D5','E5','F5','G5','A5']
 ];
 const names = ['kick','snare','hihat','tom','conga','bongo','shaker','cymbal'];
-function fixture() {
+function fixture(protocol = 'https:') {
  const nodes = {}, requests = [];
- const context = {console, structuredClone, window:{}, document:{getElementById:id=>nodes[id]||null,querySelector:()=>null,createElement:()=>({})},fetch:async url=>{
+ const context = {console, structuredClone, URL, Tone:{Transport:{bpm:{value:120}}}, window:{location:{protocol}}, document:{getElementById:id=>nodes[id]||null,querySelector:()=>null,createElement:()=>({})},fetch:async url=>{
   requests.push(url);
   const file=path.join(root,url);
   return {ok:fs.existsSync(file),json:async()=>JSON.parse(fs.readFileSync(file,'utf8'))};
  }};
+ context.document.baseURI='file:///pixelSong/index.html';
+ context.document.head={appendChild(script){
+  requests.push('bundle');
+  queueMicrotask(()=>{
+   vm.runInContext(fs.readFileSync(path.join(root,'data/presetBundle.js'),'utf8'),context);
+   script.onload();
+  });
+ }};
  vm.createContext(context);
+ vm.runInContext(fs.readFileSync(path.join(root,'js/presetData.js'),'utf8'),context);
  vm.runInContext(fs.readFileSync(path.join(root,'js/songDesigner.js'),'utf8')+'\nwindow.TestApp=SongDesignerApp;',context);
  const App=context.window.TestApp;
  App.prototype.setupEventListeners=function(){};
  vm.runInContext(fs.readFileSync(path.join(root,'js/tuneHelper.js'),'utf8'),context);
  function make(length=16,scale=scales[0]) {
   const a=Object.create(App.prototype);
-  Object.assign(a,{patternLength:length,currentGroupIndex:0,groupLoopCounts:[1,1,1,1],patternGroups:{harmonics:[],melody:[],bass:[],lead:[],rhythm:[]},bassNotes:['C1','D1','E1','F1','G1','A1','B1','C2','D2','E2','F2','G2'],harmonicNotes:['C3','E3','G3','C4','E4','G4','B4','D5'],getCurrentScale:()=>scale,rhythmVelocity:Object.fromEntries(names.map(n=>[n,new Map()])),notices:[]});
+  Object.assign(a,{patternLength:length,tempo:120,currentGroupIndex:0,groupLoopCounts:[1,1,1,1],patternGroups:{harmonics:[],melody:[],bass:[],lead:[],rhythm:[]},bassNotes:['C1','D1','E1','F1','G1','A1','B1','C2','D2','E2','F2','G2'],harmonicNotes:['C3','E3','G3','C4','E4','G4','B4','D5'],getCurrentScale:()=>scale,rhythmVelocity:Object.fromEntries(names.map(n=>[n,new Map()])),notices:[]});
   for(const name of ['melodyVelocity','bassVelocity','leadVelocity','harmonyVelocity'])a[name]=new Map();
   for(const name of ['rebuildGrids','createSectionTimelines','createStepTimeline','updatePatternLengthUI','createSectionRepeatsControl','updateHarmonicsUI'])a[name]=()=>{};
   a.stop=()=>{a.isPlaying=false};a.showNotification=(...args)=>a.notices.push(args);
@@ -71,7 +80,7 @@ test('Every genre loads its real 16/32/64 arrangements into the matching groups'
    for(const [key,preset]of Object.entries(presets)){
     const app=f.make(length);await app.loadSongPreset(key);
     assert.equal(app.notices.at(-1)?.[1],'success',`${genre}/${key}/${length}: ${app.notices.at(-1)}`);
-    assert.equal(app.patternGroups.melody.length,length/16);assert.equal(app.tempo,preset.tempo);
+    assert.equal(app.patternGroups.melody.length,length/16);assert.equal(app.tempo,preset.tempo);assert.equal(f.context.Tone.Transport.bpm.value,preset.tempo);assert.equal(Number(f.nodes.tempoSlider.value),preset.tempo);assert.equal(f.nodes.tempoValue.textContent,`${preset.tempo} BPM`);
     for(const part of ['melody','bass','lead']){
      const actual=app.patternGroups[part].flatMap((group,g)=>Array.from(group,([step,row])=>`${g*16+step}-${row}`));
      // A monophonic grid keeps the final row if the source has simultaneous notes.
@@ -131,4 +140,28 @@ test('Steps buttons reload the selected song at 16, 32 and 64 steps', async () =
   assert.equal(app.notices.at(-1)[1],'success');
   assert(f.requests.some(url=>url===`data/songs/rock_${length}step.json`));
  }
+});
+
+test('Opening index.html directly loads all song lengths and Tune Helper without fetch', async () => {
+ const f=fixture('file:');
+ f.context.fetch=async()=>{throw Error('file:// fetch must never be used')};
+ vm.runInContext(fs.readFileSync(path.join(root,'js/songPresets.js'),'utf8'),f.context);
+ let count=0;
+ for(const genre of f.context.window.getAllGenres())for(const length of [16,32,64]){
+  const songs=await f.context.getPresetsByGenre(genre,length);
+  for(const preset of Object.values(songs)){assert.equal(preset.patternLength,length);count++;}
+ }
+ assert.equal(count,840);
+ for(const length of [16,32,64])for(const mood of ['bright','dreamy','moody'])for(const energy of ['gentle','steady','lively']){
+  const app=f.make(length);await app.createHelperTune({mood,energy});assert.equal(app.patternGroups.melody.length,length/16);
+ }
+ assert.equal(f.requests.filter(request=>request==='bundle').length,1);
+ assert.equal(f.requests.filter(request=>request!=='bundle').length,0);
+ const first=await f.context.window.loadPresetData('data/tune-helper/bright-steady-16.json');first.groups[0].melody=[];
+ const second=await f.context.window.loadPresetData('data/tune-helper/bright-steady-16.json');assert(second.groups[0].melody.length>0);
+});
+test('Local bundle contains exactly the source JSON data', () => {
+ const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'data/presetBundle.js'),'utf8'),context);
+ const entries=Object.entries(context.window.PIXELSONG_PRESET_DATA);assert.equal(entries.length,66);
+ for(const [file,data]of entries)assert.equal(JSON.stringify(data),JSON.stringify(JSON.parse(fs.readFileSync(path.join(root,file),'utf8'))));
 });

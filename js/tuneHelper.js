@@ -39,9 +39,7 @@
         if (!['bright', 'dreamy', 'moody'].includes(mood) || !['gentle', 'steady', 'lively'].includes(energy) || !['full', 'melody'].includes(scope) || ![16, 32, 64].includes(length)) throw new Error('Choose a supported tune option and 16, 32 or 64 steps.');
         const scale = [...this.getCurrentScale()];
         const request = this._helperRequest = (this._helperRequest || 0) + 1;
-        const response = await fetch(`data/tune-helper/${mood}-${energy}-${length}.json`);
-        if (!response.ok) throw new Error('The tune could not be loaded. Please try again.');
-        const preset = await response.json();
+        const preset = await window.loadPresetData(`data/tune-helper/${mood}-${energy}-${length}.json`);
         if (request !== this._helperRequest || this.patternLength !== length || this.getCurrentScale().join() !== scale.join()) throw new Error('Your selection changed while loading. Press Create tune again.');
         // Validate and prepare every part before replacing the current tune.
         if (preset.schemaVersion !== 1 || preset.patternLength !== length || preset.mood !== mood || preset.energy !== energy || preset.groups?.length !== length / 16) throw new Error('This tune file does not match the selected options.');
@@ -114,6 +112,7 @@
                 stage.saveToStorage();
             }
         }
+        this.setTempo(this.tempo);
         refresh(this);
         return `${scope === 'melody' ? 'Melody' : 'Full tune'} loaded: ${length} steps (${length / 16} bar${length > 16 ? 's' : ''}).${scope === 'full' && stage?.stageArea ? ' All musical parts and stage positions are ready.' : ''} Press Play to listen, or edit the notes below.`;
     };

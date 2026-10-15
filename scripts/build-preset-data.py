@@ -57,6 +57,7 @@ def build(source, output):
         original = json.loads(file.read_text())
         genre = original['genre']
         variations = json.loads((source / 'docs' / f'{genre}.json').read_text())['song_variations']
+        shorter_versions = {}
         for length in [16, 32, 64]:
             songs = []
             for song in original['songs']:
@@ -67,13 +68,42 @@ def build(source, output):
                                        for key, active in arranged.get('melody', {}).items()
                                        for step, row in [key.split('-')]}
                 arranged['harmonics'] = [row for row in arranged.get('harmonics', []) if 0 <= row < 8]
+                shorter = shorter_versions.get(song['key'])
+                if shorter:
+                    boundary = shorter['patternLength']
+                    # Develop the same phrase instead of changing the opening at each length.
+                    for part in ['melody', 'bass', 'lead']:
+                        tail = {key: value for key, value in arranged.get(part, {}).items()
+                                if int(key.split('-')[0]) >= boundary}
+                        arranged[part] = {**shorter.get(part, {}), **tail}
+                    arranged['rhythm'] = {
+                        name: sorted(set(shorter.get('rhythm', {}).get(name, []))
+                                     | {step for step in arranged.get('rhythm', {}).get(name, []) if step >= boundary})
+                        for name in sorted(set(shorter.get('rhythm', {})) | set(arranged.get('rhythm', {})))}
+                shorter_versions[song['key']] = arranged
                 songs.append(arranged)
             write(output / 'songs' / f'{genre}_{length}step.json', {'genre': genre, 'patternLength': length, 'songs': songs})
+
+    write_bundle(output)
+
+
+def write_bundle(output):
+    # Classic scripts can be loaded from file://, unlike fetch() requests for JSON.
+    bundle = {f'data/{file.relative_to(output).as_posix()}': json.loads(file.read_text())
+              for folder in ['songs', 'tune-helper'] for file in sorted((output / folder).glob('*.json'))}
+    (output / 'presetBundle.js').write_text('// Generated from the JSON presets by scripts/build-preset-data.py.\n'
+                                          + 'window.PIXELSONG_PRESET_DATA = '
+                                          + json.dumps(bundle, separators=(',', ':')) + ';\n')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--source', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--bundle-only', action='store_true', help='Rebuild the local-file bundle without changing JSON presets')
     args = parser.parse_args()
-    build(args.source, args.output or args.source / 'data')
+    output = args.output or args.source / 'data'
+    if args.bundle_only:
+        write_bundle(output)
+    else:
+        build(args.source, output)

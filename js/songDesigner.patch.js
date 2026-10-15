@@ -205,7 +205,7 @@
         this.groupLoopCurrent = [0, 0, 0, 0];
 
         // Use Tone.Transport for accurate timing
-        Tone.Transport.bpm.value = this.tempo;
+        this.setTempo(this.tempo);
         Tone.Transport.cancel(); // clear any previous events
 
         // Schedule repeating 16th-note step
@@ -365,8 +365,9 @@
         // Original: only triggered on step 0 (once per whole loop!)
         // Patched: re-triggers every bar (every 16 steps) for chord changes
         // Defensive check: ensure this.harmonics exists and has size property
-        if (this.harmonicsEnabled && localStep === 0 && this.harmonics && this.harmonics.size > 0) {
-            const notes = Array.from(this.harmonics).map(i => this.harmonicNotes[i]);
+        const groupHarmony = this.patternGroups.harmonics?.[groupIndex] ?? this.harmonics;
+        if (this.harmonicsEnabled && localStep === 0 && groupHarmony && groupHarmony.size > 0) {
+            const notes = Array.from(groupHarmony).map(i => this.harmonicNotes[i]);
             // Voice the chord across octaves for fullness
             const voicedNotes = this._voiceChord(notes);
             this.polySynth.triggerAttackRelease(voicedNotes, '1m', time, Math.min(1, harmonyVel));
@@ -484,9 +485,7 @@
 
     proto._loadDefaultDemo = function() {
         // Load a simple demo pattern
-        this.tempo = 120;
-        document.getElementById('tempoSlider').value = 120;
-        document.getElementById('tempoValue').textContent = '120 BPM';
+        this.setTempo(120);
         
         // Set pattern length to 32
         this.setPatternLength(32);
@@ -569,19 +568,6 @@
     // 6. TEMPO CHANGE — update Tone.Transport too
     // ─────────────────────────────────────────────────────────────────────────
 
-    const originalSetupEventListeners = proto.setupEventListeners;
-    proto.setupEventListeners = function() {
-        originalSetupEventListeners.call(this);
-
-        // Patch tempo slider to also update Transport
-        const tempoSlider = document.getElementById('tempoSlider');
-        if (tempoSlider) {
-            tempoSlider.addEventListener('input', () => {
-                Tone.Transport.bpm.value = this.tempo;
-            });
-        }
-    };
-
     // ─────────────────────────────────────────────────────────────────────────
     // 7. RICHER SYNTH CREATION
     //    Patch createHarmonicSynth to use polyphony limit (avoids voice stealing clicks)
@@ -640,6 +626,44 @@
         const scale = app.getCurrentScale();
         const groupCount = app.patternLength / 16;
         
+        // A random tune always includes a fresh, playable melody in every bar.
+        app._helperRequest = (app._helperRequest || 0) + 1;
+        app._songLoadRequest = (app._songLoadRequest || 0) + 1;
+        app.melodyEnabled = true;
+        app.melodyVelocity.clear();
+        for (let g = 0; g < groupCount; g++) {
+            const melody = new Map();
+            let row = Math.floor(Math.random() * Math.min(5, scale.length));
+            for (let step = 0; step < 16; step++) {
+                // Four anchor notes guarantee a melody even when optional notes are skipped.
+                if (step % 4 === 0 || (step % 2 === 0 && Math.random() < 0.35)) {
+                    row = Math.max(0, Math.min(scale.length - 1, row + Math.floor(Math.random() * 5) - 2));
+                    melody.set(step, row);
+                }
+            }
+            app.patternGroups.melody[g] = melody;
+        }
+        app.melodyRows = app.patternGroups.melody[app.currentGroupIndex];
+
+        // Pick a playable diatonic triad from the harmony tiles available in this scale.
+        const pitch = note => note.replace(/-?\d+$/, '');
+        const scalePitches = scale.slice(0, 7).map(pitch);
+        const chordOptions = scalePitches.map((_, degree) => [0, 2, 4].map(offset => {
+            const name = scalePitches[(degree + offset) % scalePitches.length];
+            return app.harmonicNotes.findIndex(note => pitch(note) === name);
+        })).filter(chord => chord.every(index => index >= 0));
+        const fallback = app.harmonicNotes.flatMap((note, index) => scalePitches.includes(pitch(note)) ? [index] : []).slice(0, 3);
+        app.harmonicsEnabled = true;
+        app.harmonyVelocity.clear();
+        for (let g = 0; g < groupCount; g++) {
+            const chord = chordOptions.length ? chordOptions[Math.floor(Math.random() * chordOptions.length)] : fallback;
+            app.patternGroups.harmonics[g] = new Set(chord);
+            app.harmonyVelocity.set(g * 16, 0.6 + Math.random() * 0.2);
+        }
+        app.harmonics = app.patternGroups.harmonics[app.currentGroupIndex];
+        const songSelect = document.getElementById('songSelect');
+        if (songSelect) songSelect.value = '';
+
         // Generate random bass patterns
         for (let g = 0; g < groupCount; g++) {
             const groupBass = app.patternGroups.bass[g];
@@ -736,10 +760,9 @@
         app.leadRows = app.patternGroups.lead[app.currentGroupIndex];
         app.rhythm = app.patternGroups.rhythm[app.currentGroupIndex];
         
-        // Rebuild UI
-        app.rebuildGrids();
-        app.createSectionTimelines();
-        
+        // Rebuild the grids and synchronise the section's ON/OFF state.
+        app.refreshTuneParts();
+
         // Now try to load a random preset for additional variation
         app.showNotification('Generating random pattern...', 'info');
         
@@ -754,9 +777,7 @@
                 
                 // Apply some elements from the preset (tempo, etc.)
                 if (preset.tempo) {
-                    app.tempo = preset.tempo;
-                    document.getElementById('tempoSlider').value = app.tempo;
-                    document.getElementById('tempoValue').textContent = app.tempo + ' BPM';
+                    app.setTempo(preset.tempo);
                 }
                 
                 // Mix in some elements from the preset if they're defined
@@ -793,7 +814,7 @@
                 app.groupLoopCurrent = [0, 0, 0, 0];
                 
                 // Set tempo on Transport
-                Tone.Transport.bpm.value = app.tempo;
+                app.setTempo(app.tempo);
                 Tone.Transport.cancel();
                 
                 // Schedule the transport
@@ -992,9 +1013,7 @@
         
         // Load basic settings
         if (data.tempo) {
-            this.tempo = data.tempo;
-            document.getElementById('tempoSlider').value = this.tempo;
-            document.getElementById('tempoValue').textContent = this.tempo + ' BPM';
+            this.setTempo(data.tempo);
         }
         
         if (data.patternLength) {

@@ -618,6 +618,24 @@ class SongDesignerApp {
         }
     }
     
+    setTempo(value) {
+        const tempo = Number(value);
+        if (!Number.isFinite(tempo) || tempo <= 0) return false;
+        this.tempo = tempo;
+        const slider = document.getElementById('tempoSlider');
+        if (slider) {
+            // Expand the range before assigning, so the browser does not clamp song BPM.
+            slider.min = Math.min(30, tempo);
+            slider.max = Math.max(300, tempo);
+            slider.value = tempo;
+        }
+        const label = document.getElementById('tempoValue');
+        if (label) label.textContent = `${tempo} BPM`;
+        if (typeof Tone !== 'undefined' && Tone.Transport?.bpm) Tone.Transport.bpm.value = tempo;
+        if (this.rhythmVisualizer?.enabled) this.rhythmVisualizer.setTempo(tempo);
+        return true;
+    }
+
     setPatternLength(length, { addedSteps = 'preserve' } = {}) {
         const validLengths = [16, 32, 64];
         if (!validLengths.includes(length)) return;
@@ -1232,8 +1250,7 @@ class SongDesignerApp {
         });
         
         document.getElementById('tempoSlider')?.addEventListener('input', (e) => {
-            this.tempo = parseInt(e.target.value);
-            document.getElementById('tempoValue').textContent = this.tempo + ' BPM';
+            this.setTempo(e.target.value);
             if (this.isPlaying) { this.stop(); this.play(); }
         });
         
@@ -3462,7 +3479,7 @@ class SongDesignerApp {
                 lead: Array.from({length: length / 16}, () => new Map()),
                 rhythm: Array.from({length: length / 16}, () => Object.fromEntries(names.map(name => [name, new Set()])))
             };
-            if (preset.patternLength !== length || !Number.isFinite(preset.tempo) || !Array.isArray(preset.harmonics) || preset.harmonics.some(row => !Number.isInteger(row) || row < 0 || row >= this.harmonicNotes.length)) throw new Error('Invalid song preset.');
+            if (preset.patternLength !== length || (!Number.isFinite(preset.tempo) || preset.tempo <= 0) || !Array.isArray(preset.harmonics) || preset.harmonics.some(row => !Number.isInteger(row) || row < 0 || row >= this.harmonicNotes.length)) throw new Error('Invalid song preset.');
             for (const name of ['melody', 'bass', 'lead']) {
                 for (const [key, active] of Object.entries(preset[name] || {})) {
                     if (!active) continue;
@@ -3484,9 +3501,7 @@ class SongDesignerApp {
             this.patternGroups = groups;
             this.currentGroupIndex = 0;
             this.groupLoopCounts = [1, 1, 1, 1];
-            this.tempo = preset.tempo;
-            document.getElementById('tempoSlider').value = this.tempo;
-            document.getElementById('tempoValue').textContent = this.tempo + ' BPM';
+            this.setTempo(preset.tempo);
             for (const part of ['melody', 'bass', 'lead', 'harmony']) this[part + 'Velocity'] = new Map();
             this.rhythmVelocity = Object.fromEntries(names.map(name => [name, new Map()]));
             this.harmonicsEnabled = preset.harmonics.length > 0;
