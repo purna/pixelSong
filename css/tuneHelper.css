@@ -6,3 +6,11 @@
 .tune-helper-controls select { width: 100%; padding: 10px; border-radius: 6px; background: var(--bg-primary, #0f172a); color: var(--text-primary, #fff); border: 1px solid var(--border-color, #475569); font: inherit; }
 .tune-helper button:disabled { opacity: .45; cursor: default; }
 .tune-helper :focus-visible { outline: 2px solid var(--accent-color, #f472b6); outline-offset: 4px; }
+
+.tune-helper-options { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 20px; margin-top: 20px; }
+.tune-helper-option { min-width: 0; margin: 0; padding: 16px; border: 1px solid var(--border-color, #475569); border-radius: 10px; }
+.tune-helper-option legend { padding: 0 8px; color: var(--text-primary); font-weight: 700; }
+.tune-helper-option > p:first-of-type { margin-top: 0; }
+.tune-helper-controls select { box-sizing: border-box; min-width: 0; }
+@media (max-width: 900px) { .tune-helper-options { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .tune-helper-controls label { min-width: 0; flex-basis: 100%; } }

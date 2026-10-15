@@ -618,10 +618,40 @@ class SongDesignerApp {
         }
     }
     
-    setPatternLength(length) {
+    setPatternLength(length, { addedSteps = 'preserve' } = {}) {
         const validLengths = [16, 32, 64];
         if (!validLengths.includes(length)) return;
+        this._songLoadRequest = (this._songLoadRequest || 0) + 1;
+        this._helperRequest = (this._helperRequest || 0) + 1;
         if (this.isPlaying) this.stop();
+        const previousLength = this.patternLength;
+        if (length > previousLength && ['repeat', 'empty'].includes(addedSteps)) {
+            const oldGroups = previousLength / 16;
+            for (let group = oldGroups; group < length / 16; group++) {
+                const source = group % oldGroups;
+                for (const part of ['harmonics', 'melody', 'bass', 'lead']) {
+                    this.patternGroups[part][group] = addedSteps === 'repeat'
+                        ? structuredClone(this.patternGroups[part][source])
+                        : part === 'harmonics' ? new Set() : new Map();
+                }
+                const rhythm = this.patternGroups.rhythm[source];
+                this.patternGroups.rhythm[group] = addedSteps === 'repeat'
+                    ? structuredClone(rhythm)
+                    : Object.fromEntries(Object.keys(rhythm).map(name => [name, new Set()]));
+                this.groupLoopCounts[group] = addedSteps === 'repeat' ? (this.groupLoopCounts[source] || 1) : 1;
+            }
+            // Copy note strength and per-step effect data alongside the notes.
+            const maps = [this.melodyVelocity, this.harmonyVelocity, this.bassVelocity, this.leadVelocity,
+                ...Object.values(this.rhythmVelocity || {}), ...Object.values(this.effectAutomation || {})];
+            for (const map of maps) {
+                if (!map) continue;
+                for (let step = previousLength; step < length; step++) {
+                    const source = step % previousLength;
+                    if (addedSteps === 'repeat' && map.has(source)) map.set(step, structuredClone(map.get(source)));
+                    else map.delete(step);
+                }
+            }
+        }
         this.patternLength = length;
         this.initializePatternGroups();
         this.rebuildGrids();
@@ -629,7 +659,7 @@ class SongDesignerApp {
         this.createSectionTimelines();
         this.updatePatternLengthUI();
         this.createSectionRepeatsControl();
-        this.showNotification(`Pattern length: ${length} steps`, 'success');
+        this.showNotification(`Pattern length: ${length} steps${length > previousLength && addedSteps === 'repeat' ? ' — existing pattern copied into the added steps' : ''}`, 'success');
     }
     
     initializePatternGroups() {
@@ -1210,23 +1240,20 @@ class SongDesignerApp {
         document.getElementById('melodyScale')?.addEventListener('change', () => {
             this.populateChordProgressionSelect();
         });
-        document.getElementById('chordProgressionSelect')?.addEventListener('change', (e) => {
-            if (e.target.value !== '') {
-                this.generateHarmonyFromChordProgression(e.target.value);
-                e.target.value = '';
-            }
-        });
+        // Keep the chosen progression visible; Apply generates and previews it.
         document.getElementById('applyChordProgressionBtn')?.addEventListener('click', () => {
             const select = document.getElementById('chordProgressionSelect');
             if (select && select.value !== '') {
                 this.generateHarmonyFromChordProgression(select.value);
-                select.value = '';
             } else {
                 this.showNotification('Please select a chord progression first', 'info');
             }
         });
         
-        document.getElementById('genreSelect')?.addEventListener('change', (e) => this.populateSongSelect(e.target.value));
+        document.getElementById('genreSelect')?.addEventListener('change', (e) => {
+            this._songLoadRequest = (this._songLoadRequest || 0) + 1;
+            this.populateSongSelect(e.target.value);
+        });
         document.getElementById('songSelect')?.addEventListener('change', (e) => { if (e.target.value) this.loadSongPreset(e.target.value); });
         document.getElementById('randomBtn')?.addEventListener('click', () => this.randomize());
         document.getElementById('helpBtn')?.addEventListener('click', () => this.showHelp());
@@ -1450,7 +1477,16 @@ class SongDesignerApp {
         document.querySelectorAll('[data-pattern-length]').forEach(btn => {
             btn.addEventListener('click', () => {
                 const length = parseInt(btn.dataset.patternLength);
-                this.setPatternLength(length);
+                const genre = document.getElementById('genreSelect')?.value;
+                const song = document.getElementById('songSelect')?.value;
+                const mode = document.getElementById('patternExpansionMode')?.value || 'repeat';
+                this.setPatternLength(length, { addedSteps: mode === 'repeat' ? 'repeat' : 'empty' });
+                if (genre) {
+                    // Repeating or extending a tune keeps the user's edits instead of reloading a preset.
+                    this.populateSongSelect(genre, mode === 'song' ? song : '');
+                    if (mode === 'song' && song) this.loadSongPreset(song);
+                }
+                if (mode === 'song' && !song) this.showNotification('Choose a song in Tune Helper to load its version at this length.', 'info');
             });
         });
         
@@ -2199,6 +2235,8 @@ class SongDesignerApp {
     }
     
     clearAll() {
+        this._songLoadRequest = (this._songLoadRequest || 0) + 1;
+        this._helperRequest = (this._helperRequest || 0) + 1;
         this.stop();
         
         this.patternGroups.harmonics.forEach(g => g.clear());
@@ -3383,181 +3421,91 @@ class SongDesignerApp {
         });
     }
     
-    populateSongSelect(genre) {
+    async populateSongSelect(genre, selectedKey = '') {
         const select = document.getElementById('songSelect');
+        const request = this._songListRequest = (this._songListRequest || 0) + 1;
+        const length = this.patternLength;
         select.innerHTML = '<option value="">-- Select --</option>';
-        if (!genre) { select.disabled = true; return; }
-        getPresetsByGenre(genre).then(presets => {
+        select.disabled = true;
+        if (!genre) return;
+        try {
+            const presets = await getPresetsByGenre(genre, length);
+            if (request !== this._songListRequest || length !== this.patternLength) return;
             Object.entries(presets).forEach(([key, preset]) => {
                 const option = document.createElement('option');
                 option.value = key;
                 option.textContent = `${preset.name} - ${preset.artist}`;
                 select.appendChild(option);
             });
+            select.value = selectedKey in presets ? selectedKey : '';
             select.disabled = false;
-        });
+        } catch (error) {
+            if (request === this._songListRequest) {
+                this.showNotification(error.message, 'error');
+                // Leave Genre usable so selecting it again can retry.
+            }
+        }
     }
-    
+
     async loadSongPreset(presetKey) {
-        // Load song data even if audio isn't initialized
-        if (Object.keys(window.SONG_PRESETS).length === 0) {
-            setTimeout(() => this.loadSongPreset(presetKey), 100);
-            return;
-        }
-        const preset = window.SONG_PRESETS[presetKey];
-        if (!preset) return;
-        
-        // Get step group definitions for current pattern length
-        // The preset always has 64-step data, but we map it to the current pattern length
-        const stepGroups = this.getStepGroupDefinitions();
-        
-        this.clearAll();
-        this.tempo = preset.tempo;
-        document.getElementById('tempoSlider').value = this.tempo;
-        document.getElementById('tempoValue').textContent = this.tempo + ' BPM';
-        
-        // Don't change pattern length - keep current setting and map 64-step data to it
-        // Initialize groups if needed for current pattern length
-        if (this.patternGroups.harmonics.length < this.patternLength / 16) {
-            this.initializePatternGroups();
-            this.rebuildGrids();
-            this.createStepTimeline();
-            this.createSectionTimelines();
-            this.updatePatternLengthUI();
-            this.createStepGroupsAccordion();
-        }
-        
-        this.harmonics = new Set(preset.harmonics);
-        
-        // Map melody data from 64-step to current pattern length
-        Object.entries(preset.melody || {}).forEach(([key]) => {
-            const [sourceStep, row] = key.split('-').map(Number);
-            
-            // Find which group this source step belongs to
-            for (const group of stepGroups) {
-                if (sourceStep >= group.sourceStart && sourceStep <= group.sourceEnd) {
-                    // Map to local step within the group
-                    const localStep = sourceStep - group.sourceStart;
-                    const groupIndex = stepGroups.indexOf(group);
-                    
-                    if (groupIndex >= 0 && groupIndex < this.patternGroups.melody.length) {
-                        this.patternGroups.melody[groupIndex].set(localStep, row);
-                    }
-                    break;
+        const length = this.patternLength;
+        const request = this._songLoadRequest = (this._songLoadRequest || 0) + 1;
+        const genre = document.getElementById('genreSelect')?.value || undefined;
+        try {
+            const preset = await getSongPreset(presetKey, length, genre);
+            if (request !== this._songLoadRequest || this.patternLength !== length || (document.getElementById('genreSelect')?.value || undefined) !== genre) return;
+            const names = ['kick', 'snare', 'hihat', 'tom', 'conga', 'bongo', 'shaker', 'cymbal'];
+            const groups = {
+                harmonics: Array.from({length: length / 16}, () => new Set(preset.harmonics)),
+                melody: Array.from({length: length / 16}, () => new Map()),
+                bass: Array.from({length: length / 16}, () => new Map()),
+                lead: Array.from({length: length / 16}, () => new Map()),
+                rhythm: Array.from({length: length / 16}, () => Object.fromEntries(names.map(name => [name, new Set()])))
+            };
+            if (preset.patternLength !== length || !Number.isFinite(preset.tempo) || !Array.isArray(preset.harmonics) || preset.harmonics.some(row => !Number.isInteger(row) || row < 0 || row >= this.harmonicNotes.length)) throw new Error('Invalid song preset.');
+            for (const name of ['melody', 'bass', 'lead']) {
+                for (const [key, active] of Object.entries(preset[name] || {})) {
+                    if (!active) continue;
+                    const [step, row] = key.split('-').map(Number);
+                    const rows = name === 'bass' ? this.bassNotes.length : this.getCurrentScale().length;
+                    if (!Number.isInteger(step) || step < 0 || step >= length || !Number.isInteger(row) || row < 0 || row >= rows) throw new Error('Invalid notes in song preset.');
+                    groups[name][Math.floor(step / 16)].set(step % 16, row);
                 }
             }
-        });
-        
-        // Map bass data from 64-step to current pattern length
-        Object.entries(preset.bass || {}).forEach(([key]) => {
-            const [sourceStep, row] = key.split('-').map(Number);
-            
-            for (const group of stepGroups) {
-                if (sourceStep >= group.sourceStart && sourceStep <= group.sourceEnd) {
-                    const localStep = sourceStep - group.sourceStart;
-                    const groupIndex = stepGroups.indexOf(group);
-                    
-                    if (groupIndex >= 0 && groupIndex < this.patternGroups.bass.length) {
-                        this.patternGroups.bass[groupIndex].set(localStep, row);
-                    }
-                    break;
+            for (const name of names) {
+                for (const step of preset.rhythm?.[name] || []) {
+                    if (!Number.isInteger(step) || step < 0 || step >= length) throw new Error('Invalid rhythm in song preset.');
+                    groups.rhythm[Math.floor(step / 16)][name].add(step % 16);
                 }
             }
-        });
-        
-        // Map lead data from 64-step to current pattern length
-        Object.entries(preset.lead || {}).forEach(([key]) => {
-            const [sourceStep, row] = key.split('-').map(Number);
-            
-            for (const group of stepGroups) {
-                if (sourceStep >= group.sourceStart && sourceStep <= group.sourceEnd) {
-                    const localStep = sourceStep - group.sourceStart;
-                    const groupIndex = stepGroups.indexOf(group);
-                    
-                    if (groupIndex >= 0 && groupIndex < this.patternGroups.lead.length) {
-                        this.patternGroups.lead[groupIndex].set(localStep, row);
-                    }
-                    break;
-                }
+            // A successful load replaces every group; no old notes leak into longer tunes.
+            this._helperRequest = (this._helperRequest || 0) + 1;
+            this.stop();
+            this.patternGroups = groups;
+            this.currentGroupIndex = 0;
+            this.groupLoopCounts = [1, 1, 1, 1];
+            this.tempo = preset.tempo;
+            document.getElementById('tempoSlider').value = this.tempo;
+            document.getElementById('tempoValue').textContent = this.tempo + ' BPM';
+            for (const part of ['melody', 'bass', 'lead', 'harmony']) this[part + 'Velocity'] = new Map();
+            this.rhythmVelocity = Object.fromEntries(names.map(name => [name, new Map()]));
+            this.harmonicsEnabled = preset.harmonics.length > 0;
+            for (const part of ['melody', 'bass', 'lead']) this[part + 'Enabled'] = groups[part].some(group => group.size > 0);
+            this.rhythmEnabled = groups.rhythm.some(group => names.slice(0, 4).some(name => group[name].size > 0));
+            this.percussionEnabled = groups.rhythm.some(group => names.slice(4).some(name => group[name].size > 0));
+            this.refreshTuneParts();
+            this.showNotification(`Loaded: ${preset.name} (${length} steps)`, 'success');
+            if (this.audioEngine) {
+                await Tone.start();
+                if (request === this._songLoadRequest && this.patternLength === length) this.play();
+            } else {
+                window.showAudioPrompt?.();
             }
-        });
-        
-        // Map rhythm data from 64-step to current pattern length
-        const firstRhythmGroup = this.patternGroups.rhythm[0] || {};
-        Object.keys(firstRhythmGroup).forEach(inst => {
-            const originalSteps = preset.rhythm?.[inst] || [];
-            
-            originalSteps.forEach(sourceStep => {
-                for (const group of stepGroups) {
-                    if (sourceStep >= group.sourceStart && sourceStep <= group.sourceEnd) {
-                        const localStep = sourceStep - group.sourceStart;
-                        const groupIndex = stepGroups.indexOf(group);
-                        
-                        if (groupIndex >= 0 && groupIndex < this.patternGroups.rhythm.length) {
-                            this.patternGroups.rhythm[groupIndex][inst].add(localStep);
-                        }
-                        break;
-                    }
-                }
-            });
-        });
-        
-        this.harmonics = this.patternGroups.harmonics[this.currentGroupIndex];
-        this.melodyRows = this.patternGroups.melody[this.currentGroupIndex];
-        this.bassRows = this.patternGroups.bass[this.currentGroupIndex];
-        this.leadRows = this.patternGroups.lead[this.currentGroupIndex];
-        this.rhythm = this.patternGroups.rhythm[this.currentGroupIndex];
-        
-        this.rebuildGrids();
-        this.createSectionTimelines();
-        this.updateAccordionActivity();
-        
-        document.querySelectorAll('.harmonic-cell').forEach((c, i) => c.classList.toggle('active', this.harmonics.has(i)));
-        
-        this.patternGroups.melody.forEach((group, gIdx) => {
-            group.forEach((row, col) => {
-                const cell = document.querySelector(`.string-cell[data-col="${col}"][data-row="${row}"][data-group-index="${gIdx}"]`);
-                if (cell) cell.classList.add('active');
-            });
-        });
-        
-        this.patternGroups.bass.forEach((group, gIdx) => {
-            group.forEach((row, col) => {
-                const cell = document.querySelector(`.bass-cell[data-col="${col}"][data-row="${row}"][data-group-index="${gIdx}"]`);
-                if (cell) cell.classList.add('active');
-            });
-        });
-        
-        this.patternGroups.lead.forEach((group, gIdx) => {
-            group.forEach((row, col) => {
-                const cell = document.querySelector(`.lead-cell[data-col="${col}"][data-row="${row}"][data-group-index="${gIdx}"]`);
-                if (cell) cell.classList.add('active');
-            });
-        });
-        
-        this.patternGroups.rhythm.forEach((group, gIdx) => {
-            Object.keys(group).forEach(inst => {
-                group[inst].forEach(step => {
-                    const cell = document.querySelector(`.rhythm-cell[data-instrument="${inst}"][data-step="${step}"][data-group-index="${gIdx}"]`);
-                    if (cell) cell.classList.add('active');
-                });
-            });
-        });
-        
-        this.showNotification(`Loaded: ${preset.name}`, 'success');
-        
-        // Only play if audio is already initialized
-        if (this.audioEngine) {
-            if (Tone.context.state === 'suspended') {
-                await Tone.context.resume();
-            }
-            this.play();
-        } else {
-            // Show prompt to enable audio for playback
-            window.showAudioPrompt?.();
+        } catch (error) {
+            if (request === this._songLoadRequest) this.showNotification(error.message, 'error');
         }
     }
-    
+
     randomize() {
         const scale = this.getCurrentScale();
         const groupCount = this.patternLength / 16;

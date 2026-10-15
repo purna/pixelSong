@@ -83,6 +83,14 @@ const StageManager = {
         this.cacheElements();
         this.bindEvents();
         this.renderMarkers();
+        // Recalculate bounds when the stage or marker labels change size.
+        if (typeof ResizeObserver !== 'undefined' && this.stageArea) {
+            this.boundsObserver = new ResizeObserver(() => {
+                Object.keys(this.instruments).forEach(key => this.updateMarkerPosition(key));
+            });
+            this.boundsObserver.observe(this.stageArea);
+            this.stageArea.querySelectorAll('.instrument-marker').forEach(marker => this.boundsObserver.observe(marker));
+        }
         this.updatePositionDisplays();
         this.updateStageControlsState(); // Disable controls until instrument selected
         this.loadFromStorage();
@@ -316,6 +324,7 @@ const StageManager = {
         
         // Clear existing markers (keep stage labels)
         const labels = this.stageArea.querySelectorAll('.stage-back, .stage-front');
+        this.stageArea.querySelectorAll('.instrument-marker').forEach(marker => this.boundsObserver?.unobserve(marker));
         this.stageArea.innerHTML = '';
         labels.forEach(label => this.stageArea.appendChild(label));
         
@@ -325,8 +334,6 @@ const StageManager = {
             const marker = document.createElement('div');
             marker.className = 'instrument-marker';
             marker.dataset.instrument = instKey;
-            marker.style.left = inst.x + '%';
-            marker.style.bottom = (100 - inst.y) + '%';
             
             marker.innerHTML = `
                 <span class="marker-icon">${inst.icon}</span>
@@ -334,6 +341,8 @@ const StageManager = {
             `;
             
             this.stageArea.appendChild(marker);
+            this.updateMarkerPosition(instKey);
+            this.boundsObserver?.observe(marker);
         });
     },
     
@@ -410,9 +419,7 @@ const StageManager = {
         let x = ((clientX - stageRect.left) / stageRect.width) * 100;
         let y = ((clientY - stageRect.top) / stageRect.height) * 100;
         
-        // Allow full range - markers can be positioned anywhere in the stage area
-        // The stage labels (Back/Front) are overlaid on top and don't affect the drag area
-        // overflow:hidden on stage-area ensures markers stay visible
+        // Keep logical pan/depth in range; rendering also contains the full marker.
         x = Math.max(0, Math.min(100, x));
         y = Math.max(0, Math.min(100, y));
         
@@ -421,11 +428,7 @@ const StageManager = {
         this.instruments[this.dragTarget].y = y;
         
         // Update marker position
-        const marker = this.stageArea.querySelector(`[data-instrument="${this.dragTarget}"]`);
-        if (marker) {
-            marker.style.left = x + '%';
-            marker.style.bottom = (100 - y) + '%';
-        }
+        this.updateMarkerPosition(this.dragTarget);
         
         // Update position displays live during drag
         this.updatePositionDisplays();
@@ -782,11 +785,21 @@ const StageManager = {
      */
     updateMarkerPosition(instKey) {
         const marker = this.stageArea?.querySelector(`[data-instrument="${instKey}"]`);
-        if (marker && this.instruments[instKey]) {
-            const inst = this.instruments[instKey];
-            marker.style.left = inst.x + '%';
-            marker.style.bottom = (100 - inst.y) + '%';
-        }
+        const inst = this.instruments[instKey];
+        if (!marker || !inst) return;
+        const width = this.stageArea.clientWidth;
+        const height = this.stageArea.clientHeight;
+        if (!width || !height) return; // Hidden stages are updated when shown again.
+
+        // Reserve space for the entire marker, including its hover enlargement.
+        const insetX = Math.min(width / 2, marker.offsetWidth * 1.05 / 2 + 4);
+        const insetY = Math.min(height / 2, marker.offsetHeight * 1.05 / 2 + 4);
+        const clamp = (value, inset, size) => Math.max(inset, Math.min(size - inset, value));
+        const x = Number.isFinite(inst.x) ? inst.x : 50;
+        const y = Number.isFinite(inst.y) ? inst.y : 50;
+        marker.style.left = clamp(x * width / 100, insetX, width) + 'px';
+        marker.style.top = clamp(y * height / 100, insetY, height) + 'px';
+        marker.style.bottom = 'auto';
     },
     
     /**

@@ -1,0 +1,1271 @@
+{
+  "genre": "country",
+  "patternLength": 16,
+  "songs": [
+    {
+      "key": "need-you",
+      "name": "I Need You to Want Me",
+      "artist": "Tim McGraw",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-7": true,
+        "3-0": true,
+        "5-2": true,
+        "7-0": true,
+        "8-0": true,
+        "10-7": true,
+        "12-2": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "chicken-fried",
+      "name": "Chicken Fried",
+      "artist": "Zac Brown Band",
+      "year": 2008,
+      "subgenre": "country",
+      "tempo": 105,
+      "keyName": "D Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-0": true,
+        "3-4": true,
+        "5-4": true,
+        "7-2": true,
+        "8-2": true,
+        "10-2": true,
+        "12-2": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "drunk-on-plane",
+      "name": "Drunk on a Plane",
+      "artist": "Dierks Bentley",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-0": true,
+        "8-2": true,
+        "12-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "bodak",
+      "name": "Bodak Yellow",
+      "artist": "Cardi B",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-4": true,
+        "4-4": true,
+        "6-0": true,
+        "8-2": true,
+        "10-4": true,
+        "12-0": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "play-dates",
+      "name": "Play Date",
+      "artist": "Melanie Martinez",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "3-2": true,
+        "6-2": true,
+        "9-2": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "old-town-road-remix",
+      "name": "Old Town Road Remix",
+      "artist": "Lil Nas X ft. Billy Ray Cyrus",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-2": true,
+        "4-4": true,
+        "6-0": true,
+        "9-7": true,
+        "11-2": true,
+        "13-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "tennessee",
+      "name": "Tennessee Whiskey",
+      "artist": "Chris Stapleton",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "3-4": true,
+        "6-4": true,
+        "9-7": true,
+        "12-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "die-a-happy",
+      "name": "Die a Happy Man",
+      "artist": "Thomas Rhett",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-2": true,
+        "2-7": true,
+        "4-0": true,
+        "5-2": true,
+        "7-4": true,
+        "8-7": true,
+        "10-2": true,
+        "11-0": true,
+        "13-2": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "may-we-all",
+      "name": "May We All",
+      "artist": "Florida Georgia Line",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-7": true,
+        "5-7": true,
+        "8-0": true,
+        "10-2": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "from-the-ground",
+      "name": "From the Ground Up",
+      "artist": "Dan + Shay",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-0": true,
+        "5-7": true,
+        "8-4": true,
+        "10-2": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "marlboro",
+      "name": "Marlboro Red",
+      "artist": "Cody Jinks",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-7": true,
+        "4-2": true,
+        "6-2": true,
+        "8-4": true,
+        "10-2": true,
+        "12-0": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "singles",
+      "name": "Singles You Up",
+      "artist": "Jordan Davis",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-2": true,
+        "3-4": true,
+        "4-2": true,
+        "6-4": true,
+        "8-2": true,
+        "9-2": true,
+        "11-2": true,
+        "12-4": true,
+        "14-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "you-should-be",
+      "name": "You Should Be Sad",
+      "artist": "Maren Morris",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "3-4": true,
+        "6-2": true,
+        "9-0": true,
+        "12-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "what-if",
+      "name": "What If",
+      "artist": "Kane Brown",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-0": true,
+        "2-2": true,
+        "4-2": true,
+        "5-2": true,
+        "7-7": true,
+        "8-7": true,
+        "10-2": true,
+        "11-4": true,
+        "13-2": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "take-it-from",
+      "name": "Take It from the Top",
+      "artist": "Jessie Reyez",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-7": true,
+        "4-2": true,
+        "6-2": true,
+        "8-2": true,
+        "10-7": true,
+        "12-4": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "girl",
+      "name": "The Girl Is Mine",
+      "artist": "99 Souls",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "4-0": true,
+        "8-7": true,
+        "12-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "symphonys",
+      "name": "Symphony",
+      "artist": "Sheppard",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-4": true,
+        "8-2": true,
+        "12-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "rich",
+      "name": "Rich",
+      "artist": "Megan Thee Stallion",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-2": true,
+        "4-2": true,
+        "6-4": true,
+        "8-2": true,
+        "10-0": true,
+        "12-0": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "golden-hour",
+      "name": "Golden Hour",
+      "artist": "KVSH",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-4": true,
+        "4-0": true,
+        "6-7": true,
+        "9-0": true,
+        "11-0": true,
+        "13-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    },
+    {
+      "key": "all-in",
+      "name": "All In",
+      "artist": "Khalid",
+      "year": 1975,
+      "subgenre": "country",
+      "tempo": 115,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-2": true,
+        "3-0": true,
+        "4-0": true,
+        "6-4": true,
+        "8-0": true,
+        "9-2": true,
+        "11-0": true,
+        "12-2": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ]
+      },
+      "characteristics": [
+        "country"
+      ],
+      "genre": "country"
+    }
+  ]
+}

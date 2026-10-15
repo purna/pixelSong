@@ -10,7 +10,7 @@
     background: linear-gradient(180deg, #1e1e3f 0%, #2d2d5a 100%);
     border-radius: 12px;
     border: 2px solid rgba(255, 255, 255, 0.1);
-    min-height: 280px;
+    min-height: 540px;
 }
 
 .stage-label-left,
@@ -53,6 +53,8 @@
 /* Stage Area */
 .stage-area {
     flex: 1;
+    min-width: 0;
+    min-height: 500px;
     position: relative;
     background: linear-gradient(180deg, 
         rgba(30, 30, 70, 0.8) 0%,
@@ -107,7 +109,13 @@
     backdrop-filter: blur(4px);
     border: 2px solid transparent;
     transform: translate(-50%, -50%);
-    min-width: 60px;
+    min-width: min(60px, 100%);
+    max-width: 95%;
+    max-height: 95%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    text-align: center;
+    touch-action: none;
 }
 
 .instrument-marker:hover {
@@ -389,11 +397,11 @@
     .stage-visualizer {
         padding: 0.75rem;
         gap: 0.5rem;
-        min-height: 250px;
+        min-height: 400px;
     }
     
     .stage-area {
-        min-height: 250px;
+        min-height: 400px;
     }
     
     .stage-label-left,

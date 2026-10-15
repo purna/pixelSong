@@ -1,0 +1,2177 @@
+{
+  "genre": "pop",
+  "patternLength": 32,
+  "songs": [
+    {
+      "key": "billie-jean",
+      "name": "Billie Jean",
+      "artist": "Michael Jackson",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-4": true,
+        "4-4": true,
+        "6-7": true,
+        "9-2": true,
+        "11-4": true,
+        "13-4": true,
+        "16-4": true,
+        "18-4": true,
+        "20-4": true,
+        "22-7": true,
+        "25-2": true,
+        "27-4": true,
+        "29-4": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "rolling-in-the-deep",
+      "name": "Rolling in the Deep",
+      "artist": "Adele",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-0": true,
+        "4-4": true,
+        "6-7": true,
+        "9-2": true,
+        "11-7": true,
+        "13-2": true,
+        "16-4": true,
+        "18-0": true,
+        "20-4": true,
+        "22-7": true,
+        "25-2": true,
+        "27-7": true,
+        "29-2": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "uptown-funk",
+      "name": "Uptown Funk",
+      "artist": "Bruno Mars",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-2": true,
+        "4-4": true,
+        "6-4": true,
+        "9-7": true,
+        "11-7": true,
+        "13-4": true,
+        "16-2": true,
+        "18-2": true,
+        "20-4": true,
+        "22-4": true,
+        "25-7": true,
+        "27-7": true,
+        "29-4": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "hey-jude",
+      "name": "Hey Jude",
+      "artist": "The Beatles",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "4-4": true,
+        "8-7": true,
+        "12-7": true,
+        "16-0": true,
+        "20-4": true,
+        "24-7": true,
+        "28-7": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "shape-of-you",
+      "name": "Shape of You",
+      "artist": "Ed Sheeran",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-2": true,
+        "4-7": true,
+        "6-7": true,
+        "8-2": true,
+        "10-2": true,
+        "12-2": true,
+        "14-2": true,
+        "16-7": true,
+        "18-2": true,
+        "20-7": true,
+        "22-7": true,
+        "24-2": true,
+        "26-2": true,
+        "28-2": true,
+        "30-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "blinding-lights",
+      "name": "Blinding Lights",
+      "artist": "The Weeknd",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-2": true,
+        "2-7": true,
+        "4-2": true,
+        "5-0": true,
+        "7-4": true,
+        "8-0": true,
+        "10-4": true,
+        "11-0": true,
+        "13-2": true,
+        "14-7": true,
+        "16-4": true,
+        "17-2": true,
+        "18-7": true,
+        "20-2": true,
+        "21-0": true,
+        "23-4": true,
+        "24-0": true,
+        "26-4": true,
+        "27-0": true,
+        "29-2": true,
+        "30-7": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "dance-monkey",
+      "name": "Dance Monkey",
+      "artist": "Tones and I",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-4": true,
+        "4-0": true,
+        "6-4": true,
+        "8-2": true,
+        "10-2": true,
+        "12-7": true,
+        "14-4": true,
+        "16-0": true,
+        "18-4": true,
+        "20-0": true,
+        "22-4": true,
+        "24-2": true,
+        "26-2": true,
+        "28-7": true,
+        "30-4": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "someone-like-you",
+      "name": "Someone Like You",
+      "artist": "Adele",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-0": true,
+        "8-7": true,
+        "12-0": true,
+        "16-7": true,
+        "20-0": true,
+        "24-7": true,
+        "28-0": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "bad-guy",
+      "name": "Bad Guy",
+      "artist": "Billie Eilish",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-4": true,
+        "2-4": true,
+        "4-7": true,
+        "5-7": true,
+        "7-4": true,
+        "8-7": true,
+        "10-2": true,
+        "11-2": true,
+        "13-2": true,
+        "14-4": true,
+        "16-4": true,
+        "17-4": true,
+        "18-4": true,
+        "20-7": true,
+        "21-7": true,
+        "23-4": true,
+        "24-7": true,
+        "26-2": true,
+        "27-2": true,
+        "29-2": true,
+        "30-4": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "perfect",
+      "name": "Perfect",
+      "artist": "Ed Sheeran",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-4": true,
+        "2-0": true,
+        "4-2": true,
+        "5-2": true,
+        "7-0": true,
+        "8-4": true,
+        "10-7": true,
+        "11-2": true,
+        "13-7": true,
+        "14-0": true,
+        "16-0": true,
+        "17-4": true,
+        "18-0": true,
+        "20-2": true,
+        "21-2": true,
+        "23-0": true,
+        "24-4": true,
+        "26-7": true,
+        "27-2": true,
+        "29-7": true,
+        "30-0": true,
+        "18-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "watermelon-sugar",
+      "name": "Watermelon Sugar",
+      "artist": "Harry Styles",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-4": true,
+        "8-4": true,
+        "12-0": true,
+        "16-7": true,
+        "20-4": true,
+        "24-4": true,
+        "28-0": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "levitating",
+      "name": "Levitating",
+      "artist": "Dua Lipa",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-4": true,
+        "5-0": true,
+        "8-0": true,
+        "10-0": true,
+        "13-4": true,
+        "16-0": true,
+        "18-4": true,
+        "21-0": true,
+        "24-0": true,
+        "26-0": true,
+        "29-4": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "sunflower",
+      "name": "Sunflower",
+      "artist": "Post Malone",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "3-4": true,
+        "6-0": true,
+        "9-2": true,
+        "12-0": true,
+        "16-7": true,
+        "19-4": true,
+        "22-0": true,
+        "25-2": true,
+        "28-0": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "lucid-dreams",
+      "name": "Lucid Dreams",
+      "artist": "Juice WRLD",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-4": true,
+        "4-2": true,
+        "6-0": true,
+        "8-0": true,
+        "10-2": true,
+        "12-4": true,
+        "14-2": true,
+        "16-0": true,
+        "18-4": true,
+        "20-2": true,
+        "22-0": true,
+        "24-0": true,
+        "26-2": true,
+        "28-4": true,
+        "30-2": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "closer",
+      "name": "Closer",
+      "artist": "The Chainsmokers",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-2": true,
+        "3-2": true,
+        "4-4": true,
+        "6-2": true,
+        "8-7": true,
+        "9-2": true,
+        "11-7": true,
+        "12-7": true,
+        "14-0": true,
+        "16-7": true,
+        "17-2": true,
+        "19-2": true,
+        "20-4": true,
+        "22-2": true,
+        "24-7": true,
+        "25-2": true,
+        "27-7": true,
+        "28-7": true,
+        "30-0": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "rockstar",
+      "name": "Rockstar",
+      "artist": "Post Malone",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "4-0": true,
+        "8-2": true,
+        "12-4": true,
+        "16-4": true,
+        "20-0": true,
+        "24-2": true,
+        "28-4": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "happier",
+      "name": "Happier",
+      "artist": "Marshmello",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-4": true,
+        "2-4": true,
+        "4-7": true,
+        "5-2": true,
+        "7-4": true,
+        "8-0": true,
+        "10-7": true,
+        "11-2": true,
+        "13-2": true,
+        "14-4": true,
+        "16-0": true,
+        "17-4": true,
+        "18-4": true,
+        "20-7": true,
+        "21-2": true,
+        "23-4": true,
+        "24-0": true,
+        "26-7": true,
+        "27-2": true,
+        "29-2": true,
+        "30-4": true,
+        "18-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "believer",
+      "name": "Believer",
+      "artist": "Imagine Dragons",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "4-4": true,
+        "8-4": true,
+        "12-0": true,
+        "16-4": true,
+        "20-4": true,
+        "24-4": true,
+        "28-0": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "shake-it-off",
+      "name": "Shake It Off",
+      "artist": "Taylor Swift",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-2": true,
+        "4-7": true,
+        "6-4": true,
+        "8-2": true,
+        "10-2": true,
+        "12-7": true,
+        "14-7": true,
+        "16-7": true,
+        "18-2": true,
+        "20-7": true,
+        "22-4": true,
+        "24-2": true,
+        "26-2": true,
+        "28-7": true,
+        "30-7": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    },
+    {
+      "key": "cant-stop-the-feeling",
+      "name": "Can't Stop the Feeling",
+      "artist": "Justin Timberlake",
+      "year": 1995,
+      "subgenre": "pop",
+      "tempo": 115,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-4": true,
+        "3-0": true,
+        "4-4": true,
+        "6-0": true,
+        "8-2": true,
+        "9-2": true,
+        "11-7": true,
+        "12-7": true,
+        "14-2": true,
+        "16-7": true,
+        "17-4": true,
+        "19-0": true,
+        "20-4": true,
+        "22-0": true,
+        "24-2": true,
+        "25-2": true,
+        "27-7": true,
+        "28-7": true,
+        "30-2": true,
+        "18-2": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "pop",
+        "extended"
+      ],
+      "genre": "pop"
+    }
+  ]
+}

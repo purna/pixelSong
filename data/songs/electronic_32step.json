@@ -1,0 +1,2205 @@
+{
+  "genre": "electronic",
+  "patternLength": 32,
+  "songs": [
+    {
+      "key": "levels",
+      "name": "Levels",
+      "artist": "Avicii",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "1-0": true,
+        "3-0": true,
+        "4-7": true,
+        "6-3": true,
+        "8-0": true,
+        "9-3": true,
+        "11-0": true,
+        "12-0": true,
+        "14-7": true,
+        "16-3": true,
+        "17-0": true,
+        "19-0": true,
+        "20-7": true,
+        "22-3": true,
+        "24-0": true,
+        "25-3": true,
+        "27-0": true,
+        "28-0": true,
+        "30-7": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "blinding-lights",
+      "name": "Blinding Lights",
+      "artist": "The Weeknd",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-3": true,
+        "2-7": true,
+        "4-7": true,
+        "5-7": true,
+        "7-7": true,
+        "8-7": true,
+        "10-7": true,
+        "11-3": true,
+        "13-3": true,
+        "14-3": true,
+        "16-0": true,
+        "17-3": true,
+        "18-7": true,
+        "20-7": true,
+        "21-7": true,
+        "23-7": true,
+        "24-7": true,
+        "26-7": true,
+        "27-3": true,
+        "29-3": true,
+        "30-3": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "clocks",
+      "name": "Clocks",
+      "artist": "Coldplay",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "1-3": true,
+        "3-7": true,
+        "4-0": true,
+        "6-0": true,
+        "8-0": true,
+        "9-3": true,
+        "11-3": true,
+        "12-7": true,
+        "14-0": true,
+        "16-3": true,
+        "17-3": true,
+        "19-7": true,
+        "20-0": true,
+        "22-0": true,
+        "24-0": true,
+        "25-3": true,
+        "27-3": true,
+        "28-7": true,
+        "30-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "midnight-city",
+      "name": "Midnight City",
+      "artist": "M83",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-3": true,
+        "3-0": true,
+        "5-7": true,
+        "7-3": true,
+        "8-0": true,
+        "10-7": true,
+        "12-0": true,
+        "14-3": true,
+        "16-7": true,
+        "17-3": true,
+        "19-0": true,
+        "21-7": true,
+        "23-3": true,
+        "24-0": true,
+        "26-7": true,
+        "28-0": true,
+        "30-3": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "ones-above-one",
+      "name": "One Above One",
+      "artist": "Avicii",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "1-0": true,
+        "3-3": true,
+        "5-7": true,
+        "7-0": true,
+        "8-3": true,
+        "10-0": true,
+        "12-7": true,
+        "14-3": true,
+        "16-3": true,
+        "17-0": true,
+        "19-3": true,
+        "21-7": true,
+        "23-0": true,
+        "24-3": true,
+        "26-0": true,
+        "28-7": true,
+        "30-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "wake-me-up",
+      "name": "Wake Me Up",
+      "artist": "Avicii",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-7": true,
+        "5-3": true,
+        "8-7": true,
+        "10-0": true,
+        "13-3": true,
+        "16-0": true,
+        "18-7": true,
+        "21-3": true,
+        "24-7": true,
+        "26-0": true,
+        "29-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "titanium",
+      "name": "Titanium",
+      "artist": "David Guetta ft. Sia",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "4-3": true,
+        "8-3": true,
+        "12-3": true,
+        "16-0": true,
+        "20-3": true,
+        "24-3": true,
+        "28-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "animals",
+      "name": "Animals",
+      "artist": "Martin Garrix",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-0": true,
+        "2-7": true,
+        "4-3": true,
+        "5-7": true,
+        "7-7": true,
+        "8-3": true,
+        "10-0": true,
+        "11-3": true,
+        "13-0": true,
+        "14-7": true,
+        "16-7": true,
+        "17-0": true,
+        "18-7": true,
+        "20-3": true,
+        "21-7": true,
+        "23-7": true,
+        "24-3": true,
+        "26-0": true,
+        "27-3": true,
+        "29-0": true,
+        "30-7": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "clarify",
+      "name": "Clarity",
+      "artist": "Zedd ft. Foxes",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "1-3": true,
+        "2-0": true,
+        "4-0": true,
+        "5-3": true,
+        "7-3": true,
+        "8-3": true,
+        "10-7": true,
+        "11-7": true,
+        "13-3": true,
+        "14-3": true,
+        "16-3": true,
+        "17-3": true,
+        "18-0": true,
+        "20-0": true,
+        "21-3": true,
+        "23-3": true,
+        "24-3": true,
+        "26-7": true,
+        "27-7": true,
+        "29-3": true,
+        "30-3": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "stay-the-night",
+      "name": "Stay the Night",
+      "artist": "Zedd ft. Hayley Williams",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-0": true,
+        "3-0": true,
+        "4-3": true,
+        "6-0": true,
+        "8-3": true,
+        "9-7": true,
+        "11-0": true,
+        "12-3": true,
+        "14-0": true,
+        "16-7": true,
+        "17-0": true,
+        "19-0": true,
+        "20-3": true,
+        "22-0": true,
+        "24-3": true,
+        "25-7": true,
+        "27-0": true,
+        "28-3": true,
+        "30-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "summer",
+      "name": "Summer",
+      "artist": "Calvin Harris",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-3": true,
+        "3-0": true,
+        "4-3": true,
+        "6-0": true,
+        "8-7": true,
+        "9-7": true,
+        "11-3": true,
+        "12-0": true,
+        "14-3": true,
+        "16-7": true,
+        "17-3": true,
+        "19-0": true,
+        "20-3": true,
+        "22-0": true,
+        "24-7": true,
+        "25-7": true,
+        "27-3": true,
+        "28-0": true,
+        "30-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "this-is-what-you-came-for",
+      "name": "This Is What You Came For",
+      "artist": "Calvin Harris ft. Rihanna",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "3-0": true,
+        "6-7": true,
+        "9-3": true,
+        "12-0": true,
+        "16-0": true,
+        "19-0": true,
+        "22-7": true,
+        "25-3": true,
+        "28-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "dont-you-worry-child",
+      "name": "Don't You Worry Child",
+      "artist": "Swedish House Mafia",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-3": true,
+        "3-3": true,
+        "5-0": true,
+        "7-0": true,
+        "8-3": true,
+        "10-7": true,
+        "12-3": true,
+        "14-7": true,
+        "16-7": true,
+        "17-3": true,
+        "19-3": true,
+        "21-0": true,
+        "23-0": true,
+        "24-3": true,
+        "26-7": true,
+        "28-3": true,
+        "30-7": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "progressive-symphone",
+      "name": "Progressive Symphony",
+      "artist": "Swedish House Mafia",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-3": true,
+        "4-7": true,
+        "6-3": true,
+        "8-3": true,
+        "10-3": true,
+        "12-3": true,
+        "14-7": true,
+        "16-7": true,
+        "18-3": true,
+        "20-7": true,
+        "22-3": true,
+        "24-3": true,
+        "26-3": true,
+        "28-3": true,
+        "30-7": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "sweat",
+      "name": "Sweat",
+      "artist": "Sia",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-0": true,
+        "3-3": true,
+        "5-3": true,
+        "7-0": true,
+        "8-3": true,
+        "10-7": true,
+        "12-0": true,
+        "14-0": true,
+        "16-7": true,
+        "17-0": true,
+        "19-3": true,
+        "21-3": true,
+        "23-0": true,
+        "24-3": true,
+        "26-7": true,
+        "28-0": true,
+        "30-0": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "turn-down-for-what",
+      "name": "Turn Down for What",
+      "artist": "DJ Snake",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-3": true,
+        "5-7": true,
+        "8-7": true,
+        "10-0": true,
+        "13-3": true,
+        "16-0": true,
+        "18-3": true,
+        "21-7": true,
+        "24-7": true,
+        "26-0": true,
+        "29-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "lean-on",
+      "name": "Lean On",
+      "artist": "Major Lazer",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "1-0": true,
+        "2-0": true,
+        "4-7": true,
+        "5-0": true,
+        "7-0": true,
+        "8-7": true,
+        "10-7": true,
+        "11-3": true,
+        "13-3": true,
+        "14-0": true,
+        "16-3": true,
+        "17-0": true,
+        "18-0": true,
+        "20-7": true,
+        "21-0": true,
+        "23-0": true,
+        "24-7": true,
+        "26-7": true,
+        "27-3": true,
+        "29-3": true,
+        "30-0": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "where-are-u-now",
+      "name": "Where Are \u00dc Now",
+      "artist": "Jack \u00dc",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-0": true,
+        "2-3": true,
+        "4-0": true,
+        "5-0": true,
+        "7-3": true,
+        "8-7": true,
+        "10-3": true,
+        "11-3": true,
+        "13-7": true,
+        "14-7": true,
+        "16-0": true,
+        "17-0": true,
+        "18-3": true,
+        "20-0": true,
+        "21-0": true,
+        "23-3": true,
+        "24-7": true,
+        "26-3": true,
+        "27-3": true,
+        "29-7": true,
+        "30-7": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "middle",
+      "name": "Middle",
+      "artist": "DJ Snake",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-3": true,
+        "3-0": true,
+        "4-3": true,
+        "6-3": true,
+        "8-3": true,
+        "9-7": true,
+        "11-3": true,
+        "12-0": true,
+        "14-3": true,
+        "16-7": true,
+        "17-3": true,
+        "19-0": true,
+        "20-3": true,
+        "22-3": true,
+        "24-3": true,
+        "25-7": true,
+        "27-3": true,
+        "28-0": true,
+        "30-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    },
+    {
+      "key": "symphony",
+      "name": "Symphony",
+      "artist": "Clean Bandit",
+      "year": 2000,
+      "subgenre": "electronic",
+      "tempo": 130,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-7": true,
+        "8-0": true,
+        "12-3": true,
+        "16-7": true,
+        "20-7": true,
+        "24-0": true,
+        "28-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-7": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "electronic",
+        "extended"
+      ],
+      "genre": "electronic"
+    }
+  ]
+}

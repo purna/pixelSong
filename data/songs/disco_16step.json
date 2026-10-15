@@ -1,0 +1,1865 @@
+{
+  "genre": "disco",
+  "patternLength": 16,
+  "songs": [
+    {
+      "key": "stayin-alive",
+      "name": "Stayin' Alive",
+      "artist": "Bee Gees",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 104,
+      "keyName": "F Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-2": true,
+        "3-7": true,
+        "5-0": true,
+        "7-2": true,
+        "8-7": true,
+        "10-2": true,
+        "12-7": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "night-fever",
+      "name": "Night Fever",
+      "artist": "Bee Gees",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-4": true,
+        "4-2": true,
+        "6-7": true,
+        "9-0": true,
+        "11-2": true,
+        "13-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "boogie-wonderland",
+      "name": "Boogie Wonderland",
+      "artist": "Earth, Wind & Fire",
+      "year": 1979,
+      "subgenre": "disco",
+      "tempo": 128,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "3-0": true,
+        "6-2": true,
+        "9-4": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "september",
+      "name": "September",
+      "artist": "Earth, Wind & Fire",
+      "year": 1978,
+      "subgenre": "disco",
+      "tempo": 126,
+      "keyName": "Eb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "3-4": true,
+        "6-4": true,
+        "9-7": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "le-freak",
+      "name": "Le Freak",
+      "artist": "Chic",
+      "year": 1978,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "E Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "4-4": true,
+        "8-4": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "good-times",
+      "name": "Good Times",
+      "artist": "Chic",
+      "year": 1979,
+      "subgenre": "disco",
+      "tempo": 112,
+      "keyName": "E Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-0": true,
+        "5-2": true,
+        "8-7": true,
+        "10-0": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "dancing-queen",
+      "name": "Dancing Queen",
+      "artist": "ABBA",
+      "year": 1976,
+      "subgenre": "disco",
+      "tempo": 100,
+      "keyName": "A Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-4": true,
+        "3-0": true,
+        "5-4": true,
+        "7-2": true,
+        "8-7": true,
+        "10-2": true,
+        "12-7": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "mamma-mia",
+      "name": "Mamma Mia",
+      "artist": "ABBA",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "3-4": true,
+        "6-7": true,
+        "9-0": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "superstition",
+      "name": "Superstition",
+      "artist": "Stevie Wonder",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-4": true,
+        "4-4": true,
+        "6-0": true,
+        "8-4": true,
+        "10-0": true,
+        "12-4": true,
+        "14-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "play-that-funky",
+      "name": "Play That Funky Music",
+      "artist": "Wild Cherry",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-2": true,
+        "3-7": true,
+        "5-0": true,
+        "7-0": true,
+        "8-2": true,
+        "10-4": true,
+        "12-0": true,
+        "14-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "get-up-stand",
+      "name": "Get Up (I Feel Like Being a) Sex Machine",
+      "artist": "James Brown",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-4": true,
+        "8-4": true,
+        "12-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "miss-you",
+      "name": "You Make Me Feel (Mighty Real)",
+      "artist": "Sylvester",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-0": true,
+        "3-7": true,
+        "4-7": true,
+        "6-2": true,
+        "8-4": true,
+        "9-2": true,
+        "11-0": true,
+        "12-0": true,
+        "14-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "i-will-survive",
+      "name": "I Will Survive",
+      "artist": "Gloria Gaynor",
+      "year": 1978,
+      "subgenre": "disco",
+      "tempo": 117,
+      "keyName": "A Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-2": true,
+        "3-2": true,
+        "4-0": true,
+        "6-0": true,
+        "8-2": true,
+        "9-4": true,
+        "11-4": true,
+        "12-2": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "last-dance",
+      "name": "Last Dance",
+      "artist": "Donna Summer",
+      "year": 1978,
+      "subgenre": "disco",
+      "tempo": 128,
+      "keyName": "F Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-4": true,
+        "5-2": true,
+        "8-7": true,
+        "10-0": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "hot-stuff",
+      "name": "Hot Stuff",
+      "artist": "Donna Summer",
+      "year": 1979,
+      "subgenre": "disco",
+      "tempo": 122,
+      "keyName": "G Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "3-0": true,
+        "6-4": true,
+        "9-7": true,
+        "12-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "blame-It-on-the-boogie",
+      "name": "Blame It on the Boogie",
+      "artist": "Jackson 5",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-2": true,
+        "3-7": true,
+        "4-0": true,
+        "6-2": true,
+        "8-2": true,
+        "9-7": true,
+        "11-7": true,
+        "12-0": true,
+        "14-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "shining-star",
+      "name": "Shining Star",
+      "artist": "Earth, Wind & Fire",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-2": true,
+        "4-7": true,
+        "6-2": true,
+        "8-2": true,
+        "10-7": true,
+        "12-2": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "we-are-family",
+      "name": "We Are Family",
+      "artist": "Sister Sledge",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-4": true,
+        "3-4": true,
+        "5-0": true,
+        "7-4": true,
+        "8-4": true,
+        "10-4": true,
+        "12-2": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "y-m-c-a",
+      "name": "Y.M.C.A.",
+      "artist": "Village People",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "4-7": true,
+        "8-7": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    },
+    {
+      "key": "c-c-rider",
+      "name": "C.C. Rider",
+      "artist": "Maidstone",
+      "year": 1977,
+      "subgenre": "disco",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-7": true,
+        "5-2": true,
+        "8-2": true,
+        "10-0": true,
+        "13-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "snare": [
+          4,
+          12
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "conga": [
+          1,
+          5,
+          9,
+          13
+        ],
+        "bongo": [
+          2,
+          6,
+          10,
+          14
+        ],
+        "shaker": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "characteristics": [
+        "disco"
+      ],
+      "genre": "disco"
+    }
+  ]
+}

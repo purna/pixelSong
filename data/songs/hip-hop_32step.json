@@ -1,0 +1,2124 @@
+{
+  "genre": "hip-hop",
+  "patternLength": 32,
+  "songs": [
+    {
+      "key": "lose-yourself",
+      "name": "Lose Yourself",
+      "artist": "Eminem",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-0": true,
+        "3-3": true,
+        "5-0": true,
+        "7-0": true,
+        "8-5": true,
+        "10-3": true,
+        "12-0": true,
+        "14-5": true,
+        "16-0": true,
+        "17-0": true,
+        "19-3": true,
+        "21-0": true,
+        "23-0": true,
+        "24-5": true,
+        "26-3": true,
+        "28-0": true,
+        "30-5": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "thrift-shop",
+      "name": "Thrift Shop",
+      "artist": "Macklemore",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-3": true,
+        "4-0": true,
+        "6-0": true,
+        "9-5": true,
+        "11-3": true,
+        "13-5": true,
+        "16-0": true,
+        "18-3": true,
+        "20-0": true,
+        "22-0": true,
+        "25-5": true,
+        "27-3": true,
+        "29-5": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "old-town-road",
+      "name": "Old Town Road",
+      "artist": "Lil Nas X",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-3": true,
+        "3-5": true,
+        "5-7": true,
+        "7-0": true,
+        "8-0": true,
+        "10-3": true,
+        "12-3": true,
+        "14-0": true,
+        "16-7": true,
+        "17-3": true,
+        "19-5": true,
+        "21-7": true,
+        "23-0": true,
+        "24-0": true,
+        "26-3": true,
+        "28-3": true,
+        "30-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "sicko-mode",
+      "name": "Sicko Mode",
+      "artist": "Travis Scott",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-5": true,
+        "5-3": true,
+        "8-5": true,
+        "10-7": true,
+        "13-3": true,
+        "16-7": true,
+        "18-5": true,
+        "21-3": true,
+        "24-5": true,
+        "26-7": true,
+        "29-3": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "godzilla",
+      "name": "Godzilla",
+      "artist": "Eminem ft. Juice WRLD",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-0": true,
+        "8-5": true,
+        "12-3": true,
+        "16-7": true,
+        "20-0": true,
+        "24-5": true,
+        "28-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "sadbtr",
+      "name": "SAD!",
+      "artist": "XXXTENTACION",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-5": true,
+        "4-5": true,
+        "6-0": true,
+        "8-7": true,
+        "10-5": true,
+        "12-5": true,
+        "14-0": true,
+        "16-7": true,
+        "18-5": true,
+        "20-5": true,
+        "22-0": true,
+        "24-7": true,
+        "26-5": true,
+        "28-5": true,
+        "30-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "goosebumps",
+      "name": "Goosebumps",
+      "artist": "Travis Scott",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-0": true,
+        "5-3": true,
+        "8-5": true,
+        "10-3": true,
+        "13-7": true,
+        "16-7": true,
+        "18-0": true,
+        "21-3": true,
+        "24-5": true,
+        "26-3": true,
+        "29-7": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "rockstar",
+      "name": "Rockstar",
+      "artist": "Post Malone",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "4-0": true,
+        "8-3": true,
+        "12-5": true,
+        "16-5": true,
+        "20-0": true,
+        "24-3": true,
+        "28-5": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "mask-off",
+      "name": "Mask Off",
+      "artist": "Future",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "4-5": true,
+        "8-3": true,
+        "12-5": true,
+        "16-3": true,
+        "20-5": true,
+        "24-3": true,
+        "28-5": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "black-beatle",
+      "name": "Black Beatles",
+      "artist": "Rae Sremmurd",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-3": true,
+        "3-7": true,
+        "5-5": true,
+        "7-7": true,
+        "8-3": true,
+        "10-0": true,
+        "12-0": true,
+        "14-3": true,
+        "16-5": true,
+        "17-3": true,
+        "19-7": true,
+        "21-5": true,
+        "23-7": true,
+        "24-3": true,
+        "26-0": true,
+        "28-0": true,
+        "30-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "con-calma",
+      "name": "Con Calma",
+      "artist": "Daddy Yankee",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "3-0": true,
+        "6-0": true,
+        "9-7": true,
+        "12-7": true,
+        "16-7": true,
+        "19-0": true,
+        "22-0": true,
+        "25-7": true,
+        "28-7": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "old-school",
+      "name": "No Diggity",
+      "artist": "Blackstreet",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "2-0": true,
+        "5-5": true,
+        "8-7": true,
+        "10-3": true,
+        "13-0": true,
+        "16-5": true,
+        "18-0": true,
+        "21-5": true,
+        "24-7": true,
+        "26-3": true,
+        "29-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "hotline-bling",
+      "name": "Hotline Bling",
+      "artist": "Drake",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-0": true,
+        "3-5": true,
+        "5-7": true,
+        "7-3": true,
+        "8-7": true,
+        "10-7": true,
+        "12-7": true,
+        "14-5": true,
+        "16-0": true,
+        "17-0": true,
+        "19-5": true,
+        "21-7": true,
+        "23-3": true,
+        "24-7": true,
+        "26-7": true,
+        "28-7": true,
+        "30-5": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "humble",
+      "name": "Humble",
+      "artist": "Kendrick Lamar",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-5": true,
+        "3-7": true,
+        "4-3": true,
+        "6-0": true,
+        "8-5": true,
+        "9-5": true,
+        "11-0": true,
+        "12-3": true,
+        "14-7": true,
+        "16-0": true,
+        "17-5": true,
+        "19-7": true,
+        "20-3": true,
+        "22-0": true,
+        "24-5": true,
+        "25-5": true,
+        "27-0": true,
+        "28-3": true,
+        "30-7": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "bad-and-boujee",
+      "name": "Bad and Boujee",
+      "artist": "Migos",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "3-5": true,
+        "4-7": true,
+        "6-3": true,
+        "8-7": true,
+        "9-5": true,
+        "11-7": true,
+        "12-5": true,
+        "14-0": true,
+        "16-5": true,
+        "17-5": true,
+        "19-5": true,
+        "20-7": true,
+        "22-3": true,
+        "24-7": true,
+        "25-5": true,
+        "27-7": true,
+        "28-5": true,
+        "30-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "shape-of-you",
+      "name": "Shape of You",
+      "artist": "Ed Sheeran",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-3": true,
+        "4-7": true,
+        "6-7": true,
+        "8-3": true,
+        "10-3": true,
+        "12-3": true,
+        "14-3": true,
+        "16-7": true,
+        "18-3": true,
+        "20-7": true,
+        "22-7": true,
+        "24-3": true,
+        "26-3": true,
+        "28-3": true,
+        "30-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "pandora",
+      "name": "In My Feelings",
+      "artist": "Drake",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "1-7": true,
+        "3-5": true,
+        "4-0": true,
+        "6-3": true,
+        "8-3": true,
+        "9-0": true,
+        "11-0": true,
+        "12-3": true,
+        "14-3": true,
+        "16-3": true,
+        "17-7": true,
+        "19-5": true,
+        "20-0": true,
+        "22-3": true,
+        "24-3": true,
+        "25-0": true,
+        "27-0": true,
+        "28-3": true,
+        "30-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "mo-bamba",
+      "name": "Mo Bamba",
+      "artist": "Sheck Wes",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "4-0": true,
+        "8-5": true,
+        "12-3": true,
+        "16-3": true,
+        "20-0": true,
+        "24-5": true,
+        "28-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "lucdreams",
+      "name": "Lucid Dreams",
+      "artist": "Juice WRLD",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-5": true,
+        "4-3": true,
+        "6-0": true,
+        "8-0": true,
+        "10-3": true,
+        "12-5": true,
+        "14-3": true,
+        "16-0": true,
+        "18-5": true,
+        "20-3": true,
+        "22-0": true,
+        "24-0": true,
+        "26-3": true,
+        "28-5": true,
+        "30-3": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    },
+    {
+      "key": "sunflower",
+      "name": "Sunflower",
+      "artist": "Post Malone",
+      "year": 1995,
+      "subgenre": "hip-hop",
+      "tempo": 95,
+      "keyName": "C Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "3-5": true,
+        "6-0": true,
+        "9-3": true,
+        "12-0": true,
+        "16-7": true,
+        "19-5": true,
+        "22-0": true,
+        "25-3": true,
+        "28-0": true,
+        "18-3": true,
+        "26-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          8,
+          16,
+          22,
+          24
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "hip-hop",
+        "extended"
+      ],
+      "genre": "hip-hop"
+    }
+  ]
+}

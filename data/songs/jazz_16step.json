@@ -1,0 +1,1251 @@
+{
+  "genre": "jazz",
+  "patternLength": 16,
+  "songs": [
+    {
+      "key": "take-five",
+      "name": "Take Five",
+      "artist": "Dave Brubeck Quartet",
+      "year": 1959,
+      "subgenre": "jazz",
+      "tempo": 174,
+      "keyName": "Eb Minor",
+      "timeSignature": "5/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "3-0": true,
+        "6-7": true,
+        "9-4": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "so-what",
+      "name": "So What",
+      "artist": "Miles Davis",
+      "year": 1959,
+      "subgenre": "jazz",
+      "tempo": 138,
+      "keyName": "D Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-0": true,
+        "2-4": true,
+        "4-4": true,
+        "5-6": true,
+        "7-7": true,
+        "8-6": true,
+        "10-4": true,
+        "11-0": true,
+        "13-4": true,
+        "14-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "autumn-leaves",
+      "name": "Autumn Leaves",
+      "artist": "Bill Evans",
+      "year": 1959,
+      "subgenre": "jazz",
+      "tempo": 145,
+      "keyName": "G Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-4": true,
+        "3-4": true,
+        "5-2": true,
+        "7-2": true,
+        "8-6": true,
+        "10-6": true,
+        "12-4": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "all-the-things",
+      "name": "All the Things You Are",
+      "artist": "Charlie Parker",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-7": true,
+        "3-2": true,
+        "4-0": true,
+        "6-2": true,
+        "8-7": true,
+        "9-4": true,
+        "11-7": true,
+        "12-2": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "blue-train",
+      "name": "Blue Train",
+      "artist": "John Coltrane",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-6": true,
+        "2-7": true,
+        "5-0": true,
+        "8-4": true,
+        "10-2": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "misty",
+      "name": "Misty",
+      "artist": "Erroll Garner",
+      "year": 1954,
+      "subgenre": "jazz",
+      "tempo": 72,
+      "keyName": "Eb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-2": true,
+        "3-2": true,
+        "5-0": true,
+        "7-4": true,
+        "8-2": true,
+        "10-4": true,
+        "12-6": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "fly-me-to-the-moon",
+      "name": "Fly Me to the Moon",
+      "artist": "Frank Sinatra",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-7": true,
+        "5-7": true,
+        "8-0": true,
+        "10-7": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "summertime",
+      "name": "Summertime",
+      "artist": "George Gershwin",
+      "year": 1935,
+      "subgenre": "jazz",
+      "tempo": 78,
+      "keyName": "A Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-4": true,
+        "5-4": true,
+        "8-0": true,
+        "10-0": true,
+        "13-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "my-favorite-things",
+      "name": "My Favorite Things",
+      "artist": "John Coltrane",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-6": true,
+        "5-4": true,
+        "8-6": true,
+        "10-6": true,
+        "13-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "cantina",
+      "name": "Cantina Band",
+      "artist": "John Williams",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-0": true,
+        "4-0": true,
+        "6-0": true,
+        "8-7": true,
+        "10-6": true,
+        "12-2": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "birdland",
+      "name": "Birdland",
+      "artist": "Weather Report",
+      "year": 1977,
+      "subgenre": "jazz-fusion",
+      "tempo": 132,
+      "keyName": "G Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-6": true,
+        "4-2": true,
+        "8-7": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "chameleon",
+      "name": "Chameleon",
+      "artist": "Herbie Hancock",
+      "year": 1973,
+      "subgenre": "jazz-funk",
+      "tempo": 98,
+      "keyName": "Bb Minor",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "3-0": true,
+        "6-2": true,
+        "9-0": true,
+        "12-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "watermelon",
+      "name": "Watermelon Man",
+      "artist": "Herbie Hancock",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-6": true,
+        "1-0": true,
+        "3-4": true,
+        "4-4": true,
+        "6-4": true,
+        "8-4": true,
+        "9-4": true,
+        "11-6": true,
+        "12-0": true,
+        "14-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "cantaloupe",
+      "name": "Cantaloupe Island",
+      "artist": "Herbie Hancock",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "3-0": true,
+        "6-0": true,
+        "9-0": true,
+        "12-6": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "footprints",
+      "name": "Footprints",
+      "artist": "Wayne Shorter",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-0": true,
+        "5-2": true,
+        "8-0": true,
+        "10-7": true,
+        "13-0": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "wave",
+      "name": "Wave",
+      "artist": "Antonio Carlos Jobim",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-6": true,
+        "2-0": true,
+        "4-2": true,
+        "6-4": true,
+        "8-0": true,
+        "10-7": true,
+        "12-2": true,
+        "14-6": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "girl-from",
+      "name": "The Girl from Ipanema",
+      "artist": "Stan Getz",
+      "year": 1964,
+      "subgenre": "bossa-nova",
+      "tempo": 124,
+      "keyName": "F Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-0": true,
+        "3-2": true,
+        "5-0": true,
+        "7-2": true,
+        "8-2": true,
+        "10-2": true,
+        "12-6": true,
+        "14-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "aint-no",
+      "name": "Ain't No Sunshine",
+      "artist": "Bill Withers",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "3-2": true,
+        "6-0": true,
+        "9-0": true,
+        "12-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "giant-steps",
+      "name": "Giant Steps",
+      "artist": "John Coltrane",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 285,
+      "keyName": "B Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-2": true,
+        "4-2": true,
+        "6-2": true,
+        "9-2": true,
+        "11-4": true,
+        "13-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    },
+    {
+      "key": "spiral",
+      "name": "Spiral",
+      "artist": "Keith Jarrett",
+      "year": 1960,
+      "subgenre": "jazz",
+      "tempo": 135,
+      "keyName": "Bb Major",
+      "timeSignature": "4/4",
+      "patternLength": 16,
+      "harmonics": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-2": true,
+        "3-4": true,
+        "4-2": true,
+        "6-6": true,
+        "8-2": true,
+        "9-2": true,
+        "11-0": true,
+        "12-2": true,
+        "14-7": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "1-4": true,
+        "5-4": true,
+        "9-4": true
+      },
+      "lead": {},
+      "rhythm": {
+        "kick": [
+          0,
+          6,
+          12
+        ],
+        "snare": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "hihat": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      },
+      "characteristics": [
+        "jazz"
+      ],
+      "genre": "jazz"
+    }
+  ]
+}

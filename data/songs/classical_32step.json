@@ -1,0 +1,2778 @@
+{
+  "genre": "classical",
+  "patternLength": 32,
+  "songs": [
+    {
+      "key": "moonlight-sonata",
+      "name": "Moonlight Sonata",
+      "artist": "Ludwig van Beethoven",
+      "year": 1801,
+      "subgenre": "classical",
+      "tempo": 54,
+      "keyName": "C# Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "4-0": true,
+        "8-2": true,
+        "12-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-2": true,
+        "28-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "fur-elise",
+      "name": "F\u00fcr Elise",
+      "artist": "Ludwig van Beethoven",
+      "year": 1810,
+      "subgenre": "classical",
+      "tempo": 72,
+      "keyName": "A Minor",
+      "timeSignature": "3/8",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "3-2": true,
+        "6-7": true,
+        "9-0": true,
+        "12-5": true,
+        "16-0": true,
+        "19-2": true,
+        "22-7": true,
+        "25-0": true,
+        "28-5": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "symphony-5",
+      "name": "Symphony No. 5",
+      "artist": "Ludwig van Beethoven",
+      "year": 1808,
+      "subgenre": "classical",
+      "tempo": 108,
+      "keyName": "C Minor",
+      "timeSignature": "2/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-5": true,
+        "3-4": true,
+        "4-5": true,
+        "6-5": true,
+        "8-7": true,
+        "9-7": true,
+        "11-4": true,
+        "12-2": true,
+        "14-5": true,
+        "16-4": true,
+        "17-5": true,
+        "19-4": true,
+        "20-5": true,
+        "22-5": true,
+        "24-7": true,
+        "25-7": true,
+        "27-4": true,
+        "28-2": true,
+        "30-5": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "ode-to-joy",
+      "name": "Ode to Joy",
+      "artist": "Ludwig van Beethoven",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-5": true,
+        "5-2": true,
+        "8-0": true,
+        "10-2": true,
+        "13-7": true,
+        "16-4": true,
+        "18-5": true,
+        "21-2": true,
+        "24-0": true,
+        "26-2": true,
+        "29-7": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "nocturne-9",
+      "name": "Nocturne Op. 9 No. 2",
+      "artist": "Frederic Chopin",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-0": true,
+        "4-5": true,
+        "6-0": true,
+        "8-4": true,
+        "10-0": true,
+        "12-7": true,
+        "14-5": true,
+        "16-2": true,
+        "18-0": true,
+        "20-5": true,
+        "22-0": true,
+        "24-4": true,
+        "26-0": true,
+        "28-7": true,
+        "30-5": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "claire-de-lune",
+      "name": "Clair de Lune",
+      "artist": "Claude Debussy",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-7": true,
+        "3-2": true,
+        "5-5": true,
+        "7-4": true,
+        "8-4": true,
+        "10-2": true,
+        "12-5": true,
+        "14-2": true,
+        "16-7": true,
+        "17-7": true,
+        "19-2": true,
+        "21-5": true,
+        "23-4": true,
+        "24-4": true,
+        "26-2": true,
+        "28-5": true,
+        "30-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "spring",
+      "name": "Spring",
+      "artist": "Antonio Vivaldi",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-2": true,
+        "3-7": true,
+        "4-5": true,
+        "6-4": true,
+        "8-5": true,
+        "9-2": true,
+        "11-0": true,
+        "12-5": true,
+        "14-4": true,
+        "16-4": true,
+        "17-2": true,
+        "19-7": true,
+        "20-5": true,
+        "22-4": true,
+        "24-5": true,
+        "25-2": true,
+        "27-0": true,
+        "28-5": true,
+        "30-4": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "summer",
+      "name": "Summer",
+      "artist": "Antonio Vivaldi",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-4": true,
+        "3-4": true,
+        "4-0": true,
+        "6-0": true,
+        "8-0": true,
+        "9-2": true,
+        "11-2": true,
+        "12-2": true,
+        "14-4": true,
+        "16-4": true,
+        "17-4": true,
+        "19-4": true,
+        "20-0": true,
+        "22-0": true,
+        "24-0": true,
+        "25-2": true,
+        "27-2": true,
+        "28-2": true,
+        "30-4": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "autumn",
+      "name": "Autumn",
+      "artist": "Antonio Vivaldi",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-4": true,
+        "3-4": true,
+        "4-2": true,
+        "6-2": true,
+        "8-5": true,
+        "9-2": true,
+        "11-2": true,
+        "12-2": true,
+        "14-0": true,
+        "16-4": true,
+        "17-4": true,
+        "19-4": true,
+        "20-2": true,
+        "22-2": true,
+        "24-5": true,
+        "25-2": true,
+        "27-2": true,
+        "28-2": true,
+        "30-0": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "winter",
+      "name": "Winter",
+      "artist": "Antonio Vivaldi",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-2": true,
+        "3-0": true,
+        "4-0": true,
+        "6-0": true,
+        "8-0": true,
+        "9-4": true,
+        "11-0": true,
+        "12-4": true,
+        "14-4": true,
+        "16-5": true,
+        "17-2": true,
+        "19-0": true,
+        "20-0": true,
+        "22-0": true,
+        "24-0": true,
+        "25-4": true,
+        "27-0": true,
+        "28-4": true,
+        "30-4": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "canon",
+      "name": "Pachelbel's Canon",
+      "artist": "Johann Pachelbel",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "3-0": true,
+        "6-5": true,
+        "9-4": true,
+        "12-0": true,
+        "16-5": true,
+        "19-0": true,
+        "22-5": true,
+        "25-4": true,
+        "28-0": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "air-on-g-string",
+      "name": "Air on the G String",
+      "artist": "Johann Sebastian Bach",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-2": true,
+        "4-7": true,
+        "6-0": true,
+        "9-5": true,
+        "11-5": true,
+        "13-5": true,
+        "16-4": true,
+        "18-2": true,
+        "20-7": true,
+        "22-0": true,
+        "25-5": true,
+        "27-5": true,
+        "29-5": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "swan-lake",
+      "name": "Swan Lake",
+      "artist": "Pyotr Ilyich Tchaikovsky",
+      "year": 1876,
+      "subgenre": "romantic",
+      "tempo": 144,
+      "keyName": "B Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "3-2": true,
+        "6-2": true,
+        "9-2": true,
+        "12-2": true,
+        "16-4": true,
+        "19-2": true,
+        "22-2": true,
+        "25-2": true,
+        "28-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "nutcracker",
+      "name": "The Nutcracker",
+      "artist": "Pyotr Ilyich Tchaikovsky",
+      "year": 1892,
+      "subgenre": "romantic",
+      "tempo": 120,
+      "keyName": "E Minor",
+      "timeSignature": "2/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-0": true,
+        "3-2": true,
+        "4-0": true,
+        "6-2": true,
+        "8-5": true,
+        "9-5": true,
+        "11-2": true,
+        "12-5": true,
+        "14-2": true,
+        "16-0": true,
+        "17-0": true,
+        "19-2": true,
+        "20-0": true,
+        "22-2": true,
+        "24-5": true,
+        "25-5": true,
+        "27-2": true,
+        "28-5": true,
+        "30-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "morning",
+      "name": "Morning Mood",
+      "artist": "Edvard Grieg",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-0": true,
+        "4-7": true,
+        "6-2": true,
+        "8-7": true,
+        "10-5": true,
+        "12-7": true,
+        "14-7": true,
+        "16-0": true,
+        "18-0": true,
+        "20-7": true,
+        "22-2": true,
+        "24-7": true,
+        "26-5": true,
+        "28-7": true,
+        "30-7": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "hall-of-mountain",
+      "name": "Hall of the Mountain King",
+      "artist": "Edvard Grieg",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "3-0": true,
+        "6-2": true,
+        "9-4": true,
+        "12-2": true,
+        "16-4": true,
+        "19-0": true,
+        "22-2": true,
+        "25-4": true,
+        "28-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "bolero",
+      "name": "Bol\u00e9ro",
+      "artist": "Maurice Ravel",
+      "year": 1928,
+      "subgenre": "impressionist",
+      "tempo": 72,
+      "keyName": "C Major",
+      "timeSignature": "3/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-0": true,
+        "3-2": true,
+        "4-2": true,
+        "6-4": true,
+        "8-7": true,
+        "9-4": true,
+        "11-4": true,
+        "12-7": true,
+        "14-7": true,
+        "16-5": true,
+        "17-0": true,
+        "19-2": true,
+        "20-2": true,
+        "22-4": true,
+        "24-7": true,
+        "25-4": true,
+        "27-4": true,
+        "28-7": true,
+        "30-7": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "radetzky",
+      "name": "Radetzky March",
+      "artist": "Johann Strauss Sr.",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-0": true,
+        "3-7": true,
+        "4-4": true,
+        "6-2": true,
+        "8-2": true,
+        "9-2": true,
+        "11-4": true,
+        "12-2": true,
+        "14-4": true,
+        "16-2": true,
+        "17-0": true,
+        "19-7": true,
+        "20-4": true,
+        "22-2": true,
+        "24-2": true,
+        "25-2": true,
+        "27-4": true,
+        "28-2": true,
+        "30-4": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "marriage",
+      "name": "Wedding March",
+      "artist": "Richard Wagner",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-7": true,
+        "3-7": true,
+        "5-2": true,
+        "7-7": true,
+        "8-5": true,
+        "10-7": true,
+        "12-7": true,
+        "14-2": true,
+        "16-5": true,
+        "17-7": true,
+        "19-7": true,
+        "21-2": true,
+        "23-7": true,
+        "24-5": true,
+        "26-7": true,
+        "28-7": true,
+        "30-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "brahms-lullaby",
+      "name": "Brahms' Lullaby",
+      "artist": "Johannes Brahms",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "2-2": true,
+        "4-4": true,
+        "5-2": true,
+        "7-2": true,
+        "8-5": true,
+        "10-7": true,
+        "11-0": true,
+        "13-0": true,
+        "14-4": true,
+        "16-5": true,
+        "17-5": true,
+        "18-2": true,
+        "20-4": true,
+        "21-2": true,
+        "23-2": true,
+        "24-5": true,
+        "26-7": true,
+        "27-0": true,
+        "29-0": true,
+        "30-4": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "messiah",
+      "name": "Hallelujah",
+      "artist": "George Frideric Handel",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "2-0": true,
+        "5-2": true,
+        "8-4": true,
+        "10-0": true,
+        "13-2": true,
+        "16-4": true,
+        "18-0": true,
+        "21-2": true,
+        "24-4": true,
+        "26-0": true,
+        "29-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "requiem",
+      "name": "Requiem",
+      "artist": "Wolfgang Amadeus Mozart",
+      "year": 1791,
+      "subgenre": "classical",
+      "tempo": 80,
+      "keyName": "D Minor",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-7": true,
+        "2-5": true,
+        "4-2": true,
+        "5-7": true,
+        "7-2": true,
+        "8-5": true,
+        "10-2": true,
+        "11-7": true,
+        "13-5": true,
+        "14-2": true,
+        "16-2": true,
+        "17-7": true,
+        "18-5": true,
+        "20-2": true,
+        "21-7": true,
+        "23-2": true,
+        "24-5": true,
+        "26-2": true,
+        "27-7": true,
+        "29-5": true,
+        "30-2": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "lacrimosa",
+      "name": "Lacrimosa",
+      "artist": "Wolfgang Amadeus Mozart",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "3-0": true,
+        "6-5": true,
+        "9-2": true,
+        "12-7": true,
+        "16-4": true,
+        "19-0": true,
+        "22-5": true,
+        "25-2": true,
+        "28-7": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "minuet-g-major",
+      "name": "Minuet in G Major",
+      "artist": "Johann Sebastian Bach",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "3-2": true,
+        "6-0": true,
+        "9-2": true,
+        "12-0": true,
+        "16-0": true,
+        "19-2": true,
+        "22-0": true,
+        "25-2": true,
+        "28-0": true,
+        "18-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    },
+    {
+      "key": "sleepers-wake",
+      "name": "Sleepers, Awake",
+      "artist": "Johann Sebastian Bach",
+      "year": 1825,
+      "subgenre": "classical",
+      "tempo": 100,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        2,
+        4,
+        5,
+        7
+      ],
+      "melody": {
+        "0-4": true,
+        "1-7": true,
+        "2-2": true,
+        "4-4": true,
+        "5-7": true,
+        "7-2": true,
+        "8-2": true,
+        "10-5": true,
+        "11-5": true,
+        "13-4": true,
+        "14-2": true,
+        "16-4": true,
+        "17-7": true,
+        "18-2": true,
+        "20-4": true,
+        "21-7": true,
+        "23-2": true,
+        "24-2": true,
+        "26-5": true,
+        "27-5": true,
+        "29-4": true,
+        "30-2": true,
+        "26-4": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-2": true,
+        "6-2": true,
+        "10-2": true,
+        "14-2": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-2": true,
+        "22-2": true,
+        "26-2": true,
+        "30-2": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-4": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "classical",
+        "extended"
+      ],
+      "genre": "classical"
+    }
+  ]
+}

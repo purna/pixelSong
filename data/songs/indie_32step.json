@@ -1,0 +1,3210 @@
+{
+  "genre": "indie",
+  "patternLength": 32,
+  "songs": [
+    {
+      "key": "kids",
+      "name": "Kids",
+      "artist": "MGMT",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "2-3": true,
+        "4-5": true,
+        "6-7": true,
+        "8-2": true,
+        "10-0": true,
+        "12-3": true,
+        "14-5": true,
+        "16-0": true,
+        "18-3": true,
+        "20-5": true,
+        "22-7": true,
+        "24-2": true,
+        "26-0": true,
+        "28-3": true,
+        "30-5": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "electric-feel",
+      "name": "Electric Feel",
+      "artist": "MGMT",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-2": true,
+        "3-7": true,
+        "5-5": true,
+        "7-0": true,
+        "8-2": true,
+        "10-3": true,
+        "12-3": true,
+        "14-0": true,
+        "16-2": true,
+        "17-2": true,
+        "19-7": true,
+        "21-5": true,
+        "23-0": true,
+        "24-2": true,
+        "26-3": true,
+        "28-3": true,
+        "30-0": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "1901",
+      "name": "1901",
+      "artist": "Phoenix",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-7": true,
+        "4-0": true,
+        "6-5": true,
+        "8-7": true,
+        "10-5": true,
+        "12-2": true,
+        "14-3": true,
+        "16-2": true,
+        "18-7": true,
+        "20-0": true,
+        "22-5": true,
+        "24-7": true,
+        "26-5": true,
+        "28-2": true,
+        "30-3": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "tightrope",
+      "name": "Tightrope",
+      "artist": "Janelle Mon\u00e1e",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "3-3": true,
+        "6-0": true,
+        "9-5": true,
+        "12-0": true,
+        "16-2": true,
+        "19-3": true,
+        "22-0": true,
+        "25-5": true,
+        "28-0": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "skinny-love",
+      "name": "Skinny Love",
+      "artist": "Bon Iver",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-7": true,
+        "4-5": true,
+        "6-7": true,
+        "9-2": true,
+        "11-3": true,
+        "13-7": true,
+        "16-7": true,
+        "18-7": true,
+        "20-5": true,
+        "22-7": true,
+        "25-2": true,
+        "27-3": true,
+        "29-7": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "hey-there",
+      "name": "Hey There Delilah",
+      "artist": "Plain White T's",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "3-5": true,
+        "6-7": true,
+        "9-0": true,
+        "12-7": true,
+        "16-5": true,
+        "19-5": true,
+        "22-7": true,
+        "25-0": true,
+        "28-7": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "viva-la-vida",
+      "name": "Viva la Vida",
+      "artist": "Coldplay",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "2-3": true,
+        "4-0": true,
+        "6-0": true,
+        "8-3": true,
+        "10-7": true,
+        "12-7": true,
+        "14-2": true,
+        "16-3": true,
+        "18-3": true,
+        "20-0": true,
+        "22-0": true,
+        "24-3": true,
+        "26-7": true,
+        "28-7": true,
+        "30-2": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "parachutes",
+      "name": "Yellow",
+      "artist": "Coldplay",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-5": true,
+        "3-0": true,
+        "4-3": true,
+        "6-0": true,
+        "8-2": true,
+        "9-0": true,
+        "11-7": true,
+        "12-3": true,
+        "14-5": true,
+        "16-2": true,
+        "17-5": true,
+        "19-0": true,
+        "20-3": true,
+        "22-0": true,
+        "24-2": true,
+        "25-0": true,
+        "27-7": true,
+        "28-3": true,
+        "30-5": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "clocks",
+      "name": "Clocks",
+      "artist": "Coldplay",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-2": true,
+        "3-7": true,
+        "4-5": true,
+        "6-3": true,
+        "8-0": true,
+        "9-7": true,
+        "11-0": true,
+        "12-2": true,
+        "14-7": true,
+        "16-5": true,
+        "17-2": true,
+        "19-7": true,
+        "20-5": true,
+        "22-3": true,
+        "24-0": true,
+        "25-7": true,
+        "27-0": true,
+        "28-2": true,
+        "30-7": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "trouble",
+      "name": "Trouble",
+      "artist": "Coldplay",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-0": true,
+        "2-7": true,
+        "4-0": true,
+        "5-5": true,
+        "7-7": true,
+        "8-5": true,
+        "10-3": true,
+        "11-5": true,
+        "13-0": true,
+        "14-5": true,
+        "16-2": true,
+        "17-0": true,
+        "18-7": true,
+        "20-0": true,
+        "21-5": true,
+        "23-7": true,
+        "24-5": true,
+        "26-3": true,
+        "27-5": true,
+        "29-0": true,
+        "30-5": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "a-thousand-years",
+      "name": "A Thousand Years",
+      "artist": "Christina Perri",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "4-7": true,
+        "8-3": true,
+        "12-5": true,
+        "16-0": true,
+        "20-7": true,
+        "24-3": true,
+        "28-5": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "jar-of-hearts",
+      "name": "Jar of Hearts",
+      "artist": "Christina Perri",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "1-7": true,
+        "3-3": true,
+        "5-0": true,
+        "7-0": true,
+        "8-5": true,
+        "10-7": true,
+        "12-2": true,
+        "14-2": true,
+        "16-2": true,
+        "17-7": true,
+        "19-3": true,
+        "21-0": true,
+        "23-0": true,
+        "24-5": true,
+        "26-7": true,
+        "28-2": true,
+        "30-2": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "ho-hey",
+      "name": "Ho Hey",
+      "artist": "The Lumineers",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "3-2": true,
+        "4-0": true,
+        "6-0": true,
+        "8-3": true,
+        "9-7": true,
+        "11-7": true,
+        "12-0": true,
+        "14-3": true,
+        "16-5": true,
+        "17-5": true,
+        "19-2": true,
+        "20-0": true,
+        "22-0": true,
+        "24-3": true,
+        "25-7": true,
+        "27-7": true,
+        "28-0": true,
+        "30-3": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "ho Hey",
+      "name": "Ho Hey",
+      "artist": "The Lumineers",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "3-2": true,
+        "4-0": true,
+        "6-0": true,
+        "8-3": true,
+        "9-7": true,
+        "11-7": true,
+        "12-0": true,
+        "14-3": true,
+        "16-5": true,
+        "17-5": true,
+        "19-2": true,
+        "20-0": true,
+        "22-0": true,
+        "24-3": true,
+        "25-7": true,
+        "27-7": true,
+        "28-0": true,
+        "30-3": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "dead-hearts",
+      "name": "Dead Hearts",
+      "artist": "Stars of the Lid",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-5": true,
+        "4-2": true,
+        "6-7": true,
+        "9-3": true,
+        "11-5": true,
+        "13-5": true,
+        "16-7": true,
+        "18-5": true,
+        "20-2": true,
+        "22-7": true,
+        "25-3": true,
+        "27-5": true,
+        "29-5": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "rejoice",
+      "name": "Rejoice",
+      "artist": "The xx",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "2-7": true,
+        "4-2": true,
+        "5-2": true,
+        "7-2": true,
+        "8-5": true,
+        "10-2": true,
+        "11-2": true,
+        "13-0": true,
+        "14-3": true,
+        "16-5": true,
+        "17-5": true,
+        "18-7": true,
+        "20-2": true,
+        "21-2": true,
+        "23-2": true,
+        "24-5": true,
+        "26-2": true,
+        "27-2": true,
+        "29-0": true,
+        "30-3": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "islands",
+      "name": "Islands",
+      "artist": "The xx",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-3": true,
+        "2-0": true,
+        "4-0": true,
+        "5-2": true,
+        "7-0": true,
+        "8-3": true,
+        "10-0": true,
+        "11-7": true,
+        "13-5": true,
+        "14-5": true,
+        "16-7": true,
+        "17-3": true,
+        "18-0": true,
+        "20-0": true,
+        "21-2": true,
+        "23-0": true,
+        "24-3": true,
+        "26-0": true,
+        "27-7": true,
+        "29-5": true,
+        "30-5": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "africa",
+      "name": "Africa",
+      "artist": "Toto",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-7": true,
+        "3-3": true,
+        "4-7": true,
+        "6-7": true,
+        "8-5": true,
+        "9-3": true,
+        "11-2": true,
+        "12-5": true,
+        "14-2": true,
+        "16-0": true,
+        "17-7": true,
+        "19-3": true,
+        "20-7": true,
+        "22-7": true,
+        "24-5": true,
+        "25-3": true,
+        "27-2": true,
+        "28-5": true,
+        "30-2": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "rosanna",
+      "name": "Rosanna",
+      "artist": "Toto",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "2-5": true,
+        "4-0": true,
+        "5-2": true,
+        "7-0": true,
+        "8-7": true,
+        "10-2": true,
+        "11-2": true,
+        "13-2": true,
+        "14-5": true,
+        "16-5": true,
+        "17-5": true,
+        "18-5": true,
+        "20-0": true,
+        "21-2": true,
+        "23-0": true,
+        "24-7": true,
+        "26-2": true,
+        "27-2": true,
+        "29-2": true,
+        "30-5": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "sail",
+      "name": "Sail",
+      "artist": "AWOLNATION",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-7": true,
+        "4-5": true,
+        "6-3": true,
+        "8-5": true,
+        "10-5": true,
+        "12-3": true,
+        "14-0": true,
+        "16-7": true,
+        "18-7": true,
+        "20-5": true,
+        "22-3": true,
+        "24-5": true,
+        "26-5": true,
+        "28-3": true,
+        "30-0": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "radioactive",
+      "name": "Radioactive",
+      "artist": "Imagine Dragons",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "2-7": true,
+        "4-5": true,
+        "6-7": true,
+        "9-0": true,
+        "11-5": true,
+        "13-0": true,
+        "16-5": true,
+        "18-7": true,
+        "20-5": true,
+        "22-7": true,
+        "25-0": true,
+        "27-5": true,
+        "29-0": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "demons",
+      "name": "Demons",
+      "artist": "Imagine Dragons",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "1-5": true,
+        "3-3": true,
+        "4-2": true,
+        "6-2": true,
+        "8-0": true,
+        "9-2": true,
+        "11-7": true,
+        "12-5": true,
+        "14-0": true,
+        "16-7": true,
+        "17-5": true,
+        "19-3": true,
+        "20-2": true,
+        "22-2": true,
+        "24-0": true,
+        "25-2": true,
+        "27-7": true,
+        "28-5": true,
+        "30-0": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "pumped-up",
+      "name": "Pumped Up Kicks",
+      "artist": "Foster the People",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-0": true,
+        "1-7": true,
+        "2-3": true,
+        "4-0": true,
+        "5-0": true,
+        "7-0": true,
+        "8-7": true,
+        "10-5": true,
+        "11-0": true,
+        "13-3": true,
+        "14-0": true,
+        "16-0": true,
+        "17-7": true,
+        "18-3": true,
+        "20-0": true,
+        "21-0": true,
+        "23-0": true,
+        "24-7": true,
+        "26-5": true,
+        "27-0": true,
+        "29-3": true,
+        "30-0": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "helena-beat",
+      "name": "Helena Beat",
+      "artist": "Foster the People",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "2-5": true,
+        "4-0": true,
+        "6-2": true,
+        "9-2": true,
+        "11-5": true,
+        "13-7": true,
+        "16-5": true,
+        "18-5": true,
+        "20-0": true,
+        "22-2": true,
+        "25-2": true,
+        "27-5": true,
+        "29-7": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "houdini",
+      "name": "Houdini",
+      "artist": "Foster the People",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-5": true,
+        "1-5": true,
+        "2-2": true,
+        "4-7": true,
+        "5-2": true,
+        "7-0": true,
+        "8-3": true,
+        "10-2": true,
+        "11-2": true,
+        "13-3": true,
+        "14-0": true,
+        "16-5": true,
+        "17-5": true,
+        "18-2": true,
+        "20-7": true,
+        "21-2": true,
+        "23-0": true,
+        "24-3": true,
+        "26-2": true,
+        "27-2": true,
+        "29-3": true,
+        "30-0": true,
+        "18-3": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "somebody",
+      "name": "Somebody",
+      "artist": "Talking Heads",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "4-5": true,
+        "8-3": true,
+        "12-2": true,
+        "16-7": true,
+        "20-5": true,
+        "24-3": true,
+        "28-2": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "once-in-a-lifetime",
+      "name": "Once in a Lifetime",
+      "artist": "Talking Heads",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-2": true,
+        "2-3": true,
+        "5-3": true,
+        "8-2": true,
+        "10-3": true,
+        "13-0": true,
+        "16-2": true,
+        "18-3": true,
+        "21-3": true,
+        "24-2": true,
+        "26-3": true,
+        "29-0": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "life-during-wartime",
+      "name": "Life During Wartime",
+      "artist": "Talking Heads",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-3": true,
+        "2-3": true,
+        "4-2": true,
+        "6-2": true,
+        "9-3": true,
+        "11-7": true,
+        "13-7": true,
+        "16-3": true,
+        "18-3": true,
+        "20-2": true,
+        "22-2": true,
+        "25-3": true,
+        "27-7": true,
+        "29-7": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    },
+    {
+      "key": "dogs",
+      "name": "Dogs",
+      "artist": "Talking Heads",
+      "year": 2007,
+      "subgenre": "indie",
+      "tempo": 120,
+      "keyName": "C Major",
+      "timeSignature": "4/4",
+      "patternLength": 32,
+      "harmonics": [
+        0,
+        3,
+        5,
+        7
+      ],
+      "melody": {
+        "0-7": true,
+        "2-5": true,
+        "4-0": true,
+        "6-7": true,
+        "8-5": true,
+        "10-3": true,
+        "12-2": true,
+        "14-5": true,
+        "16-7": true,
+        "18-5": true,
+        "20-0": true,
+        "22-7": true,
+        "24-5": true,
+        "26-3": true,
+        "28-2": true,
+        "30-5": true,
+        "18-3": true,
+        "26-2": true
+      },
+      "bass": {
+        "0-0": true,
+        "4-0": true,
+        "8-0": true,
+        "12-0": true,
+        "2-3": true,
+        "6-3": true,
+        "10-3": true,
+        "14-3": true,
+        "16-0": true,
+        "20-0": true,
+        "24-0": true,
+        "28-0": true,
+        "18-3": true,
+        "22-3": true,
+        "26-3": true,
+        "30-3": true
+      },
+      "lead": {
+        "24-7": true,
+        "26-5": true,
+        "28-3": true,
+        "30-5": true
+      },
+      "rhythm": {
+        "kick": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28
+        ],
+        "snare": [
+          4,
+          12,
+          20,
+          28
+        ],
+        "hihat": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "tom": [
+          23,
+          27,
+          31
+        ],
+        "cymbal": [
+          16
+        ]
+      },
+      "characteristics": [
+        "indie",
+        "extended"
+      ],
+      "genre": "indie"
+    }
+  ]
+}

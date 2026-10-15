@@ -1,209 +1,63 @@
-/**
- * Song Presets - Top 100 Songs Database
- * Loads presets from JSON files in docs/ directory
- * Each preset includes genre, tempo, harmony, melody, and rhythm patterns
- * Based on characteristics of famous songs across different genres
- */
+/** Song catalogue: load the saved arrangement for the selected step length. */
+const GENRE_FILES = Object.fromEntries(['rock', 'pop', 'electronic', 'hip-hop', 'jazz', 'classical', 'country', 'reggae', 'metal', 'indie', 'disco', 'blues', 'funk'].map(genre => [genre, `data/songs/${genre}`]));
+const genreCache = new Map();
+const genreRequests = new Map();
 
-// Cache for loaded genre data
-let genreCache = {};
-let isLoading = false;
-
-// Genre files mapping - uses 64-step JSON files
-const GENRE_FILES = {
-    'rock': 'docs/rock_64step.json',
-    'pop': 'docs/pop_64step.json',
-    'electronic': 'docs/electronic_64step.json',
-    'hip-hop': 'docs/hip-hop_64step.json',
-    'jazz': 'docs/jazz_64step.json',
-    'classical': 'docs/classical_64step.json',
-    'country': 'docs/country_64step.json',
-    'reggae': 'docs/reggae_64step.json',
-    'metal': 'docs/metal_64step.json',
-    'indie': 'docs/indie_64step.json',
-    'disco': 'docs/disco_64step.json',
-    'blues': 'docs/blues_64step.json',
-    'funk': 'docs/funk_64step.json'
-};
-
-// Load a single genre file
-async function loadGenreFile(genre) {
-    const filePath = GENRE_FILES[genre];
-    if (!filePath) {
-        console.warn(`No JSON file found for genre: ${genre}`);
-        return null;
-    }
-    
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) {
-            throw new Error(`Failed to load ${filePath}: ${response.status}`);
-        }
+async function loadGenreFile(genre, length = 64) {
+    if (!GENRE_FILES[genre] || ![16, 32, 64].includes(length)) throw new Error('Choose a supported genre and pattern length.');
+    const cacheKey = `${genre}/${length}`;
+    if (genreCache.has(cacheKey)) return genreCache.get(cacheKey);
+    if (genreRequests.has(cacheKey)) return genreRequests.get(cacheKey);
+    const request = (async () => {
+        const response = await fetch(`${GENRE_FILES[genre]}_${length}step.json`);
+        if (!response.ok) throw new Error(`Could not load ${genre} songs. Please try again.`);
         const data = await response.json();
+        if (data.genre !== genre || data.patternLength !== length || !Array.isArray(data.songs) || data.songs.some(song => song.patternLength !== length)) throw new Error('The song file does not match the selected pattern length.');
+        genreCache.set(cacheKey, data);
         return data;
-    } catch (error) {
-        console.error(`Error loading ${filePath}:`, error);
-        return null;
-    }
+    })();
+    genreRequests.set(cacheKey, request);
+    try { return await request; } finally { genreRequests.delete(cacheKey); }
 }
 
-// Load all genre files
-async function loadAllGenreData() {
-    if (isLoading) return genreCache;
-    isLoading = true;
-    
-    const genres = Object.keys(GENRE_FILES);
-    
-    await Promise.all(
-        genres.map(async (genre) => {
-            const data = await loadGenreFile(genre);
-            if (data) {
-                genreCache[genre] = data;
-            }
-        })
-    );
-    
-    isLoading = false;
-    return genreCache;
-}
-
-// Build SONG_PRESETS from genre data
 function buildSongPresetsFromGenreData(genreData) {
     const presets = {};
-    
-    Object.values(genreData).forEach(genre => {
-        // Handle new format: song_variations (with arrays of 16/32/64 variations)
-        if (genre.song_variations) {
-            Object.entries(genre.song_variations).forEach(([variationName, variations]) => {
-                variations.forEach(variation => {
-                    presets[variation.key] = {
-                        name: variation.name,
-                        artist: variation.artist && variation.artist !== 'Unknown Artist' ? variation.artist : genre.genre,
-                        year: variation.year,
-                        genre: genre.genre,
-                        subgenre: variation.subgenre,
-                        tempo: variation.tempo,
-                        key: variation.keyName,
-                        timeSignature: variation.timeSignature,
-                        patternLength: variation.patternLength || 16,
-                        harmonics: variation.harmonics,
-                        melody: variation.melody,
-                        bass: variation.bass,
-                        lead: variation.lead,
-                        rhythm: variation.rhythm,
-                        characteristics: variation.characteristics,
-                        variationKey: variationName
-                    };
-                });
-            });
+    for (const data of Object.values(genreData)) {
+        for (const song of data.songs) {
+            presets[song.key] = {...song, key: song.keyName, genre: data.genre};
         }
-        // Handle legacy format: songs array
-        else if (genre.songs) {
-            genre.songs.forEach(song => {
-                presets[song.key] = {
-                    name: song.name,
-                    artist: song.artist && song.artist !== 'Unknown Artist' ? song.artist : genre.genre,
-                    year: song.year,
-                    genre: genre.genre,
-                    subgenre: song.subgenre,
-                    tempo: song.tempo,
-                    key: song.keyName,
-                    timeSignature: song.timeSignature,
-                    patternLength: song.patternLength || 16,
-                    harmonics: song.harmonics,
-                    melody: song.melody,
-                    bass: song.bass,
-                    lead: song.lead,
-                    rhythm: song.rhythm,
-                    characteristics: song.characteristics
-                };
-            });
-        }
-    });
-    
+    }
     return presets;
 }
 
-// Get presets by genre (async)
-async function getPresetsByGenre(genre) {
-    if (!genreCache[genre]) {
-        await loadGenreFile(genre);
-    }
-    
-    if (!genreCache[genre]) {
-        return [];
-    }
-    
-    const presets = {};
-    const genreData = genreCache[genre];
-    
-    // Handle new format: song_variations
-    if (genreData.song_variations) {
-        Object.entries(genreData.song_variations).forEach(([variationName, variations]) => {
-            variations.forEach(variation => {
-                presets[variation.key] = {
-                    name: variation.name,
-                    artist: variation.artist && variation.artist !== 'Unknown Artist' ? variation.artist : genre,
-                    year: variation.year,
-                    genre: genre,
-                    subgenre: variation.subgenre,
-                    tempo: variation.tempo,
-                    key: variation.keyName,
-                    timeSignature: variation.timeSignature,
-                    patternLength: variation.patternLength || 16,
-                    harmonics: variation.harmonics,
-                    melody: variation.melody,
-                    bass: variation.bass,
-                    lead: variation.lead,
-                    rhythm: variation.rhythm,
-                    characteristics: variation.characteristics,
-                    variationKey: variationName
-                };
-            });
-        });
-    }
-    // Handle legacy format: songs array
-    else {
-        const songs = genreData.songs || [];
-        songs.forEach(song => {
-            presets[song.key] = {
-                name: song.name,
-                artist: song.artist && song.artist !== 'Unknown Artist' ? song.artist : genre,
-                year: song.year,
-                genre: genre,
-                subgenre: song.subgenre,
-                tempo: song.tempo,
-                key: song.keyName,
-                timeSignature: song.timeSignature,
-                patternLength: song.patternLength || 16,
-                harmonics: song.harmonics,
-                melody: song.melody,
-                bass: song.bass,
-                lead: song.lead,
-                rhythm: song.rhythm,
-                characteristics: song.characteristics
-            };
-        });
-    }
-    
-    return presets;
+async function loadAllGenreData() {
+    const entries = await Promise.all(Object.keys(GENRE_FILES).map(async genre => [genre, await loadGenreFile(genre, 64)]));
+    return Object.fromEntries(entries);
 }
 
-// Get random preset from genre (async)
-async function getRandomPresetByGenre(genre) {
-    const presets = await getPresetsByGenre(genre);
+async function getPresetsByGenre(genre, length = 64) {
+    const data = await loadGenreFile(genre, length);
+    return buildSongPresetsFromGenreData({[genre]: data});
+}
+
+async function getSongPreset(key, length, genre) {
+    if (!genre) {
+        if (!SONG_PRESETS[key]) Object.assign(SONG_PRESETS, buildSongPresetsFromGenreData(await loadAllGenreData()));
+        genre = SONG_PRESETS[key]?.genre;
+    }
+    if (!genre) throw new Error('This song could not be found. Choose a song again.');
+    const presets = await getPresetsByGenre(genre, length);
+    if (!presets[key]) throw new Error('This song is unavailable at the selected length.');
+    return presets[key];
+}
+
+async function getRandomPresetByGenre(genre, length = 64) {
+    const presets = await getPresetsByGenre(genre, length);
     const keys = Object.keys(presets);
-    
-    if (keys.length === 0) return null;
-    
-    const randomKey = keys[Math.floor(Math.random() * keys.length)];
-    return presets[randomKey];
+    return keys.length ? presets[keys[Math.floor(Math.random() * keys.length)]] : null;
 }
 
-// Get all genres from JSON files
-function getAllGenreNames() {
-    return Object.keys(GENRE_FILES);
-}
+function getAllGenreNames() { return Object.keys(GENRE_FILES); }
 
 // Genre metadata
 const GENRE_METADATA = {
@@ -299,7 +153,7 @@ const SONG_PRESETS = {};
 loadAllGenreData().then(genreData => {
     Object.assign(SONG_PRESETS, buildSongPresetsFromGenreData(genreData));
     console.log('Loaded song presets from JSON files:', Object.keys(SONG_PRESETS).length, 'songs');
-});
+}).catch(error => console.warn('Song catalogue preload failed; choosing a genre will retry.', error.message));
 
 // Export for use in other modules
 window.SONG_PRESETS = SONG_PRESETS;
@@ -309,3 +163,5 @@ window.getRandomPresetByGenre = getRandomPresetByGenre;
 window.getAllGenres = getAllGenres;
 window.getAllGenreNames = getAllGenreNames;
 window.loadAllGenreData = loadAllGenreData;
+
+window.getSongPreset = getSongPreset;

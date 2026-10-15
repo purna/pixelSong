@@ -519,3 +519,7 @@
         height: 20px;
     }
 }
+
+.pattern-expansion-control { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pattern-expansion-control label { color: var(--text-secondary); font-size: .85rem; }
+.pattern-expansion-control select { max-width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary); font: inherit; }
