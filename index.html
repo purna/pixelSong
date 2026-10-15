@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/song.css">
     <link rel="stylesheet" href="css/stage.css">
     <link rel="stylesheet" href="css/automation.css">
+    <link rel="stylesheet" href="css/tuneHelper.css">
 </head>
 
 <body>
@@ -102,6 +103,19 @@
         </div>
 
     
+
+        <details class="tune-helper" open>
+            <summary>✨ Tune Helper</summary>
+            <p>Start with a musical idea. Choose a feel and create a repeating melody with a matching bass and beat, using your current scale, tempo and pattern length.</p>
+            <div class="tune-helper-controls">
+                <label for="tuneMood">Mood<select id="tuneMood"><option value="bright">Bright &amp; playful</option><option value="dreamy">Dreamy &amp; floating</option><option value="moody">Moody &amp; reflective</option></select></label>
+                <label for="tuneEnergy">Energy<select id="tuneEnergy"><option value="gentle">Gentle</option><option value="steady" selected>Steady</option><option value="lively">Lively</option></select></label>
+                <label for="tuneScope">Create<select id="tuneScope"><option value="full">Full tune</option><option value="melody">Melody only</option></select></label>
+                <button class="btn" id="createHelperTune" type="button">Create tune</button>
+                <button class="btn btn-secondary" id="undoHelperTune" type="button" disabled>Undo</button>
+            </div>
+            <p id="tuneHelperStatus" role="status" aria-live="polite">Full tune replaces the active patterns. Melody only keeps your backing parts. Undo restores the patterns from before your last creation.</p>
+        </details>
 
         <!-- Harmonics Section -->
         <div class="section" id="harmonicsSection">
@@ -1430,6 +1444,7 @@
     <script src="js/songPresets.js"></script>
     <script src="js/songDesigner.js"></script>
     <script src="js/songDesigner.patch.js"></script><!-- Audio quality patch — load after songDesigner.js -->
+    <script src="js/tuneHelper.js"></script>
     <script src="js/songStorage.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/stage.js"></script>

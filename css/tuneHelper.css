@@ -1,0 +1,8 @@
+.tune-helper { margin: 0 0 24px; padding: 20px; border: 1px solid var(--accent-color, #f472b6); border-radius: 12px; background: var(--bg-secondary, #1e293b); }
+.tune-helper summary { cursor: pointer; font-weight: 700; font-size: 1.1rem; }
+.tune-helper p { color: var(--text-secondary); margin: 14px 0; line-height: 1.6; }
+.tune-helper-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 14px; }
+.tune-helper-controls label { display: grid; gap: 8px; min-width: 145px; flex: 1; }
+.tune-helper-controls select { width: 100%; padding: 10px; border-radius: 6px; background: var(--bg-primary, #0f172a); color: var(--text-primary, #fff); border: 1px solid var(--border-color, #475569); font: inherit; }
+.tune-helper button:disabled { opacity: .45; cursor: default; }
+.tune-helper :focus-visible { outline: 2px solid var(--accent-color, #f472b6); outline-offset: 4px; }

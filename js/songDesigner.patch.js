@@ -160,12 +160,14 @@
         if (!this.effects?.reverb) return;
 
         // Create a secondary "dry" reverb (short room) for drums
-        this._drumReverb = new Tone.Reverb({ decay: 0.4, wet: 0.08 });
-        this._drumReverb.connect(this.compressor);
+        this._drumReverb = new Tone.Reverb({ decay: 0.4, wet: 1 });
+        this._drumReverbReturn = new Tone.Gain(0.08).connect(this.compressor);
+        this._drumReverb.connect(this._drumReverbReturn);
 
         // Create a lush reverb for pads/harmony
-        this._padReverb = new Tone.Reverb({ decay: 3.5, wet: 0.4 });
-        this._padReverb.connect(this.compressor);
+        this._padReverb = new Tone.Reverb({ decay: 3.5, wet: 1 });
+        this._padReverbReturn = new Tone.Gain(0.15).connect(this.compressor);
+        this._padReverb.connect(this._padReverbReturn);
 
         // Route drum panners to drum reverb instead of main effects
         if (this.drumPanners) {
@@ -199,6 +201,7 @@
 
         this.isPlaying = true;
         this.currentStep = 0;
+        this._scheduledStep = 0;
         this.groupLoopCurrent = [0, 0, 0, 0];
 
         // Use Tone.Transport for accurate timing
@@ -207,11 +210,7 @@
 
         // Schedule repeating 16th-note step
         this._transportEvent = Tone.Transport.scheduleRepeat((time) => {
-            // Use Tone.Draw for UI updates (keeps audio thread clean)
-            Tone.Draw.schedule(() => {
-                this._advanceStep();
-            }, time);
-            this._playStepAtTime(this.currentStep, time);
+            this._scheduleStep(time);
         }, '16n');
 
         Tone.Transport.start();
@@ -226,7 +225,24 @@
         }
     };
 
-    proto._advanceStep = function() {
+    // Advance musical state during lookahead, independently of animation frames.
+    proto._scheduleStep = function(time) {
+        const step = this._scheduledStep ?? 0;
+        this._playStepAtTime(step, time);
+        const displayedStep = this.currentStep;
+        this.currentStep = step;
+        this._advanceStep(false);
+        this._scheduledStep = this.currentStep;
+        this.currentStep = displayedStep;
+        Tone.Draw.schedule(() => {
+            if (!this.isPlaying) return;
+            this.currentStep = step;
+            this.updateTimelineState();
+            this.updateSectionTimelinesPlaying();
+        }, time);
+    };
+
+    proto._advanceStep = function(render = true) {
         const groupCount = this.patternLength / 16;
         const currentGroup = Math.floor(this.currentStep / 16);
         const localStep = this.currentStep % 16;
@@ -245,8 +261,10 @@
             this.currentStep++;
         }
 
-        this.updateTimelineState();
-        this.updateSectionTimelinesPlaying();
+        if (render) {
+            this.updateTimelineState();
+            this.updateSectionTimelinesPlaying();
+        }
     };
 
     proto.stop = function() {
@@ -293,14 +311,15 @@
         const groupLead    = this.patternGroups.lead[groupIndex];
         const groupRhythm  = this.patternGroups.rhythm[groupIndex];
 
-        // Humanization: subtle velocity variation (±8%) and timing nudge (±5ms)
-        const humanVel  = () => Math.max(0.05, Math.min(1, (Math.random() * 0.16) - 0.08));
-        const humanTime = () => time + (Math.random() * 0.01 - 0.005); // ±5ms
+        // Gentle relative velocity variation preserves silent notes.
+        const humanVel = () => Math.random() * 0.08 - 0.04;
+        const velocity = value => Math.max(0, Math.min(1, value * (1 + humanVel())));
+        const humanTime = () => time + Math.random() * 0.003; // Up to 3ms late; never before the scheduled step.
 
-        const melodyVel  = (this.melodyVelocity.get(step)  ?? 0.8) + humanVel();
-        const harmonyVel = (this.harmonyVelocity.get(step) ?? 0.75) + humanVel();
-        const leadVel    = (this.leadVelocity.get(step)    ?? 0.7) + humanVel();
-        const bassVel    = (this.bassVelocity.get(step)    ?? 0.8) + humanVel();
+        const melodyVel  = velocity(this.melodyVelocity.get(step)  ?? 0.8);
+        const harmonyVel = velocity(this.harmonyVelocity.get(step) ?? 0.75);
+        const leadVel    = velocity(this.leadVelocity.get(step)    ?? 0.7);
+        const bassVel    = velocity(this.bassVelocity.get(step)    ?? 0.8);
 
         // Filter automation
         const lowpassVal = this.effectAutomation.lowpass?.get(step);
@@ -316,16 +335,17 @@
                 // Defensive check: ensure groupRhythm[instrument] is a Set with .has method
                 const instRhythm = groupRhythm[instrument];
                 if (instRhythm && typeof instRhythm.has === 'function' && instRhythm.has(localStep)) {
-                    const vel = Math.min(1, (this.rhythmVelocity[instrument]?.get(step) ?? 0.8) + humanVel());
+                    const vel = velocity(this.rhythmVelocity[instrument]?.get(step) ?? 0.8);
 
-                    if (this.howlerEngine?.initialized) {
-                        this.howlerEngine.playDrum(instrument, vel);
-                    } else if (this.drums?.[instrument]) {
+                    // Use the selected kit on the same clock and mixer as the synths.
+                    if (this.drums?.[instrument]) {
                         // Tone.js drum - note: MembraneSynth takes a note, NoiseSynth takes nothing
                         if (this.drums[instrument] instanceof Tone.MembraneSynth) {
                             this.drums[instrument].triggerAttackRelease('C1', '16n', humanTime(), vel);
-                        } else {
+                        } else if (this.drums[instrument] instanceof Tone.NoiseSynth) {
                             this.drums[instrument].triggerAttackRelease('16n', humanTime(), vel);
+                        } else {
+                            this.drums[instrument].triggerAttackRelease('C4', '16n', humanTime(), vel);
                         }
                     }
 
@@ -390,8 +410,14 @@
                 // Defensive check: ensure groupRhythm[instrument] is a Set with .has method
                 const instRhythm = groupRhythm[instrument];
                 if (this.percussion?.[instrument] && instRhythm && typeof instRhythm.has === 'function' && instRhythm.has(localStep)) {
-                    const vel = Math.min(1, (this.rhythmVelocity[instrument]?.get(step) ?? 0.7) + humanVel());
-                    this.percussion[instrument].triggerAttackRelease('16n', humanTime(), vel);
+                    const vel = velocity(this.rhythmVelocity[instrument]?.get(step) ?? 0.7);
+                    const synth = this.percussion[instrument];
+                    if (synth instanceof Tone.NoiseSynth) {
+                        synth.triggerAttackRelease('16n', humanTime(), vel);
+                    } else {
+                        const note = instrument === 'conga' ? 'C3' : instrument === 'bongo' ? 'G3' : 'C4';
+                        synth.triggerAttackRelease(note, '16n', humanTime(), vel);
+                    }
 
                     Tone.Draw.schedule(() => {
                         const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${localStep}"]`);
@@ -763,6 +789,7 @@
                 
                 // Reset step to beginning
                 app.currentStep = 0;
+                app._scheduledStep = 0;
                 app.groupLoopCurrent = [0, 0, 0, 0];
                 
                 // Set tempo on Transport
@@ -771,10 +798,7 @@
                 
                 // Schedule the transport
                 app._transportEvent = Tone.Transport.scheduleRepeat((time) => {
-                    Tone.Draw.schedule(() => {
-                        app._advanceStep();
-                    }, time);
-                    app._playStepAtTime(app.currentStep, time);
+                    app._scheduleStep(time);
                 }, '16n');
                 
                 // Start transport
