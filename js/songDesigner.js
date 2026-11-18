@@ -1280,25 +1280,35 @@ class SongDesignerApp {
     updateMobileNavActive() {
         const nav = document.getElementById('mobileSectionNav');
         if (!nav) return;
-        nav.querySelectorAll('[data-section-target]').forEach(button => {
+        const targets = [
+            ...nav.querySelectorAll('[data-section-target]'),
+            ...document.querySelectorAll('#sectionsMenuPanel [data-section-target]')
+        ];
+        targets.forEach(button => {
             const section = document.getElementById(button.dataset.sectionTarget);
-            button.classList.toggle('active', Boolean(section && !section.classList.contains('mobile-collapsed')));
+            const active = Boolean(section && (this.isMobileSectionLayout()
+                ? !section.classList.contains('mobile-collapsed')
+                : true));
+            button.classList.toggle('active', active && this.isMobileSectionLayout());
         });
     }
 
     updateMobileNavMetrics() {
         const nav = document.getElementById('mobileSectionNav');
         if (!nav) return;
+        const header = document.querySelector('.fixed-header');
+        const headerHeight = header ? header.getBoundingClientRect().height : 96;
+        document.documentElement.style.setProperty('--section-menu-top', `${Math.round(headerHeight + 8)}px`);
         if (!this.isMobileSectionLayout()) {
             nav.style.removeProperty('top');
             document.documentElement.style.removeProperty('--mobile-jump-offset');
+            document.documentElement.style.setProperty('--section-jump-offset', `${Math.round(headerHeight + 24)}px`);
             return;
         }
-        const header = document.querySelector('.fixed-header');
-        const headerHeight = header ? header.getBoundingClientRect().height : 96;
         nav.style.top = `${Math.round(headerHeight + 8)}px`;
         const offset = Math.round(headerHeight + nav.offsetHeight + 24);
         document.documentElement.style.setProperty('--mobile-jump-offset', `${offset}px`);
+        document.documentElement.style.setProperty('--section-jump-offset', `${offset}px`);
     }
 
     setMobileSectionCollapsed(sectionId, collapsed, { remember = true } = {}) {
@@ -1321,7 +1331,7 @@ class SongDesignerApp {
         if (this.isMobileSectionLayout()) {
             sections.forEach(section => this.setMobileSectionCollapsed(section.id, section.id !== sectionId));
         }
-        requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
 
     toggleMobileSection(sectionId) {
@@ -1373,6 +1383,15 @@ class SongDesignerApp {
             effectsSection: { label: 'Effects', icon: '✨' }
         };
         const sections = Array.from(document.querySelectorAll('.container > .section[id]'));
+        const menuButton = document.getElementById('sectionsMenuBtn');
+        const menuPanel = document.getElementById('sectionsMenuPanel');
+        const setSectionsMenuOpen = (open) => {
+            if (!menuButton || !menuPanel) return;
+            menuPanel.hidden = !open;
+            menuButton.setAttribute('aria-expanded', String(open));
+            menuButton.classList.toggle('active', open);
+        };
+        this._closeSectionsMenu = () => setSectionsMenuOpen(false);
 
         sections.forEach(section => {
             const header = section.querySelector(':scope > .section-header');
@@ -1417,7 +1436,33 @@ class SongDesignerApp {
                 }
             });
             nav.appendChild(button);
+
+            if (menuPanel) {
+                const menuItem = document.createElement('button');
+                menuItem.type = 'button';
+                menuItem.className = 'section-menu-item';
+                menuItem.dataset.sectionTarget = section.id;
+                menuItem.setAttribute('role', 'menuitem');
+                menuItem.innerHTML = `<span class="section-menu-icon" aria-hidden="true">${meta.icon}</span><span>${meta.label}</span>`;
+                menuItem.addEventListener('click', () => {
+                    setSectionsMenuOpen(false);
+                    this.openMobileSection(section.id);
+                });
+                menuPanel.appendChild(menuItem);
+            }
         });
+
+        if (menuButton && menuPanel) {
+            menuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                setSectionsMenuOpen(menuPanel.hidden);
+            });
+            menuPanel.addEventListener('click', (event) => event.stopPropagation());
+            document.addEventListener('click', () => setSectionsMenuOpen(false));
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') setSectionsMenuOpen(false);
+            });
+        }
 
         this._mobileSectionQuery = window.matchMedia?.('(max-width: 767px)');
         const handleLayoutChange = () => this.applyMobileSectionLayout();

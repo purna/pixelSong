@@ -89,6 +89,7 @@ body {
 }
 
 .section {
+    scroll-margin-top: var(--section-jump-offset, 170px);
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 16px;
@@ -363,7 +364,7 @@ input:checked + .toggle-slider:before {
     }
 
     .section {
-        scroll-margin-top: var(--mobile-jump-offset, 170px);
+        scroll-margin-top: var(--section-jump-offset, 170px);
     }
 
     .section-header {
