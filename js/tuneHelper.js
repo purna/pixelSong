@@ -3,7 +3,7 @@
     const proto = SongDesignerApp.prototype;
     const setup = proto.setupEventListeners;
     const drums = ['kick', 'snare', 'hihat', 'tom', 'conga', 'bongo', 'shaker', 'cymbal'];
-    const fields = ['patternLength', 'currentGroupIndex', 'groupLoopCounts', 'patternGroups', 'melodyVelocity', 'bassVelocity', 'leadVelocity', 'harmonyVelocity', 'rhythmVelocity', 'harmonicsEnabled', 'melodyEnabled', 'bassEnabled', 'leadEnabled', 'rhythmEnabled', 'percussionEnabled'];
+    const fields = ['patternLength', 'currentGroupIndex', 'groupLoopCounts', 'patternGroups', 'groupChords', 'melodyVelocity', 'bassVelocity', 'leadVelocity', 'harmonyVelocity', 'rhythmVelocity', 'harmonicsEnabled', 'melodyEnabled', 'bassEnabled', 'leadEnabled', 'rhythmEnabled', 'percussionEnabled'];
 
     function refresh(app) {
         app.initializePatternGroups();
@@ -34,13 +34,17 @@
     proto.refreshTuneParts = function () { refresh(this); };
 
     proto.createHelperTune = async function ({ mood = 'bright', energy = 'steady', scope = 'full' } = {}) {
-        const length = this.patternLength;
+        // Helper files are 4/4 and 16 steps per bar. Work in that grid, then
+        // convert to the user's selected meter after the file has been applied.
+        const targetSignature = this.timeSignature || '4/4';
+        const targetBars = this.getBarCount ? this.getBarCount() : Math.max(1, Math.round(this.patternLength / 16));
+        const length = targetBars * 16;
         this._songLoadRequest = (this._songLoadRequest || 0) + 1;
-        if (!['bright', 'dreamy', 'moody'].includes(mood) || !['gentle', 'steady', 'lively'].includes(energy) || !['full', 'melody'].includes(scope) || ![16, 32, 64].includes(length)) throw new Error('Choose a supported tune option and 16, 32 or 64 steps.');
+        if (!['bright', 'dreamy', 'moody'].includes(mood) || !['gentle', 'steady', 'lively'].includes(energy) || !['full', 'melody'].includes(scope) || ![16, 32, 64].includes(length)) throw new Error('Choose a supported tune option and 1, 2 or 4 bars.');
         const scale = [...this.getCurrentScale()];
         const request = this._helperRequest = (this._helperRequest || 0) + 1;
         const preset = await window.loadPresetData(`data/tune-helper/${mood}-${energy}-${length}.json`);
-        if (request !== this._helperRequest || this.patternLength !== length || this.getCurrentScale().join() !== scale.join()) throw new Error('Your selection changed while loading. Press Create tune again.');
+        if (request !== this._helperRequest || (this.getBarCount ? this.getBarCount() : Math.round(this.patternLength / 16)) !== targetBars || this.getCurrentScale().join() !== scale.join()) throw new Error('Your selection changed while loading. Press Create tune again.');
         // Validate and prepare every part before replacing the current tune.
         if (preset.schemaVersion !== 1 || preset.patternLength !== length || preset.mood !== mood || preset.energy !== energy || preset.groups?.length !== length / 16) throw new Error('This tune file does not match the selected options.');
         const validStep = step => Number.isInteger(step) && step >= 0 && step < 16;
@@ -87,6 +91,7 @@
             this.harmonyVelocity = new Map();
             this.rhythmVelocity = Object.fromEntries(drums.map(name => [name, new Map()]));
             this.groupLoopCounts = [1, 1, 1, 1];
+            this.groupChords = Array.from({length: length / 16}, () => null);
         }
         groups.forEach((group, g) => {
             for (const name of parts) {
@@ -113,8 +118,16 @@
             }
         }
         this.setTempo(this.tempo);
-        refresh(this);
-        return `${scope === 'melody' ? 'Melody' : 'Full tune'} loaded: ${length} steps (${length / 16} bar${length > 16 ? 's' : ''}).${scope === 'full' && stage?.stageArea ? ' All musical parts and stage positions are ready.' : ''} Press Play to listen, or edit the notes below.`;
+        this.timeSignature = '4/4';
+        this.patternLength = length;
+        if (targetSignature !== '4/4') {
+            this.setTimeSignature(targetSignature);
+        } else {
+            refresh(this);
+            this.syncTimeSignatureUI();
+        }
+        const bars = this.getBarCount ? this.getBarCount() : Math.round(this.patternLength / 16);
+        return `${scope === 'melody' ? 'Melody' : 'Full tune'} loaded: ${this.patternLength} steps (${bars} bar${bars === 1 ? '' : 's'}).${scope === 'full' && stage?.stageArea ? ' All musical parts and stage positions are ready.' : ''} Press Play to listen, or edit the notes below.`;
     };
 
     proto.setupEventListeners = function () {

@@ -908,7 +908,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 0;
-    height: 180px;
+    height: 320px;
     flex: 1;
     min-width: 0;
 }
@@ -1171,7 +1171,7 @@
 /* Tablet and up */
 @media (min-width: 768px) {
     .lead-column {
-        height: 180px;
+        height: 320px;
     }
 }
 
@@ -1224,7 +1224,7 @@
     gap: 0;
     flex: 1;
     min-width: 0;
-    height: 180px;
+    height: 320px;
 }
 
 .lead-cell {

@@ -66,6 +66,20 @@
                     <span id="tempoValue">120 BPM</span>
                 </div>
             </div>
+
+            <div class="control-group">
+                <div class="tempo-control">
+                    <label for="timeSignature"><i class="fas fa-music"></i> Meter:</label>
+                    <select id="timeSignature" class="form-select-small">
+                        <option value="4/4">4/4</option>
+                        <option value="3/4">3/4</option>
+                        <option value="2/4">2/4</option>
+                        <option value="5/4">5/4</option>
+                        <option value="6/8">6/8</option>
+                        <option value="3/8">3/8</option>
+                    </select>
+                </div>
+            </div>
             
             <div class="control-group">
                 <div class="pattern-length-control" data-tooltip="Set pattern length for more complex arrangements">
@@ -393,8 +407,8 @@
                 <div class="melody-controls">
                        <div class="left">
                     <select id="leadInstrument" class="form-select" data-tooltip="Choose a lead sound">
+                        <option value="saw" selected>Sawtooth</option>
                         <option value="supersaw">Super Saw (Rich)</option>
-                        <option value="saw">Sawtooth</option>
                         <option value="square">Square</option>
                         <option value="sine">Sine</option>
                         <option value="triangle">Triangle</option>
@@ -1447,11 +1461,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
-    <script src="js/howlerAudioEngine.js"></script>
-    <script src="js/soundGenerator.js"></script>
     <script src="js/rhythmVisualizer.js"></script>
     <script src="js/indexedDBManager.js"></script>
     <script src="js/googleDriveManager.js"></script>

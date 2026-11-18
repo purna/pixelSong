@@ -82,9 +82,18 @@ test('Every genre loads its real 16/32/64 arrangements into the matching groups'
     assert.equal(app.notices.at(-1)?.[1],'success',`${genre}/${key}/${length}: ${app.notices.at(-1)}`);
     assert.equal(app.patternGroups.melody.length,length/16);assert.equal(app.tempo,preset.tempo);assert.equal(f.context.Tone.Transport.bpm.value,preset.tempo);assert.equal(Number(f.nodes.tempoSlider.value),preset.tempo);assert.equal(f.nodes.tempoValue.textContent,`${preset.tempo} BPM`);
     for(const part of ['melody','bass','lead']){
-     const actual=app.patternGroups[part].flatMap((group,g)=>Array.from(group,([step,row])=>`${g*16+step}-${row}`));
-     // A monophonic grid keeps the final row if the source has simultaneous notes.
-     const expected=new Map(Object.entries(preset[part]||{}).filter(([,v])=>v).map(([k])=>k.split('-').map(Number)));
+     const stepsPerBar=app.parseTimeSignature(preset.timeSignature||'4/4').stepsPerBar;
+     const actual=app.patternGroups[part].flatMap((group,g)=>Array.from(group,([step,row])=>`${g*stepsPerBar+step}-${row}`));
+     // Catalogue files use 16 subdivisions per bar; non-4/4 songs are remapped
+     // onto their real bar length when loaded.
+     const expected=new Map();
+     for(const [k,active] of Object.entries(preset[part]||{})){
+      if(!active) continue;
+      const [step,row]=k.split('-').map(Number);
+      const bar=Math.floor(step/16),local=step%16;
+      const mapped=bar*stepsPerBar+Math.min(stepsPerBar-1,Math.round(local*stepsPerBar/16));
+      expected.set(mapped,row);
+     }
      assert.equal(JSON.stringify(actual.sort()),JSON.stringify(Array.from(expected,([step,row])=>`${step}-${row}`).sort()));
     }
     assert(app.patternGroups.harmonics[0].size>0);total++;
@@ -93,6 +102,23 @@ test('Every genre loads its real 16/32/64 arrangements into the matching groups'
  }
  assert.equal(total,840);assert(f.requests.every(url=>url.startsWith('data/')));
 });
+test('Catalogue songs in 3/4, 2/4 and 5/4 load onto their real bar lengths',async()=>{
+ const f=fixture();vm.runInContext(fs.readFileSync(path.join(root,'js/songPresets.js'),'utf8'),f.context);
+ const cases=[['classical','3/8',6],['classical','2/4',8],['jazz','5/4',20]];
+ for(const [genre,signature,steps] of cases){
+  const presets=await f.context.getPresetsByGenre(genre,16);
+  const found=Object.entries(presets).find(([,preset])=>preset.timeSignature===signature);
+  assert(found,`${genre}/${signature} preset`);
+  const app=f.make(16);await app.loadSongPreset(found[0]);
+  assert.equal(app.timeSignature,signature);
+  assert.equal(app.patternLength,steps);
+  assert.equal(app.getBarCount(),1);
+  assert.equal(app.patternGroups.melody.length,1);
+  for(const part of ['melody','bass','lead'])for(const [step]of app.patternGroups[part][0])assert(step>=0&&step<steps);
+  for(const name of Object.keys(app.patternGroups.rhythm[0]))for(const step of app.patternGroups.rhythm[0][name])assert(step>=0&&step<steps);
+ }
+});
+
 test('Song cache separates lengths, retries failed requests, and stale song lists cannot win',async()=>{
  const f=fixture();vm.runInContext(fs.readFileSync(path.join(root,'js/songPresets.js'),'utf8'),f.context);
  await f.context.getPresetsByGenre('rock',16);await f.context.getPresetsByGenre('rock',32);const count=f.requests.length;

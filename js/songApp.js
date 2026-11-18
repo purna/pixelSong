@@ -666,8 +666,9 @@ class SongApp {
             if (this.songApp.groupLoopCounts) {
                 totalLoops = this.songApp.groupLoopCounts.reduce((a, b) => a + b, 1);
             }
-            const groupCount = this.songApp.patternLength / 16;
-            const stepDuration = (60 / this.songApp.tempo) * 0.25; // 16th note duration in seconds
+            const stepsPerBar = this.songApp.getStepsPerBar ? this.songApp.getStepsPerBar() : 16;
+            const barQuarterNotes = this.songApp.getBarQuarterNotes ? this.songApp.getBarQuarterNotes() : 4;
+            const stepDuration = (60 / this.songApp.tempo) * barQuarterNotes / stepsPerBar;
             const duration = (this.songApp.patternLength * stepDuration * totalLoops) + 1; // Add 1 second buffer
             
             setTimeout(() => {

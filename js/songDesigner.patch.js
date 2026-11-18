@@ -196,12 +196,12 @@
     proto.play = function() {
         if (this.isPlaying) return;
 
-        if (this.howlerEngine) this.howlerEngine.resume();
         if (this.rhythmVisualizer?.enabled) this.rhythmVisualizer.setTempo(this.tempo);
 
         this.isPlaying = true;
         this.currentStep = 0;
         this._scheduledStep = 0;
+        this._barPlayCount = 0;
         this.groupLoopCurrent = [0, 0, 0, 0];
 
         // Use Tone.Transport for accurate timing
@@ -243,18 +243,20 @@
     };
 
     proto._advanceStep = function(render = true) {
-        const groupCount = this.patternLength / 16;
-        const currentGroup = Math.floor(this.currentStep / 16);
-        const localStep = this.currentStep % 16;
+        const stepsPerBar = this.getStepsPerBar ? this.getStepsPerBar() : 16;
+        const groupCount = this.getBarCount ? this.getBarCount() : this.patternLength / stepsPerBar;
+        const currentGroup = Math.floor(this.currentStep / stepsPerBar);
+        const localStep = this.currentStep % stepsPerBar;
 
-        if (localStep === 15) {
-            this.groupLoopCurrent[currentGroup]++;
-            if (this.groupLoopCurrent[currentGroup] < this.groupLoopCounts[currentGroup]) {
-                this.currentStep = currentGroup * 16;
+        if (localStep === stepsPerBar - 1) {
+            this._barPlayCount = (this._barPlayCount || 0) + 1;
+            this.groupLoopCurrent[currentGroup] = (this.groupLoopCurrent[currentGroup] || 0) + 1;
+            if (this.groupLoopCurrent[currentGroup] < (this.groupLoopCounts[currentGroup] || 1)) {
+                this.currentStep = currentGroup * stepsPerBar;
             } else {
                 this.groupLoopCurrent[currentGroup] = 0;
                 this.currentStep = currentGroup < groupCount - 1
-                    ? (currentGroup + 1) * 16
+                    ? (currentGroup + 1) * stepsPerBar
                     : 0;
             }
         } else {
@@ -295,6 +297,17 @@
     //    so Tone.js can schedule notes at the exact audio time.
     // ─────────────────────────────────────────────────────────────────────────
 
+    proto._drumVariationVelocity = function(instrument, localStep, present) {
+        if (present) return null;
+        const barCount = this._barPlayCount || 0;
+        const barLength = this.getStepsPerBar ? this.getStepsPerBar() : 16;
+        if (instrument === 'hihat' && barCount % 2 === 1 && localStep % 2 === 1) return 0.28;
+        if (instrument === 'snare' && barCount % 4 === 3 && (localStep === barLength - 3 || localStep === barLength - 1)) return 0.5;
+        if (instrument === 'tom' && barCount % 4 === 3 && localStep === barLength - 2) return 0.55;
+        if (instrument === 'kick' && barCount % 8 === 7 && localStep === barLength - 4) return 0.35;
+        return 0;
+    };
+
     proto._playStepAtTime = function(step, time) {
         if (!this.polySynth) return;
 
@@ -303,21 +316,31 @@
             this.rhythmVisualizer.onStepPlay(step);
         }
 
-        const groupIndex = Math.floor(step / 16);
-        const localStep = step % 16;
+        const stepsPerBar = this.getStepsPerBar ? this.getStepsPerBar() : 16;
+        const groupIndex = Math.floor(step / stepsPerBar);
+        const localStep = step % stepsPerBar;
 
         const groupMelody  = this.patternGroups.melody[groupIndex];
         const groupBass    = this.patternGroups.bass[groupIndex];
         const groupLead    = this.patternGroups.lead[groupIndex];
         const groupRhythm  = this.patternGroups.rhythm[groupIndex];
+        const barQuarterNotes = this.getBarQuarterNotes ? this.getBarQuarterNotes() : 4;
+        const stepSeconds  = 60 / (Number(this.tempo) > 0 ? Number(this.tempo) : 120) * barQuarterNotes / stepsPerBar;
+        const stepsPerBeat = this.getStepsPerBeat ? this.getStepsPerBeat() : 4;
 
-        // Gentle relative velocity variation preserves silent notes.
-        const humanVel = () => Math.random() * 0.08 - 0.04;
-        const velocity = value => Math.max(0, Math.min(1, value * (1 + humanVel())));
-        const humanTime = () => time + Math.random() * 0.003; // Up to 3ms late; never before the scheduled step.
+        // Deterministic beat accents instead of random jitter. Strong beats stay
+        // strong while offbeats relax slightly, which gives the loop a pulse.
+        const velocity = (value, atStep = step) => {
+            const local = atStep % stepsPerBar;
+            const accent = local % (stepsPerBeat * 2) === 0 ? 1.08
+                : local % stepsPerBeat === 0 ? 1.04
+                : local % 2 === 0 ? 0.98 : 0.92;
+            return Math.max(0, Math.min(1, value * accent));
+        };
+        const humanTime = () => time;
 
         const melodyVel  = velocity(this.melodyVelocity.get(step)  ?? 0.8);
-        const harmonyVel = velocity(this.harmonyVelocity.get(step) ?? 0.75);
+        const harmonyVel = this.harmonyVelocity.get(step) ?? 0.75;
         const leadVel    = velocity(this.leadVelocity.get(step)    ?? 0.7);
         const bassVel    = velocity(this.bassVelocity.get(step)    ?? 0.8);
 
@@ -332,24 +355,26 @@
         if (this.rhythmEnabled && groupRhythm) {
             const drumInstruments = ['kick', 'snare', 'hihat', 'tom'];
             drumInstruments.forEach(instrument => {
-                // Defensive check: ensure groupRhythm[instrument] is a Set with .has method
                 const instRhythm = groupRhythm[instrument];
-                if (instRhythm && typeof instRhythm.has === 'function' && instRhythm.has(localStep)) {
-                    const vel = velocity(this.rhythmVelocity[instrument]?.get(step) ?? 0.8);
+                const present = instRhythm && typeof instRhythm.has === 'function' && instRhythm.has(localStep);
+                // Deterministic variation: soft offbeat hats every other bar and a
+                // short tom/snare fill every fourth bar.
+                const extraVelocity = this._drumVariationVelocity(instrument, localStep, present);
 
-                    // Use the selected kit on the same clock and mixer as the synths.
-                    if (this.drums?.[instrument]) {
-                        // Tone.js drum - note: MembraneSynth takes a note, NoiseSynth takes nothing
-                        if (this.drums[instrument] instanceof Tone.MembraneSynth) {
-                            this.drums[instrument].triggerAttackRelease('C1', '16n', humanTime(), vel);
-                        } else if (this.drums[instrument] instanceof Tone.NoiseSynth) {
-                            this.drums[instrument].triggerAttackRelease('16n', humanTime(), vel);
-                        } else {
-                            this.drums[instrument].triggerAttackRelease('C4', '16n', humanTime(), vel);
-                        }
+                if ((present || extraVelocity > 0) && this.drums?.[instrument]) {
+                    const vel = present
+                        ? velocity(this.rhythmVelocity[instrument]?.get(step) ?? 0.8)
+                        : velocity(extraVelocity, step);
+
+                    if (this.drums[instrument] instanceof Tone.MembraneSynth) {
+                        const drumNote = instrument === 'tom' ? 'G1' : 'C1';
+                        this.drums[instrument].triggerAttackRelease(drumNote, '16n', humanTime(), vel);
+                    } else if (this.drums[instrument] instanceof Tone.NoiseSynth) {
+                        this.drums[instrument].triggerAttackRelease('16n', humanTime(), vel);
+                    } else {
+                        this.drums[instrument].triggerAttackRelease('C4', '16n', humanTime(), vel);
                     }
 
-                    // UI flash (deferred to draw thread)
                     Tone.Draw.schedule(() => {
                         const cell = document.querySelector(`.rhythm-cell[data-instrument="${instrument}"][data-step="${localStep}"]`);
                         if (cell) {
@@ -366,9 +391,12 @@
         // Patched: re-triggers every bar (every 16 steps) for chord changes
         // Defensive check: ensure this.harmonics exists and has size property
         const groupHarmony = this.patternGroups.harmonics?.[groupIndex] ?? this.harmonics;
-        if (this.harmonicsEnabled && localStep === 0 && groupHarmony && groupHarmony.size > 0) {
-            const notes = Array.from(groupHarmony).map(i => this.harmonicNotes[i]);
-            // Voice the chord across octaves for fullness
+        const explicitChord = this.groupChords?.[groupIndex];
+        const hasHarmony = (Array.isArray(explicitChord) && explicitChord.length > 0) || (groupHarmony && groupHarmony.size > 0);
+        if (this.harmonicsEnabled && localStep === 0 && hasHarmony) {
+            const notes = Array.isArray(explicitChord) && explicitChord.length > 0
+                ? explicitChord
+                : Array.from(groupHarmony).map(i => this.harmonicNotes[i]);
             const voicedNotes = this._voiceChord(notes);
             this.polySynth.triggerAttackRelease(voicedNotes, '1m', time, Math.min(1, harmonyVel));
         }
@@ -379,8 +407,7 @@
             const row = groupMelody.get(localStep);
             const scale = this.getCurrentScale();
             if (row < scale.length) {
-                // Vary note length: most are 16n, some are 8n for expression
-                const noteLen = Math.random() > 0.7 ? '8n' : '16n';
+                const noteLen = this.noteLengthSeconds(groupMelody, localStep, stepSeconds, 8);
                 this.melodySynth.triggerAttackRelease(scale[row], noteLen, humanTime(), Math.min(1, melodyVel));
             }
         }
@@ -390,18 +417,46 @@
         if (this.bassEnabled && groupBass && typeof groupBass.has === 'function' && groupBass.has(localStep)) {
             const row = groupBass.get(localStep);
             if (row < this.bassNotes.length) {
-                this.bassSynth.triggerAttackRelease(this.bassNotes[row], '8n', humanTime(), Math.min(1, bassVel));
+                const noteLen = this.noteLengthSeconds(groupBass, localStep, stepSeconds, 4);
+                this.bassSynth.triggerAttackRelease(this.bassNotes[row], noteLen, humanTime(), Math.min(1, bassVel));
             }
         }
 
         // ── Lead ─────────────────────────────────────────────────────────────
         // Defensive check: ensure groupLead is a Map with .has method
+        const leadScale = this.getLeadScale ? this.getLeadScale() : this.getCurrentScale();
         if (this.leadEnabled && groupLead && typeof groupLead.has === 'function' && groupLead.has(localStep)) {
             const row = groupLead.get(localStep);
-            const scale = this.getCurrentScale();
-            if (row < scale.length) {
-                const noteLen = Math.random() > 0.6 ? '8n' : '16n';
-                this.leadSynth.triggerAttackRelease(scale[row], noteLen, humanTime(), Math.min(1, leadVel));
+            if (row < leadScale.length) {
+                const noteLen = this.noteLengthSeconds(groupLead, localStep, stepSeconds, 8);
+                this.leadSynth.triggerAttackRelease(leadScale[row], noteLen, humanTime(), Math.min(1, leadVel));
+            }
+        }
+
+        // Phrase-ending lead echo every fourth bar.
+        const lastStep = stepsPerBar - 1;
+        if (this.leadEnabled && (this._barPlayCount || 0) % 4 === 3 && localStep === lastStep &&
+            groupLead && typeof groupLead.has === 'function' && !groupLead.has(lastStep) && groupLead.has(lastStep - 1)) {
+            const row = groupLead.get(lastStep - 1);
+            if (row < leadScale.length) {
+                this.leadSynth.triggerAttackRelease(leadScale[row], 0.12, time, 0.35);
+            }
+        }
+
+        // Fourth-bar answers: a quiet melody echo and a bass turnaround keep
+        // repeated bars from being exact clones of each other.
+        if ((this._barPlayCount || 0) % 4 === 3 && localStep === lastStep) {
+            const melodyRow = groupMelody?.get?.(lastStep - 1);
+            if (this.melodyEnabled && groupMelody && !groupMelody.has(lastStep) && melodyRow !== undefined) {
+                const scale = this.getCurrentScale();
+                if (melodyRow < scale.length) {
+                    this.melodySynth.triggerAttackRelease(scale[melodyRow], 0.1, time, 0.28);
+                }
+            }
+            const bassRow = groupBass?.get?.(lastStep - 1);
+            if (this.bassEnabled && groupBass && !groupBass.has(lastStep) && bassRow !== undefined) {
+                const turnaround = (bassRow + 4) % this.bassNotes.length;
+                this.bassSynth.triggerAttackRelease(this.bassNotes[turnaround], 0.12, time, 0.32);
             }
         }
 
@@ -546,22 +601,48 @@
     proto._voiceChord = function(notes) {
         if (!notes || notes.length === 0) return notes;
 
-        // Parse note name and octave
-        const parseNote = (n) => {
-            const match = n.match(/^([A-G]#?)(\d+)$/);
-            if (!match) return { name: n, octave: 4 };
-            return { name: match[1], octave: parseInt(match[2]) };
+        const values = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+        const parse = note => {
+            const match = String(note).match(/^([A-G])([#b]?)(-?\d+)$/);
+            if (!match) return null;
+            let pc = values[match[1]];
+            if (match[2] === '#') pc += 1;
+            if (match[2] === 'b') pc -= 1;
+            pc = ((pc % 12) + 12) % 12;
+            return { pc, midi: 12 * (parseInt(match[3], 10) + 1) + pc };
         };
 
-        const voiced = notes.map((note, i) => {
-            const parsed = parseNote(note);
-            // Root stays at original octave
-            // 3rd goes up an octave, 5th stays, 7th (if present) goes up 2
-            const octaveShift = i === 1 ? 1 : i === 3 ? 1 : 0;
-            return `${parsed.name}${parsed.octave + octaveShift}`;
-        });
+        const parsed = notes.map(parse).filter(Boolean).sort((a, b) => a.midi - b.midi);
+        if (parsed.length === 0) return notes;
 
-        return voiced;
+        const rootPc = parsed[0].pc;
+        const rootMidi = parsed[0].midi;
+        const pitchClasses = Array.from(new Set(parsed.map(note => note.pc)));
+        const intervalOf = pc => ((pc - rootPc) + 12) % 12;
+        const midiOf = pc => rootMidi + intervalOf(pc);
+
+        // Root, third and fifth form a close-position triad. Sevenths, ninths and
+        // other colour tones sit above it instead of turning the chord into a
+        // low-register cluster.
+        const core = [rootPc];
+        for (const pc of pitchClasses) {
+            const interval = intervalOf(pc);
+            if ((interval === 3 || interval === 4 || interval === 7) && !core.includes(pc)) core.push(pc);
+        }
+        const extras = pitchClasses
+            .filter(pc => !core.includes(pc))
+            .sort((a, b) => intervalOf(a) - intervalOf(b));
+
+        const voiced = core.map(midiOf).slice(0, 4);
+        for (const pc of extras) {
+            if (voiced.length >= 5) break;
+            voiced.push(midiOf(pc) + 12);
+        }
+
+        const preferFlats = this.currentKey?.preferFlats || false;
+        return voiced
+            .sort((a, b) => a - b)
+            .map(midi => this.midiToNoteName(midi, preferFlats));
     };
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -624,7 +705,9 @@
         app._fixPatternDataStructure();
         
         const scale = app.getCurrentScale();
-        const groupCount = app.patternLength / 16;
+        const stepsPerBar = app.getStepsPerBar ? app.getStepsPerBar() : 16;
+        const groupCount = app.getBarCount ? app.getBarCount() : app.patternLength / stepsPerBar;
+        const melodyRange = Math.min(16, scale.length);
         
         // A random tune always includes a fresh, playable melody in every bar.
         app._helperRequest = (app._helperRequest || 0) + 1;
@@ -633,11 +716,11 @@
         app.melodyVelocity.clear();
         for (let g = 0; g < groupCount; g++) {
             const melody = new Map();
-            let row = Math.floor(Math.random() * Math.min(5, scale.length));
-            for (let step = 0; step < 16; step++) {
+            let row = Math.floor(Math.random() * Math.min(5, melodyRange));
+            for (let step = 0; step < stepsPerBar; step++) {
                 // Four anchor notes guarantee a melody even when optional notes are skipped.
                 if (step % 4 === 0 || (step % 2 === 0 && Math.random() < 0.35)) {
-                    row = Math.max(0, Math.min(scale.length - 1, row + Math.floor(Math.random() * 5) - 2));
+                    row = Math.max(0, Math.min(melodyRange - 1, row + Math.floor(Math.random() * 5) - 2));
                     melody.set(step, row);
                 }
             }
@@ -658,9 +741,10 @@
         for (let g = 0; g < groupCount; g++) {
             const chord = chordOptions.length ? chordOptions[Math.floor(Math.random() * chordOptions.length)] : fallback;
             app.patternGroups.harmonics[g] = new Set(chord);
-            app.harmonyVelocity.set(g * 16, 0.6 + Math.random() * 0.2);
+            app.harmonyVelocity.set(g * stepsPerBar, 0.6 + Math.random() * 0.2);
         }
         app.harmonics = app.patternGroups.harmonics[app.currentGroupIndex];
+        app.groupChords = Array.from({length: groupCount}, () => null);
         const songSelect = document.getElementById('songSelect');
         if (songSelect) songSelect.value = '';
 
@@ -672,7 +756,7 @@
             }
             const bassDensity = 0.3 + Math.random() * 0.4;
             
-            for (let col = 0; col < 16; col++) {
+            for (let col = 0; col < stepsPerBar; col++) {
                 if (Math.random() < bassDensity) {
                     const row = Math.floor(Math.random() * 6);
                     app.patternGroups.bass[g].set(col, row);
@@ -688,9 +772,9 @@
             }
             const leadDensity = 0.2 + Math.random() * 0.5;
             
-            for (let col = 0; col < 16; col++) {
+            for (let col = 0; col < stepsPerBar; col++) {
                 if (Math.random() < leadDensity) {
-                    const row = Math.floor(Math.random() * 8);
+                    const row = Math.floor(Math.random() * Math.min(16, scale.length));
                     app.patternGroups.lead[g].set(col, row);
                 }
             }
@@ -706,32 +790,27 @@
             }
             const groupRhythm = app.patternGroups.rhythm[g];
             
-            for (let step = 0; step < 16; step++) {
-                if (step % 4 === 0 || (step === 10 && Math.random() > 0.5)) {
-                    groupRhythm.kick.add(step);
-                }
+            const beatSteps = app.getStepsPerBeat ? app.getStepsPerBeat() : 4;
+            for (let step = 0; step < stepsPerBar; step += beatSteps) {
+                groupRhythm.kick.add(step);
             }
-            
-            for (let step = 0; step < 16; step++) {
-                if (step === 4 || step === 12 || (step === 14 && Math.random() > 0.5)) {
-                    groupRhythm.snare.add(step);
-                }
+            if (stepsPerBar > 8 && Math.random() > 0.5) groupRhythm.kick.add(Math.floor(stepsPerBar * 0.625));
+
+            for (const step of [Math.floor(stepsPerBar / 2), stepsPerBar - 2]) {
+                if (step >= 0 && step < stepsPerBar) groupRhythm.snare.add(step);
             }
-            
-            for (let step = 0; step < 16; step++) {
-                if (step % 2 === 0 || Math.random() > 0.6) {
-                    groupRhythm.hihat.add(step);
-                }
+            if (stepsPerBar > 8 && Math.random() > 0.5) groupRhythm.snare.add(stepsPerBar - 4);
+
+            for (let step = 0; step < stepsPerBar; step++) {
+                if (step % 2 === 0 || Math.random() > 0.6) groupRhythm.hihat.add(step);
             }
-            
-            for (let step = 0; step < 16; step++) {
-                if (Math.random() > 0.85) {
-                    groupRhythm.tom.add(step);
-                }
+
+            for (let step = 0; step < stepsPerBar; step++) {
+                if (Math.random() > 0.85) groupRhythm.tom.add(step);
             }
-            
+
             if (app.percussionEnabled) {
-                for (let step = 0; step < 16; step++) {
+                for (let step = 0; step < stepsPerBar; step++) {
                     if (Math.random() > 0.7) groupRhythm.conga.add(step);
                     if (Math.random() > 0.8) groupRhythm.bongo.add(step);
                     if (Math.random() > 0.6) groupRhythm.shaker.add(step);
@@ -799,9 +878,6 @@
                 }
                 
                 // Ensure Howler engine is resumed
-                if (app.howlerEngine) {
-                    app.howlerEngine.resume();
-                }
                 
                 // Force stop first to clean any previous state
                 if (app.isPlaying) {
@@ -811,6 +887,7 @@
                 // Reset step to beginning
                 app.currentStep = 0;
                 app._scheduledStep = 0;
+                app._barPlayCount = 0;
                 app.groupLoopCurrent = [0, 0, 0, 0];
                 
                 // Set tempo on Transport
@@ -846,9 +923,6 @@
             setTimeout(async () => {
                 if (Tone.context && Tone.context.state === 'suspended') {
                     Tone.context.resume();
-                }
-                if (app.howlerEngine) {
-                    app.howlerEngine.resume();
                 }
                 if (!app.isPlaying) {
                     app.play();
@@ -941,6 +1015,9 @@
             version: '1.0',
             timestamp: new Date().toISOString(),
             tempo: this.tempo,
+            timeSignature: this.timeSignature || '4/4',
+            swing: this.swing || 0,
+            keyName: this.currentKey?.name || 'C Major',
             patternLength: this.patternLength,
             currentGroupIndex: this.currentGroupIndex,
             groupLoopCounts: this.groupLoopCounts,
@@ -989,6 +1066,7 @@
                     return obj;
                 })
             },
+            groupChords: (this.groupChords || []).map(chord => Array.isArray(chord) ? chord.slice() : null),
             
             // Effect settings
             effects: {
@@ -1016,8 +1094,24 @@
             this.setTempo(data.tempo);
         }
         
+        // Legacy saves stored non-4/4 songs on a 16-steps-per-bar grid. Load
+        // those as 4/4 first, then remap them onto the saved meter once the
+        // pattern groups are present.
+        const savedSignature = data.timeSignature || '4/4';
+        const savedStepsPerBar = this.parseTimeSignature(savedSignature).stepsPerBar;
+        const legacyMeterLayout = Boolean(data.patternLength) && data.patternLength % savedStepsPerBar !== 0;
+        this.timeSignature = legacyMeterLayout ? '4/4' : savedSignature;
         if (data.patternLength) {
             this.setPatternLength(data.patternLength);
+        }
+
+        if (data.keyName) {
+            this.setMusicalKey(data.keyName);
+        }
+        if (data.swing !== undefined && typeof Tone !== 'undefined' && Tone.Transport) {
+            this.swing = data.swing;
+            Tone.Transport.swing = this.swing;
+            Tone.Transport.swingSubdivision = '16n';
         }
         
         if (data.currentGroupIndex !== undefined) {
@@ -1114,6 +1208,14 @@
                 });
             }
         }
+
+        this.groupChords = Array.from({length: this.getBarCount ? this.getBarCount() : this.patternLength / 16}, (_, i) =>
+            Array.isArray(data.groupChords?.[i]) ? data.groupChords[i].slice() : null);
+
+        if (legacyMeterLayout) {
+            this.setTimeSignature(savedSignature);
+        }
+        this.syncTimeSignatureUI();
         
         // Update current references
         this.harmonics = this.patternGroups.harmonics[this.currentGroupIndex];
