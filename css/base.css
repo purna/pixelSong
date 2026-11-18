@@ -143,6 +143,7 @@ footer a:hover {
         padding-right: 0.75rem;
         max-width: 100%;
         overflow-x: hidden;
+        overflow-x: clip;
     }
     
     .section {
@@ -159,9 +160,10 @@ footer a:hover {
         font-size: 1.1rem;
     }
     
-    /* Prevent horizontal scroll on body */
+    /* Prevent horizontal scroll on body. clip keeps position: sticky working. */
     body {
         overflow-x: hidden;
+        overflow-x: clip;
     }
 }
 
@@ -319,6 +321,7 @@ input:checked + .toggle-slider:before {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        background: var(--bg-primary);
         background: color-mix(in srgb, var(--bg-primary) 94%, transparent);
         border: 1px solid var(--border-color);
         border-radius: 12px;

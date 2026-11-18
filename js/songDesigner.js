@@ -1262,7 +1262,177 @@ class SongDesignerApp {
         }
     }
     
+    isMobileSectionLayout() {
+        return window.matchMedia
+            ? window.matchMedia('(max-width: 767px)').matches
+            : window.innerWidth <= 767;
+    }
+
+    updateSectionCollapseButton(section) {
+        const button = section?.querySelector(':scope > .section-header > .section-collapse-btn');
+        if (!button) return;
+        const collapsed = section.classList.contains('mobile-collapsed');
+        button.setAttribute('aria-expanded', String(!collapsed));
+        button.setAttribute('aria-label', collapsed ? 'Expand section' : 'Collapse section');
+        button.title = collapsed ? 'Expand section' : 'Collapse section';
+    }
+
+    updateMobileNavActive() {
+        const nav = document.getElementById('mobileSectionNav');
+        if (!nav) return;
+        nav.querySelectorAll('[data-section-target]').forEach(button => {
+            const section = document.getElementById(button.dataset.sectionTarget);
+            button.classList.toggle('active', Boolean(section && !section.classList.contains('mobile-collapsed')));
+        });
+    }
+
+    updateMobileNavMetrics() {
+        const nav = document.getElementById('mobileSectionNav');
+        if (!nav) return;
+        if (!this.isMobileSectionLayout()) {
+            nav.style.removeProperty('top');
+            document.documentElement.style.removeProperty('--mobile-jump-offset');
+            return;
+        }
+        const header = document.querySelector('.fixed-header');
+        const headerHeight = header ? header.getBoundingClientRect().height : 96;
+        nav.style.top = `${Math.round(headerHeight + 8)}px`;
+        const offset = Math.round(headerHeight + nav.offsetHeight + 24);
+        document.documentElement.style.setProperty('--mobile-jump-offset', `${offset}px`);
+    }
+
+    setMobileSectionCollapsed(sectionId, collapsed, { remember = true } = {}) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+        section.classList.toggle('mobile-collapsed', Boolean(collapsed));
+        if (remember) {
+            this._mobileSectionCollapsed = this._mobileSectionCollapsed || {};
+            this._mobileSectionCollapsed[sectionId] = Boolean(collapsed);
+        }
+        this.updateSectionCollapseButton(section);
+        this.updateMobileNavActive();
+        this.updateMobileNavMetrics();
+    }
+
+    openMobileSection(sectionId) {
+        const sections = Array.from(document.querySelectorAll('.container > .section[id]'));
+        const target = document.getElementById(sectionId);
+        if (!target) return;
+        if (this.isMobileSectionLayout()) {
+            sections.forEach(section => this.setMobileSectionCollapsed(section.id, section.id !== sectionId));
+        }
+        requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+
+    toggleMobileSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+        if (section.classList.contains('mobile-collapsed')) {
+            this.openMobileSection(sectionId);
+        } else {
+            this.setMobileSectionCollapsed(sectionId, true);
+        }
+    }
+
+    applyMobileSectionLayout() {
+        const sections = Array.from(document.querySelectorAll('.container > .section[id]'));
+        const nav = document.getElementById('mobileSectionNav');
+        const mobile = this.isMobileSectionLayout();
+        if (!mobile) {
+            sections.forEach(section => section.classList.remove('mobile-collapsed'));
+            nav?.querySelectorAll('[data-section-target]').forEach(button => button.classList.remove('active'));
+            this.updateMobileNavMetrics();
+            return;
+        }
+        this._mobileSectionCollapsed = this._mobileSectionCollapsed || {};
+        sections.forEach((section, index) => {
+            const remembered = this._mobileSectionCollapsed[section.id];
+            const collapsed = remembered === undefined ? index !== 0 : remembered;
+            section.classList.toggle('mobile-collapsed', collapsed);
+            this.updateSectionCollapseButton(section);
+        });
+        this.updateMobileNavActive();
+        requestAnimationFrame(() => this.updateMobileNavMetrics());
+    }
+
+    setupMobileSectionNavigation() {
+        if (this._mobileSectionNavReady) return;
+        const nav = document.getElementById('mobileSectionNav');
+        if (!nav) return;
+        this._mobileSectionNavReady = true;
+
+        const labels = {
+            harmonicsSection: { label: 'Harmonics', icon: '🎹' },
+            stringsSection: { label: 'Melody', icon: '🎻' },
+            rhythmSection: { label: 'Drums', icon: '🥁' },
+            bassSection: { label: 'Bass', icon: '🎸' },
+            leadSection: { label: 'Lead', icon: '🎤' },
+            percussionSection: { label: 'Percussion', icon: '🎶' },
+            mainStageSection: { label: 'Stage', icon: '🎭' },
+            sectionRepeatsSection: { label: 'Repeats', icon: '🔄' },
+            effectsSection: { label: 'Effects', icon: '✨' }
+        };
+        const sections = Array.from(document.querySelectorAll('.container > .section[id]'));
+
+        sections.forEach(section => {
+            const header = section.querySelector(':scope > .section-header');
+            const content = section.querySelector(':scope > .section-content');
+            if (!header) return;
+            if (content && !content.id) content.id = `${section.id}Content`;
+
+            let collapseButton = header.querySelector('.section-collapse-btn');
+            if (!collapseButton) {
+                collapseButton = document.createElement('button');
+                collapseButton.type = 'button';
+                collapseButton.className = 'section-collapse-btn';
+                collapseButton.innerHTML = '<i class="fas fa-chevron-down" aria-hidden="true"></i>';
+                header.appendChild(collapseButton);
+            }
+            if (content) collapseButton.setAttribute('aria-controls', content.id);
+            collapseButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                this.toggleMobileSection(section.id);
+            });
+            header.addEventListener('click', (event) => {
+                if (!this.isMobileSectionLayout()) return;
+                if (event.target.closest('.section-collapse-btn')) return;
+                if (event.target.closest('button, select, input, textarea, a, label')) return;
+                this.toggleMobileSection(section.id);
+            });
+
+            const meta = labels[section.id] || { label: section.id, icon: '•' };
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'mobile-section-nav__btn';
+            button.dataset.sectionTarget = section.id;
+            button.innerHTML = `<span aria-hidden="true">${meta.icon}</span><span>${meta.label}</span>`;
+            button.addEventListener('click', () => {
+                const isOpen = !section.classList.contains('mobile-collapsed');
+                const isActive = button.classList.contains('active');
+                if (isOpen && isActive) {
+                    this.setMobileSectionCollapsed(section.id, true);
+                } else {
+                    this.openMobileSection(section.id);
+                }
+            });
+            nav.appendChild(button);
+        });
+
+        this._mobileSectionQuery = window.matchMedia?.('(max-width: 767px)');
+        const handleLayoutChange = () => this.applyMobileSectionLayout();
+        if (this._mobileSectionQuery?.addEventListener) {
+            this._mobileSectionQuery.addEventListener('change', handleLayoutChange);
+        } else if (this._mobileSectionQuery?.addListener) {
+            this._mobileSectionQuery.addListener(handleLayoutChange);
+        }
+        window.addEventListener('resize', () => this.updateMobileNavMetrics());
+        this.applyMobileSectionLayout();
+        requestAnimationFrame(() => this.updateMobileNavMetrics());
+    }
+
     setupEventListeners() {
+        this.setupMobileSectionNavigation();
         document.querySelectorAll('[data-preset]').forEach(btn => {
             btn.addEventListener('click', () => {
                 const preset = btn.dataset.preset;
